@@ -1,0 +1,335 @@
+<header class="header">
+    <div class="top-link header-link hidden-sm hidden-xs clearfix">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-xs-12">
+                    <div class="header-static">
+                        <ul>
+                            <li>
+                                Hotline: <a href="tel:0969959168">0969959168</a>
+                            </li>
+                            <li>
+                                <a href="/lien-he">Tìm cửa hàng</a>
+                            </li>
+                            <li>
+                                <a href="/lien-he">Liên hệ hợp tác</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xs-12 right">
+                    <div class="top-link-dropdown">
+                        <ul class="header links">
+                            <li>
+                                <a href="/apps/kiem-tra-don-hang"><i class="fa fa-check-square-o"
+                                        aria-hidden="true"></i> Kiểm tra đơn hàng</a>
+                            </li>
+                            <li><a routerLink="/signin">Đăng nhập</a></li>
+                            <li><a routerLink="/signup">Đăng ký</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header-main">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-100-h">
+                    <button type="button" class="navbar-toggle collapsed visible-sm visible-xs" id="trigger-mobile">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <div class="logo">
+                        <a href="/" class="logo-wrapper">
+                            <img src="assets/logo.png" alt="logo Sport Shop">
+                        </a>
+                    </div>
+                    <div class="mobile-cart visible-sm visible-xs">
+                        <a href="/cart" title="Giỏ hàng">
+                            <i class="ion ion-md-appstore"></i>
+                            <div class="cart-right">
+                                <span class="count_item_pr">2</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-5 col-md-4">
+                    <form class="input-group search-bar search_form has-validation-callback" action="/search"
+                        method="get" role="search" id="voice-search">
+                        <input type="search" name="query" value="" placeholder="Tìm kiếm sản phẩm... "
+                            class="input-group-field st-default-search-input search-text search-voice"
+                            autocomplete="off">
+                        <span class="input-group-btn">
+                            <button class="btn icon-fallback-text">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </span>
+                    </form>
+                </div>
+                <div class="col-lg-4 col-md-5 hidden-sm hidden-xs">
+                    <div class="product-recent-header">
+                        <div class="product-recent-title">
+                            Sản phẩm đã xem <i class="fa fa-angle-down" aria-hidden="true"></i>
+                        </div>
+                        <div class="product-recently-content">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="no-recently">
+                                            <p>Bạn chưa xem sản phẩm nào.</p>
+                                            <p>Hãy tiếp tục khám phá Sport Shop, các sản phẩm bạn đã xem sẽ hiển thị ở
+                                                đây!</p>
+                                        </div>
+                                        <div class="recent_products-row hidden">
+                                            <div class="recent_products">
+                                                <div class="module-content">
+                                                    <div class="recent_items">
+                                                        <div id="recent-content"
+                                                            class="not-dqowl owl-theme owl-carousel owl-loaded owl-drag">
+
+                                                            <div class="owl-stage-outer">
+                                                                <div class="owl-stage"></div>
+                                                            </div>
+                                                            <div class="owl-nav disabled">
+                                                                <div class="owl-prev"><i class="fa fa-angle-left"
+                                                                        aria-hidden="true"></i></div>
+                                                                <div class="owl-next"><i class="fa fa-angle-right"
+                                                                        aria-hidden="true"></i></div>
+                                                            </div>
+                                                            <div class="owl-dots disabled"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="minicart-wrapper">
+                        <a class="showcart" href="/cart">
+                            <i class="ion ion-md-cart"></i>
+                            <span class="cart-value count_item_pr">0</span>
+                            <span class="content">
+                                <span class="content-inner">
+                                    <span class="text">Giỏ hàng</span>
+                                </span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header-bottom hidden-sm hidden-xs">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <nav class="hidden-sm hidden-xs">
+                        <ul id="nav" class="nav">
+                            <li class="nav-item active"><a class="nav-link" href="/">Trang chủ</a></li>
+                            <li class="nav-item "><a class="nav-link" href="/gioi-thieu">Giới thiệu</a></li>
+                            <li class="nav-item ">
+                                <a href="/do-the-thao-nu" class="nav-link">Đồ thể thao nữ <i class="fa fa-angle-right"
+                                        data-toggle="dropdown"></i></a>
+                                <ul class="dropdown-menu">
+                                    <li class="nav-item-lv2">
+                                        <a class="nav-link" href="/ao-the-thao-nu">Áo thể thao nữ</a>
+                                    </li>
+                                    <li class="nav-item-lv2">
+                                        <a class="nav-link" href="/quan-the-thao-nu">Quần thể thao nữ</a>
+                                    </li>
+                                    <li class="nav-item-lv2">
+                                        <a class="nav-link" href="/bo-the-thao-nu">Bộ thể thao nữ</a>
+                                    </li>
+                                    <li class="nav-item-lv2">
+                                        <a class="nav-link" href="/phu-kien-the-thao-nu">Phụ kiện thể thao nữ</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item ">
+                                <a href="/do-the-thao-nam" class="nav-link">Đồ thể thao nam <i class="fa fa-angle-right"
+                                        data-toggle="dropdown"></i></a>
+                                <ul class="dropdown-menu">
+                                    <li class="nav-item-lv2">
+                                        <a class="nav-link" href="/ao-the-thao-nam">Áo thể thao nam</a>
+                                    </li>
+                                    <li class="nav-item-lv2">
+                                        <a class="nav-link" href="/quan-the-thao-nam">Quần thể thao nam</a>
+                                    </li>
+                                    <li class="nav-item-lv2">
+                                        <a class="nav-link" href="/bo-the-thao-nam">Bộ thể thao nam</a>
+                                    </li>
+                                    <li class="nav-item-lv2">
+                                        <a class="nav-link" href="/phu-kien-the-thao-nam">Phụ kiện thể thao nam</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item ">
+                                <a href="/phu-kien-the-thao" class="nav-link">Phụ kiện thể thao <i
+                                        class="fa fa-angle-right" data-toggle="dropdown"></i></a>
+                                <ul class="dropdown-menu">
+                                    <li class="nav-item-lv2">
+                                        <a class="nav-link" href="/belt-dai-chay-bo">Belt, đai chạy bộ</a>
+                                    </li>
+                                    <li class="nav-item-lv2">
+                                        <a class="nav-link" href="/mu-the-thao">Mũ thể thao</a>
+                                    </li>
+                                    <li class="nav-item-lv2">
+                                        <a class="nav-link" href="/kinh-the-thao">Kính thể thao</a>
+                                    </li>
+                                    <li class="nav-item-lv2">
+                                        <a class="nav-link" href="/phu-kien-the-thao-khac">Phụ kiện thể thao khác</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item ">
+                                <a href="/gel-nang-luong" class="nav-link">Gel năng lượng <i class="fa fa-angle-right"
+                                        data-toggle="dropdown"></i></a>
+                                <ul class="dropdown-menu">
+                                    <li class="nav-item-lv2">
+                                        <a class="nav-link" href="/gu-energy-gel">GU Energy Gel</a>
+                                    </li>
+                                    <li class="nav-item-lv2">
+                                        <a class="nav-link" href="/hammer-gel">Hammer Gel</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item "><a class="nav-link" routerLink="/contact">Liên hệ</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="mobile-main-menu active" style="display:none;">
+    <div class="drawer-header">
+        <a href="account/login">
+            <div class="drawer-header--auth">
+                <div class="_object">
+                    <img src="//bizweb.dktcdn.net/100/376/467/themes/790294/assets/user.svg?1603383399052"
+                        alt="Sport Shop">
+                </div>
+
+                <div class="_body">
+                    ĐĂNG NHẬP
+                    <br>
+                    Nhận nhiều ưu đãi hơn
+                </div>
+
+            </div>
+        </a>
+    </div>
+    <ul class="ul-first-menu">
+
+        <li><a href="/account/login"><i class="ion ion-ios-log-in"></i> Đăng nhập</a></li>
+        <li><a href="/account/register"><i class="ion ion-ios-person-add"></i> Đăng ký</a></li>
+    </ul>
+    <div class="la-scroll-fix-infor-user">
+        <!--CATEGORY-->
+        <div class="la-nav-menu-items">
+            <div class="la-title-nav-items"><strong>Danh mục</strong></div>
+            <ul class="la-nav-list-items">
+                <li class="ng-scope">
+                    <a href="/">Trang chủ</a>
+                </li>
+                <li class="ng-scope">
+                    <a href="/gioi-thieu">Giới thiệu</a>
+                </li>
+                <li class="ng-scope ng-has-child1">
+                    <a href="/do-the-thao-nu">Đồ thể thao nữ <i class="fa fa-plus fa1" aria-hidden="true"></i></a>
+                    <ul class="ul-has-child1">
+                        <li class="ng-scope">
+                            <a href="/ao-the-thao-nu">Áo thể thao nữ</a>
+                        </li>
+                        <li class="ng-scope">
+                            <a href="/quan-the-thao-nu">Quần thể thao nữ</a>
+                        </li>
+                        <li class="ng-scope">
+                            <a href="/bo-the-thao-nu">Bộ thể thao nữ</a>
+                        </li>
+                        <li class="ng-scope">
+                            <a href="/phu-kien-the-thao-nu">Phụ kiện thể thao nữ</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="ng-scope ng-has-child1">
+                    <a href="/do-the-thao-nam">Đồ thể thao nam <i class="fa fa-plus fa1" aria-hidden="true"></i></a>
+                    <ul class="ul-has-child1">
+                        <li class="ng-scope">
+                            <a href="/ao-the-thao-nam">Áo thể thao nam</a>
+                        </li>
+                        <li class="ng-scope">
+                            <a href="/quan-the-thao-nam">Quần thể thao nam</a>
+                        </li>
+                        <li class="ng-scope">
+                            <a href="/bo-the-thao-nam">Bộ thể thao nam</a>
+                        </li>
+                        <li class="ng-scope">
+                            <a href="/phu-kien-the-thao-nam">Phụ kiện thể thao nam</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="ng-scope ng-has-child1">
+                    <a href="/phu-kien-the-thao">Phụ kiện thể thao <i class="fa fa-plus fa1" aria-hidden="true"></i></a>
+                    <ul class="ul-has-child1">
+                        <li class="ng-scope">
+                            <a href="/belt-dai-chay-bo">Belt, đai chạy bộ</a>
+                        </li>
+                        <li class="ng-scope">
+                            <a href="/mu-the-thao">Mũ thể thao</a>
+                        </li>
+                        <li class="ng-scope">
+                            <a href="/kinh-the-thao">Kính thể thao</a>
+                        </li>
+                        <li class="ng-scope">
+                            <a href="/phu-kien-the-thao-khac">Phụ kiện thể thao khác</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="ng-scope ng-has-child1">
+                    <a href="/gel-nang-luong">Gel năng lượng <i class="fa fa-plus fa1" aria-hidden="true"></i></a>
+                    <ul class="ul-has-child1">
+                        <li class="ng-scope">
+                            <a href="/gu-energy-gel">GU Energy Gel</a>
+                        </li>
+                        <li class="ng-scope">
+                            <a href="/hammer-gel">Hammer Gel</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="ng-scope ng-has-child1">
+                    <a href="/blog-the-thao">Blog thể thao <i class="fa fa-plus fa1" aria-hidden="true"></i></a>
+                    <ul class="ul-has-child1">
+                        <li class="ng-scope">
+                            <a href="/tin-tuc">Tin tức</a>
+                        </li>
+                        <li class="ng-scope">
+                            <a href="/danh-cho-nguoi-moi">Dành cho người mới</a>
+                        </li>
+                        <li class="ng-scope">
+                            <a href="/kien-thuc-nang-cao">Kiến thức nâng cao</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="ng-scope">
+                    <a href="/lien-he">Liên hệ</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <ul class="mobile-support">
+        <li>
+            <div class="drawer-text-support">HỖ TRỢ</div>
+        </li>
+        <li><i class="fa fa-phone" aria-hidden="true"></i> HOTLINE: <a href="tel:0969959168">0969959168</a></li>
+        <li><i class="fa fa-envelope" aria-hidden="true"></i> EMAIL: <a
+                href="mailto:sportshopofficialvn@gmail.com">sportshopofficialvn@gmail.com</a></li>
+    </ul>
+</div>
