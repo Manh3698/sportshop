@@ -1,0 +1,199 @@
+/*==============================[catalog_01]==============================*/
+.container.w2{
+    max-width: 550px;
+    width: 100%;
+}
+/*==============================#block_work==============================*/
+#block_work{
+    border-radius: 0;
+    border: none;
+    background-color: #fff;
+    box-shadow: none;
+}
+#block_work .panel-heading,
+#block_work .panel-footer{
+    border-radius: 0;
+    border: none;
+    background-color: #fff;
+}
+#block_work .panel-heading{
+    font-size: 18px;
+    font-weight: bold;
+}
+#block_work .panel-body .thumbnail{
+    border-radius: 0;
+    border: none;
+    padding: 0;
+}
+#block_work .panel-body .thumbnail .caption{
+    text-align: center;
+}
+#block_work .panel-footer .btn{
+    background-color: #0bb395;
+    border-color: #0bb395;
+}
+/*==============================.box_08==============================*/
+.box_08 .thumbnail{
+    border-radius: 0;
+    border: none;
+    padding: 0;
+}
+.box_08 .thumbnail .caption{
+    padding: 0;
+    /*background-color: #fff;*/
+}
+.box_08 .thumbnail .caption .title{
+    font-size: 24px;
+    font-family: 'Myriad Pro Bold Condensed';
+}
+.box_08 .thumbnail .caption .title a{
+    color: #000;
+}
+.box_08 .thumbnail .caption .list-unstyled{
+    list-style: disc;
+    list-style-position: inside;
+}
+.box_08 .thumbnail .caption .list-unstyled>li{
+    font-family: 'Myriad Pro Regular';
+    font-size: 15px;
+}
+.box_08 .thumbnail .caption .btn-success{
+    border-color: #0bb395;
+    background-color: #0bb395;
+}
+@media (min-width: 992px){
+    .box_08 .thumbnail{
+        position: relative;
+        min-height: 423px;
+    }
+    .box_08 .thumbnail img{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+    .box_08 .thumbnail .caption{
+        position: absolute;
+        padding: 15px;
+        right: 0;
+        top: 0;
+        z-index: 99;
+        max-width: 500px;
+    }
+    .box_09 .thumbnail .caption{
+        left: 0;
+        right: inherit;
+    }
+    .box_09 .thumbnail img{
+        top: 0;
+        right: 0;
+        left: inherit;
+        bottom: inherit;
+    }
+}
+@media (max-width: 992px){
+    .box_08 .thumbnail .caption{
+        margin-top: 20px;
+    }
+}
+
+/*==============================.slogan==============================*/
+.slogan{
+    /*
+    margin: 14px;
+    */
+    /*margin: 14px 0px 14px 14px;*/
+    /*background-color: #E8E8E8;*/
+}
+.slogan article{
+    padding: 14px 11px 11px 20px;
+}
+.slogan article p img{
+    float: left;
+}
+.slogan article p img.quote-open{
+    position: relative;
+
+    right: 5px;
+    top: 3px;
+}
+.slogan article p img.quote-close{
+    float: initial;
+    position: relative;
+    top: 8px;
+}
+.slogan article p{
+    float: left;
+    font-size: 30px;
+    line-height: 30px;
+    margin: 0px 0px 3px 0px;
+    font-family: "Times New Roman";
+    font-style: italic;
+    color: #717171;
+    background: url("../images/note_01.png") top 3px left no-repeat;
+    padding: 0px 0px 0px 50px;
+}
+.slogan article p:after{
+    content: url("../images/note_02.png");
+    position: relative;
+    bottom: -7px;
+    right: 0px;
+}
+.slogan article span{
+    float: right;
+    font-size: 12px;
+    font-weight: bold;
+    color: #6C6355;
+    text-transform: capitalize;
+    width: 100%;
+    text-align: right;
+}
+/*==============================.comment_txt==============================*/
+.comment_txt{
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+.comment_txt .media .media-left img{
+    width: 93px;
+    height: 93px;
+}
+/*==============================.box_10==============================*/
+.box_10 .panel{
+    border-radius: 0;
+    border: none;
+    background-color: #fff;
+    box-shadow: none;
+}
+.box_10 .panel .panel-heading,
+.box_10 .panel .panel-body{
+    border-radius: 0;
+    border: none;
+    background-color: #fff;
+    padding-right: 0;
+    padding-left: 0;
+}
+.box_10 .panel .panel-heading{
+    font-size: 24px;
+    font-family: 'Myriad Pro Bold Condensed';
+}
+/*==============================#product_highlight==============================*/
+#product_highlight{
+    border-radius: 0;
+    border: none;
+    background-color: #fff;
+    box-shadow: none;
+}
+#product_highlight .panel-heading{
+    font-size: 24px;
+    font-family: 'Myriad Pro Bold Condensed';
+}
+#product_highlight .panel-body .owl-item{
+    padding: 0 15px;
+}
+#product_highlight .panel-heading,
+#product_highlight .panel-body{
+    padding-right: 0;
+    padding-left: 0;
+    border-radius: 0;
+    border: none;
+    background-color: #fff;
+}

@@ -45,7 +45,7 @@
                     </button>
                     <div class="logo">
                         <a href="/" class="logo-wrapper">
-                            <img src="assets/logo.png" alt="logo Sport Shop">
+                            <img src="assets/logo.jpg" alt="logo Sport Shop">
                         </a>
                     </div>
                     <div class="mobile-cart visible-sm visible-xs">
@@ -112,7 +112,7 @@
                         </div>
                     </div>
                     <div class="minicart-wrapper">
-                        <a class="showcart" href="/cart">
+                        <a class="showcart" routerLink='/cart'>
                             <i class="ion ion-md-cart"></i>
                             <span class="cart-value count_item_pr">0</span>
                             <span class="content">
@@ -132,7 +132,7 @@
                 <div class="col-md-12">
                     <nav class="hidden-sm hidden-xs">
                         <ul id="nav" class="nav">
-                            <li class="nav-item active"><a class="nav-link" href="/">Trang chủ</a></li>
+                            <li class="nav-item active"><a class="nav-link" routerLink="/homepage">Trang chủ</a></li>
                             <li class="nav-item "><a class="nav-link" href="/gioi-thieu">Giới thiệu</a></li>
                             <li class="nav-item ">
                                 <a href="/do-the-thao-nu" class="nav-link">Đồ thể thao nữ <i class="fa fa-angle-right"
@@ -157,7 +157,7 @@
                                         data-toggle="dropdown"></i></a>
                                 <ul class="dropdown-menu">
                                     <li class="nav-item-lv2">
-                                        <a class="nav-link" href="/ao-the-thao-nam">Áo thể thao nam</a>
+                                        <a class="nav-link" routerLink="/list-products">Áo thể thao nam</a>
                                     </li>
                                     <li class="nav-item-lv2">
                                         <a class="nav-link" href="/quan-the-thao-nam">Quần thể thao nam</a>
@@ -189,16 +189,7 @@
                                 </ul>
                             </li>
                             <li class="nav-item ">
-                                <a href="/gel-nang-luong" class="nav-link">Gel năng lượng <i class="fa fa-angle-right"
-                                        data-toggle="dropdown"></i></a>
-                                <ul class="dropdown-menu">
-                                    <li class="nav-item-lv2">
-                                        <a class="nav-link" href="/gu-energy-gel">GU Energy Gel</a>
-                                    </li>
-                                    <li class="nav-item-lv2">
-                                        <a class="nav-link" href="/hammer-gel">Hammer Gel</a>
-                                    </li>
-                                </ul>
+                                <a routerLink="/design" class="nav-link">Thiết Kế Online <i class="fa fa-angle-right"></i></a>
                             </li>
                             <li class="nav-item "><a class="nav-link" routerLink="/contact">Liên hệ</a></li>
                         </ul>
@@ -260,7 +251,7 @@
                     </ul>
                 </li>
                 <li class="ng-scope ng-has-child1">
-                    <a href="/do-the-thao-nam">Đồ thể thao nam <i class="fa fa-plus fa1" aria-hidden="true"></i></a>
+                    <a routerLink="/list-products">Đồ thể thao nam <i class="fa fa-plus fa1" aria-hidden="true"></i></a>
                     <ul class="ul-has-child1">
                         <li class="ng-scope">
                             <a href="/ao-the-thao-nam">Áo thể thao nam</a>

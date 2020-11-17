@@ -616,7 +616,7 @@ header.header .header-bottom nav {
 }
 
 .footer-container .footer-information .logo-footer img {
-    max-height: 54px
+    max-height: 54px;
 }
 
 @media (max-width: 480px) {
@@ -1485,7 +1485,20 @@ header.header .header-bottom nav {
 .shopping-cart .estimate-ship-tax table tbody .unicase-form-control .dropdown-menu.open ul li a:hover,.shopping-cart .estimate-ship-tax table tbody .unicase-form-control .dropdown-menu.open ul li a:focus {
     color: #12cca7
 }
-
+.dropdown-menu>li>a {
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: 400;
+    line-height: 1.42857143;
+    color: #333;
+    white-space: nowrap;
+}
+.dropdown-menu>li>a:focus,.dropdown-menu>li>a:hover {
+    color: #262626;
+    text-decoration: none;
+    background-color: #f5f5f5
+}
 .shopping-cart .shopping-cart-table {
     margin-bottom: 10px
 }
@@ -6340,7 +6353,7 @@ header {
 }
 
 .logo img {
-    max-height: 45px
+    max-height: 45px;
 }
 
 .header_search {

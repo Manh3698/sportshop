@@ -1,0 +1,1665 @@
+<div>
+    <div class="container">
+        <div id="dg-wapper" class="col-md-12">
+            <div class="alert alert-danger" id="designer-alert" role="alert" style="display:none;"></div>
+            <div id="dg-mask" class="loading"></div>
+    
+            <!-- BEGIN main of layout -->
+            <div id="dg-designer">
+    
+                <!-- BEGIN left -->
+    
+    
+                <div class="col-left">
+                    <div class="text-center product-btn-info">
+                        <a id="showview3ds123" href="#none" data-target="#modal-product-info" data-toggle="modal"
+                            class="btn btn-default pull-left btn-sm"><i class="fa fa-info"></i> <span>Thông tin sản
+                                phẩm</span></a>
+                        <a href="#none" data-target="#modal-product-size" data-toggle="modal"
+                            class="btn btn-default pull-right btn-sm"><i class="fa fa-male"></i> <span>Sizes</span></a>
+                    </div>
+    
+                    <div id="dg-left" class="width-100">
+                        <div class="dg-box width-100">
+                            <ul class="menu-left">
+                                <li>
+                                    <a href="javascript:void(0)" class="view_change_products" title="" data-toggle="modal"
+                                        data-target="#dg-products">
+                                        <i class="glyphicons t-shirt"></i> Chọn sản phẩm </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)" class="add_item_text" title="">
+                                        <i class="glyphicons text_bigger"></i> Thêm Text </a>
+                                </li>
+    
+                                <li>
+                                    <a href="javascript:void(0)" class="add_item_clipart" title="" data-toggle="modal"
+                                        data-target="#dg-cliparts">
+                                        <i class="glyphicons picture"></i> Thêm hình mẫu</a>
+                                </li>
+    
+                                <li>
+                                    <a href="javascript:void(0)" title="" id="duma" data-toggle="modal"
+                                        data-target="#dg-myclipart">
+                                        <i class="glyphicons cloud-upload"></i> Tải lên hình ảnh </a>
+                                </li>
+    
+    
+                                <li>
+                                    <a href="javascript:void(0)" class="add_item_mydesign">
+                                        <i class="glyphicons user"></i> Thiết kế của tôi </a>
+                                </li>
+    
+                            </ul>
+                        </div>
+    
+                        <div class="dg-box width-100 div-layers no-active">
+                            <div class="layers-toolbar">
+                                <button type="button" class="btn btn-default">
+                                    <i class="fa fa-long-arrow-down"></i>
+                                    <i class="fa fa-long-arrow-up"></i>
+                                </button>
+                                <button type="button" class="btn btn-default btn-sm">
+                                    <i class="fa fa-angle-right"></i>
+                                </button>
+                            </div>
+    
+                            <div class="accordion">
+                                <h3>Lớp</h3>
+                                <div id="dg-layers">
+                                    <ul id="layers">
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END left -->
+    
+                <!-- BEGIN left -->
+                <style type="text/css">
+                    .clickvaodechinhsua:hover {
+                        border: 2px dotted green;
+                    }
+    
+                    #dag-list-arts .thumbnail img {
+                        width: 100%;
+                        height: 50px;
+                    }
+    
+                    .hinhanhdeclick.ui-resizable-handle {
+                        display: none !important;
+                    }
+                </style>
+                <div class="col-xs-12 col-md-12 col-center align-center">
+                    <!-- Begin sidebar -->
+                    <div id="dg-sidebar">
+                        <div class="dg-tools">
+                            <button type="button" class="btn btn-default btn-sm" onclick="design.save()">
+    
+                                Lưu </button>
+    
+                            <a href="javascript:void(0)" data-type="preview" class="dg-tool btn btn-default btn-sm">
+    
+                                Xem </a>
+                            <a href="javascript:void(0)" data-type="zoom" title="Zoom"
+                                class="dg-tool btn btn-default btn-sm">
+    
+                                Zoom </a>
+                            <button type="button" class="btn btn-default btn-sm" onclick="design.save()">
+    
+                                Share </button>
+                            <button type="button" class="btn btn-default btn-sm" title="Nhấn vào đây để thay đổi ngôn ngữ"
+                                onclick="jQuery('.languages-modal').modal('show');">
+                                <img src="addons/images/vn.png" width="16" />
+                                <small>Viet Nam</small>
+                            </button>
+                        </div>
+                        <style>
+                            @media screen and (max-width: 680px) {
+                                .daylatrenmobile {
+                                    display: block !important;
+                                }
+                            }
+                        </style>
+                        <div class="daylatrenmobile" style="margin-top:10px;display:none;">
+                            <button type="button" class="btn btn-default btn-sm" id="addAnh">
+                                Tải ảnh
+                            </button>
+                            <a href="javascript:void(0)" class="dg-tool btn btn-default btn-sm" id="addHinhMau">
+                                Hình mẫu
+                            </a>
+                            <a href="javascript:void(0)" class="dg-tool btn btn-default btn-sm" id="addChu">
+                                Thêm chữ
+                            </a>
+                            <a href="javascript:void(0)" class="dg-tool btn btn-default btn-sm btn btn-warning btn-addcart"
+                                id="ThanhToanbtn">
+                                Mua ngay
+                            </a>
+                        </div>
+                        <script type="text/javascript">
+                            jQuery(document).ready(function () {
+                                jQuery('#addAnh').click(function () {
+                                    jQuery('#duma').trigger('click');
+                                });
+                                jQuery('#addHinhMau').click(function () {
+                                    jQuery('.add_item_clipart').trigger('click');
+                                });
+                                jQuery('#addChu').click(function () {
+                                    jQuery('.add_item_text').trigger('click');
+                                });
+                                jQuery('#ThanhToanbtn').click(function () {
+                                    jQuery('.btnMuangaynay').trigger('click');
+                                });
+                            })
+                        </script>
+                    </div>
+    
+    
+    
+                    <!-- END sidebar -->
+    
+                    <!-- design area -->
+                    <div id="design-area" class="div-design-area">
+                        <div id="app-wrap" class="div-design-area">
+    
+                            <!-- begin front design -->
+                            <div id="view-front" class="labView active">
+                                <div class="product-design"></div>
+                                <div class="design-area">
+                                    <div class="content-inner"></div>
+                                </div>
+                            </div>
+                            <!-- end front design -->
+    
+                            <!-- begin back design -->
+                            <div id="view-back" class="labView">
+                                <div class="product-design"></div>
+                                <div class="design-area">
+                                    <div class="content-inner"></div>
+                                </div>
+                            </div>
+                            <!-- end back design -->
+    
+                            <!-- begin left design -->
+                            <div id="view-left" class="labView">
+                                <div class="product-design"></div>
+                                <div class="design-area">
+                                    <div class="content-inner"></div>
+                                </div>
+                            </div>
+                            <!-- end left design -->
+    
+                            <!-- begin right design -->
+                            <div id="view-right" class="labView">
+                                <div class="product-design"></div>
+                                <div class="design-area">
+                                    <div class="content-inner"></div>
+                                </div>
+                            </div>
+                            <!-- end right design -->
+    
+    
+                            <!-- BEGIN help functions -->
+                            <div id="dg-help-functions">
+                                <div class="btn-group-vertical" role="group" aria-label="Group functions">
+                                    <span class="btn btn-default" data-placement="left" data-toggle="tooltip"
+                                        data-original-title="Toggle Flip" onclick="design.tools.flip('x')">
+                                        <i class="glyphicons transfer glyphicons-12"></i>
+                                    </span>
+                                    <span class="btn btn-default" data-placement="left" data-toggle="tooltip"
+                                        data-original-title="Điều chỉnh theo chiều ngang"
+                                        onclick="design.tools.move('vertical')">
+                                        <i class="glyphicon glyphicon-object-align-vertical"></i>
+                                    </span>
+                                    <span class="btn btn-default" data-placement="left" data-toggle="tooltip"
+                                        data-original-title="Chỉnh dòng theo chiều dọc"
+                                        onclick="design.tools.move('horizontal')">
+                                        <i class="glyphicon glyphicon-object-align-horizontal"></i>
+                                    </span>
+                                    <span class="btn btn-default" data-placement="left" data-toggle="tooltip"
+                                        data-original-title="Sang trái" onclick="design.tools.move('left')">
+                                        <i class="fa fa-chevron-left"></i>
+                                    </span>
+                                    <span class="btn btn-default" data-placement="left" data-toggle="tooltip"
+                                        data-original-title="Sang phải" onclick="design.tools.move('right')">
+                                        <i class="fa fa-chevron-right"></i>
+                                    </span>
+                                    <span class="btn btn-default" data-placement="left" data-toggle="tooltip"
+                                        data-original-title="Lên trên" onclick="design.tools.move('up')">
+                                        <i class="fa fa-chevron-up"></i>
+                                    </span>
+                                    <span class="btn btn-default" data-placement="left" data-toggle="tooltip"
+                                        data-original-title="Xuống dưới" onclick="design.tools.move('down')">
+                                        <i class="fa fa-chevron-down"></i>
+                                    </span>
+                                    <span class="btn btn-default" data-placement="left" data-toggle="tooltip"
+                                        data-original-title="Xóa" onclick="design.tools.remove()">
+                                        <i class="fa fa-trash-o"></i>
+                                    </span>
+                                    <span class="btn btn-default" data-placement="left" data-toggle="tooltip"
+                                        data-original-title="Thiết lập lại" onclick="design.tools.reset(this)">
+                                        <i class="fa fa-refresh"></i>
+                                    </span>
+                                </div>
+                            </div>
+                            <!-- END help functions -->
+                        </div>
+                    </div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab"
+                                data-toggle="tab">Hình up lên</a></li>
+                        <li role="presentation"><a href="#profile" class="clickhinhanhmau" aria-controls="profile"
+                                role="tab" data-toggle="tab">Hình ảnh mẫu</a></li>
+    
+                    </ul>
+                    <div id="Dayladivhinhanh"
+                        style="float:left;position:relative;z-index:9999999999999;background:#C7C8CA;width:100%;">
+                        <div>
+    
+                            <!-- Nav tabs -->
+    
+    
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane active" id="home">
+                                    <div class="row" id="dag-files-images">
+    
+                                    </div>
+                                </div>
+                                <div role="tabpanel" class="tab-pane" id="profile">
+                                </div>
+    
+                            </div>
+    
+                        </div>
+    
+    
+    
+                    </div>
+                    <input id="iduser" type="hidden" value="1">
+                    <style>
+                        #dag-files-images img {
+                            width: 75px !important;
+                            height: 50px !important;
+                        }
+                    </style>
+                    <div class="" id="product-thumbs"></div>
+                </div>
+                <!-- END left -->
+    
+                <!-- BEGIN left -->
+                <style type="text/css">
+                    #ui-accordion-2-header-1 {
+                        display: none;
+                    }
+    
+                    #ui-accordion-2-panel-2 {
+                        display: none;
+                    }
+                </style>
+                <div class="col-right">
+                    <span class="arrow-mobile" style="    width: 80px;
+        margin-top: 10px;
+        height: 30px;
+        padding-bottom: 0px;
+        color: white;
+        left: auto;
+        right: 0px;
+        background: rgb(76, 151, 151);" data="right">Tùy chọn</span>
+                    <div id="dg-right">
+                        <!-- product -->
+                        <div class="align-center" id="right-options">
+                            <div class="dg-box">
+                                <div class="accordion">
+                                    <h3>Lựa chọn sản phẩm</h3>
+                                    <div class="product-options contentHolder" id="product-details">
+                                        <div class="content-y">
+                                            <div class="product-info">
+                                                <div class="form-group product-fields">
+                                                    <label class="hidden" for="fields">Màu quai cốc</label>
+                                                    <div id="bgQuaiCoc" class="list-colors hidden">
+                                                        <span class="bg-colors dg-tooltip bg-quaicon active"
+                                                            data-color="FFFFFF" style="background-color:#FFFFFF"
+                                                            data-original-title="FFFFFF"></span>
+                                                        <span class="bg-colors dg-tooltip bg-quaicon" data-color="A81517"
+                                                            style="background-color:#A81517"
+                                                            data-original-title="A81517"></span>
+                                                        <span class="bg-colors dg-tooltip bg-quaicon" data-color="FA4A31"
+                                                            style="background-color:#FA4A31"
+                                                            data-original-title="FA4A31"></span>
+                                                        <span class="bg-colors dg-tooltip bg-quaicon" data-color="40B0D5"
+                                                            style="background-color:#40B0D5"
+                                                            data-original-title="40B0D5"></span>
+                                                        <span class="bg-colors dg-tooltip bg-quaicon" data-color="85BF34"
+                                                            style="background-color:#85BF34"
+                                                            data-original-title="85BF34"></span>
+                                                        <span class="bg-colors dg-tooltip bg-quaicon" data-color="FCD735"
+                                                            style="background-color:#FCD735"
+                                                            data-original-title="FCD735"></span>
+                                                    </div>
+    
+                                                    <label class="hidden" for="fields">Màu nòng cốc</label>
+                                                    <div id="bgNongcoc" class="list-colors hidden">
+                                                        <span class="bg-colors dg-tooltip bg-nongcoc active"
+                                                            data-color="FFFFFF" style="background-color:#FFFFFF"
+                                                            data-original-title="FFFFFF"></span>
+                                                        <span class="bg-colors dg-tooltip bg-nongcoc" data-color="A81517"
+                                                            style="background-color:#A81517"
+                                                            data-original-title="A81517"></span>
+                                                        <span class="bg-colors dg-tooltip bg-nongcoc" data-color="FA4A31"
+                                                            style="background-color:#FA4A31"
+                                                            data-original-title="FA4A31"></span>
+                                                        <span class="bg-colors dg-tooltip bg-nongcoc" data-color="40B0D5"
+                                                            style="background-color:#40B0D5"
+                                                            data-original-title="40B0D5"></span>
+                                                        <span class="bg-colors dg-tooltip bg-nongcoc" data-color="85BF34"
+                                                            style="background-color:#85BF34"
+                                                            data-original-title="85BF34"></span>
+                                                        <span class="bg-colors dg-tooltip bg-nongcoc" data-color="FCD735"
+                                                            style="background-color:#FCD735"
+                                                            data-original-title="FCD735"></span>
+                                                    </div>
+    
+    
+    
+                                                    <label for="fields">Chọn màu sắc sản phẩm</label>
+                                                    <div class="list-colors" id="product-list-colors">
+                                                        <span class="bg-colors dg-tooltip active"
+                                                            onclick="design.products.changeColor(this, 0)"
+                                                            data-color="FFFFFF" style="background-color:#FFFFFF"
+                                                            data-placement="top" data-original-title="Trắng"></span>
+                                                        <span class="bg-colors dg-tooltip "
+                                                            onclick="design.products.changeColor(this, 1)"
+                                                            data-color="000000" style="background-color:#000000"
+                                                            data-placement="top" data-original-title="Đen"></span>
+                                                        <span class="bg-colors dg-tooltip "
+                                                            onclick="design.products.changeColor(this, 2)"
+                                                            data-color="C0C0C0" style="background-color:#C0C0C0"
+                                                            data-placement="top" data-original-title="Xám"></span>
+                                                        <span class="bg-colors dg-tooltip "
+                                                            onclick="design.products.changeColor(this, 3)"
+                                                            data-color="FFC0CB" style="background-color:#FFC0CB"
+                                                            data-placement="top" data-original-title="Hồng Dâu"></span>
+                                                        <span class="bg-colors dg-tooltip "
+                                                            onclick="design.products.changeColor(this, 4)"
+                                                            data-color="D1EAFF" style="background-color:#D1EAFF"
+                                                            data-placement="top" data-original-title="Xanh Biển"></span>
+                                                        <span class="bg-colors dg-tooltip "
+                                                            onclick="design.products.changeColor(this, 5)"
+                                                            data-color="CCFF00" style="background-color:#CCFF00"
+                                                            data-placement="top" data-original-title="Xanh Cốm"></span>
+                                                        <span class="bg-colors dg-tooltip "
+                                                            onclick="design.products.changeColor(this, 6)"
+                                                            data-color="DA70D6" style="background-color:#DA70D6"
+                                                            data-placement="top" data-original-title="Hồng Phấn"></span>
+                                                        <span class="bg-colors dg-tooltip "
+                                                            onclick="design.products.changeColor(this, 7)"
+                                                            data-color="FFFF00" style="background-color:#FFFF00"
+                                                            data-placement="top" data-original-title="Vàng Canh"></span>
+                                                        <span class="bg-colors dg-tooltip "
+                                                            onclick="design.products.changeColor(this, 8)"
+                                                            data-color="FFD700" style="background-color:#FFD700"
+                                                            data-placement="top" data-original-title="Vàng Mơ"></span>
+                                                        <span class="bg-colors dg-tooltip "
+                                                            onclick="design.products.changeColor(this, 9)"
+                                                            data-color="7FFF00" style="background-color:#7FFF00"
+                                                            data-placement="top" data-original-title="Xanh Chuối"></span>
+                                                        <span class="bg-colors dg-tooltip "
+                                                            onclick="design.products.changeColor(this, 10)"
+                                                            data-color="FF7F50" style="background-color:#FF7F50"
+                                                            data-placement="top" data-original-title="Cam"></span>
+                                                        <span class="bg-colors dg-tooltip "
+                                                            onclick="design.products.changeColor(this, 11)"
+                                                            data-color="FF0000" style="background-color:#FF0000"
+                                                            data-placement="top" data-original-title="Đỏ Tươi"></span>
+                                                        <span class="bg-colors dg-tooltip "
+                                                            onclick="design.products.changeColor(this, 12)"
+                                                            data-color="74D1ED" style="background-color:#74D1ED"
+                                                            data-placement="top"
+                                                            data-original-title="Xanh Thiên Thanh"></span>
+                                                        <span class="bg-colors dg-tooltip "
+                                                            onclick="design.products.changeColor(this, 13)"
+                                                            data-color="0047AB" style="background-color:#0047AB"
+                                                            data-placement="top" data-original-title="Xanh Bích"></span>
+                                                        <span class="bg-colors dg-tooltip "
+                                                            onclick="design.products.changeColor(this, 14)"
+                                                            data-color="29355C" style="background-color:#29355C"
+                                                            data-placement="top" data-original-title="Xanh Đen"></span>
+                                                    </div>
+    
+                                                </div>
+    
+    
+                                            </div>
+                                            <form method="POST" id="tool_cart" name="tool_cart" action="">
+                                                <div class="product-info" id="product-attributes">
+                                                    <div class="form-group product-fields"><label for="fields">Size</label>
+                                                        <div class="dg-poduct-fields">
+                                                            <style>
+                                                                .product-quantity {
+                                                                    display: none;
+                                                                }
+                                                            </style>
+                                                            <ul class="p-color-sizes list-number col-md-12">
+                                                                <li><label>S</label><input type="text"
+                                                                        class="form-control input-sm size-number"
+                                                                        name="attribute[0][0]"></li>
+                                                                <li><label>M</label><input type="text"
+                                                                        class="form-control input-sm size-number"
+                                                                        name="attribute[0][1]"></li>
+                                                                <li><label>L</label><input type="text"
+                                                                        class="form-control input-sm size-number"
+                                                                        name="attribute[0][2]"></li>
+                                                                <li><label>XL</label><input type="text"
+                                                                        class="form-control input-sm size-number"
+                                                                        name="attribute[0][3]"></li>
+                                                                <li><label>XXL</label><input type="text"
+                                                                        class="form-control input-sm size-number"
+                                                                        name="attribute[0][4]"></li>
+                                                                <li><label>XXXL</label><input type="text"
+                                                                        class="form-control input-sm size-number"
+                                                                        name="attribute[0][5]"></li>
+                                                                <li><label>XXXXL</label><input type="text"
+                                                                        class="form-control input-sm size-number"
+                                                                        name="attribute[0][6]"></li>
+                                                                <li><label>Số 1</label><input type="text"
+                                                                        class="form-control input-sm size-number"
+                                                                        name="attribute[0][7]"></li>
+                                                                <li><label>Số 3</label><input type="text"
+                                                                        class="form-control input-sm size-number"
+                                                                        name="attribute[0][8]"></li>
+                                                                <li><label>Số 5</label><input type="text"
+                                                                        class="form-control input-sm size-number"
+                                                                        name="attribute[0][9]"></li>
+                                                                <li><label>Số 7</label><input type="text"
+                                                                        class="form-control input-sm size-number"
+                                                                        name="attribute[0][10]"></li>
+                                                                <li><label>Số 9</label><input type="text"
+                                                                        class="form-control input-sm size-number"
+                                                                        name="attribute[0][11]"></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group product-fields product-quantity"><label
+                                                            class="col-sm-4">Số lượng</label>
+                                                        <div class="col-sm-6"><input type="text"
+                                                                class="form-control input-sm" value="1" data-count="1"
+                                                                name="quantity" id="quantity"></div>
+                                                    </div>
+                                                    <div class="form-group product-fields"><span
+                                                            class="help-block"><small>Số lượng bán nhỏ nhất:
+                                                                1</small></span></div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product-prices">
+                                    <div id="product-price" class="hidden">
+                                        <span class="product-price-title">Tỏng:</span>
+                                        <div class="product-price-list">
+                                            <span id="product-price-old">
+                                                $<span class="price-old-number"></span>
+                                            </span>
+                                            <span id="product-price-sale">
+                                                $<span class="price-sale-number"></span>
+                                            </span>
+                                        </div>
+                                        <span class="price-restart" title="Nhấp chuột để lấy giá"
+                                            onclick="design.ajax.getPrice()"><i class="glyphicons restart"></i></span>
+                                    </div>
+                                    <button type="button" class="btn btn-warning btn-addcart btnMuangaynay"
+                                        onclick="design.ajax.addJs(this)"><i class="glyphicons shopping_cart"></i>Mua
+                                        ngay</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- END left -->
+    
+            </div>
+            <!-- END main of layout -->
+    
+        </div>
+    </div>
+    <a class="modal-link" href="https://www.facebook.com/phongcachinan/"></a>
+    <a class="modal-link2" target="_blank" href="https://www.facebook.com/phongcachinan/"></a>
+    <!-- BEGIN confirm color of print -->
+    <div id="screen_colors_body" style="display:none;">
+        <div id="screen_colors">
+            <div class="screen_colors_top">
+                <div class="col-xs-5 col-md-5 text-left" id="screen_colors_images">
+                </div>
+                <div class="col-xs-7 col-md-7 text-left">
+                    <h4>Chọn màu mực </h4>
+                    <span class="help-block">Chọn màu xuất hiện trên thiết kế của bạn.</span>
+                    <span class="help-block">Điều này giúp chúng tôi xác định giá dựa trên số màu sắc trên thiết kế của
+                        bạn.</span>
+                    <p><strong> Note: Chức năng này không ảnh hưởng đến màu sắc của thiết kế</strong></p>
+                    <span id="screen_colors_error"></span>
+                    <div id="screen_colors_list" class="list-colors"></div>
+                </div>
+            </div>
+            <div class="screen_colors_botton">
+                <button type="button" class="btn btn-primary" onclick="design.item.setColor()">Chọn màu sắc</button>
+            </div>
+        </div>
+    </div> <!-- END confirm color of print -->
+    
+    <!-- BEGIN modal -->
+    <div id="dg-modal">
+    
+        <!-- BEGIN product info -->
+        <div class="modal fade" id="modal-product-info" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <p style="font-size:28px;">Bấm vào <a id="linkView3d" href="#" target="_blank"> đây </a> để xem
+                            3D</p>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- END product info -->
+    
+        <!-- BEGIN product size -->
+        <div class="modal fade" id="modal-product-size" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="text-right clearfix">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 product-detail-size">
+                                <p><img src="https://printstyle.vn/tshirtecommerce//uploaded/mausac/dg-designer-d54ce9de156117661639731686610096902.jpg"
+                                        alt="" /></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- END product size -->
+    
+        <!-- BEGIN Login -->
+        <div class="modal fade" id="f-login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div id="f-login-content" class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">Lưu thiết kế của bạn</h4>
+                    </div>
+                    <div class="modal-body">
+    
+                        <div class="row">
+                            <!-- login form -->
+                            <div class="col-md-8">
+                                <form id="fr-login" role="form" style="margin-bottom: 5px;">
+                                    <div class="form-group">
+                                        <label>Nhập địa chỉ email của bạnl:</label>
+                                        <input type="text" id="login-email" class="form-control"
+                                            placeholder="Nhập địa chỉ email của bạnl">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Mã thiết kế:</label>
+                                        <input type="text" id="login-password" class="form-control">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+    
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p class="text-muted"><strong>Chú ý: </strong>Thông tin này giúp bạn lưu và chạy thiết
+                                    kê. Do vậy bạn cần nhớ thông tin.</p>
+                            </div>
+                        </div>
+    
+                        <div class="row">
+                            <div class="col-md-8">
+                                <button type="button" onclick="design.saveInfo(this)" autocomplete="off"
+                                    class="btn btn-default btn-primary" data-loading-text="Loading">Gửi thông
+                                    tin</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Login -->
+        <!-- END Login -->
+    
+        <!-- BEGIN products -->
+        <div class="modal fade" id="dg-products" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <div class="row">
+                            <div class="col-sm-11" id="list-categories">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <!-- list product category -->
+                            <div class="product-list col-sm-12">
+                            </div>
+    
+                            <!-- product detail -->
+                            <div class="products-detail col-sm-12">
+                                <button type="button" class="btn btn-danger btn-sm" id="close-product-detail">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+                        <button type="button" class="btn btn-primary" id="loading-change-product"
+                            data-loading-text="Đang tải..." onclick="design.products.changeDesign(this)">Thay đổi sản
+                            phẩm</button>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- END products -->
+    
+        <!-- BEGIN clipart -->
+    
+        <div class="modal fade" id="dg-cliparts" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header" style="overflow: hidden;">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <div class="col-xs-4 col-md-3">
+                            <h4 class="modal-title">Chọn thiết kế.</h4>
+                        </div>
+                        <div class="col-xs-7 col-md-4">
+                            <div class="input-group">
+                                <input type="text" id="art-keyword" autocomplete="off" class="form-control input-sm"
+                                    placeholder="Tìm kiếm...">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default btn-sm" onclick="design.designer.art.arts(0)"
+                                        type="button">Search</button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row align-center">
+                            <div id="dag-art-panel">
+                                <a href="javascript:void(0)" title="Nhấp chuột để xem danh mục">
+                                    Thư viện cửa hàng <span class="caret"></span>
+                                </a>
+                                <a href="javascript:void(0)" title="Nhấp chuột để xem danh mục">
+                                    Kho thiết kế <span class="caret"></span>
+                                </a>
+                            </div>
+                        </div>
+    
+                        <div class="row">
+                            <div id="dag-art-categories" class="row col-xs-4 col-md-3"></div>
+                            <div class="col-xs-8 col-md-9">
+    
+                                <div id="dag-list-arts"></div>
+    
+                                <div id="dag-art-detail">
+                                    <button type="button" class="btn btn-danger">Đóng</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="modal-footer">
+                        <div class="align-right" id="arts-pagination" style="display:none">
+                            <ul class="pagination"></ul>
+                            <input type="hidden" value="0" autocomplete="off" id="art-number-page">
+                        </div>
+                        <div class="align-right" id="arts-add" style="display:none">
+                            <div class="art-detail-price"></div>
+                            <button type="button" class="btn btn-primary">Thêm thiết kế</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END clipart -->
+    
+        <!-- BEGIN Upload -->
+        <div class="modal fade" id="dg-myclipart" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    
+                        <ul role="tablist" id="upload-tabs">
+                            <li class="active"><a href="#upload-conputer" role="tab" data-toggle="tab">Tải lên ảnh</a>
+                            </li>
+                            <li class="hidden"><a href="#uploaded-art" role="tab" data-toggle="tab">Ảnh đã tải lên</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="modal-body">
+                        <div class="tab-content">
+                            <input type="hidden" id="txtCheckUpload" />
+                            <div class="tab-pane active" id="upload-conputer">
+                                <div class="row">
+                                    <div class="col-xs-6 col-md-6">
+                                        <div class="form-group">
+                                            <label>Chọn file tải lên</label>
+                                            <input type="file" id="files-upload" autocomplete="off" />
+                                        </div>
+    
+                                        <div class="checkbox" style="display:none;">
+                                            <label>
+                                                <input type="checkbox" autocomplete="off" id="remove-bg"> <span
+                                                    class="help-block">Gỡ bỏ nền trắng.</span>
+                                            </label>
+                                        </div>
+                                    </div>
+    
+                                    <div class="col-xs-6 col-md-6">
+                                        <div class="form-group">
+                                            <label><strong>CHấp nhận kiểu file</strong> <small>(Kích thước file tối đa:
+                                                    100MB)</small></label>
+                                            <p>Chúng tôi chấp nhận những dạng file sau: <strong>png, jpg, gif</strong>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" checked="checked" autocomplete="off"
+                                                    id="upload-copyright">
+                                                <span class="help-block">Hãy đọc và đồng ý
+                                                    <a href="#" target="_blank">Điều khoản bản quyền</a>. Nếu bản không
+                                                    có bản quyền toàn bộ của bức ảnh, bạn không được phép tải
+                                                    lên.</span>
+                                            </label>
+                                        </div>
+                                        <div class="form-group">
+                                            <button type="button" class="btn btn-primary" id="action-upload">Tải
+                                                lên</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="tab-pane" id="uploaded-art">
+                                <div class="row" id="dag-files-images">
+                                </div>
+    
+                                <div id="drop-area"></div>
+                                <div class="row col-md-12">
+                                    <span class="help-block">Nhấp chuột vào ảnh để thêm thiết kế.</span>
+                                </div>
+                            </div>
+    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- END Upload -->
+    
+        <!-- BEGIN Note -->
+        <div class="modal fade" id="dg-note" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">Thêm chú ý</h4>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                </div>
+            </div>
+        </div> <!-- END Note -->
+    
+        <!-- BEGIN Help -->
+        <div class="modal fade" id="dg-help" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">Trợ giúp thiết kế</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Thiết kế online cho phép bạn</p>
+                        <ul>
+                            <li>Tải ảnh lên và thiết kế đủ loại màu sắc cho nhiều loại sản phẩm.</li>
+                            <li>Tạo và duy trì kho thiết kế của bạn</li>
+                            <li>Mix design elements - single image or multiple images, digital photos or artwork, as
+                                well as text.</li>
+                        </ul>
+    
+                        <div id="help-tabs">
+                            <ul>
+                                <li><a href="help/product.html">Thiết kế sản phẩm</a></li>
+                                <li><a href="help/text.html">Thêm Text</a></li>
+                                <li><a href="help/art.html">Thêm Art</a></li>
+                                <li><a href="help/upload.html">Tải lên</a></li>
+                                <li><a href="help/design_idea.html">Ý tưởng thiết kế</a></li>
+                                <li><a href="help/tool.html">Công cụ</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- END Help -->
+    
+        <!-- BEGIN My design -->
+        <div class="modal fade" id="dg-mydesign" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">Thiết kế của tôi</h4>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                </div>
+            </div>
+        </div> <!-- END My design -->
+    
+        <!-- BEGIN design ideas -->
+        <div class="modal fade" id="dg-designidea" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">Ý tưởng thiết kế</h4>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                </div>
+            </div>
+        </div> <!-- END design ideas -->
+    
+        <!-- BEGIN team -->
+        <div class="modal fade" id="dg-item_team_list" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">Nhập tên &amp; Số</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="alert alert-danger fade in col-md-8" id="team_msg_error" style="display: none;">
+                            </div>
+                            <button class="btn btn-primary input-sm pull-right" onclick="design.team.addMember()"
+                                type="button">Thêm số thành viên</button>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 table-box-team-list">
+                                <table class="table" id="table-team-list">
+                                    <thead>
+                                        <tr>
+                                            <th width="5%">#</th>
+                                            <th width="40%">Tên</th>
+                                            <th width="25%">Số</th>
+                                            <th width="20%">Size</th>
+                                            <th width="10%">Xóa</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+                        <button type="button" class="btn btn-primary" onclick="design.team.save()">Lưu</button>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- END team -->
+    
+        <!-- BEGIN fonts -->
+        <div class="modal fade" id="dg-fonts" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                                aria-expanded="false">
+                                Danh mục font <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu font-categories" role="menu"></ul>
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-12 list-fonts"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- END fonts -->
+    
+        <!-- BEGIN preview -->
+        <div class="modal fade" id="dg-preview" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+                    <div class="modal-body" id="dg-main-slider">
+                    </div>
+                </div>
+            </div>
+        </div> <!-- END preview -->
+    
+        <!-- BEGIN Share -->
+    
+        <div class="modal fade" id="dg-share" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4>Lưu xong</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Link thiết kế của bạn:</label>
+                            <input type="text" class="form-control" id="link-design-saved" value="">
+                            <br>
+                            <div style="text-align: center;">
+                                <button id="btnCopy" class="btn btn-primary btnCopy"><i class="fa fa-files-o"
+                                        aria-hidden="true"></i> Sao chép đường dẫn</button>
+                                <script type="text/javascript">
+                                    document.getElementById("btnCopy").addEventListener("click", function () {
+                                        copyToClipboard(document.getElementById("link-design-saved"));
+                                    });
+    
+                                    function copyToClipboard(elem) {
+                                        // create hidden text element, if it doesn't already exist
+                                        var targetId = "_hiddenCopyText_";
+                                        var isInput = elem.tagName === "INPUT" || elem.tagName === "TEXTAREA";
+                                        var origSelectionStart, origSelectionEnd;
+                                        if (isInput) {
+                                            // can just use the original source element for the selection and copy
+                                            target = elem;
+                                            origSelectionStart = elem.selectionStart;
+                                            origSelectionEnd = elem.selectionEnd;
+                                        } else {
+                                            // must use a temporary form element for the selection and copy
+                                            target = document.getElementById(targetId);
+                                            if (!target) {
+                                                var target = document.createElement("textarea");
+                                                target.style.position = "absolute";
+                                                target.style.left = "-9999px";
+                                                target.style.top = "0";
+                                                target.id = targetId;
+                                                document.body.appendChild(target);
+                                            }
+                                            target.textContent = elem.textContent;
+                                        }
+                                        // select the content
+                                        var currentFocus = document.activeElement;
+                                        target.focus();
+                                        target.setSelectionRange(0, target.value.length);
+    
+                                        // copy the selection
+                                        var succeed;
+                                        try {
+                                            succeed = document.execCommand("copy");
+                                        } catch (e) {
+                                            succeed = false;
+                                        }
+                                        // restore original focus
+                                        if (currentFocus && typeof currentFocus.focus === "function") {
+                                            currentFocus.focus();
+                                        }
+    
+                                        if (isInput) {
+                                            // restore prior selection
+                                            elem.setSelectionRange(origSelectionStart, origSelectionEnd);
+                                        } else {
+                                            // clear temporary content
+                                            target.textContent = "";
+                                        }
+                                        return succeed;
+                                    }
+                                </script>
+                            </div>
+                        </div>
+    
+                        <div class="form-group row">
+                            <label class="col-xs-1 col-sm-1 col-md-1" style="line-height: 24px;">Share: </label>
+                            <div class="col-xs-1 col-sm-1 col-md-1">
+                                <a href="javascript:void(0)" onclick="design.share.facebook()"
+                                    class="icon-25 share-facebook" title="Facebook"></a>
+                            </div>
+                            <div class="col-xs-1 col-sm-1 col-md-1">
+                                <a href="javascript:void(0)" onclick="design.share.twitter()" class="icon-25 share-twitter"
+                                    title="Twitter"></a>
+                            </div>
+                            <div class="col-xs-1 col-sm-1 col-md-1">
+                                <a href="javascript:void(0)" onclick="design.share.pinterest()"
+                                    class="icon-25 share-pinterest" title="Pinterest"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- END Share -->
+    
+        <div class="modal fade bs-example-modal-lg" id="cropModal" tabindex="-1" role="dialog"
+            style="z-index:9999999999999999 !important;" aria-labelledby="cropModalLabel">
+            <div class="modal-dialog modal-lg">
+                <input type="hidden" id="txtIdlayer" />
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">
+                            <i class="fa fa-crop"></i> <span>Cắt ảnh</span>
+                            <button type="button" class="btn btn-default btn-sm" id="loadOriginImageCrop">Load ảnh
+                                gốc</button>
+                        </h4>
+                    </div>
+                    <div class="modal-body">
+                        <input type="text" id="cropActionLabel" value="Crop Image" style="display: none" />
+                        <div id="image_wraper">
+                            <img src="" id="targetImage" class="responsive" width="700" />
+                            <div class="mask_div" width="700"></div>
+                            <div id="select_crop" class="is-selected">
+                                <img src="" id="image_crop" />
+                            </div>
+                            <div id="select_crop_scroll">
+                                <img id="image_crop_scroll" />
+                            </div>
+                            <div id="mask_select"></div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-default" data-dismiss="modal" id="cropDeleteAction">
+                                Xoa anh
+                            </button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal" id="cropCloseAction">
+                                Close </button>
+                            <button type="button" class="btn btn-primary" data-loading-text="Loading..." id="cropAction">
+                                Crop Image </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade languages-modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Nhấn vào đây để thay đổi ngôn ngữ</h4>
+                    </div>
+                    <div class="modal-body">
+    
+    
+                        <a href="https://printstyle.vn//tshirtecommerce/index.php?product=71&parent=176&lang=en"
+                            title="English" class="btn btn-default" style="margin: 4px 2px;">
+                            <img src="addons/images/en.png" width="16" /> <br />
+                            <small>English</small>
+                        </a>
+    
+    
+    
+    
+                        <a href="javascript:void(0)" title="Viet Nam" class="btn btn-success" style="margin: 4px 2px;">
+                            <img src="addons/images/vn.png" width="16" /> <br />
+                            <small>Viet Nam</small>
+                        </a>
+    
+    
+    
+                        <a href="https://printstyle.vn//tshirtecommerce/index.php?product=71&parent=176&lang=fr"
+                            title="French" class="btn btn-default" style="margin: 4px 2px;">
+                            <img src="addons/images/fr.png" width="16" /> <br />
+                            <small>French</small>
+                        </a>
+    
+    
+    
+    
+                        <a href="https://printstyle.vn//tshirtecommerce/index.php?product=71&parent=176&lang=ch"
+                            title="China" class="btn btn-default" style="margin: 4px 2px;">
+                            <img src="addons/images/ch.png" width="16" /> <br />
+                            <small>China</small>
+                        </a>
+    
+    
+    
+    
+                        <a href="https://printstyle.vn//tshirtecommerce/index.php?product=71&parent=176&lang=po"
+                            title="Portugal" class="btn btn-default" style="margin: 4px 2px;">
+                            <img src="addons/images/po.png" width="16" /> <br />
+                            <small>Portugal</small>
+                        </a>
+    
+    
+    
+    
+                        <a href="https://printstyle.vn//tshirtecommerce/index.php?product=71&parent=176&lang=ge"
+                            title="Germany" class="btn btn-default" style="margin: 4px 2px;">
+                            <img src="addons/images/ge.png" width="16" /> <br />
+                            <small>Germany</small>
+                        </a>
+    
+    
+    
+    
+                        <a href="https://printstyle.vn//tshirtecommerce/index.php?product=71&parent=176&lang=ne"
+                            title="Netherlands" class="btn btn-default" style="margin: 4px 2px;">
+                            <img src="addons/images/ne.png" width="16" /> <br />
+                            <small>Netherlands</small>
+                        </a>
+    
+    
+    
+    
+                        <a href="https://printstyle.vn//tshirtecommerce/index.php?product=71&parent=176&lang=hu"
+                            title="Hungary" class="btn btn-default" style="margin: 4px 2px;">
+                            <img src="addons/images/hu.png" width="16" /> <br />
+                            <small>Hungary</small>
+                        </a>
+    
+    
+    
+    
+                        <a href="https://printstyle.vn//tshirtecommerce/index.php?product=71&parent=176&lang=ru"
+                            title="Russia" class="btn btn-default" style="margin: 4px 2px;">
+                            <img src="addons/images/ru.png" width="16" /> <br />
+                            <small>Russia</small>
+                        </a>
+    
+    
+    
+    
+                        <a href="https://printstyle.vn//tshirtecommerce/index.php?product=71&parent=176&lang=cz"
+                            title="Czech Republic" class="btn btn-default" style="margin: 4px 2px;">
+                            <img src="addons/images/cz.png" width="16" /> <br />
+                            <small>Czech Republic</small>
+                        </a>
+    
+    
+    
+    
+                        <a href="https://printstyle.vn//tshirtecommerce/index.php?product=71&parent=176&lang=sl"
+                            title="Slovenia" class="btn btn-default" style="margin: 4px 2px;">
+                            <img src="addons/images/sl.png" width="16" /> <br />
+                            <small>Slovenia</small>
+                        </a>
+    
+    
+    
+    
+                        <a href="https://printstyle.vn//tshirtecommerce/index.php?product=71&parent=176&lang=sp"
+                            title="Spain" class="btn btn-default" style="margin: 4px 2px;">
+                            <img src="addons/images/sp.png" width="16" /> <br />
+                            <small>Spain</small>
+                        </a>
+    
+    
+    
+    
+                        <a href="https://printstyle.vn//tshirtecommerce/index.php?product=71&parent=176&lang=tu"
+                            title="Turkey" class="btn btn-default" style="margin: 4px 2px;">
+                            <img src="addons/images/tu.png" width="16" /> <br />
+                            <small>Turkey</small>
+                        </a>
+    
+    
+    
+    
+                        <a href="https://printstyle.vn//tshirtecommerce/index.php?product=71&parent=176&lang=sw"
+                            title="Sweden" class="btn btn-default" style="margin: 4px 2px;">
+                            <img src="addons/images/sw.png" width="16" /> <br />
+                            <small>Sweden</small>
+                        </a>
+    
+    
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    
+        <div id="Dayladivhinhanh" style="postions:relative;z-index:999999;background:#C7C8CA;">
+            <div class="row" id="dag-files-images">
+            </div>
+        </div>
+        <style>
+            #dag-files-images img {
+                width: 75px !important;
+                height: 50px !important;
+            }
+        </style>
+    </div>
+    <!-- END modal -->
+    
+    <!-- BEGIN popover -->
+    <div class="popover right" id="dg-popover">
+        <div class="arrow"></div>
+        <h3 class="popover-title">
+            <span>CỠ &amp; Vị trí</span>
+            <a href="javascript:void(0)" class="popover-close">
+                <i class="glyphicons remove_2 glyphicons-12 pull-right"></i>
+            </a>
+        </h3>
+    
+        <div class="popover-content">
+    
+            <!-- BEGIN clipart edit options -->
+            <div id="options-add_item_clipart" class="dg-options">
+                <div class="dg-options-toolbar">
+                    <div aria-label="First group" role="group" class="btn-group btn-group-lg">
+                        <button class="btn btn-default btn-action-edit" type="button" data-type="edit">
+                            <i class="glyphicon glyphicon-tint"></i> <small class="clearfix">Chỉnh sửa</small>
+                        </button>
+                        <button class="btn btn-default btn-action-colors" type="button" data-type="colors">
+                            <i class="glyphicon glyphicon-tint"></i> <small class="clearfix"> Màu sắc</small>
+                        </button>
+                        <button class="btn btn-default" type="button" data-type="size" style="display:none;">
+                            <i class="fa fa-text-height"></i> <small class="clearfix"> Kích cỡ</small>
+                        </button>
+                        <button class="btn btn-default" type="button" data-type="rotate">
+                            <i class="fa fa-rotate-right"></i> <small class="clearfix">Xoay</small>
+                        </button>
+                    </div>
+                </div>
+    
+                <div class="dg-options-content">
+                    <div class="row toolbar-action-edit">
+                        <div id="item-print-colors">
+                        </div>
+                    </div>
+                    <div class="row toolbar-action-size">
+                        <div class="col-xs-3 col-lg-3 align-center">
+                            <div class="form-group">
+                                <small>Rộng</small>
+                                <input type="text" size="2" id="clipart-width" readonly disabled>
+                            </div>
+                        </div>
+                        <div class="col-xs-3 col-lg-3 align-center">
+                            <div class="form-group">
+                                <small>Cao</small>
+                                <input type="text" size="2" id="clipart-height" readonly disabled>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-lg-6 align-left">
+                            <div class="form-group">
+                                <small>Tỷ lệ mở khóa</small><br />
+                                <input type="checkbox" class="ui-lock" id="clipart-lock" />
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-lg-6 align-left">
+                            <div class="form-group">
+                                <small>Layout trên</small><br />
+                                <input type="checkbox" class="ui-lock-top" id="clipart-top" />
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="row toolbar-action-rotate">
+                        <div class="form-group col-lg-12">
+                            <div class="row">
+                                <div class="col-xs-6 col-lg-6">
+                                    <small>Xoay</small>
+                                </div>
+                                <div class="col-xs-6 col-lg-6 align-right">
+                                    <span class="rotate-values"><input type="text" value="0"
+                                            class="input-small rotate-value" id="clipart-rotate-value" />&deg;</span>
+                                    <span class="rotate-refresh glyphicons refresh"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="row toolbar-action-colors">
+                        <div id="clipart-colors">
+                            <div class="form-group col-lg-12 text-left position-static">
+                                <small>Chọn màu sắc</small>
+                                <div id="list-clipart-colors" class="list-colors"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- END clipart edit options -->
+    
+            <!-- BEGIN Text edit options -->
+            <div id="options-add_item_text" class="dg-options">
+                <div class="dg-options-toolbar">
+                    <div aria-label="First group" role="group" class="btn-group btn-group-lg">
+                        <button class="btn btn-default" type="button" data-type="text">
+                            <i class="fa fa-pencil"></i> <small class="clearfix">Ký tự</small>
+                        </button>
+                        <button class="btn btn-default" type="button" data-type="fonts">
+                            <i class="fa fa-font"></i> <small class="clearfix">Font</small>
+                        </button>
+                        <button class="btn btn-default" type="button" data-type="style">
+                            <i class="fa fa-align-justify"></i> <small class="clearfix">Phong cách</small>
+                        </button>
+                        <button class="btn btn-default" type="button" data-type="outline">
+                            <i class="fa fa-crop"></i> <small class="clearfix">VIền ngoài</small>
+                        </button>
+                        <button class="btn btn-default" type="button" data-type="size" style="display:none;">
+                            <i class="fa fa-text-height"></i> <small class="clearfix"> Kích cỡ</small>
+                        </button>
+                        <button class="btn btn-default" type="button" data-type="rotate">
+                            <i class="fa fa-rotate-right"></i> <small class="clearfix">Xoay</small>
+                        </button>
+                    </div>
+                </div>
+    
+                <div class="dg-options-content">
+                    <!-- edit text -->
+                    <div class="row toolbar-action-text">
+                        <div class="col-xs-12">
+                            <textarea class="form-control text-update" data-event="keyup" data-label="text"
+                                id="enter-text"></textarea>
+                        </div>
+                    </div>
+    
+                    <div class="row toolbar-action-fonts">
+                        <div class="col-xs-8">
+                            <div class="form-group">
+                                <small>Chọn font</small>
+                                <div class="dropdown" data-target="#dg-fonts" data-toggle="modal">
+                                    <a id="txt-fontfamily" class="pull-left" href="javascript:void(0)">
+                                        Arial </a>
+                                    <span class="ui-accordion-header-icon ui-icon ui-icon-triangle-1-s pull-right"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-4 position-static">
+                            <div class="form-group">
+                                <small>Màu kí tự</small>
+                                <div class="list-colors">
+                                    <a class="dropdown-color" id="txt-color" href="javascript:void(0)" data-color="black"
+                                        data-label="color" style="background-color:black">
+                                        <span class="ui-accordion-header-icon ui-icon ui-icon-triangle-1-s"></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clear-line"></div>
+                    <div class="clear"></div>
+    
+                    <div class="row toolbar-action-style">
+                        <div class="col-xs-6">
+                            <small>Kiểu ký tự</small>
+                            <div id="text-style">
+                                <span id="text-style-i"
+                                    class="text-update btn btn-default btn-xs glyphicons italic glyphicons-12"
+                                    data-event="click" data-label="styleI"></span>
+                                <span id="text-style-b"
+                                    class="text-update btn btn-default btn-xs glyphicons bold glyphicons-12"
+                                    data-event="click" data-label="styleB"></span>
+                                <span id="text-style-u"
+                                    class="text-update btn btn-default btn-xs glyphicons text_underline glyphicons-12"
+                                    data-event="click" data-label="styleU"></span>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <small>Căn text</small>
+                            <div id="text-align">
+                                <span id="text-align-left"
+                                    class="text-update btn btn-default btn-xs glyphicons align_left glyphicons-12"
+                                    data-event="click" data-label="alignL"></span>
+                                <span id="text-align-center"
+                                    class="text-update btn btn-default btn-xs glyphicons align_center glyphicons-12"
+                                    data-event="click" data-label="alignC"></span>
+                                <span id="text-align-right"
+                                    class="text-update btn btn-default btn-xs glyphicons align_right glyphicons-12"
+                                    data-event="click" data-label="alignR"></span>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="clear"></div>
+    
+                    <div class="row toolbar-action-size">
+                        <div class="col-xs-3 col-lg-3 align-center">
+                            <div class="form-group">
+                                <small>Rộng</small>
+                                <input type="text" size="2" id="text-width" readonly disabled>
+                            </div>
+                        </div>
+                        <div class="col-xs-3 col-lg-3 align-center">
+                            <div class="form-group">
+                                <small>Cao</small>
+                                <input type="text" size="2" id="text-height" readonly disabled>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-lg-6 align-left">
+                            <div class="form-group">
+                                <small>Tỷ lệ mở khóa</small><br />
+                                <input type="checkbox" class="ui-lock" id="text-lock" />
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="row toolbar-action-rotate">
+                        <div class="form-group col-xs-12">
+                            <small>Xoay</small>
+                            <div class="">
+                                <span class="rotate-values"><input type="text" value="0" class="input-small rotate-value"
+                                        id="text-rotate-value" />&deg;</span>
+                                <span class="rotate-refresh glyphicons refresh"></span>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="row toolbar-action-outline">
+                        <div class="form-group col-xs-12">
+                            <small>VIền ngoài</small>
+                            <div class="option-outline">
+                                <div class="list-colors">
+                                    <a class="dropdown-color bg-none" data-label="outline" data-placement="top"
+                                        href="javascript:void(0)" data-color="none">
+                                        <span class="ui-accordion-header-icon ui-icon ui-icon-triangle-1-s"></span>
+                                    </a>
+                                </div>
+                                <div class="dropdown-outline">
+                                    <a data-toggle="dropdown" class="dg-outline-value" href="javascript:void(0)"><span
+                                            class="outline-value pull-left">0</span> <span
+                                            class="ui-accordion-header-icon ui-icon ui-icon-triangle-1-s pull-right"></span></a>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                        <li>
+                                            <div id="dg-outline-width"></div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+    
+                </div>
+            </div> <!-- END Text edit options -->
+    
+            <!-- BEGIN team edit options -->
+            <div id="options-add_item_team" class="dg-options">
+                <div class="dg-options-toolbar">
+                    <div aria-label="First group" role="group" class="btn-group btn-group-lg">
+                        <button class="btn btn-default" type="button" data-type="name-number">
+                            <i class="glyphicons soccer_ball glyphicons-small"></i> <small class="clearfix">Thêm
+                                tên</small>
+                        </button>
+                        <button class="btn btn-default" type="button" data-type="teams">
+                            <i class="fa fa-users"></i> <small class="clearfix">Đội</small>
+                        </button>
+                        <button class="btn btn-default" type="button" data-type="add-list">
+                            <i class="fa fa-user"></i> <small class="clearfix">Thêm đội</small>
+                        </button>
+                    </div>
+                </div>
+    
+                <div class="dg-options-content">
+                    <input type="hidden" id="team-height" value="">
+                    <input type="hidden" id="team-width" value="">
+                    <input type="hidden" id="team-rotate-value" value="0">
+                    <div class="row toolbar-action-name-number">
+                        <div class="col-md-12 position-static">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" id="team_add_name" onclick="design.team.addName(this)"
+                                        autocomplete="off"> <strong>Thêm tên</strong>
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" id="team_add_number" onclick="design.team.addNumber(this)"
+                                        autocomplete="off"> <strong>Thêm số</strong>
+                                </label>
+                            </div>
+    
+                            <div class="form-group row" class="team-edit-name-number">
+                                <div class="col-xs-4 col-md-4">
+                                    <input type="text" class="form-control input-sm" value="00" id="team-edit-number"
+                                        placeholder="">
+                                </div>
+                                <div class="col-xs-8 col-md-8">
+                                    <input type="text" class="form-control input-sm" value="NAME" id="team-edit-name"
+                                        placeholder="">
+                                </div>
+                            </div>
+    
+                            <div class="form-group row">
+                                <div class="col-xs-3 col-md-3 position-static">
+                                    <div class="list-colors">
+                                        <a class="dropdown-color" id="team-name-color" data-placement="right"
+                                            title="Nhấp chuột để thay đổi màu sắc" href="javascript:void(0)"
+                                            data-color="000000" data-label="colorT" style="background-color:black">
+                                            <span class="ui-accordion-header-icon ui-icon ui-icon-triangle-1-s"></span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-xs-9 col-md-9">
+                                    <div data-toggle="modal" data-target="#dg-fonts" class="dropdown">
+                                        <a href="javascript:void(0)" class="pull-left" id="txt-team-fontfamly">Arial</a>
+                                        <span
+                                            class="ui-accordion-header-icon ui-icon ui-icon-triangle-1-s pull-right"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row toolbar-action-teams">
+                        <div class="col-md-12">
+                            <span class="help-block">
+                                <small>Nhập đầy đủ danh sách tên và số của bạn</small>
+                            </span>
+                        </div>
+    
+                        <div class="col-md-12">
+                            <div class="clear-line"></div>
+                        </div>
+    
+                        <div class="col-md-12 div-box-team-list">
+                            <table id="item_team_list" class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <td width="70%"><strong>Tên</strong></td>
+                                        <td width="10%"><strong>Số</strong></td>
+                                        <td width="20%"><strong>Kích cỡ</strong></td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td align="left"> </td>
+                                        <td align="center"> </td>
+                                        <td align="center"> </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="clear-line"></div><br>
+                    <div class="row toolbar-action-add-list">
+                        <div class="col-md-12">
+                            <div style="text-align: center"><button class="btn btn-primary input-sm" data-target="#dg-item_team_list"
+                                    data-toggle="modal" type="button">Thêm danh sách tên &amp; Số</button></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- BEGIN qrcode -->
+            <div id="options-add_item_qrcode" class="dg-options">
+                <div class="dg-options-toolbar">
+                    <div role="group" class="btn-group btn-group-lg">
+                        <button class="btn btn-default" type="button" data-type="create-qr-code">
+                            <i class="glyphicons qrcode"></i> <small class="clearfix">Tạo QRCode</small>
+                        </button>
+    
+                        <button class="btn btn-default" type="button" data-type="image-qr-code">
+                            <i class="glyphicons picture"></i> <small class="clearfix">Ảnh QRCode</small>
+                        </button>
+                    </div>
+                </div>
+    
+                <div class="dg-options-content">
+    
+                    <div class="row">
+                        <div class="col-md-12">
+                            <span class="help-block">
+                                Gõ ký tự của bạn sau khi thêm QRCode </span>
+                        </div>
+    
+                        <div class="col-md-12">
+                            <div class="clear-line"></div><br>
+                        </div>
+                    </div>
+                    <div class="row toolbar-action-create-qr-code">
+                        <div class="col-md-12">
+                            <textarea class="form-control" id="enter-qrcode"></textarea>
+                        </div>
+    
+                        <br />
+                        <div class="col-md-12 text-right">
+                            <button class="btn btn-primary input-sm" type="button" onclick="design.qrcode.create(this)">
+                                Tạo QRCode </button>
+                        </div>
+                    </div>
+    
+                    <div class="row toolbar-action-image-qr-code">
+                        <div class="col-md-12" id="qrcode-img"></div>
+                    </div>
+                </div>
+            </div> <!-- END qrcode -->
+    
+        </div>
+    </div>
+    <!-- END popover -->
+    <input type="hidden" id="txtWidth" value="100">
+    <!-- BEGIN colors system -->
+    <div class="o-colors" style="display:none;">
+        <div class="other-colors"></div>
+    </div>
+    <!-- END colors system -->
+    
+    <div id="cacheText"></div>
+    
+    <div id="id_login"></div>
+    <div id="save-confirm" title="Lưu thiết kế của bạn" style="display:none;">
+        <p>Bạn vừa lưu 1 thiết kế. Bạn có muốn thay thế nó hay bắt đầu một thiết kế mới không?</p>
+    </div>
+</div>

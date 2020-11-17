@@ -1,0 +1,88 @@
+.is-selected {
+	position: absolute;
+	overflow: hidden;
+	cursor: move;
+	z-index: 11; 
+}
+.mask_div {
+	position: absolute;
+	background-color: black;
+	opacity: 0.5;
+	z-index: 5;
+	top: 0px;
+	left: 0px;
+	height: 100%;
+	width: 100%;
+}
+#crop-link-pop {
+	margin-top: 3px;
+    margin-right: 3px;
+}
+#image_wraper {
+	position: relative;
+	margin: auto;
+	width: 700px;
+	height: 437px;
+}
+#image_crop {
+	position: absolute;
+	width: 700px;
+	height: 437px;
+	z-index: 10;
+	top: -10px;
+	left: -10px;
+}
+#cropModal .modal-body{
+	overflow: auto;
+}
+#mask_select {
+	position: absolute;
+	border: 1px dashed #F5EBEB;
+	cursor: move;
+	z-index: 50;
+}
+#mask_select .ui-resizable-handle {
+	background-color: #ffffff;
+    border: 1px solid #777777;
+    border-radius: 2px;
+    display: block;
+    height: 18px;
+    position: absolute;
+    width: 18px;
+}
+#mask_select .item-mask-move {
+	background-color: #ffffff;
+    border: 1px solid #777777;
+    border-radius: 2px;
+    display: block;
+    height: 18px;
+    position: absolute;
+    width: 18px;
+	color: #333;
+    left: -18px;
+    top: -18px;
+	padding-top: 1px;
+    padding-left: 1px;
+}
+#image_crop_scroll {
+	width: 100px;
+	height: 100px;
+	z-index: -1;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+#select_crop_scroll {
+	width: 0px;
+	height: 0px;
+	z-index: -1;
+	overflow: scroll;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+#loadOriginImageCrop {
+	margin-right: 20px;
+	margin-top: -5px;
+	float: right;
+}
