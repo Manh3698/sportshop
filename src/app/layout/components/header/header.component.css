@@ -640,7 +640,8 @@ header.header .header-bottom nav {
 }
 
 .footer-container .footer-information .footer-info li a {
-    color: #fff
+    color: #fff;
+    font-size: 14px !important;
 }
 
 .footer-container .footer-information .footer-info li a:hover,.footer-container .footer-information .footer-info li a:focus {
@@ -1493,6 +1494,7 @@ header.header .header-bottom nav {
     line-height: 1.42857143;
     color: #333;
     white-space: nowrap;
+    font-size: 14px !important;
 }
 .dropdown-menu>li>a:focus,.dropdown-menu>li>a:hover {
     color: #262626;

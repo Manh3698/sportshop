@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { NgbAlertModule, NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 import { LayoutRoutingModule } from './layout-routing.module';
 import { LayoutComponent } from './layout.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -21,7 +21,9 @@ import { DesignComponent } from './design/design.component';
   declarations: [LayoutComponent, HeaderComponent, FooterComponent, SignInComponent, SignUpComponent, ContactComponent, ProductsComponent, ProductDetailComponent, ProfileComponent, AboutUsComponent, CartComponent, HomepageComponent, DesignComponent],
   imports: [
     CommonModule,
-    LayoutRoutingModule
+    LayoutRoutingModule,
+    NgbCarouselModule,
+    NgbAlertModule
   ]
 })
 export class LayoutModule { }

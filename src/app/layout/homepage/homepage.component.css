@@ -1,3 +1,13 @@
+.row1{
+    margin-left: 0!important;
+    margin-right: 0!important;
+}
+.carousel-indicators {
+    width: 70% !important;
+}
+.carousel {
+    height: 100% !important;
+}
 .awe-section-4 {
     margin-bottom: 0;
 }
