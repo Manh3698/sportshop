@@ -15,10 +15,11 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { CartComponent } from './cart/cart.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { DesignComponent } from './design/design.component';
+import { ResizableDraggableComponent } from './resizable-draggable/resizable-draggable.component';
 
 
 @NgModule({
-  declarations: [LayoutComponent, HeaderComponent, FooterComponent, SignInComponent, SignUpComponent, ContactComponent, ProductsComponent, ProductDetailComponent, ProfileComponent, AboutUsComponent, CartComponent, HomepageComponent, DesignComponent],
+  declarations: [LayoutComponent, HeaderComponent, FooterComponent, SignInComponent, SignUpComponent, ContactComponent, ProductsComponent, ProductDetailComponent, ProfileComponent, AboutUsComponent, CartComponent, HomepageComponent, DesignComponent, ResizableDraggableComponent],
   imports: [
     CommonModule,
     LayoutRoutingModule,

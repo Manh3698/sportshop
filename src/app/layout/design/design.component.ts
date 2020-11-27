@@ -1,67 +1,126 @@
 import { Component, OnInit } from '@angular/core';
-declare var jQuery:any;
-declare var $ :any;
+declare var jQuery: any;
+declare var $: any;
+declare var ajax: any;
 @Component({
   selector: 'app-design',
   templateUrl: './design.component.html',
   styleUrls: ['./design.component.css']
 })
 export class DesignComponent implements OnInit {
-
+  index: number = 0;
+  Binding: (b: any) => void;
   constructor() { }
 
-  ngOnInit(): void {
-    var lang = {
-      remove: 'Xóa',
-      upload:{
-        fileType: 'Accepted File Types (Max file size: 10MB)nImage .jpg, .jpeg, .png, .gif',
-        minSize: 'Too small file (min filesize exceeded ',
-        maxSize: 'Too big file (max filesize exceeded ',
-        terms: 'Please read my terms after tick the checkbox to accepted terms.',
-        chooseFile: 'Please choose a file upload.',
-      },
-      designer:{
-        quantity: 'Please add quantity or size',
-        quantityMin: 'Minimum quantity: ',
-        tryagain: 'Please try again',
-        chooseColor: 'Please select a color.',
-        reset: 'Are you sure you want to reset design?',
-        datafound: 'Data not found!',
-        category: '- Select a category -',
-      },
-      product:{
-        id: 'ID: ',
-        sku: 'SKU: ',
-        description: 'Description',
-        team: 'Please add name &amp; number.',
-      },
-      text:{
-        edit: 'Click to edit this item',
-        remove: 'Click to remove this item',
-        color: 'Click to change color',
-        layer: 'Click to delete layer',
-        sort: 'Click to sorting layer',
-        email: 'Please enter your emai.',
-        designid: 'Please enter design ID',
-        enter_text: 'Hãy gõ ký tự.',
-        all_fonts: 'Thêm fonts',
-        qrcode: 'QR Code',
-        add_qrcode: 'Click to add QRcode',
-        ink_colors: 'Edit ink colors',
-        show_design: 'Tải thêm hình',
-        setup: 'Please go to admin and setup page default. <br> Go to <strong>T-Shirt eCommerce &gt; Settings</strong>',
-        fromt: 'From',
-        save_new: 'Save New',
-        update: 'Update',
-      },
-      team:{
-        name: 'Enter Name',
-        number: 'Enter Number',
-        choose_size: 'Please choose sizes again.',
-      },
-      share:{
-        title: 'Great my design!',
+  onClick() {
+    var i = this.index;
+    var element_pos = 0;
+    var a = $("#enter-text").val();
+    // var index = 0;
+    $(document).ready(function () {
+      $("#dg-popover").css(
+        {
+          display: 'block'
+        }
+      );
+      var dynamic_div = $(document.createElement('span')).css({
+        border: '1px dashed',
+        position: 'absolute',
+        left: element_pos,
+        top: $('.content-inner').height() + 20,
+        width: '100',
+        height: '50',
+        padding: '3',
+        margin: '0'
+      }).attr('id', "item" + i);
+
+      element_pos = element_pos + $('.content-inner-design').width() + 20;
+      $(dynamic_div).appendTo('.content-inner-design').draggable().resizable();
+
+      $('span').addClass('drag-item');
+      
+      var i1 =this.index;
+    window.onload = function Binding(b) {
+      const _this = this
+      this.elementBindings = []
+      this.value = b.object[b.property]
+      this.valueGetter = function () {
+        return _this.value;
       }
+      this.valueSetter = function (val) {
+        _this.value = val
+        for (var i = 0; i < _this.elementBindings.length; i++) {
+          var binding = _this.elementBindings[i]
+          binding.element[binding.attribute] = val
+        }
+      }
+      this.addBinding = function (element, attribute, event) {
+        var binding = {
+          element: element,
+          attribute: attribute
+        }
+        if (event) {
+          element.addEventListener(event, function (event) {
+            _this.valueSetter(element[attribute]);
+          })
+
+        }
+        this.elementBindings.push(binding)
+        element[attribute] = _this.value
+        return _this
+      }
+
+      Object.defineProperty(b.object, b.property, {
+        get: this.valueGetter,
+        set: this.valueSetter
+      });
+
+      b.object[b.property] = this.value;
+      var obj = { a: $("#enter-text").val() }
+    var myInputElement1 = document.getElementById("enter-text")
+    var myDOMElement = document.getElementById("item" + i1)
+    console.log(i1);
+
+    new Binding({
+      object: obj,
+      property: "a"
+    })
+      .addBinding(myInputElement1, "value", "keyup")
+      .addBinding(myDOMElement, "innerHTML")
+
+    obj.a = 'hello';
     }
+    });
+    
+    
+    this.index++;
+  }
+  close() {
+    $(document).ready(function () {
+      $("#dg-popover").css(
+        {
+          display: 'none'
+        }
+      );
+      $("#dg-myclipart").css(
+        {
+          display: 'none'
+        }
+      )
+    })
+  }
+  uploadImg() {
+    $(document).ready(function () {
+      $("#dg-myclipart").addClass('in');
+      $("#dg-myclipart").css({
+        display: 'block'
+      });
+      $('.dg-modal').css({
+        overflow: 'hidden'
+      })
+    })
+  }
+  ngOnInit(): void {
+
   }
 }

@@ -1012,7 +1012,20 @@ padding-right: 15px;
   right: -18px;
 }
 .design-area .drag-item div{
-display:none;
+  display:block;
+  background-color: #ffffff;
+  border: 1px solid #777777;
+  border-radius: 2px;
+  box-shadow: 0 0 1px 1px #999999;
+  display: block;
+  height: 20px;
+  position: absolute;
+  width: 20px;
+  
+}
+.design-area .drag-item .ui-resizable-se{
+  background-image: url(../../double-arrow-pointing-opposite-directions.svg) !important;
+  background: round;
 }
 .design-area .drag-item-selected div{
   background-color: #FFFFFF;
@@ -1072,7 +1085,6 @@ display:none;
 .popover {
   width: 240px;
 }
-.popover .popover-title{cursor: move;}
 input.input-small {
   font-size: 12px;
   height: 18px;
@@ -1133,11 +1145,30 @@ cursor:pointer;
 .design-area .drag-item-selected div.ui-resizable-n {
   left: 49.5%;
 }
-.design-area .drag-item-selected div.ui-resizable-e {
+.design-area .drag-item div.ui-resizable-e {
   top: 49.5%;
+  background-color: transparent;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAIxJREFUeNqMUDEOgCAMrA58CFZX3uDIU/iBX3D0DawkTCS8xhBYao84aOLgJZdy10sLTMxMgDHGSVmFizAKj5zzPpoIaa037z2nlLjWOio0/DFEDg5Ga42fgL6DbsYKay0ppegJaPjjCpI8seIL8NHHpFhKoS/cfkToCCFQ7/0VgIaP/q/XTX/+6RJgAEc6j4dkIiynAAAAAElFTkSuQmCC);
+    background-position: center center;
+    background-repeat: no-repeat;
+    border: 0 none;
+    box-shadow: none;
+    height: 100%;
+    right: -5px;
+    top: 0;
+    width: 9px;
 }
-.design-area .drag-item-selected div.ui-resizable-s{
-  left: 49.5%;
+.design-area .drag-item div.ui-resizable-s{
+  /* left: 49.5%; */
+  background-color: transparent;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAIxJREFUeNqMUDEOgCAMrA58CFZX3uDIU/iBX3D0DawkTCS8xhBYao84aOLgJZdy10sLTMxMgDHGSVmFizAKj5zzPpoIaa037z2nlLjWOio0/DFEDg5Ga42fgL6DbsYKay0ppegJaPjjCpI8seIL8NHHpFhKoS/cfkToCCFQ7/0VgIaP/q/XTX/+6RJgAEc6j4dkIiynAAAAAElFTkSuQmCC);
+    background-position: center center;
+    background-repeat: no-repeat;
+    border: 0 none;
+    bottom: -5px;
+    box-shadow: none;
+    height: 9px;
+    width: 100%;
 }
 .design-area .drag-item-selected div.ui-resizable-w {
   top: 49.5%;

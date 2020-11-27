@@ -22,7 +22,7 @@ var design={
 		});		
 		
 		design.item.move();
-		$jd( "#dg-outline-width" ).slider({
+		$( "#dg-outline-width" ).slider({
 			animate: true,
 			slide: function( event, ui ) {
 				jQuery('.outline-value').html(ui.value);
@@ -30,40 +30,40 @@ var design={
 			}
 		});
 		
-		$jd( "#dg-shape-width" ).slider();
+		$( "#dg-shape-width" ).slider();
 		
-		$jd('.dg-color-picker-active').click(function(){
-			$jd(this).parent().find('ul').show('slow');
+		$('.dg-color-picker-active').click(function(){
+			$(this).parent().find('ul').show('slow');
 		});
 		
 		/* rotate */
-		$jd('.rotate-refresh').click(function(){
+		$('.rotate-refresh').click(function(){
 			self.item.refresh('rotate');
 		});
-		$jd('.rotate-value').on("focus change", function(){
+		$('.rotate-value').on("focus change", function(){
 			var e = self.item.get();
-			var deg = $jd(this).val();
+			var deg = $(this).val();
 			if(deg > 360) deg = 360;
 			if(deg < 0) deg = 0;
-			var angle = ($jd(this).val() * Math.PI)/180;
+			var angle = ($(this).val() * Math.PI)/180;
 			e.rotatable("setValue", angle);	
 		});
 		
 		/* lock */
-		$jd('.ui-lock').click(function(){
+		$('.ui-lock').click(function(){
 			var e = self.item.get();
 			e.resizable('destroy')			
-			if($jd(this).is(':checked') == true) self.item.resize(e, 'n, e, s, w, se');
+			if($(this).is(':checked') == true) self.item.resize(e, 'n, e, s, w, se');
 			else self.item.resize(e, 'se');
 		});
 		
 		/* menu */
-		$jd('.menu-left a').click(function(){
-			$jd('.menu-left a').removeClass('active');
-			if($jd(this).hasClass('add_item_text')) self.text.create();
-			if($jd(this).hasClass('add_item_team')) self.team.create();
-			if($jd(this).hasClass('add_item_qrcode')) self.qrcode.open();
-			$jd(this).addClass('active');
+		$('.menu-left a').click(function(){
+			$('.menu-left a').removeClass('active');
+			if($(this).hasClass('add_item_text')) self.text.create();
+			if($(this).hasClass('add_item_team')) self.team.create();
+			if($(this).hasClass('add_item_qrcode')) self.qrcode.open();
+			$(this).addClass('active');
 		});
 		
 		/* share */
@@ -71,8 +71,8 @@ var design={
 			design.share.ini(jQuery(this).data('type'));
 		});
 		/* tools */
-		$jd('a.dg-tool').click(function(){
-			var f = $jd(this).data('type');
+		$('a.dg-tool').click(function(){
+			var f = $(this).data('type');
 			switch(f){
 				case 'preview':
 					design.tools.preview(this);
@@ -97,23 +97,23 @@ var design={
 		});
 		design.products.sizes();
 		
-		$jd('.add_item_clipart').click(function(){
+		$('.add_item_clipart').click(function(){
 			self.designer.art.categories(true, 0);
 			if( jQuery('#dag-list-arts').html() == '')
 				self.designer.art.arts('');
 		});
 		
-		$jd('.add_item_mydesign').click(function(){
+		$('.add_item_mydesign').click(function(){
 			self.ajax.mydesign();
 		});
 		
-		$jd('#dag-art-panel a').click(function(){
+		$('#dag-art-panel a').click(function(){
 			jQuery('#dag-art-categories').children('ul').hide();
-			var index = $jd('#dag-art-panel a').index(this);
+			var index = $('#dag-art-panel a').index(this);
 			self.designer.art.categories(true, index);
 			jQuery('#dag-art-categories').children('ul').eq(index).toggle('slow');
 		});
-		$jd('#dag-art-detail button').click(function(){
+		$('#dag-art-detail button').click(function(){
 			jQuery('#dag-art-detail').hide('slow');
 			jQuery('#dag-list-arts').show('slow');
 			jQuery('#arts-add').hide();
@@ -161,8 +161,8 @@ var design={
 		});
 		
 		/* text update */
-		$jd('.text-update').each(function(){
-			var e = $jd(this);
+		$('.text-update').each(function(){
+			var e = $(this);
 			e.bind(e.data('event'), function(){
 				if (e.data('value') != 'undefined')
 					design.text.update(e.data('label'), e.data('value'));
@@ -1814,8 +1814,8 @@ var design={
 		addName: function(e){
 			if (jQuery(e).is(':checked') == true)
 			{
-				$jd('#txt-team-fontfamly').html('arial');
-				$jd('.ui-lock').attr('checked', false);
+				$('#txt-team-fontfamly').html('arial');
+				$('.ui-lock').attr('checked', false);
 				var txt = {};
 				txt.text = jQuery('#team-edit-name').val();
 				if (txt.text == '') txt.text = 'NAME';
@@ -1847,8 +1847,8 @@ var design={
 		addNumber: function(e){
 			if (jQuery(e).is(':checked') == true)
 			{
-				$jd('#txt-team-fontfamly').html('arial');
-				$jd('.ui-lock').attr('checked', false);
+				$('#txt-team-fontfamly').html('arial');
+				$('.ui-lock').attr('checked', false);
 				var txt = {};
 				txt.text = jQuery('#team-edit-number').val();
 				if (txt.text == '') txt.text = 'NAME';
@@ -2042,22 +2042,22 @@ var design={
 	text:{
 		getValue: function(){
 			var o = {};
-			o.txt 			= $jd('#addEdit').val();
-			o.color 		= $jd('#dg-font-color').css('background-color');
-			o.fontSize 		= $jd('#dg-font-size').text();
-			o.fontFamily 	= $jd('#dg-font-family').text();
-			if($jd('#font-style-bold').hasClass('active')) o.fontWeight 	= 'bold';
-			var outline 	= $jd('#dg-change-outline-value a').css('left');
+			o.txt 			= $('#addEdit').val();
+			o.color 		= $('#dg-font-color').css('background-color');
+			o.fontSize 		= $('#dg-font-size').text();
+			o.fontFamily 	= $('#dg-font-family').text();
+			if($('#font-style-bold').hasClass('active')) o.fontWeight 	= 'bold';
+			var outline 	= $('#dg-change-outline-value a').css('left');
 			outline 		= outline.replace('px', '');
 			if(outline != 0){
-				o.stroke 		= $jd('#dg-outline-color').css('background-color');
+				o.stroke 		= $('#dg-outline-color').css('background-color');
 				o.strokeWidth 	= outline/10;
 			}
 			o.spacing 		= '0';			
 			return o;
 		},		
 		create: function(){
-			$jd('.ui-lock').attr('checked', false);
+			$('.ui-lock').attr('checked', false);
 			var txt = {};
 			
 			txt.text = 'Hello';
@@ -2072,9 +2072,9 @@ var design={
 			this.add(txt);			
 		},
 		setValue: function(o){
-			$jd('#enter-text').val(o.text);
-			$jd('#txt-fontfamily').html(o.fontFamily);
-			var color = $jd('#txt-color');
+			$('#enter-text').val(o.text);
+			$('#txt-fontfamily').html(o.fontFamily);
+			var color = $('#txt-color');
 				color.data('color', o.color);
 				color.css('background-color', o.color);
 				
@@ -2257,7 +2257,7 @@ var design={
 							jQuery('#txt-team-fontfamly').html(value);
 						break;
 					case 'color':
-						var color = $jd('#txt-color').data('value');
+						var color = $('#txt-color').data('value');
 						if (color == 'none') var hex = color;
 						else var hex = '#' + color;
 						txt[0].setAttributeNS(null, 'fill', hex);
@@ -2265,7 +2265,7 @@ var design={
 						value = '';
 						break;
 					case 'colorT':
-						var color = $jd('#team-name-color').data('value');
+						var color = $('#team-name-color').data('value');
 						if (color == 'none') var hex = color;
 						else var hex = '#' + color;
 						txt[0].setAttributeNS(null, 'fill', hex);
@@ -2278,7 +2278,7 @@ var design={
 							this.update('alignC', '');
 						}
 						
-						var text = $jd('#enter-text').val();
+						var text = $('#enter-text').val();
 						if (text == '') break;
 						jQuery('.layer.active span').html(text.substring(0, 15));
 						jQuery('.layer.active span').attr('title', text);
@@ -2312,7 +2312,7 @@ var design={
 						design.text.align(e, 'right');
 						break;
 					case 'styleI':
-						var o = $jd('#text-style-i');
+						var o = $('#text-style-i');
 						if(o.hasClass('active')){
 							o.removeClass('active');
 							txt.css('font-style', 'normal');
@@ -2325,7 +2325,7 @@ var design={
 						this.setSize(e);
 						break;
 					case 'styleB':
-						var o = $jd('#text-style-b');
+						var o = $('#text-style-b');
 						if(o.hasClass('active')){
 							o.removeClass('active');
 							txt.css('font-weight', 'normal');
@@ -2338,7 +2338,7 @@ var design={
 						this.setSize(e);
 						break;
 					case 'styleU':
-						var o = $jd('#text-style-u');
+						var o = $('#text-style-u');
 						if(o.hasClass('active')){
 							o.removeClass('active');
 							txt.css('text-decoration', 'none');
@@ -2360,7 +2360,7 @@ var design={
 						if (value == 'none') var hex = value;
 						else var hex = '#' + value;
 						txt[0].setAttributeNS(null, 'stroke', hex);
-						txt[0].setAttributeNS(null, 'stroke-width', $jd('.outline-value').html()/50);
+						txt[0].setAttributeNS(null, 'stroke-width', $('.outline-value').html()/50);
 						obj.item.outlineC = hex;
 						break;
 					default:
@@ -2377,8 +2377,8 @@ var design={
 		reset:function(){
 			document.getElementById('dg-font-family').innerHTML = 'arial';
 			document.getElementById('dg-font-size').innerHTML = '12';
-			$jd('#dg-font-style span').removeClass();
-			$jd( "#dg-change-outline-value" ).slider();
+			$('#dg-font-style span').removeClass();
+			$( "#dg-change-outline-value" ).slider();
 		},
 		setSize: function(e){
 			var txt = e.find('text');
@@ -2399,7 +2399,7 @@ var design={
 			jQuery(document).triggerHandler( "size.update.text.design", [$w, $h]);
 		},		
 		align: function(e, type){
-			var span = $jd('#text-align-'+type);
+			var span = $('#text-align-'+type);
 			var txt = e.find('text');
 			var tspan = e.find('tspan');
 			if(span.hasClass('active')){
@@ -2409,7 +2409,7 @@ var design={
 					tspan[i].setAttributeNS(null, 'x', '50%');
 				}
 			}else{
-				$jd('#text-align span').removeClass('active');
+				$('#text-align span').removeClass('active');
 				span.addClass('active');
 				txt[0].setAttributeNS(null, 'text-anchor', 'middle');
 				if(type == 'left')
@@ -2448,7 +2448,7 @@ var design={
 		create: function(e){
 		
 			var item = e.item;
-			$jd('.ui-lock').attr('checked', false);			
+			$('.ui-lock').attr('checked', false);			
 			var o 			= {};
 			o.type 			= 'clipart';			
 			o.upload		= 1;			
@@ -2487,7 +2487,7 @@ var design={
 					o.svg 		= jQuery.parseHTML(content);
 					
 					design.item.create(o);
-					$jd('#dg-myclipart').modal('hide');
+					$('#dg-myclipart').modal('hide');
 					design.mask(false);
 				}
 				img.src = item.thumb;
@@ -2543,8 +2543,8 @@ var design={
 		create: function(e){
 			jQuery('#arts-add button').button('loading');
 			var item = e.item;
-			$jd('.ui-lock').attr('checked', false);
-			var img = $jd(e).children('img');			
+			$('.ui-lock').attr('checked', false);
+			var img = $(e).children('img');			
 			var o 			= {};
 			o.type 			= 'clipart';			
 			o.upload 		= 0;			
@@ -2586,7 +2586,7 @@ var design={
 					o.svg 		= jQuery.parseHTML(content);					
 					jQuery('#arts-add button').button('reset');
 					design.item.create(o);
-					$jd('.modal').modal('hide');
+					$('.modal').modal('hide');
 				}
 				var src = item.imgMedium;
 				src = src.replace('http://', '');
@@ -2594,7 +2594,7 @@ var design={
 			}
 			else
 			{
-				$jd.ajax({
+				$.ajax({
 					type: "POST",
 					data: item,
 					url: siteURL + "ajax.php?type=svg",
@@ -2609,7 +2609,7 @@ var design={
 							var svg = elm.children('svg');
 							var html = jQuery(svg[0]).html();
 							jQuery(svg[0]).html('<g>'+html+'</g>');
-							$jd('.modal').modal('hide');
+							$('.modal').modal('hide');
 							var e = design.item.get();
 							design.item.setup(e[0].item);
 					},
@@ -2710,7 +2710,7 @@ var design={
 		create: function(item){		
 			this.unselect();
 			jQuery('.labView.active .design-area').css('overflow', 'visible');
-			var e = $jd('#app-wrap .active .content-inner'),				
+			var e = $('#app-wrap .active .content-inner'),				
 				span = document.createElement('span');
 			var n = -1;
 			jQuery('#app-wrap .drag-item').each(function(){
@@ -2775,10 +2775,10 @@ var design={
 			
 			e.append(span);
 					
-			this.move($jd(span));
-			this.resize($jd(span));	
+			this.move($(span));
+			this.resize($(span));	
 			if(item.rotate == true)
-				this.rotate($jd(span));
+				this.rotate($(span));
 			design.layers.add(item);
 			this.setup(item);
 			jQuery('.btn-action-edit').css('display', 'none');
@@ -2877,7 +2877,7 @@ var design={
 		imports: function(item){
 			this.unselect();
 			jQuery('.labView.active .design-area').css('overflow', 'visible');
-			var e = $jd('#app-wrap .active .content-inner'),				
+			var e = $('#app-wrap .active .content-inner'),				
 				span = document.createElement('span');
 			var n = -1;
 			jQuery('#app-wrap .drag-item').each(function(){
@@ -2951,16 +2951,16 @@ var design={
 			
 			e.append(span);
 						
-			this.move($jd(span));
-			this.resize($jd(span));
+			this.move($(span));
+			this.resize($(span));
 			if (item.type != 'team')
 			if (item.rotate != 0)
 			{				
-				this.rotate($jd(span), item.rotate * 0.0174532925);
+				this.rotate($(span), item.rotate * 0.0174532925);
 			}
 			else
 			{
-				this.rotate($jd(span));
+				this.rotate($(span));
 			}			
 			design.layers.add(item);
 			jQuery(document).triggerHandler( "after.imports.item.design", [span, item]);
@@ -2988,7 +2988,7 @@ var design={
 			}
 		},
 		move: function(e){
-			if(!e) e = $jd('.drag-item-selected');
+			if(!e) e = $('.drag-item-selected');
 			e.draggable({
 				scroll: false,				
 				drag:function(event, ui){
@@ -3029,7 +3029,7 @@ var design={
 			
 			if(handles == 'se') {var auto = true; e = e;}
 			else {var auto = false;}
-			if(!e) e = $jd('.drag-item-selected');
+			if(!e) e = $('.drag-item-selected');
 						
 			var oldwidth = 0, oldsize=0;		
 			e.resizable({minHeight: 15, minWidth: 15,				
@@ -3037,7 +3037,7 @@ var design={
 				handles: handles,
 				start: function( event, ui ){
 					oldwidth = ui.size.width;
-					oldsize = $jd('#dg-font-size').text();
+					oldsize = $('#dg-font-size').text();
 				},
 				stop: function( event, ui ) {
 					jQuery(document).triggerHandler( "resize.item.design", ui);
@@ -3066,7 +3066,7 @@ var design={
 						e.data('block', true);
 						e.css('border', '1px solid #FF0000');
 						if(parseInt(left + $left + $width) > 490 || parseInt(top + $top + $height) > 490){
-							//$jd(this).resizable('widget').trigger('mouseup');
+							//$(this).resizable('widget').trigger('mouseup');
 						}
 					}else{
 						e.data('block', false);
@@ -3121,14 +3121,14 @@ var design={
 			this.unselect();
 			// alert('1');
 			jQuery('.labView.active .design-area').css('overflow', 'visible');
-			$jd(e).addClass('drag-item-selected');
-			$jd(e).css('border', '1px dashed #444444');
+			$(e).addClass('drag-item-selected');
+			$(e).css('border', '1px dashed #444444');
 			
-			if ($jd(e).resizable('option', 'disabled') == true)
-				$jd(e).resizable({ disabled: false, handles: 'e' });
+			if ($(e).resizable('option', 'disabled') == true)
+				$(e).resizable({ disabled: false, handles: 'e' });
 			
-			if ($jd(e).draggable('option', 'disabled') == true)
-				$jd(e).draggable({ disabled: false });
+			if ($(e).draggable('option', 'disabled') == true)
+				$(e).draggable({ disabled: false });
 			
 			design.popover('add_item_'+jQuery(e).data('type'));
 			jQuery('.add_item_'+jQuery(e).data('type')).addClass('active');
@@ -3139,15 +3139,15 @@ var design={
 			jQuery(document).triggerHandler( "select.item.design", e);
 		},
 		unselect: function(e){
-			$jd('#app-wrap .drag-item-selected').each(function(){
-				$jd(this).removeClass('drag-item-selected');
-				$jd(this).css('border', 0);	
+			$('#app-wrap .drag-item-selected').each(function(){
+				$(this).removeClass('drag-item-selected');
+				$(this).css('border', 0);	
 				
-				if ($jd(this).resizable('option', 'disabled') == false)
-					$jd(this).resizable({ disabled: true, handles: 'e' });
+				if ($(this).resizable('option', 'disabled') == false)
+					$(this).resizable({ disabled: true, handles: 'e' });
 				
-				if ($jd(this).draggable('option', 'disabled') == false)
-					$jd(this).draggable({ disabled: true });
+				if ($(this).draggable('option', 'disabled') == false)
+					$(this).draggable({ disabled: true });
 			});
 			jQuery('.labView.active .design-area').css('overflow', 'hidden');
 			jQuery( ".popover" ).hide();
@@ -3162,7 +3162,7 @@ var design={
 			if (typeof e == 'undefined') return;
 			e.parentNode.parentNode.removeChild(e.parentNode);
 			var id = jQuery(e.parentNode).data('id');
-			if($jd('#layer-'+id)) $jd('#layer-'+id).remove();
+			if($('#layer-'+id)) $('#layer-'+id).remove();
 			jQuery( "#dg-popover" ).hide('slow');
 			jQuery(document).triggerHandler( "remove.item.design", e);
 			design.print.colors();
@@ -3246,7 +3246,7 @@ var design={
 			design.popover('add_item_'+item.type);
 		},
 		get: function(){
-			var e = $jd('#app-wrap .drag-item-selected');
+			var e = $('#app-wrap .drag-item-selected');
 			return e;
 		},
 		refresh: function(name){
@@ -3289,7 +3289,7 @@ var design={
 			design.ajax.getPrice();
 		},
 		update: function(e){			
-			var o = $jd(e),
+			var o = $(e),
 				type = o.data('type'),
 				css = e.style;
 			
@@ -3301,11 +3301,11 @@ var design={
 			}else{
 				var deg = design.convert.radDeg(css.transform);
 			}
-			$jd('.rotate-value').val(deg);
+			$('.rotate-value').val(deg);
 			
 			/* width and height */
-			$jd('#'+type+'-width').val(design.convert.px(css.width));
-			$jd('#'+type+'-height').val(design.convert.px(css.height));
+			$('#'+type+'-width').val(design.convert.px(css.width));
+			$('#'+type+'-height').val(design.convert.px(css.height));
 			
 			switch(type){
 				case 'clipart':
@@ -3404,8 +3404,8 @@ var design={
 			jQuery(document).triggerHandler( "add.layers.design", [li, item]);
 		},
 		remove: function(id){
-			var e = $jd('#item-'+id).children('.item-remove-on');
-			$jd('#layer-'+id).remove();
+			var e = $('#item-'+id).children('.item-remove-on');
+			$('#layer-'+id).remove();
 			if (typeof e[0] != 'undefined')
 			{
 				design.item.remove(e[0]);
@@ -3418,18 +3418,18 @@ var design={
 			}
 		},
 		sort: function(){
-			var zIndex = $jd('#layers .layer').length;
-			$jd('#layers .layer').each(function(){
-				var id = $jd(this).attr('id').replace('layer-', '');
-				$jd('#item-'+id).css('z-index', zIndex);
+			var zIndex = $('#layers .layer').length;
+			$('#layers .layer').each(function(){
+				var id = $(this).attr('id').replace('layer-', '');
+				$('#item-'+id).css('z-index', zIndex);
 				zIndex--;
 			});
 		}
 	},
 	tabs:{
 		toolbar: function(e){
-			$jd('ul.dg-panel li.panel').hide('slow');
-			$jd('#'+e).show('slow');			
+			$('ul.dg-panel li.panel').hide('slow');
+			$('#'+e).show('slow');			
 		}
 	},
 	menu: function(type){
@@ -4130,10 +4130,10 @@ var design={
 	}
 }
 
-$jd(document).ready(function(){
+$(document).ready(function(){
 	design.ini();
 	
-	$jd('#design-area').click(function(e){
+	$('#design-area').click(function(e){
 		var topCurso=!document.all ? e.clientY: event.clientY;
 		var leftCurso=!document.all ? e.clientX: event.clientX;
 		var mouseDownAt = document.elementFromPoint(leftCurso,topCurso);
@@ -4144,7 +4144,7 @@ $jd(document).ready(function(){
 		{
 			design.item.unselect();
 			e.preventDefault();
-			$jd('.drag-item').click(function(){design.item.select(this)});
+			$('.drag-item').click(function(){design.item.select(this)});
 		}
 	});
 });

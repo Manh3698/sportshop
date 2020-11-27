@@ -5,7 +5,9 @@
 /*#dg-popover{
     display: none !important;
 }*/
-
+.popover {
+  top: 199px !important;
+}
 .ui-helper {
   width: 100% !important;
 }
@@ -829,6 +831,10 @@ body {
   display: none;
 }
 
+.popover.right .arrow {
+  top: 17% !important;
+}
+
 /* ----------------------------- Begin Left ------------------------*/
 
 #dg-left {
@@ -1355,12 +1361,13 @@ div.dg-tools small {
   display: block;
 }
 
-#dg-help-functions {
-  /*display: none;*/
-}
 
 #dg-help-functions span.btn {
   margin: -1px 0 0;
+}
+
+.btn-sm{
+  border: 1px solid transparent;
 }
 
 #dg-help-functions span.btn:first-child {
@@ -1600,6 +1607,9 @@ div.dg-tools small {
   #dg-popover .popover-title .popover-close {
     display: none;
   }
+  .popover .popover-title {
+    cursor: pointer !important;
+  } 
   #dg-popover .popover-title {
     background-color: #007aff;
     border: 0 none;
@@ -2009,7 +2019,7 @@ div.dg-tools small {
 }
 
 .popover {
-  left: 34px;
+  left: 150px;
 }
 
 .ui-icon-gripsmall-diagonal-se {
@@ -2092,9 +2102,6 @@ div.dg-tools small {
   width: 240px;
 }
 
-.popover .popover-title {
-  cursor: move;
-}
 
 input.input-small {
   font-size: 12px;
@@ -3624,6 +3631,10 @@ ul.choose_payment .description {
   width: 42%;
 }
 
+.add_item_text{
+  cursor: pointer;
+}
+
 #options-add_item_text .row.toolbar-action-outline {
   float: right;
   text-align: left;
@@ -4078,4 +4089,57 @@ body.fb_hidden {
 
 .fb_iframe_widget_fluid span {
   width: 100%
+}
+.box-container {
+  position: absolute;
+  width: 200px;
+  height: 296px;
+  outline: 1px solid black;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+}
+.box-container span:first-of-type {
+  position: absolute;
+  left: 50%;
+  transform: translate3d(-50%, -100%, 0);
+}
+.box-container span:nth-of-type(2) {
+  position: absolute;
+  top: 50%;
+  transform: translate3d(-100%, -50%, 0);
+}
+.modal.fade.in {
+  overflow: hidden;
+}
+.fade.in {
+  opacity: 1;
+}
+.modal.fade .modal-dialog {
+  transition: transform .3s ease-out;
+  transform: translate(0,0) !important;
+}
+.modal-header1 {
+  min-height: 16.42857143px;
+  padding: 15px;
+  border-bottom: 1px solid #e5e5e5
+}
+.modal-header1 .close {
+  margin-top: -2px;
+}
+.modal-header1 > ul#upload-tabs {
+  bottom: -13px;
+  display: inline-block;
+  list-style: none outside none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+#divContainer{ 
+  cursor:move;
+} 
+.ui-icon-gripsmall-diagonal-se {
+  background-position: -173px -44px;
+  bottom: -16px;
+  right: -18px;
 }

@@ -1,0 +1,203 @@
+<div class="caption">
+    <h2>Sản phẩm : Áo</h2>
+</div>
+<div class="div2">
+    <a href="" type="button" class="btn-add" data-toggle="modal" data-target="#exampleModalCenter">
+        <i class="fa fa-check"></i>
+        Thêm sản phẩm
+    </a>
+    <input type="search" class="search" placeholder="Tìm kiếm sản phẩm">
+</div>
+<div>
+    <table class="table">
+        <thead class="thead">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Tên sản phẩm</th>
+            <th scope="col">Mã sản phẩm</th>
+            <th scope="col">Hình ảnh</th>
+            <th scope="col">Số lượng</th>
+            <th scope="col">Giá bán(mới)</th>
+            <th scope="col">Công cụ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Áo đội bóng</td>
+            <td>abc</td>
+            <td><img src="../../../assets/logo.jpg" alt=""></td>
+            <td>abc</td>
+            <td>abc</td>
+            <td>
+                <ul>
+                    <li>
+                        <a href="" type="button" class="btn-edit" data-toggle="modal" data-target="#modalEdit">
+                            <i class="fa fa-w fa-edit"></i>Chỉnh sửa
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" type="button" class="btn-delete" data-toggle="modal" data-target="#modalDelete">
+                            <i class="fa fa-th-list"></i>Xóa
+                        </a>
+                    </li>
+                    <!-- <li><a href="" type="button" class="btn-list"><i class="fa fa-th-list"></i></a></li> -->
+                </ul>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Giày đá bóng</td>
+            <td>abc</td>
+            <td><img src="../../../assets/logo.jpg" alt=""></td>
+            <td>abc</td>
+            <td>abc</td>
+            <td>
+                <ul>
+                    <li><a href="" type="button" class="btn-edit"><i class="fa fa-w fa-edit"></i>Chỉnh sửa</a></li>
+                    <li><a href="" type="button" class="btn-delete"><i class="fa fa-th-list"></i>Xóa</a></li>
+                    <!-- <li><a href="" type="button" class="btn-list"><i class="fa fa-th-list"></i></a></li> -->
+                </ul>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Giày đá bóng</td>
+            <td>abc</td>
+            <td><img src="../../../assets/logo.jpg" alt=""></td>
+            <td>abc</td>
+            <td>abc</td>
+            <td>
+                <ul>
+                    <li><a href="" type="button" class="btn-edit"><i class="fa fa-w fa-edit"></i>Chỉnh sửa</a></li>
+                    <li><a href="" type="button" class="btn-delete"><i class="fa fa-th-list"></i>Xóa</a></li>
+                    <!-- <li><a href="" type="button" class="btn-list"><i class="fa fa-th-list"></i></a></li> -->
+                </ul>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">4</th>
+            <td>Giày đá bóng</td>
+            <td>abc</td>
+            <td><img src="../../../assets/logo.jpg" alt=""></td>
+            <td>abc</td>
+            <td>abc</td>
+            <td>
+                <ul>
+                    <li><a href="" type="button" class="btn-edit"><i class="fa fa-w fa-edit"></i>Chỉnh sửa</a></li>
+                    <li><a href="" type="button" class="btn-delete"><i class="fa fa-th-list"></i>Xóa</a></li>
+                    <!-- <li><a href="" type="button" class="btn-list"><i class="fa fa-th-list"></i></a></li> -->
+                </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title" id="exampleModalLongTitle">Thêm sản phẩm</h3>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form novalidate>
+                <div class="form-group">
+                  <label>Tên sản phẩm</label>
+                  <input type="text" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label>Hình ảnh</label>
+                  <input type="file" class="form-control">
+                </div>             
+                <div class="form-group">
+                  <label>Số lượng</label>
+                  <input type="number" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label>Nội dung</label>
+                  <ckeditor [editor]="Editor"></ckeditor>  
+              </div>  
+                <div class="form-group">
+                    <label>Giá mới</label>
+                    <input type="number" class="form-control">
+                </div> 
+                <div class="form-group">
+                    <label>Giá cũ</label>
+                    <input type="number" class="form-control">
+                </div>            
+              </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+          <button type="button" class="btn btn-primary">Thêm</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<div class="modal fade" id="modalEdit" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title" id="exampleModalLongTitle">Thay đổi thông tin</h3>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form novalidate>
+                <div class="form-group">
+                  <label>Tên sản phẩm</label>
+                  <input type="text" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label>Hình ảnh</label>
+                  <input type="file" class="form-control">
+                </div>             
+                <div class="form-group">
+                  <label>Số lượng</label>
+                  <input type="number" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label>Nội dung</label>
+                  <ckeditor [editor]="Editor"></ckeditor>  
+                </div>  
+                <div class="form-group">
+                    <label>Giá mới</label>
+                    <input type="number" class="form-control">
+                </div> 
+                <div class="form-group">
+                    <label>Giá cũ</label>
+                    <input type="number" class="form-control">
+                </div>            
+              </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+          <button type="button" class="btn btn-primary">Thêm</button>
+        </div>
+      </div>
+    </div>
+</div>
+<div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title" id="exampleModalLongTitle">Bạn có muốn xóa sản phẩm này không</h3>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body popup">
+            <img class="question" src="../../../assets/chamhoi.jpg" alt="">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+          <button type="button" class="btn btn-primary">Xóa</button>
+        </div>
+      </div>
+    </div>
+</div>

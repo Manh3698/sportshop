@@ -1,0 +1,130 @@
+<div class="caption">
+    <h2>Danh mục sản phẩm</h2>
+</div>
+<div class="div2">
+    <a href="" type="button" class="btn-add" data-toggle="modal" data-target="#modalAdd">
+        <i class="fa fa-check"></i>
+        Thêm danh mục
+    </a>
+    <!-- <form class="search" action="" style="float: right;"> -->
+      <input type="search" class="search" placeholder="Tìm kiếm danh mục">
+      <!-- <i class="fa fa-search"></i> -->
+    <!-- </form> -->
+</div>
+<div>
+    <table class="table">
+        <thead class="thead">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Tên danh mục</th>
+            <th scope="col">Xem sản phẩm</th>
+            <th scope="col">Công cụ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Áo đội bóng</td>
+            <td><a [routerLinkActive]="['router-link-active']" routerLink="/admin/product" type="button" class="btn-list"><i class="fa fa-th-list"></i>Xem</a></td>
+            <td>
+                <ul>
+                    <li><a  type="button" class="btn-edit" data-toggle="modal" data-target="#modalEdit"><i class="fa fa-w fa-edit"></i>Chỉnh sửa</a></li>
+                    <li><a  type="button" class="btn-delete" data-toggle="modal" data-target="#modalDelete"><i class="fa fa-th-list"></i>Xóa</a></li>
+                    <!-- <li><a href="" type="button" class="btn-list"><i class="fa fa-th-list"></i></a></li> -->
+                </ul>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Giày đá bóng</td>
+            <td><a href="" type="button" class="btn-list"><i class="fa fa-th-list"></i>Xem</a></td>
+            <td>
+                <ul>
+                    <li><a href="" type="button" class="btn-edit"><i class="fa fa-w fa-edit"></i>Chỉnh sửa</a></li>
+                    <li><a href="" type="button" class="btn-delete"><i class="fa fa-th-list"></i>Xóa</a></li>
+                    <!-- <li><a href="" type="button" class="btn-list"><i class="fa fa-th-list"></i></a></li> -->
+                </ul>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Giày thể thao</td>
+            <td><a href="" type="button" class="btn-list"><i class="fa fa-th-list"></i>Xem</a></td>
+            <td>
+                <ul>
+                    <li><a href="" type="button" class="btn-edit"><i class="fa fa-w fa-edit"></i>Chỉnh sửa</a></li>
+                    <li><a href="" type="button" class="btn-delete"><i class="fa fa-th-list"></i>Xóa</a></li>
+                    <!-- <li><a href="" type="button" class="btn-list"><i class="fa fa-th-list"></i></a></li> -->
+                </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+</div>
+<div class="modal fade" id="modalAdd" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="exampleModalLongTitle">Thêm sản phẩm</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <form novalidate>
+              <div class="form-group">
+                <label>Tên danh mục</label>
+                <input type="text" class="form-control">
+              </div>         
+            </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+        <button type="button" class="btn btn-primary">Thêm</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="modalEdit" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="exampleModalLongTitle">Chỉnh sửa tên danh mục</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <form novalidate>
+              <div class="form-group">
+                <label>Tên danh mục</label>
+                <input type="text" class="form-control">
+              </div>         
+            </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+        <button type="button" class="btn btn-primary">Sửa</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="exampleModalLongTitle">Bạn có muốn xóa danh mục này không</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body popup">
+          <img class="question" src="../../../assets/chamhoi.jpg" alt="">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+        <button type="button" class="btn btn-primary">Xóa</button>
+      </div>
+    </div>
+  </div>
+</div>

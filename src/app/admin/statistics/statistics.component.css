@@ -1,0 +1,15 @@
+.div-chart{
+    margin-top: 30px;
+    border: 1px solid rgb(211, 204, 204);
+}
+.div-chart h2{
+    background-color: rgb(211, 204, 204);
+    padding: 10px 5px;
+    border: 1px solid rgb(211, 204, 204);
+}
+.div-chart h2 i{
+    margin-right: 10px;
+}
+.chart{
+    margin: 20px 20px;
+}

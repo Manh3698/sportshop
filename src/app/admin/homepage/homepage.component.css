@@ -1,0 +1,59 @@
+.div-caption{
+    display: flex;
+    background-color: rgb(211, 204, 204);
+    margin-top: 0 !important;
+    padding: 5px;
+    border: 1px solid rgb(211, 204, 204);
+}
+.div-caption i{
+   padding-right: 10px;
+}
+.detail{
+    border: 1px solid rgb(211, 204, 204);
+    display: flex;
+    justify-content: center;
+}
+.detail .item{
+    /* padding: 10px 20px; */border-radius: 3px;
+    border: 1px solid rgb(211, 204, 204);
+    height: 80px;
+    margin: 20px 10px;
+    padding: 10px 20px;
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+.item i{
+    padding-right: 20px;
+    font-size: xxx-large;
+}
+.item span{
+    font-weight: bold;
+}
+.detail .item1{
+    background-color: tomato;
+}
+.detail .item2{
+    background-color: violet;
+}
+.detail .item3{
+    background-color: turquoise;
+}
+.detail .item4{
+    background-color: tomato;
+}
+.div-chart{
+    margin-top: 30px;
+    border: 1px solid rgb(211, 204, 204);
+}
+.div-chart h2{
+    background-color: rgb(211, 204, 204);
+    padding: 10px 5px;
+    border: 1px solid rgb(211, 204, 204);
+}
+.div-chart h2 i{
+    margin-right: 10px;
+}
+.chart{
+    margin: 20px 20px;
+}

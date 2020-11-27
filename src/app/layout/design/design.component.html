@@ -2,13 +2,9 @@
     <div id="dg-wapper" class="col-md-12">
         <div class="alert alert-danger" id="designer-alert" role="alert" style="display:none;"></div>
         <div id="dg-mask" class="loading"></div>
-
         <!-- BEGIN main of layout -->
         <div id="dg-designer">
-
             <!-- BEGIN left -->
-
-
             <div class="col-left">
                 <div class="text-center product-btn-info">
                     <a id="showview3ds123" href="#none" data-target="#modal-product-info" data-toggle="modal"
@@ -17,7 +13,6 @@
                     <a href="#none" data-target="#modal-product-size" data-toggle="modal"
                         class="btn btn-default pull-right btn-sm"><i class="fa fa-male"></i> <span>Sizes</span></a>
                 </div>
-
                 <div id="dg-left" class="width-100">
                     <div class="dg-box width-100">
                         <ul class="menu-left">
@@ -27,49 +22,16 @@
                                     <i class="glyphicons t-shirt"></i> Chọn sản phẩm </a>
                             </li>
                             <li>
-                                <a href="javascript:void(0)" class="add_item_text" title="">
+                                <a (click)="onClick()" href="javascript:void(0)" class="add_item_text" title=""
+                                    id="btClickMe">
                                     <i class="glyphicons text_bigger"></i> Thêm Text </a>
                             </li>
-
                             <li>
-                                <a href="javascript:void(0)" class="add_item_clipart" title="" data-toggle="modal"
-                                    data-target="#dg-cliparts">
-                                    <i class="glyphicons picture"></i> Thêm hình mẫu</a>
-                            </li>
-
-                            <li>
-                                <a href="javascript:void(0)" title="" id="duma" data-toggle="modal"
-                                    data-target="#dg-myclipart">
+                                <a (click)="uploadImg()" href="javascript:void(0)" title="" id="duma"
+                                    data-toggle="modal" data-target="#dg-myclipart">
                                     <i class="glyphicons cloud-upload"></i> Tải lên hình ảnh </a>
                             </li>
-
                         </ul>
-                    </div>
-
-                    <div class="dg-box width-100 div-layers no-active">
-                        <div class="layers-toolbar">
-                            <button type="button" class="btn btn-default">
-                                <i class="fa fa-long-arrow-down"></i>
-                                <i class="fa fa-long-arrow-up"></i>
-                            </button>
-                            <button type="button" class="btn btn-default btn-sm">
-                                <i class="fa fa-angle-right"></i>
-                            </button>
-                        </div>
-
-                        <div class="accordion ui-accordion ui-widget ui-helper-reset" role="tablist">
-                            <h3 class="ui-accordion-header ui-helper-reset ui-state-default ui-accordion-header-active ui-state-active ui-corner-top ui-accordion-icons"
-                                role="tab" id="ui-accordion-1-header-0" aria-controls="dg-layers" aria-selected="true"
-                                aria-expanded="true" tabindex="0"><span
-                                    class="ui-accordion-header-icon ui-icon ui-icon-triangle-1-s"></span>Lớp</h3>
-                            <div id="dg-layers"
-                                class="ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom ui-accordion-content-active"
-                                aria-labelledby="ui-accordion-1-header-0" role="tabpanel" aria-hidden="false"
-                                style="display: block;">
-                                <ul id="layers" class="ui-sortable">
-                                </ul>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -92,85 +54,27 @@
             </style>
             <div class="col-xs-12 col-md-12 col-center align-center">
                 <!-- Begin sidebar -->
-                <div id="dg-sidebar">
-                    <div class="dg-tools">
-                        <button type="button" class="btn btn-default btn-sm" onclick="design.save()">
-
-                            Lưu </button>
-
-                        <a href="javascript:void(0)" data-type="preview" class="dg-tool btn btn-default btn-sm">
-
-                            Xem </a>
-                        <a href="javascript:void(0)" data-type="zoom" title="Zoom"
-                            class="dg-tool btn btn-default btn-sm">
-
-                            Zoom </a>
-                        <button type="button" class="btn btn-default btn-sm" onclick="design.save()">
-
-                            Share </button>
-                    </div>
-                    <style>
-                        @media screen and (max-width: 680px) {
-                            .daylatrenmobile {
-                                display: block !important;
-                            }
-                        }
-                    </style>
-                    <div class="daylatrenmobile" style="margin-top:10px;display:none;">
-                        <button type="button" class="btn btn-default btn-sm" id="addAnh">
-                            Tải ảnh
-                        </button>
-                        <a href="javascript:void(0)" class="dg-tool btn btn-default btn-sm" id="addHinhMau">
-                            Hình mẫu
-                        </a>
-                        <a href="javascript:void(0)" class="dg-tool btn btn-default btn-sm" id="addChu">
-                            Thêm chữ
-                        </a>
-                        <a href="javascript:void(0)" class="dg-tool btn btn-default btn-sm btn btn-warning btn-addcart"
-                            id="ThanhToanbtn">
-                            Mua ngay
-                        </a>
-                    </div>
-                    <script type="text/javascript">
-                        jQuery(document).ready(function () {
-                            jQuery('#addAnh').click(function () {
-                                jQuery('#duma').trigger('click');
-                            });
-                            jQuery('#addHinhMau').click(function () {
-                                jQuery('.add_item_clipart').trigger('click');
-                            });
-                            jQuery('#addChu').click(function () {
-                                jQuery('.add_item_text').trigger('click');
-                            });
-                            jQuery('#ThanhToanbtn').click(function () {
-                                jQuery('.btnMuangaynay').trigger('click');
-                            });
-                        })
-                    </script>
-                </div>
-
-
-
                 <!-- END sidebar -->
 
                 <!-- design area -->
                 <div id="design-area" class="div-design-area">
                     <div id="app-wrap" class="div-design-area">
-
                         <!-- begin front design -->
                         <div id="view-front" class="labView active">
                             <div class="product-design"><img class="modelImage" id="front-img-images-0"
-                                    src="../../../assets/Screenshot_2.png"
+                                    src="../../../assets/front.png"
                                     style="width: 473px; height: 473px; top: 12px; left: 12px; z-index: auto;"></div>
                             <div class="design-area"
-                                style="height: 296px; width: 200px; left: 150px; top: 92.5px; border-radius: 0px; z-index: 200;">
-                                <div class="content-inner">
-                                    
+                                style="height: 296px; width: 200px; left: 150px; top: 102.5px; border-radius: 0px; z-index: 200;">
+                                <div class="content-inner content-inner-design" id="divContainer">
+
                                 </div>
                             </div>
                             <div class="mask-items-view">
                                 <div class="mask-items-area">
-                                    <div class="mask-item"></div>
+                                    <div class="mask-item">
+
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -183,7 +87,9 @@
                                     style="width: 500px; height: 500px; top: 0px; left: 0px; z-index: auto;"></div>
                             <div class="design-area"
                                 style="height: 297px; width: 205px; left: 148px; top: 55px; border-radius: 0px; z-index: 300;">
-                                <div class="content-inner"></div>
+                                <div class="content-inner">
+
+                                </div>
                             </div>
                             <div class="mask-items-view">
                                 <div class="mask-items-area">
@@ -192,86 +98,6 @@
                             </div>
                         </div>
                         <!-- end back design -->
-
-                        <!-- begin left design -->
-                        <div id="view-left" class="labView">
-                            <div class="product-design"><img class="modelImage" id="left-img-images-0"
-                                    src="https://printstyle.vn/tshirtecommerce//uploaded/design/ao co tron/dg-designer-6f0ca672150458173319702160510429470.png"
-                                    style="width: 371px; height: 362px; top: 45px; left: 53px; z-index: auto;"></div>
-                            <div class="design-area"
-                                style="height: 130px; width: 114px; left: 197.266px; top: 216px; border-radius: 0px;">
-                                <div class="content-inner"></div>
-                            </div>
-                            <div class="mask-items-view">
-                                <div class="mask-items-area">
-                                    <div class="mask-item"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- end left design -->
-
-                        <!-- begin right design -->
-                        <div id="view-right" class="labView">
-                            <div class="product-design"><img class="modelImage" id="right-img-images-0"
-                                    src="https://printstyle.vn/tshirtecommerce//uploaded/design/ao co tron/dg-designer-9ecff545150458173066217894810716123.png"
-                                    style="width: 356px; height: 366px; top: 61px; left: 60px; z-index: auto;"></div>
-                            <div class="design-area"
-                                style="height: 130px; width: 115px; left: 160px; top: 230px; border-radius: 0px;">
-                                <div class="content-inner"></div>
-                            </div>
-                            <div class="mask-items-view">
-                                <div class="mask-items-area">
-                                    <div class="mask-item"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- end right design -->
-
-
-                        <!-- BEGIN help functions -->
-                        <div id="dg-help-functions">
-                            <div class="btn-group-vertical" role="group" aria-label="Group functions">
-                                <span class="btn btn-default" data-placement="left" data-toggle="tooltip"
-                                    data-original-title="Toggle Flip" onclick="design.tools.flip('x')">
-                                    <i class="glyphicons transfer glyphicons-12"></i>
-                                </span>
-                                <span class="btn btn-default" data-placement="left" data-toggle="tooltip"
-                                    data-original-title="Điều chỉnh theo chiều ngang"
-                                    onclick="design.tools.move('vertical')">
-                                    <i class="glyphicon glyphicon-object-align-vertical"></i>
-                                </span>
-                                <span class="btn btn-default" data-placement="left" data-toggle="tooltip"
-                                    data-original-title="Chỉnh dòng theo chiều dọc"
-                                    onclick="design.tools.move('horizontal')">
-                                    <i class="glyphicon glyphicon-object-align-horizontal"></i>
-                                </span>
-                                <span class="btn btn-default" data-placement="left" data-toggle="tooltip"
-                                    data-original-title="Sang trái" onclick="design.tools.move('left')">
-                                    <i class="fa fa-chevron-left"></i>
-                                </span>
-                                <span class="btn btn-default" data-placement="left" data-toggle="tooltip"
-                                    data-original-title="Sang phải" onclick="design.tools.move('right')">
-                                    <i class="fa fa-chevron-right"></i>
-                                </span>
-                                <span class="btn btn-default" data-placement="left" data-toggle="tooltip"
-                                    data-original-title="Lên trên" onclick="design.tools.move('up')">
-                                    <i class="fa fa-chevron-up"></i>
-                                </span>
-                                <span class="btn btn-default" data-placement="left" data-toggle="tooltip"
-                                    data-original-title="Xuống dưới" onclick="design.tools.move('down')">
-                                    <i class="fa fa-chevron-down"></i>
-                                </span>
-                                <span class="btn btn-default" data-placement="left" data-toggle="tooltip"
-                                    data-original-title="Xóa" onclick="design.tools.remove()">
-                                    <i class="fa fa-trash-o"></i>
-                                </span>
-                                <span class="btn btn-default" data-placement="left" data-toggle="tooltip"
-                                    data-original-title="Thiết lập lại" onclick="design.tools.reset(this)">
-                                    <i class="fa fa-refresh"></i>
-                                </span>
-                            </div>
-                        </div>
-                        <!-- END help functions -->
                     </div>
                 </div>
                 <ul class="nav nav-tabs" role="tablist">
@@ -279,14 +105,11 @@
                             data-toggle="tab">Hình up lên</a></li>
                     <li role="presentation"><a href="#profile" class="clickhinhanhmau" aria-controls="profile"
                             role="tab" data-toggle="tab">Hình ảnh mẫu</a></li>
-
                 </ul>
                 <div id="Dayladivhinhanh"
                     style="float:left;position:relative;z-index:9999999999999;background:#C7C8CA;width:100%;">
                     <div>
-
                         <!-- Nav tabs -->
-
 
                         <!-- Tab panes -->
                         <div class="tab-content">
@@ -297,13 +120,8 @@
                             </div>
                             <div role="tabpanel" class="tab-pane" id="profile">
                             </div>
-
                         </div>
-
                     </div>
-
-
-
                 </div>
                 <input id="iduser" type="hidden" value="1">
                 <style>
@@ -312,15 +130,11 @@
                         height: 50px !important;
                     }
                 </style>
-                <div class="" id="product-thumbs"><a class="box-thumb" href="javascript:void(0)"><img width="40"
-                            height="40"
-                            src="https://printstyle.vn/tshirtecommerce//uploaded/design/Case/ao/dg-designer-4dcf4354146237658447896726710021304.png"></a><a
-                        class="box-thumb" href="javascript:void(0)"><img width="40" height="40"
-                            src="https://printstyle.vn/tshirtecommerce//uploaded/design/ao co tron/dg-designer-b0bef4c9150458172415643518310033228.png"></a><a
-                        class="box-thumb" href="javascript:void(0)"><img width="40" height="40"
-                            src="https://printstyle.vn/tshirtecommerce//uploaded/design/ao co tron/dg-designer-6f0ca672150458173319702160510429470.png"></a><a
-                        class="box-thumb" href="javascript:void(0)"><img width="40" height="40"
-                            src="https://printstyle.vn/tshirtecommerce//uploaded/design/ao co tron/dg-designer-9ecff545150458173066217894810716123.png"></a>
+                <div class="" id="product-thumbs">
+                    <a class="box-thumb" href="javascript:void(0)"><img width="40" height="40"
+                            src="https://printstyle.vn/tshirtecommerce//uploaded/design/Case/ao/dg-designer-4dcf4354146237658447896726710021304.png"></a>
+                    <a class="box-thumb" href="javascript:void(0)"><img width="40" height="40"
+                            src="https://printstyle.vn/tshirtecommerce//uploaded/design/ao co tron/dg-designer-b0bef4c9150458172415643518310033228.png"></a>
                 </div>
             </div>
             <!-- END left -->
@@ -588,209 +402,7 @@ background: rgb(76, 151, 151);" data="right">Tùy chọn</span>
 
     </div>
 </div>
-
-<a class="modal-link sparkling-modal-link" href="https://www.facebook.com/phongcachinan/"></a>
-<a class="modal-link2" target="_blank" href="https://www.facebook.com/phongcachinan/"></a>
-<div id="screen_colors_body" style="display:none;">
-    <div id="screen_colors">
-        <div class="screen_colors_top">
-            <div class="col-xs-5 col-md-5 text-left" id="screen_colors_images">
-            </div>
-            <div class="col-xs-7 col-md-7 text-left">
-                <h4>Chọn màu mực </h4>
-                <span class="help-block">Chọn màu xuất hiện trên thiết kế của bạn.</span>
-                <span class="help-block">Điều này giúp chúng tôi xác định giá dựa trên số màu sắc trên thiết kế của
-                    bạn.</span>
-                <p><strong> Note: Chức năng này không ảnh hưởng đến màu sắc của thiết kế</strong></p>
-                <span id="screen_colors_error"></span>
-                <div id="screen_colors_list" class="list-colors"><span class="bg-colors"
-                        onclick="design.print.addColor(this)" style="background-color:#000000" data-color="000000"
-                        title="000000"></span><span class="bg-colors" onclick="design.print.addColor(this)"
-                        style="background-color:#FCFCFC" data-color="FCFCFC" title="FCFCFC"></span><span
-                        class="bg-colors" onclick="design.print.addColor(this)" style="background-color:#7FFFD4"
-                        data-color="7FFFD4" title="7FFFD4"></span><span class="bg-colors"
-                        onclick="design.print.addColor(this)" style="background-color:#007FFF" data-color="007FFF"
-                        title="007FFF"></span><span class="bg-colors" onclick="design.print.addColor(this)"
-                        style="background-color:#F5F5DC" data-color="F5F5DC" title="F5F5DC"></span><span
-                        class="bg-colors" onclick="design.print.addColor(this)" style="background-color:#964B00"
-                        data-color="964B00" title="964B00"></span><span class="bg-colors"
-                        onclick="design.print.addColor(this)" style="background-color:#F0DC82" data-color="F0DC82"
-                        title="F0DC82"></span><span class="bg-colors" onclick="design.print.addColor(this)"
-                        style="background-color:#CC5500" data-color="CC5500" title="CC5500"></span><span
-                        class="bg-colors" onclick="design.print.addColor(this)" style="background-color:#C41E3A"
-                        data-color="C41E3A" title="C41E3A"></span><span class="bg-colors"
-                        onclick="design.print.addColor(this)" style="background-color:#960018" data-color="960018"
-                        title="960018"></span><span class="bg-colors" onclick="design.print.addColor(this)"
-                        style="background-color:#ACE1AF" data-color="ACE1AF" title="ACE1AF"></span><span
-                        class="bg-colors" onclick="design.print.addColor(this)" style="background-color:#DE3163"
-                        data-color="DE3163" title="DE3163"></span><span class="bg-colors"
-                        onclick="design.print.addColor(this)" style="background-color:#007BA7" data-color="007BA7"
-                        title="007BA7"></span><span class="bg-colors" onclick="design.print.addColor(this)"
-                        style="background-color:#7FFF00" data-color="7FFF00" title="7FFF00"></span><span
-                        class="bg-colors" onclick="design.print.addColor(this)" style="background-color:#0047AB"
-                        data-color="0047AB" title="0047AB"></span><span class="bg-colors"
-                        onclick="design.print.addColor(this)" style="background-color:#B87333" data-color="B87333"
-                        title="B87333"></span><span class="bg-colors" onclick="design.print.addColor(this)"
-                        style="background-color:#FF7F50" data-color="FF7F50" title="FF7F50"></span><span
-                        class="bg-colors" onclick="design.print.addColor(this)" style="background-color:#FFFDD0"
-                        data-color="FFFDD0" title="FFFDD0"></span><span class="bg-colors"
-                        onclick="design.print.addColor(this)" style="background-color:#DC143C" data-color="DC143C"
-                        title="DC143C"></span><span class="bg-colors" onclick="design.print.addColor(this)"
-                        style="background-color:#00FFFF" data-color="00FFFF" title="00FFFF"></span><span
-                        class="bg-colors" onclick="design.print.addColor(this)" style="background-color:#50C878"
-                        data-color="50C878" title="50C878"></span><span class="bg-colors"
-                        onclick="design.print.addColor(this)" style="background-color:#FFD700" data-color="FFD700"
-                        title="FFD700"></span><span class="bg-colors" onclick="design.print.addColor(this)"
-                        style="background-color:#808080" data-color="808080" title="808080"></span><span
-                        class="bg-colors" onclick="design.print.addColor(this)" style="background-color:#00A86B"
-                        data-color="00A86B" title="00A86B"></span><span class="bg-colors"
-                        onclick="design.print.addColor(this)" style="background-color:#C3B091" data-color="C3B091"
-                        title="C3B091"></span><span class="bg-colors" onclick="design.print.addColor(this)"
-                        style="background-color:#E6E6FA" data-color="E6E6FA" title="E6E6FA"></span><span
-                        class="bg-colors" onclick="design.print.addColor(this)" style="background-color:#CCFF00"
-                        data-color="CCFF00" title="CCFF00"></span><span class="bg-colors"
-                        onclick="design.print.addColor(this)" style="background-color:#FF00FF" data-color="FF00FF"
-                        title="FF00FF"></span><span class="bg-colors" onclick="design.print.addColor(this)"
-                        style="background-color:#800000" data-color="800000" title="800000"></span><span
-                        class="bg-colors" onclick="design.print.addColor(this)" style="background-color:#993366"
-                        data-color="993366" title="993366"></span><span class="bg-colors"
-                        onclick="design.print.addColor(this)" style="background-color:#C8A2C8" data-color="C8A2C8"
-                        title="c8a2c8"></span><span class="bg-colors" onclick="design.print.addColor(this)"
-                        style="background-color:#000080" data-color="000080" title="000080"></span><span
-                        class="bg-colors" onclick="design.print.addColor(this)" style="background-color:#CC7722"
-                        data-color="CC7722" title="CC7722"></span><span class="bg-colors"
-                        onclick="design.print.addColor(this)" style="background-color:#808000" data-color="808000"
-                        title="808000"></span><span class="bg-colors" onclick="design.print.addColor(this)"
-                        style="background-color:#FF7F00" data-color="FF7F00" title="FF7F00"></span><span
-                        class="bg-colors" onclick="design.print.addColor(this)" style="background-color:#DA70D6"
-                        data-color="DA70D6" title="DA70D6"></span><span class="bg-colors"
-                        onclick="design.print.addColor(this)" style="background-color:#FFE5B4" data-color="FFE5B4"
-                        title="FFE5B4"></span><span class="bg-colors" onclick="design.print.addColor(this)"
-                        style="background-color:#CCCCFF" data-color="CCCCFF" title="CCCCFF"></span><span
-                        class="bg-colors" onclick="design.print.addColor(this)" style="background-color:#FFC0CB"
-                        data-color="FFC0CB" title="FFC0CB"></span><span class="bg-colors"
-                        onclick="design.print.addColor(this)" style="background-color:#660066" data-color="660066"
-                        title="660066"></span><span class="bg-colors" onclick="design.print.addColor(this)"
-                        style="background-color:#003399" data-color="003399" title="003399"></span><span
-                        class="bg-colors" onclick="design.print.addColor(this)" style="background-color:#CC8899"
-                        data-color="CC8899" title="CC8899"></span><span class="bg-colors"
-                        onclick="design.print.addColor(this)" style="background-color:#660099" data-color="660099"
-                        title="660099"></span><span class="bg-colors" onclick="design.print.addColor(this)"
-                        style="background-color:#FF0000" data-color="FF0000" title="FF0000"></span><span
-                        class="bg-colors" onclick="design.print.addColor(this)" style="background-color:#FF8C69"
-                        data-color="FF8C69" title="FF8C69"></span><span class="bg-colors"
-                        onclick="design.print.addColor(this)" style="background-color:#FF2400" data-color="FF2400"
-                        title="FF2400"></span><span class="bg-colors" onclick="design.print.addColor(this)"
-                        style="background-color:#704214" data-color="704214" title="704214"></span><span
-                        class="bg-colors" onclick="design.print.addColor(this)" style="background-color:#C0C0C0"
-                        data-color="C0C0C0" title="C0C0C0"></span><span class="bg-colors"
-                        onclick="design.print.addColor(this)" style="background-color:#D2B48C" data-color="D2B48C"
-                        title="D2B48C"></span><span class="bg-colors" onclick="design.print.addColor(this)"
-                        style="background-color:#008080" data-color="008080" title="008080"></span><span
-                        class="bg-colors" onclick="design.print.addColor(this)" style="background-color:#30D5C8"
-                        data-color="30D5C8" title="30D5C8"></span><span class="bg-colors"
-                        onclick="design.print.addColor(this)" style="background-color:#FF4D00" data-color="FF4D00"
-                        title="FF4D00"></span><span class="bg-colors" onclick="design.print.addColor(this)"
-                        style="background-color:#BF00BF" data-color="BF00BF" title="BF00BF"></span><span
-                        class="bg-colors" onclick="design.print.addColor(this)" style="background-color:#40826D"
-                        data-color="40826D" title="40826D"></span><span class="bg-colors"
-                        onclick="design.print.addColor(this)" style="background-color:#FFFF00" data-color="FFFF00"
-                        title="FFFF00"></span><span class="bg-colors" onclick="design.print.addColor(this)"
-                        style="background-color:#FFBF00" data-color="FFBF00" title="FFBF00"></span><span
-                        class="bg-colors" onclick="design.print.addColor(this)" style="background-color:#D1EAFF"
-                        data-color="D1EAFF" title="D1EAFF"></span><span class="bg-colors"
-                        onclick="design.print.addColor(this)" style="background-color:#74D1ED" data-color="74D1ED"
-                        title="74D1ED"></span></div>
-            </div>
-        </div>
-        <div class="screen_colors_botton">
-            <button type="button" class="btn btn-primary" onclick="design.item.setColor()">Chọn màu sắc</button>
-        </div>
-    </div>
-</div>
 <div id="dg-modal">
-
-    <!-- BEGIN product info -->
-    <div class="modal fade" id="modal-product-info" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-        aria-hidden="true" style="display: none;">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <p style="font-size:28px;">Bấm vào <a id="linkView3d" href="#" target="_blank"> đây </a> để xem 3D
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div> <!-- END product info -->
-
-    <!-- BEGIN product size -->
-    <div class="modal fade" id="modal-product-size" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-        aria-hidden="true" style="display: none;">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <div class="text-right clearfix">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12 product-detail-size">
-                            <p><img src="https://printstyle.vn/tshirtecommerce//uploaded/mausac/dg-designer-d54ce9de156117661639731686610096902.jpg"
-                                    alt=""></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> <!-- END product size -->
-
-    <!-- BEGIN Login -->
-    <div class="modal fade" id="f-login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
-        style="display: none;">
-        <div id="f-login-content" class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    <h4 class="modal-title" id="myModalLabel">Lưu thiết kế của bạn</h4>
-                </div>
-                <div class="modal-body">
-
-                    <div class="row">
-                        <!-- login form -->
-                        <div class="col-md-8">
-                            <form id="fr-login" role="form" style="margin-bottom: 5px;">
-                                <div class="form-group">
-                                    <label>Nhập địa chỉ email của bạnl:</label>
-                                    <input type="text" id="login-email" class="form-control"
-                                        placeholder="Nhập địa chỉ email của bạnl">
-                                </div>
-                                <div class="form-group">
-                                    <label>Mã thiết kế:</label>
-                                    <input type="text" id="login-password" class="form-control">
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-12">
-                            <p class="text-muted"><strong>Chú ý: </strong>Thông tin này giúp bạn lưu và chạy thiết kê.
-                                Do vậy bạn cần nhớ thông tin.</p>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-8">
-                            <button type="button" onclick="design.saveInfo(this)" autocomplete="off"
-                                class="btn btn-default btn-primary" data-loading-text="Loading">Gửi thông tin</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Login -->
-    <!-- END Login -->
-
     <!-- BEGIN products -->
     <div class="modal fade" id="dg-products" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
         aria-hidden="true" style="display: none;">
@@ -915,11 +527,12 @@ background: rgb(76, 151, 151);" data="right">Tùy chọn</span>
 
     <!-- BEGIN Upload -->
     <div class="modal fade" id="dg-myclipart" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-        aria-hidden="true" style="display: none;">
+        aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <div class="modal-header1">
+                    <button (click)="close()" type="button" class="close" data-dismiss="modal"
+                        aria-hidden="true">×</button>
 
                     <ul role="tablist" id="upload-tabs">
                         <li class="active"><a href="#upload-conputer" role="tab" data-toggle="tab">Tải lên ảnh</a></li>
@@ -987,87 +600,6 @@ background: rgb(76, 151, 151);" data="right">Tùy chọn</span>
             </div>
         </div>
     </div> <!-- END Upload -->
-
-    <!-- BEGIN Note -->
-    <div class="modal fade" id="dg-note" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
-        style="display: none;">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    <h4 class="modal-title" id="myModalLabel">Thêm chú ý</h4>
-                </div>
-                <div class="modal-body">
-                    ...
-                </div>
-            </div>
-        </div>
-    </div> <!-- END Note -->
-
-    <!-- BEGIN Help -->
-    <div class="modal fade" id="dg-help" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
-        style="display: none;">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    <h4 class="modal-title" id="myModalLabel">Trợ giúp thiết kế</h4>
-                </div>
-                <div class="modal-body">
-                    <p>Thiết kế online cho phép bạn</p>
-                    <ul>
-                        <li>Tải ảnh lên và thiết kế đủ loại màu sắc cho nhiều loại sản phẩm.</li>
-                        <li>Tạo và duy trì kho thiết kế của bạn</li>
-                        <li>Mix design elements - single image or multiple images, digital photos or artwork, as well as
-                            text.</li>
-                    </ul>
-
-                    <div id="help-tabs">
-                        <ul>
-                            <li><a href="help/product.html">Thiết kế sản phẩm</a></li>
-                            <li><a href="help/text.html">Thêm Text</a></li>
-                            <li><a href="help/art.html">Thêm Art</a></li>
-                            <li><a href="help/upload.html">Tải lên</a></li>
-                            <li><a href="help/design_idea.html">Ý tưởng thiết kế</a></li>
-                            <li><a href="help/tool.html">Công cụ</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> <!-- END Help -->
-
-    <!-- BEGIN My design -->
-    <div class="modal fade" id="dg-mydesign" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-        aria-hidden="true" style="display: none;">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    <h4 class="modal-title" id="myModalLabel">Thiết kế của tôi</h4>
-                </div>
-                <div class="modal-body">
-                    ...
-                </div>
-            </div>
-        </div>
-    </div> <!-- END My design -->
-
-    <!-- BEGIN design ideas -->
-    <div class="modal fade" id="dg-designidea" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-        aria-hidden="true" style="display: none;">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    <h4 class="modal-title" id="myModalLabel">Ý tưởng thiết kế</h4>
-                </div>
-                <div class="modal-body">
-                    ...
-                </div>
-            </div>
-        </div>
-    </div> <!-- END design ideas -->
 
     <!-- BEGIN team -->
     <div class="modal fade" id="dg-item_team_list" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
@@ -1145,116 +677,6 @@ background: rgb(76, 151, 151);" data="right">Tùy chọn</span>
         </div>
     </div> <!-- END fonts -->
 
-    <!-- BEGIN preview -->
-    <div class="modal fade" id="dg-preview" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-        aria-hidden="true" style="display: none;">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                </div>
-                <div class="modal-body" id="dg-main-slider">
-                </div>
-            </div>
-        </div>
-    </div> <!-- END preview -->
-
-    <!-- BEGIN Share -->
-
-    <div class="modal fade" id="dg-share" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
-        style="display: none;">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    <h4>Lưu xong</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Link thiết kế của bạn:</label>
-                        <input type="text" class="form-control" id="link-design-saved" value="">
-                        <br>
-                        <div style="text-align: center;">
-                            <button id="btnCopy" class="btn btn-primary btnCopy"><i class="fa fa-files-o"
-                                    aria-hidden="true"></i> Sao chép đường dẫn</button>
-                            <script type="text/javascript">
-                                document.getElementById("btnCopy").addEventListener("click", function () {
-                                    copyToClipboard(document.getElementById("link-design-saved"));
-                                });
-
-                                function copyToClipboard(elem) {
-                                    // create hidden text element, if it doesn't already exist
-                                    var targetId = "_hiddenCopyText_";
-                                    var isInput = elem.tagName === "INPUT" || elem.tagName === "TEXTAREA";
-                                    var origSelectionStart, origSelectionEnd;
-                                    if (isInput) {
-                                        // can just use the original source element for the selection and copy
-                                        target = elem;
-                                        origSelectionStart = elem.selectionStart;
-                                        origSelectionEnd = elem.selectionEnd;
-                                    } else {
-                                        // must use a temporary form element for the selection and copy
-                                        target = document.getElementById(targetId);
-                                        if (!target) {
-                                            var target = document.createElement("textarea");
-                                            target.style.position = "absolute";
-                                            target.style.left = "-9999px";
-                                            target.style.top = "0";
-                                            target.id = targetId;
-                                            document.body.appendChild(target);
-                                        }
-                                        target.textContent = elem.textContent;
-                                    }
-                                    // select the content
-                                    var currentFocus = document.activeElement;
-                                    target.focus();
-                                    target.setSelectionRange(0, target.value.length);
-
-                                    // copy the selection
-                                    var succeed;
-                                    try {
-                                        succeed = document.execCommand("copy");
-                                    } catch (e) {
-                                        succeed = false;
-                                    }
-                                    // restore original focus
-                                    if (currentFocus && typeof currentFocus.focus === "function") {
-                                        currentFocus.focus();
-                                    }
-
-                                    if (isInput) {
-                                        // restore prior selection
-                                        elem.setSelectionRange(origSelectionStart, origSelectionEnd);
-                                    } else {
-                                        // clear temporary content
-                                        target.textContent = "";
-                                    }
-                                    return succeed;
-                                }
-                            </script>
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <label class="col-xs-1 col-sm-1 col-md-1" style="line-height: 24px;">Share: </label>
-                        <div class="col-xs-1 col-sm-1 col-md-1">
-                            <a href="javascript:void(0)" onclick="design.share.facebook()"
-                                class="icon-25 share-facebook" title="Facebook"></a>
-                        </div>
-                        <div class="col-xs-1 col-sm-1 col-md-1">
-                            <a href="javascript:void(0)" onclick="design.share.twitter()" class="icon-25 share-twitter"
-                                title="Twitter"></a>
-                        </div>
-                        <div class="col-xs-1 col-sm-1 col-md-1">
-                            <a href="javascript:void(0)" onclick="design.share.pinterest()"
-                                class="icon-25 share-pinterest" title="Pinterest"></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> <!-- END Share -->
-
     <div class="modal fade bs-example-modal-lg" id="cropModal" tabindex="-1" role="dialog"
         style="z-index: 2147483647 !important; display: none;" aria-labelledby="cropModalLabel">
         <div class="modal-dialog modal-lg">
@@ -1300,136 +722,6 @@ background: rgb(76, 151, 151);" data="right">Tùy chọn</span>
             </div>
         </div>
     </div>
-    <div class="modal fade languages-modal" tabindex="-1" role="dialog" style="display: none;">
-        <div class="modal-dialog modal-sm">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                            aria-hidden="true">×</span></button>
-                    <h4 class="modal-title">Nhấn vào đây để thay đổi ngôn ngữ</h4>
-                </div>
-                <!-- <div class="modal-body">
-                                    
-                                                
-                        <a href="https://printstyle.vn//tshirtecommerce/index.php?product=71&amp;parent=176&amp;lang=en" title="English" class="btn btn-default" style="margin: 4px 2px;">
-                            <img src="addons/images/en.png" width="16"> <br>
-                            <small>English</small>
-                        </a>
-                        
-                                            
-                                    
-                                            
-                        <a href="javascript:void(0)" title="Viet Nam" class="btn btn-success" style="margin: 4px 2px;">
-                            <img src="addons/images/vn.png" width="16"> <br>
-                            <small>Viet Nam</small>
-                        </a>
-                                            
-                                    
-                                                
-                        <a href="https://printstyle.vn//tshirtecommerce/index.php?product=71&amp;parent=176&amp;lang=fr" title="French" class="btn btn-default" style="margin: 4px 2px;">
-                            <img src="addons/images/fr.png" width="16"> <br>
-                            <small>French</small>
-                        </a>
-                        
-                                            
-                                    
-                                                
-                        <a href="https://printstyle.vn//tshirtecommerce/index.php?product=71&amp;parent=176&amp;lang=ch" title="China" class="btn btn-default" style="margin: 4px 2px;">
-                            <img src="addons/images/ch.png" width="16"> <br>
-                            <small>China</small>
-                        </a>
-                        
-                                            
-                                    
-                                                
-                        <a href="https://printstyle.vn//tshirtecommerce/index.php?product=71&amp;parent=176&amp;lang=po" title="Portugal" class="btn btn-default" style="margin: 4px 2px;">
-                            <img src="addons/images/po.png" width="16"> <br>
-                            <small>Portugal</small>
-                        </a>
-                        
-                                            
-                                    
-                                                
-                        <a href="https://printstyle.vn//tshirtecommerce/index.php?product=71&amp;parent=176&amp;lang=ge" title="Germany" class="btn btn-default" style="margin: 4px 2px;">
-                            <img src="addons/images/ge.png" width="16"> <br>
-                            <small>Germany</small>
-                        </a>
-                        
-                                            
-                                    
-                                                
-                        <a href="https://printstyle.vn//tshirtecommerce/index.php?product=71&amp;parent=176&amp;lang=ne" title="Netherlands" class="btn btn-default" style="margin: 4px 2px;">
-                            <img src="addons/images/ne.png" width="16"> <br>
-                            <small>Netherlands</small>
-                        </a>
-                        
-                                            
-                                    
-                                                
-                        <a href="https://printstyle.vn//tshirtecommerce/index.php?product=71&amp;parent=176&amp;lang=hu" title="Hungary" class="btn btn-default" style="margin: 4px 2px;">
-                            <img src="addons/images/hu.png" width="16"> <br>
-                            <small>Hungary</small>
-                        </a>
-                        
-                                            
-                                    
-                                                
-                        <a href="https://printstyle.vn//tshirtecommerce/index.php?product=71&amp;parent=176&amp;lang=ru" title="Russia" class="btn btn-default" style="margin: 4px 2px;">
-                            <img src="addons/images/ru.png" width="16"> <br>
-                            <small>Russia</small>
-                        </a>
-                        
-                                            
-                                    
-                                                
-                        <a href="https://printstyle.vn//tshirtecommerce/index.php?product=71&amp;parent=176&amp;lang=cz" title="Czech Republic" class="btn btn-default" style="margin: 4px 2px;">
-                            <img src="addons/images/cz.png" width="16"> <br>
-                            <small>Czech Republic</small>
-                        </a>
-                        
-                                            
-                                    
-                                                
-                        <a href="https://printstyle.vn//tshirtecommerce/index.php?product=71&amp;parent=176&amp;lang=sl" title="Slovenia" class="btn btn-default" style="margin: 4px 2px;">
-                            <img src="addons/images/sl.png" width="16"> <br>
-                            <small>Slovenia</small>
-                        </a>
-                        
-                                            
-                                    
-                                                
-                        <a href="https://printstyle.vn//tshirtecommerce/index.php?product=71&amp;parent=176&amp;lang=sp" title="Spain" class="btn btn-default" style="margin: 4px 2px;">
-                            <img src="addons/images/sp.png" width="16"> <br>
-                            <small>Spain</small>
-                        </a>
-                        
-                                            
-                                    
-                                                
-                        <a href="https://printstyle.vn//tshirtecommerce/index.php?product=71&amp;parent=176&amp;lang=tu" title="Turkey" class="btn btn-default" style="margin: 4px 2px;">
-                            <img src="addons/images/tu.png" width="16"> <br>
-                            <small>Turkey</small>
-                        </a>
-                        
-                                            
-                                    
-                                                
-                        <a href="https://printstyle.vn//tshirtecommerce/index.php?product=71&amp;parent=176&amp;lang=sw" title="Sweden" class="btn btn-default" style="margin: 4px 2px;">
-                            <img src="addons/images/sw.png" width="16"> <br>
-                            <small>Sweden</small>
-                        </a>
-                        
-                                            
-                                </div> -->
-            </div>
-        </div>
-    </div>
-
-
-    <div id="Dayladivhinhanh" style="postions:relative;z-index:999999;background:#C7C8CA;">
-        <div class="row" id="dag-files-images">
-        </div>
-    </div>
     <style>
         #dag-files-images img {
             width: 75px !important;
@@ -1441,15 +733,13 @@ background: rgb(76, 151, 151);" data="right">Tùy chọn</span>
     <div class="arrow"></div>
     <h3 class="popover-title">
         <span>CỠ &amp; Vị trí</span>
-        <a href="javascript:void(0)" class="popover-close">
+        <a (click)="close()" class="popover-close">
             <i class="glyphicons remove_2 glyphicons-12 pull-right"></i>
         </a>
     </h3>
-
     <div class="popover-content">
-
         <!-- BEGIN clipart edit options -->
-        <div id="options-add_item_clipart" class="dg-options">
+        <div id="options-add_item_clipart" class="dg-options" style="display: none;">
             <div class="dg-options-toolbar">
                 <div aria-label="First group" role="group" class="btn-group btn-group-lg">
                     <button class="btn btn-default btn-action-edit" type="button" data-type="edit">
@@ -1468,36 +758,9 @@ background: rgb(76, 151, 151);" data="right">Tùy chọn</span>
                         onclick="showCropPop()"><i class="fa fa-crop"></i> <small class="clearfix">Crop
                             Image</small></button></div>
             </div>
-
             <div class="dg-options-content">
                 <div class="row toolbar-action-edit">
                     <div id="item-print-colors">
-                    </div>
-                </div>
-                <div class="row toolbar-action-size">
-                    <div class="col-xs-3 col-lg-3 align-center">
-                        <div class="form-group">
-                            <small>Rộng</small>
-                            <input type="text" size="2" id="clipart-width" readonly="" disabled="">
-                        </div>
-                    </div>
-                    <div class="col-xs-3 col-lg-3 align-center">
-                        <div class="form-group">
-                            <small>Cao</small>
-                            <input type="text" size="2" id="clipart-height" readonly="" disabled="">
-                        </div>
-                    </div>
-                    <div class="col-xs-6 col-lg-6 align-left">
-                        <div class="form-group">
-                            <small>Tỷ lệ mở khóa</small><br>
-                            <input type="checkbox" class="ui-lock" id="clipart-lock">
-                        </div>
-                    </div>
-                    <div class="col-xs-6 col-lg-6 align-left">
-                        <div class="form-group">
-                            <small>Layout trên</small><br>
-                            <input type="checkbox" class="ui-lock-top" id="clipart-top">
-                        </div>
                     </div>
                 </div>
 
@@ -1531,29 +794,6 @@ background: rgb(76, 151, 151);" data="right">Tùy chọn</span>
 
         <!-- BEGIN Text edit options -->
         <div id="options-add_item_text" class="dg-options">
-            <div class="dg-options-toolbar">
-                <div aria-label="First group" role="group" class="btn-group btn-group-lg">
-                    <button class="btn btn-default" type="button" data-type="text">
-                        <i class="fa fa-pencil"></i> <small class="clearfix">Ký tự</small>
-                    </button>
-                    <button class="btn btn-default" type="button" data-type="fonts">
-                        <i class="fa fa-font"></i> <small class="clearfix">Font</small>
-                    </button>
-                    <button class="btn btn-default" type="button" data-type="style">
-                        <i class="fa fa-align-justify"></i> <small class="clearfix">Phong cách</small>
-                    </button>
-                    <button class="btn btn-default" type="button" data-type="outline">
-                        <i class="fa fa-crop"></i> <small class="clearfix">VIền ngoài</small>
-                    </button>
-                    <button class="btn btn-default" type="button" data-type="size" style="display:none;">
-                        <i class="fa fa-text-height"></i> <small class="clearfix"> Kích cỡ</small>
-                    </button>
-                    <button class="btn btn-default" type="button" data-type="rotate">
-                        <i class="fa fa-rotate-right"></i> <small class="clearfix">Xoay</small>
-                    </button>
-                </div>
-            </div>
-
             <div class="dg-options-content">
                 <!-- edit text -->
                 <div class="row toolbar-action-text">
@@ -1562,7 +802,6 @@ background: rgb(76, 151, 151);" data="right">Tùy chọn</span>
                             id="enter-text"></textarea>
                     </div>
                 </div>
-
                 <div class="row toolbar-action-fonts">
                     <div class="col-xs-8">
                         <div class="form-group">
@@ -1621,73 +860,11 @@ background: rgb(76, 151, 151);" data="right">Tùy chọn</span>
                 </div>
 
                 <div class="clear"></div>
-
-                <div class="row toolbar-action-size">
-                    <div class="col-xs-3 col-lg-3 align-center">
-                        <div class="form-group">
-                            <small>Rộng</small>
-                            <input type="text" size="2" id="text-width" readonly="" disabled="">
-                        </div>
-                    </div>
-                    <div class="col-xs-3 col-lg-3 align-center">
-                        <div class="form-group">
-                            <small>Cao</small>
-                            <input type="text" size="2" id="text-height" readonly="" disabled="">
-                        </div>
-                    </div>
-                    <div class="col-xs-6 col-lg-6 align-left">
-                        <div class="form-group">
-                            <small>Tỷ lệ mở khóa</small><br>
-                            <input type="checkbox" class="ui-lock" id="text-lock">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row toolbar-action-rotate">
-                    <div class="form-group col-xs-12">
-                        <small>Xoay</small>
-                        <div class="">
-                            <span class="rotate-values"><input type="text" value="0" class="input-small rotate-value"
-                                    id="text-rotate-value">°</span>
-                            <span class="rotate-refresh glyphicons refresh"></span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row toolbar-action-outline">
-                    <div class="form-group col-xs-12">
-                        <small>VIền ngoài</small>
-                        <div class="option-outline">
-                            <div class="list-colors">
-                                <a class="dropdown-color bg-none" data-label="outline" data-placement="top"
-                                    href="javascript:void(0)" data-color="none">
-                                    <span class="ui-accordion-header-icon ui-icon ui-icon-triangle-1-s"></span>
-                                </a>
-                            </div>
-                            <div class="dropdown-outline">
-                                <a data-toggle="dropdown" class="dg-outline-value" href="javascript:void(0)"><span
-                                        class="outline-value pull-left">0</span> <span
-                                        class="ui-accordion-header-icon ui-icon ui-icon-triangle-1-s pull-right"></span></a>
-                                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                                    <li>
-                                        <div id="dg-outline-width"
-                                            class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all"
-                                            aria-disabled="false"><a
-                                                class="ui-slider-handle ui-state-default ui-corner-all" href="#"
-                                                style="left: 0%;"></a></div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
             </div>
         </div> <!-- END Text edit options -->
 
         <!-- BEGIN team edit options -->
-        <div id="options-add_item_team" class="dg-options">
+        <div id="options-add_item_team" class="dg-options" style="display: none;">
             <div class="dg-options-toolbar">
                 <div aria-label="First group" role="group" class="btn-group btn-group-lg">
                     <button class="btn btn-default" type="button" data-type="name-number">
@@ -1795,7 +972,7 @@ background: rgb(76, 151, 151);" data="right">Tùy chọn</span>
         </div>
 
         <!-- BEGIN qrcode -->
-        <div id="options-add_item_qrcode" class="dg-options">
+        <div id="options-add_item_qrcode" class="dg-options" style="display: none;">
             <div class="dg-options-toolbar">
                 <div role="group" class="btn-group btn-group-lg">
                     <button class="btn btn-default" type="button" data-type="create-qr-code">
@@ -1955,24 +1132,6 @@ background: rgb(76, 151, 151);" data="right">Tùy chọn</span>
 <div id="save-confirm" title="Lưu thiết kế của bạn" style="display:none;">
     <p>Bạn vừa lưu 1 thiết kế. Bạn có muốn thay thế nó hay bắt đầu một thiết kế mới không?</p>
 </div>
-<script type="text/javascript">
-    var min_order = 1;
-    var product_id = '71';
-    var product_3d = 0;
-    var print_type = 'screen';
-    var uploadSize = [];
-    uploadSize['max'] = 100;
-    uploadSize['min'] = 0.00000001;
-    var items = {};
-    items['design'] = {};
-    items['design'][0] = {}; items['design'][0]['color'] = "FFFFFF"; items['design'][0]['title'] = "Trắng"; items['design'][0]['front'] = "{'0':{'id':'area-design'},'1':{'id':'images-0','width':'473px','height':'473px','top':'12px','left':'12px','zIndex':'auto','img':'https://printstyle.vn/tshirtecommerce//uploaded/design/Case/ao/dg-designer-4dcf4354146237658447896726710021304.png'}}"; items['design'][0]['back'] = "{'0':{'id':'area-design'},'1':{'id':'images-0','width':'500px','height':'500px','top':'0px','left':'0px','zIndex':'auto','img':'https://printstyle.vn/tshirtecommerce//uploaded/design/ao co tron/dg-designer-b0bef4c9150458172415643518310033228.png'}}"; items['design'][0]['left'] = "{'0':{'id':'area-design'},'1':{'id':'images-0','width':'371px','height':'362px','top':'45px','left':'53px','zIndex':'auto','img':'https://printstyle.vn/tshirtecommerce//uploaded/design/ao co tron/dg-designer-6f0ca672150458173319702160510429470.png'}}"; items['design'][0]['right'] = "{'0':{'id':'area-design'},'1':{'id':'images-0','width':'356px','height':'366px','top':'61px','left':'60px','zIndex':'auto','img':'https://printstyle.vn/tshirtecommerce//uploaded/design/ao co tron/dg-designer-9ecff545150458173066217894810716123.png'}}"; items['design'][1] = {}; items['design'][1]['color'] = "000000"; items['design'][1]['title'] = "Đen"; items['design'][1]['front'] = "{'0':{'id':'area-design'},'1':{'id':'images-0','width':'500px','height':'500px','top':'0px','left':'0px','zIndex':'auto','img':'https://printstyle.vn/tshirtecommerce//uploaded/design/ao co tron/dg-designer-9adeb82f150458416837169391810345889.png'}}"; items['design'][1]['back'] = "{'0':{'id':'area-design'},'1':{'id':'images-0','width':'500px','height':'500px','top':'0px','left':'0px','zIndex':'auto','img':'https://printstyle.vn/tshirtecommerce//uploaded/design/ao co tron/dg-designer-2b64c2f1150458417172378053910835069.png'}}"; items['design'][1]['left'] = "{'0':{'id':'area-design'},'1':{'id':'images-0','width':'332px','height':'299px','top':'98px','left':'74px','zIndex':'auto','img':'https://printstyle.vn/tshirtecommerce//uploaded/design/ao co tron/dg-designer-4de7542415045841757820431861079735.png'}}"; items['design'][1]['right'] = "{'0':{'id':'area-design'},'1':{'id':'images-0','width':'352px','height':'334px','top':'87px','left':'62px','zIndex':'auto','img':'https://printstyle.vn/tshirtecommerce//uploaded/design/ao co tron/dg-designer-64f07f01150458417382084332710217810.png'}}"; items['design'][2] = {}; items['design'][2]['color'] = "C0C0C0"; items['design'][2]['title'] = "Xám"; items['design'][2]['front'] = "{'0':{'id':'area-design'},'1':{'id':'images-0','width':'500px','height':'500px','top':'0px','left':'0px','zIndex':'auto','img':'https://printstyle.vn/tshirtecommerce//uploaded/design/ao co tron/dg-designer-9996535e150458462867387534411071149.png'}}"; items['design'][2]['back'] = "{'0':{'id':'area-design'},'1':{'id':'images-0','width':'500px','height':'500px','top':'0px','left':'0px','zIndex':'auto','img':'https://printstyle.vn/tshirtecommerce//uploaded/design/ao co tron/dg-designer-5446f217150458463120302537510674548.png'}}"; items['design'][2]['left'] = "{'0':{'id':'area-design'},'1':{'id':'images-0','width':'355px','height':'355px','top':'55px','left':'64px','zIndex':'auto','img':'https://printstyle.vn/tshirtecommerce//uploaded/design/ao co tron/dg-designer-8d8f733a150458463861588037710235587.png'}}"; items['design'][2]['right'] = "{'0':{'id':'area-design'},'1':{'id':'images-0','width':'341px','height':'366px','top':'53px','left':'66px','zIndex':'auto','img':'https://printstyle.vn/tshirtecommerce//uploaded/design/ao co tron/dg-designer-6a5889bb150458463560386858310581842.png'}}"; items['design'][3] = {}; items['design'][3]['color'] = "FFC0CB"; items['design'][3]['title'] = "Hồng Dâu"; items['design'][3]['front'] = "{'0':{'id':'area-design'},'1':{'id':'images-0','width':'500px','height':'500px','top':'0px','left':'0px','zIndex':'auto','img':'https://printstyle.vn/tshirtecommerce//uploaded/design/ao co tron/dg-designer-82edc5c9150458484038942756710428194.png'}}"; items['design'][3]['back'] = "{'0':{'id':'area-design'},'1':{'id':'images-0','width':'500px','height':'500px','top':'0px','left':'0px','zIndex':'auto','img':'https://printstyle.vn/tshirtecommerce//uploaded/design/ao co tron/dg-designer-3eb2f1a0150458484379041120710123280.png'}}"; items['design'][3]['left'] = "{'0':{'id':'area-design'},'1':{'id':'images-0','width':'338px','height':'315px','top':'86px','left':'72px','zIndex':'auto','img':'https://printstyle.vn/tshirtecommerce//uploaded/design/ao co tron/dg-designer-515ab26c15045848482812897081108220.png'}}"; items['design'][3]['right'] = "{'0':{'id':'area-design'},'1':{'id':'images-0','width':'343px','height':'334px','top':'83px','left':'67px','zIndex':'auto','img':'https://printstyle.vn/tshirtecommerce//uploaded/design/ao co tron/dg-designer-b1bc40d0150458484693243866310908756.png'}}"; items['design'][4] = {}; items['design'][4]['color'] = "D1EAFF"; items['design'][4]['title'] = "Xanh Biển"; items['design'][4]['front'] = "{'0':{'id':'area-design'},'1':{'id':'images-0','width':'500px','height':'500px','top':'0px','left':'0px','zIndex':'auto','img':'https://printstyle.vn/tshirtecommerce//uploaded/design/ao co tron/dg-designer-65d90fc615045852795949258741044678.png'}}"; items['design'][4]['back'] = "{'0':{'id':'area-design'},'1':{'id':'images-0','width':'500px','height':'500px','top':'0px','left':'0px','zIndex':'auto','img':'https://printstyle.vn/tshirtecommerce//uploaded/design/ao co tron/dg-designer-5f8b73c015045853045025913641093159.png'}}"; items['design'][4]['left'] = "{'0':{'id':'area-design'},'1':{'id':'images-0','width':'321px','height':'315px','top':'86px','left':'82px','zIndex':'auto','img':'https://printstyle.vn/tshirtecommerce//uploaded/design/ao co tron/dg-designer-6354461b15045853083883947201011157.png'}}"; items['design'][4]['right'] = "{'0':{'id':'area-design'},'1':{'id':'images-0','width':'327px','height':'311px','top':'102px','left':'74px','zIndex':'auto','img':'https://printstyle.vn/tshirtecommerce//uploaded/design/ao co tron/dg-designer-f6a673f0150458530682725168510812846.png'}}"; items['design'][5] = {}; items['design'][5]['color'] = "CCFF00"; items['design'][5]['title'] = "Xanh Cốm"; items['design'][5]['front'] = "{'0':{'id':'area-design'},'1':{'id':'images-0','width':'500px','height':'500px','top':'0px','left':'0px','zIndex':'auto','img':'https://printstyle.vn/tshirtecommerce//uploaded/design/ao co tron/dg-designer-5516adb1150458559390092615810638843.png'}}"; items['design'][5]['back'] = "{'0':{'id':'area-design'},'1':{'id':'images-0','width':'500px','height':'500px','top':'0px','left':'0px','zIndex':'auto','img':'https://printstyle.vn/tshirtecommerce//uploaded/design/ao co tron/dg-designer-af5baf59150458558784512395710976145.png'}}"; items['design'][5]['left'] = "{'0':{'id':'area-design'},'1':{'id':'images-0','width':'349px','height':'336px','top':'68px','left':'67px','zIndex':'auto','img':'https://printstyle.vn/tshirtecommerce//uploaded/design/ao co tron/dg-designer-9fe97fff15045855919033448691093328.png'}}"; items['design'][5]['right'] = "{'0':{'id':'area-design'},'1':{'id':'images-0','width':'331px','height':'336px','top':'85px','left':'71px','zIndex':'auto','img':'https://printstyle.vn/tshirtecommerce//uploaded/design/ao co tron/dg-designer-dc5c768b150458558964446923711029508.png'}}"; items['design'][6] = {}; items['design'][6]['color'] = "DA70D6"; items['design'][6]['title'] = "Hồng Phấn"; items['design'][6]['front'] = "{'0':{'id':'area-design'},'1':{'id':'images-0','width':'500px','height':'500px','top':'0px','left':'0px','zIndex':'auto','img':'https://printstyle.vn/tshirtecommerce//uploaded/design/ao co tron/dg-designer-f60f6b0d150458576184968176410991187.png'},'2':{'id':'images-1','width':'500px','height':'500px','top':'0px','left':'0px','zIndex':'auto','img':'https://printstyle.vn/tshirtecommerce//uploaded/design/ao co tron/dg-designer-31917677150458772467614592410475218.png'}}"; items['design'][6]['back'] = "{'0':{'id':'area-design'},'1':{'id':'images-0','width':'500px','height':'500px','top':'0px','left':'0px','zIndex':'auto','img':'https://printstyle.vn/tshirtecommerce//uploaded/design/ao co tron/dg-designer-4b29fa4e150458771256611218211059533.png'}}"; items['design'][6]['left'] = "{'0':{'id':'area-design'},'1':{'id':'images-0','width':'393px','height':'368px','top':'49px','left':'43px','zIndex':'auto','img':'https://printstyle.vn/tshirtecommerce//uploaded/design/ao co tron/dg-designer-b2b7c555150458772294404788210185828.png'}}"; items['design'][6]['right'] = "{'0':{'id':'area-design'},'1':{'id':'images-0','width':'347px','height':'317px','top':'100px','left':'66px','zIndex':'auto','img':'https://printstyle.vn/tshirtecommerce//uploaded/design/ao co tron/dg-designer-843a4d7f150458771973685437510435491.png'}}"; items['design'][7] = {}; items['design'][7]['color'] = "FFFF00"; items['design'][7]['title'] = "Vàng Canh"; items['design'][7]['front'] = "{'0':{'id':'area-design'},'1':{'id':'images-0','width':'500px','height':'500px','top':'0px','left':'0px','zIndex':'auto','img':'https://printstyle.vn/tshirtecommerce//uploaded/design/ao co tron/dg-designer-383beaea150458592823395974911109438.png'}}"; items['design'][7]['back'] = "{'0':{'id':'area-design'},'1':{'id':'images-0','width':'500px','height':'500px','top':'0px','left':'0px','zIndex':'auto','img':'https://printstyle.vn/tshirtecommerce//uploaded/design/ao co tron/dg-designer-e474e852150458593193383822010475006.png'}}"; items['design'][7]['left'] = "{'0':{'id':'area-design'},'1':{'id':'images-0','width':'344px','height':'343px','top':'61px','left':'69px','zIndex':'auto','img':'https://printstyle.vn/tshirtecommerce//uploaded/design/ao co tron/dg-designer-0b5e29aa150458593416412953110768718.png'}}"; items['design'][7]['right'] = "{'0':{'id':'area-design'},'1':{'id':'images-0','width':'317px','height':'333px','top':'85px','left':'79px','zIndex':'auto','img':'https://printstyle.vn/tshirtecommerce//uploaded/design/ao co tron/dg-designer-f3c89b7b150458593254047538710208250.png'}}"; items['design'][8] = {}; items['design'][8]['color'] = "FFD700"; items['design'][8]['title'] = "Vàng Mơ"; items['design'][8]['front'] = "{'0':{'id':'area-design'},'1':{'id':'images-0','width':'500px','height':'500px','top':'0px','left':'0px','zIndex':'auto','img':'https://printstyle.vn/tshirtecommerce//uploaded/design/ao co tron/dg-designer-f42c7f9c150458609441928699510715319.png'}}"; items['design'][8]['back'] = "{'0':{'id':'area-design'},'1':{'id':'images-0','width':'500px','height':'500px','top':'0px','left':'0px','zIndex':'auto','img':'https://printstyle.vn/tshirtecommerce//uploaded/design/ao co tron/dg-designer-6084e82a150458609671955155010457844.png'}}"; items['design'][8]['left'] = "{'0':{'id':'area-design'},'1':{'id':'images-0','width':'342px','height':'297px','top':'102px','left':'71px','zIndex':'auto','img':'https://printstyle.vn/tshirtecommerce//uploaded/design/ao co tron/dg-designer-ac2a728f150458610021091773610439893.png'}}"; items['design'][8]['right'] = "{'0':{'id':'area-design'},'1':{'id':'images-0','width':'345px','height':'333px','top':'87px','left':'66px','zIndex':'auto','img':'https://printstyle.vn/tshirtecommerce//uploaded/design/ao co tron/dg-designer-e68d3c64150458609830459692310986679.png'}}"; items['design'][9] = {}; items['design'][9]['color'] = "7FFF00"; items['design'][9]['title'] = "Xanh Chuối"; items['design'][9]['front'] = "{'0':{'id':'area-design'},'1':{'id':'images-0','width':'500px','height':'500px','top':'0px','left':'0px','zIndex':'auto','img':'https://printstyle.vn/tshirtecommerce//uploaded/design/ao co tron/dg-designer-277281aa15045863115280136751055991.png'}}"; items['design'][9]['back'] = "{'0':{'id':'area-design'},'1':{'id':'images-0','width':'500px','height':'500px','top':'0px','left':'0px','zIndex':'auto','img':'https://printstyle.vn/tshirtecommerce//uploaded/design/ao co tron/dg-designer-dd409260150458630526953896510788838.png'}}"; items['design'][9]['left'] = "{'0':{'id':'area-design'},'1':{'id':'images-0','width':'324px','height':'338px','top':'66px','left':'81px','zIndex':'auto','img':'https://printstyle.vn/tshirtecommerce//uploaded/design/ao co tron/dg-designer-5848ad95150458630945814350510506285.png'}}"; items['design'][9]['right'] = "{'0':{'id':'area-design'},'1':{'id':'images-0','width':'332px','height':'343px','top':'77px','left':'74px','zIndex':'auto','img':'https://printstyle.vn/tshirtecommerce//uploaded/design/ao co tron/dg-designer-6354461b150458630888765550410601916.png'}}"; items['design'][10] = {}; items['design'][10]['color'] = "FF7F50"; items['design'][10]['title'] = "Cam"; items['design'][10]['front'] = "{'0':{'id':'area-design'},'1':{'id':'images-0','width':'500px','height':'500px','top':'0px','left':'0px','zIndex':'auto','img':'https://printstyle.vn/tshirtecommerce//uploaded/design/ao co tron/dg-designer-532923f1150458657793982970210887087.png'}}"; items['design'][10]['back'] = "{'0':{'id':'area-design'},'1':{'id':'images-0','width':'500px','height':'500px','top':'0px','left':'0px','zIndex':'auto','img':'https://printstyle.vn/tshirtecommerce//uploaded/design/ao co tron/dg-designer-61bdf049150458657985586844810032656.png'}}"; items['design'][10]['left'] = "{'0':{'id':'area-design'},'1':{'id':'images-0','width':'337px','height':'344px','top':'58px','left':'74px','zIndex':'auto','img':'https://printstyle.vn/tshirtecommerce//uploaded/design/ao co tron/dg-designer-82debd8a150458658397643992410207969.png'}}"; items['design'][10]['right'] = "{'0':{'id':'area-design'},'1':{'id':'images-0','width':'338px','height':'331px','top':'86px','left':'70px','zIndex':'auto','img':'https://printstyle.vn/tshirtecommerce//uploaded/design/ao co tron/dg-designer-d30960ce150458658113179953510845484.png'}}"; items['design'][11] = {}; items['design'][11]['color'] = "FF0000"; items['design'][11]['title'] = "Đỏ Tươi"; items['design'][11]['front'] = "{'0':{'id':'area-design'},'1':{'id':'images-0','width':'500px','height':'500px','top':'0px','left':'0px','zIndex':'auto','img':'https://printstyle.vn/tshirtecommerce//uploaded/design/ao co tron/dg-designer-97785e05150458693256724956110433443.png'},'2':{'id':'images-1','width':'500px','height':'500px','top':'0px','left':'0px','zIndex':'auto','img':'https://printstyle.vn/tshirtecommerce//uploaded/design/ao co tron/dg-designer-c2368d3d150458693889135849110648719.png'}}"; items['design'][11]['back'] = "{'0':{'id':'area-design'},'1':{'id':'images-0','width':'500px','height':'500px','top':'0px','left':'0px','zIndex':'auto','img':'https://printstyle.vn/tshirtecommerce//uploaded/design/ao co tron/dg-designer-97785e05150458693256724956110433443.png'}}"; items['design'][11]['left'] = "{'0':{'id':'area-design'},'1':{'id':'images-0','width':'353px','height':'342px','top':'62px','left':'63px','zIndex':'auto','img':'https://printstyle.vn/tshirtecommerce//uploaded/design/ao co tron/dg-designer-03793ef7150458693643472890710632621.png'}}"; items['design'][11]['right'] = "{'0':{'id':'area-design'},'1':{'id':'images-0','width':'332px','height':'335px','top':'80px','left':'74px','zIndex':'auto','img':'https://printstyle.vn/tshirtecommerce//uploaded/design/ao co tron/dg-designer-6dd4e10e150458693424466444210463133.png'}}"; items['design'][12] = {}; items['design'][12]['color'] = "74D1ED"; items['design'][12]['title'] = "Xanh Thiên Thanh"; items['design'][12]['front'] = "{'0':{'id':'area-design'},'1':{'id':'images-1','width':'500px','height':'500px','top':'0px','left':'0px','zIndex':'auto','img':'https://printstyle.vn/tshirtecommerce//uploaded/design/ao co tron/dg-designer-77143919150458817798586096910659392.png'}}"; items['design'][12]['back'] = "{'0':{'id':'area-design'},'1':{'id':'images-2','width':'500px','height':'500px','top':'0px','left':'0px','zIndex':'auto','img':'https://printstyle.vn/tshirtecommerce//uploaded/design/ao co tron/dg-designer-cd81cfd0150458817114802731410867445.png'}}"; items['design'][12]['left'] = "{'0':{'id':'area-design'},'1':{'id':'images-0','width':'359px','height':'353px','top':'60px','left':'63px','zIndex':'auto','img':'https://printstyle.vn/tshirtecommerce//uploaded/design/ao co tron/dg-designer-ee0e9524150458817548567556110907317.png'}}"; items['design'][12]['right'] = "{'0':{'id':'area-design'},'1':{'id':'images-0','width':'342px','height':'361px','top':'62px','left':'66px','zIndex':'auto','img':'https://printstyle.vn/tshirtecommerce//uploaded/design/ao co tron/dg-designer-04600eed150458817393146662011001667.png'}}"; items['design'][13] = {}; items['design'][13]['color'] = "0047AB"; items['design'][13]['title'] = "Xanh Bích"; items['design'][13]['front'] = "{'0':{'id':'area-design'},'1':{'id':'images-1','width':'500px','height':'500px','top':'0px','left':'0px','zIndex':'100','img':'https://printstyle.vn/tshirtecommerce//uploaded/design/ao co tron/dg-designer-8e065119150458697377298425810324806.png'}}"; items['design'][13]['back'] = "{'0':{'id':'area-design'},'1':{'id':'images-0','width':'500px','height':'500px','top':'0px','left':'0px','zIndex':'auto','img':'https://printstyle.vn/tshirtecommerce//uploaded/design/ao co tron/dg-designer-978d7667150458696772512228010861971.png'}}"; items['design'][13]['left'] = "{'0':{'id':'area-design'},'1':{'id':'images-0','width':'367px','height':'350px','top':'56px','left':'59px','zIndex':'auto','img':'https://printstyle.vn/tshirtecommerce//uploaded/design/ao co tron/dg-designer-f3be5eb7150458697156813389810812803.png'}}"; items['design'][13]['right'] = "{'0':{'id':'area-design'},'1':{'id':'images-0','width':'345px','height':'369px','top':'52px','left':'68px','zIndex':'auto','img':'https://printstyle.vn/tshirtecommerce//uploaded/design/ao co tron/dg-designer-322f6246150458696930967214710533616.png'}}"; items['design'][14] = {}; items['design'][14]['color'] = "29355C"; items['design'][14]['title'] = "Xanh Đen"; items['design'][14]['front'] = "{'0':{'id':'area-design'},'1':{'id':'images-0','width':'500px','height':'500px','top':'0px','left':'0px','zIndex':'auto','img':'https://printstyle.vn/tshirtecommerce//uploaded/design/dg-designer-335cd1b9150458752670977985110698675.png'}}"; items['design'][14]['back'] = "{'0':{'id':'area-design'},'1':{'id':'images-0','width':'500px','height':'500px','top':'0px','left':'0px','zIndex':'auto','img':'https://printstyle.vn/tshirtecommerce//uploaded/design/dg-designer-c78c3474150458752031658042910734328.png'}}"; items['design'][14]['left'] = "{'0':{'id':'area-design'},'1':{'id':'images-0','width':'366px','height':'344px','top':'59px','left':'56px','zIndex':'auto','img':'https://printstyle.vn/tshirtecommerce//uploaded/design/dg-designer-08048a9c150458752567542956210284616.png'}}"; items['design'][14]['right'] = "{'0':{'id':'area-design'},'1':{'id':'images-0','width':'360px','height':'344px','top':'73px','left':'61px','zIndex':'auto','img':'https://printstyle.vn/tshirtecommerce//uploaded/design/dg-designer-4572101f150458752394243176510755250.png'}}"; items['area'] = {};
-    items['area']['front'] = "{'width':200,'height':296,'left':'150px','top':'92.5px','radius':'0px','zIndex':'200'}";
-    items['area']['back'] = "{'width':205,'height':297,'left':'148px','top':'55px','radius':'0px','zIndex':'300'}";
-    items['area']['left'] = "{'width':114,'height':130,'left':'197.266px','top':'216px','radius':'0px','zIndex':''}";
-    items['area']['right'] = "{'width':115,'height':130,'left':'160px','top':'230px','radius':'0px','zIndex':''}";
-    items['params'] = [];
-    items['params']['front'] = "{'width':'101.14','height':'149.69','lockW':false,'lockH':false,'shape':'square','shapeVal':0}";
-    items['params']['back'] = "{'width':'100','height':'141','lockW':true,'lockH':true,'shape':'square','shapeVal':0}";
-    items['params']['left'] = "{'width':'25.14','height':'28.67','lockW':false,'lockH':false,'shape':'square','shapeVal':0}";
-    items['params']['right'] = "{'width':'12.41','height':'14.03','lockW':false,'lockH':false,'shape':'square','shapeVal':0}";
+<script>
+    
 </script>

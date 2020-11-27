@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
+    collapedSideBar: boolean;
 
-  constructor() { }
+    constructor() {}
 
-  ngOnInit(): void {
-  }
+    ngOnInit() {}
+
+    receiveCollapsed($event) {
+        this.collapedSideBar = $event;
+    }
 
 }

@@ -1,0 +1,13 @@
+<div class="div-chart">
+    <h2><i class="fa fa-bar-chart-o"></i>Thống kê tháng</h2>
+    <div class="chart-wrapper chart">
+        <canvas baseChart 
+        [datasets]="barChartData"
+        [labels]="barChartLabels"
+        [options]="barChartOptions"
+        [plugins]="barChartPlugins"
+        [legend]="barChartLegend"
+        [chartType]="barChartType">
+      </canvas>
+    </div>
+</div>
