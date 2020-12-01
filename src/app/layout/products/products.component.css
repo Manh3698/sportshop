@@ -704,3 +704,6 @@ label, legend {
 /* open-filer */
 
 /* end */
+.product_name a{
+    text-transform: uppercase;
+}

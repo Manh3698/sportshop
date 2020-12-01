@@ -1,4 +1,5 @@
-<div class="caption">
+<div class="container">
+  <div class="caption">
     <h2>Danh mục sản phẩm</h2>
 </div>
 <div class="div2">
@@ -22,38 +23,14 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Áo đội bóng</td>
-            <td><a [routerLinkActive]="['router-link-active']" routerLink="/admin/product" type="button" class="btn-list"><i class="fa fa-th-list"></i>Xem</a></td>
+          <tr *ngFor = 'let cate of listCate; let i = index'>
+            <th scope="row">{{i+1}}</th>
+            <td>{{cate.name}}</td>
+            <td><a [routerLinkActive]="['router-link-active']" [routerLink]="['/admin/' + cate.id + '/product']"  type="button" class="btn-list"><i class="fa fa-th-list"></i>Xem</a></td>
             <td>
                 <ul>
-                    <li><a  type="button" class="btn-edit" data-toggle="modal" data-target="#modalEdit"><i class="fa fa-w fa-edit"></i>Chỉnh sửa</a></li>
+                    <li><a  type="button" class="btn-edit" data-toggle="modal" data-target="#modalEdit" (click)="detail(cate.id)"><i class="fa fa-w fa-edit"></i>Chỉnh sửa</a></li>
                     <li><a  type="button" class="btn-delete" data-toggle="modal" data-target="#modalDelete"><i class="fa fa-th-list"></i>Xóa</a></li>
-                    <!-- <li><a href="" type="button" class="btn-list"><i class="fa fa-th-list"></i></a></li> -->
-                </ul>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Giày đá bóng</td>
-            <td><a href="" type="button" class="btn-list"><i class="fa fa-th-list"></i>Xem</a></td>
-            <td>
-                <ul>
-                    <li><a href="" type="button" class="btn-edit"><i class="fa fa-w fa-edit"></i>Chỉnh sửa</a></li>
-                    <li><a href="" type="button" class="btn-delete"><i class="fa fa-th-list"></i>Xóa</a></li>
-                    <!-- <li><a href="" type="button" class="btn-list"><i class="fa fa-th-list"></i></a></li> -->
-                </ul>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Giày thể thao</td>
-            <td><a href="" type="button" class="btn-list"><i class="fa fa-th-list"></i>Xem</a></td>
-            <td>
-                <ul>
-                    <li><a href="" type="button" class="btn-edit"><i class="fa fa-w fa-edit"></i>Chỉnh sửa</a></li>
-                    <li><a href="" type="button" class="btn-delete"><i class="fa fa-th-list"></i>Xóa</a></li>
                     <!-- <li><a href="" type="button" class="btn-list"><i class="fa fa-th-list"></i></a></li> -->
                 </ul>
             </td>
@@ -61,11 +38,12 @@
         </tbody>
       </table>
 </div>
+</div>
 <div class="modal fade" id="modalAdd" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h3 class="modal-title" id="exampleModalLongTitle">Thêm sản phẩm</h3>
+        <h3 class="modal-title" id="exampleModalLongTitle">Thêm danh mục</h3>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -74,13 +52,13 @@
           <form novalidate>
               <div class="form-group">
                 <label>Tên danh mục</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" name="name" [(ngModel)]="dataCate.name">
               </div>         
             </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-        <button type="button" class="btn btn-primary">Thêm</button>
+        <button type="button" class="btn btn-primary" (click)="addCate()">Thêm</button>
       </div>
     </div>
   </div>
@@ -98,13 +76,13 @@
           <form novalidate>
               <div class="form-group">
                 <label>Tên danh mục</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" name="name" [(ngModel)]="dataCate.name">
               </div>         
             </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-        <button type="button" class="btn btn-primary">Sửa</button>
+        <button type="button" class="btn btn-primary" (click)="update()">Sửa</button>
       </div>
     </div>
   </div>

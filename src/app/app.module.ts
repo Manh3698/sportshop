@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CommonModule } from '@angular/common';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'; 
+
 
 @NgModule({
   declarations: [
@@ -14,9 +16,10 @@ import { CommonModule } from '@angular/common';
     CommonModule,
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

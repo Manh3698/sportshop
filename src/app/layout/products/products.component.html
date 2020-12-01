@@ -58,15 +58,14 @@
                         </div>
                     </div>
                 </div>
-
                 <section class="products-view products-view-grid">
                     <div class="row">
-                        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3" *ngFor='let item of listProduct'>
                             <div class="ant-item-product" id="cate_item_collection_1" data-id="19462964">
                                 <div class="product-item">
                                     <div class="product-wrapper">
                                         <div class="product-image product-image-block">
-                                            <a href="/ao-coc-tay-nam" title="ÁO CỘC TAY NAM">
+                                            <a [routerLink]="['/' + item.id + '/detail']" title="ÁO CỘC TAY NAM">
                                                 <img src="//bizweb.dktcdn.net/thumb/large/100/376/467/products/16308900618-1113668521.jpg?v=1603092963000"
                                                     data-lazyload="//bizweb.dktcdn.net/thumb/large/100/376/467/products/16308900618-1113668521.jpg?v=1603092963000"
                                                     alt="ÁO CỘC TAY NAM" class="image_main img-responsive center-block">
@@ -75,11 +74,9 @@
                                         <div class="product_desc Màu sắc">
                                             <div class="product_variant_box hidden-sm hidden-xs hidden-md">
                                                 <p class="variant_text variant_text_size nomargin">+ 3 Màu sắc</p>
-                                                <!-- <div class="size-box not-dqowl owl-theme owl-carousel owl-loaded owl-drag"
-                                                    style="">
+                                                <!-- <div class="size-box not-dqowl owl-theme owl-carousel owl-loaded owl-drag">
                                                     <div class="owl-stage-outer">
-                                                        <div class="owl-stage"
-                                                            style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s;">
+                                                        <div class="owl-stage">
                                                             <div class="owl-item"><span class="size_item" data-color="S"
                                                                     data-size="Đen" title="Đen">Đen</span></div>
                                                             <div class="owl-item"><span class="size_item" data-color="S"
@@ -89,28 +86,23 @@
                                                                     Da Trời</span></div>
                                                         </div>
                                                     </div>
-                                                    <div class="owl-nav disabled">
-                                                        <div class="owl-prev"></div>
-                                                        <div class="owl-next"></div>
-                                                    </div>
-                                                    <div class="owl-dots disabled"></div>
                                                 </div> -->
                                             </div>
                                             <h3 class="product_name">
-                                                <a href="/ao-coc-tay-nam" title="ÁO CỘC TAY NAM">ÁO CỘC TAY NAM</a>
+                                                <a [routerLink]="['/' + item.id + '/detail']" title="ÁO CỘC TAY NAM">{{item.name}}</a>
                                             </h3>
                                             <div class="product_prices">
                                                 <span class="special-price">
                                                     <span class="price-container">
                                                         <span class="price-wrapper">
-                                                            <span class="price spe-price">319.000₫</span>
+                                                            <span class="price spe-price">{{item.newPrice}}</span>
                                                         </span>
                                                     </span>
                                                 </span>
                                                 <span class="old-price">
                                                     <span class="price-container">
                                                         <span class="price-wrapper">
-                                                            <span class="price olds-price">400.000₫</span>
+                                                            <span class="price olds-price">{{item.oldPrice}}</span>
                                                         </span>
                                                     </span>
                                                 </span>
@@ -133,84 +125,6 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
-                            <div class="ant-item-product" id="cate_item_collection_2" data-id="19400992">
-                                <div class="product-item">
-                                    <div class="product-wrapper">
-                                        <div class="product-image product-image-block">
-                                            <a href="/ao-ba-lo-nam" title="ÁO BA LỖ NAM">
-                                                <img src="//bizweb.dktcdn.net/thumb/large/100/376/467/products/14006076639-1113668521.jpg?v=1602748500000"
-                                                    data-lazyload="//bizweb.dktcdn.net/thumb/large/100/376/467/products/14006076639-1113668521.jpg?v=1602748500000"
-                                                    alt="ÁO BA LỖ NAM" class="image_main img-responsive center-block">
-                                            </a>
-                                        </div>
-                                        <div class="product_desc Màu sắc">
-                                            <div class="product_variant_box hidden-sm hidden-xs hidden-md">
-
-                                                <p class="variant_text variant_text_size nomargin">+ 2 Màu sắc</p>
-                                                <!-- <div class="size-box not-dqowl owl-theme owl-carousel owl-loaded owl-drag owl-hidden"
-                                                    style="">
-                                                    <div class="owl-stage-outer">
-                                                        <div class="owl-stage"
-                                                            style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 54px;">
-                                                            <div class="owl-item active" style="width: 26.714px;"><span
-                                                                    class="size_item" data-color="S" data-size="Đen"
-                                                                    title="Đen">Đen</span></div>
-                                                            <div class="owl-item active" style="width: 26.714px;"><span
-                                                                    class="size_item" data-color="S" data-size="Xám"
-                                                                    title="Xám">Xám</span></div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="owl-nav disabled">
-                                                        <div class="owl-prev"></div>
-                                                        <div class="owl-next"></div>
-                                                    </div>
-                                                    <div class="owl-dots disabled"></div>
-                                                </div> -->
-
-                                            </div>
-                                            <h3 class="product_name">
-                                                <a href="/ao-ba-lo-nam" title="ÁO BA LỖ NAM">ÁO BA LỖ NAM</a>
-                                            </h3>
-                                            <div class="product_prices">
-
-
-                                                <span class="special-price">
-                                                    <span class="price-container">
-                                                        <span class="price-wrapper">
-                                                            <span class="price spe-price">319.000₫</span>
-                                                        </span>
-                                                    </span>
-                                                </span>
-                                                <span class="old-price">
-                                                    <span class="price-container">
-                                                        <span class="price-wrapper">
-                                                            <span class="price olds-price">389.000₫</span>
-                                                        </span>
-                                                    </span>
-                                                </span>
-                                            </div>
-                                            <div class="product_action clearfix hidden-sm hidden-xs hidden-md">
-                                                <form action="/cart/add" method="post"
-                                                    class="variants form-nut-grid has-validation-callback"
-                                                    data-id="product-actions-19400992" enctype="multipart/form-data">
-                                                    <input class="hidden variant-id" type="hidden" name="variantId"
-                                                        value="37666946">
-
-                                                    <button type="submit" data-handle="/ao-ba-lo-nam" data-title=""
-                                                        data-product-id="19400992"
-                                                        class="loading btn btn_addtocart add_to_cart">
-                                                        ĐẶT MUA NGAY <i class="fa fa-shopping-cart"></i>
-                                                    </button>
-
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                
                             </div>
                         </div>
                     </div>
@@ -247,7 +161,8 @@
                             </div>
                             <div class="aside-content filter-group">
                                 <div class="field-search input-group">
-                                    <input type="text" placeholder="Tìm Thương hiệu" class="form-control filter-vendor-list">
+                                    <input type="text" placeholder="Tìm Thương hiệu"
+                                        class="form-control filter-vendor-list">
                                     <span class="input-group-btn">
                                         <button class="btn btn-default"><i class="fa fa-search"
                                                 aria-hidden="true"></i></button>
@@ -266,10 +181,8 @@
                                     <li class="filter-item filter-item--check-box filter-item--green">
                                         <span>
                                             <label for="filter-duoi-100-000d">
-                                                <input type="checkbox" id="filter-duoi-100-000d"
-                                                     data-group="Khoảng giá"
-                                                    data-field="price_min" data-text="Dưới 100.000đ" 
-                                                    data-operator="OR">
+                                                <input type="checkbox" id="filter-duoi-100-000d" data-group="Khoảng giá"
+                                                    data-field="price_min" data-text="Dưới 100.000đ" data-operator="OR">
                                                 <i class="fa"></i>
                                                 Giá dưới 100.000đ
                                             </label>
@@ -279,9 +192,8 @@
                                         <span>
                                             <label for="filter-100-000d-300-000d">
                                                 <input type="checkbox" id="filter-100-000d-300-000d"
-                                                    data-group="Khoảng giá"
-                                                    data-field="price_min" data-text="100.000đ - 300.000đ"
-                                                    data-operator="OR">
+                                                    data-group="Khoảng giá" data-field="price_min"
+                                                    data-text="100.000đ - 300.000đ" data-operator="OR">
                                                 <i class="fa"></i>
                                                 100.000đ - 300.000đ
                                             </label>
@@ -291,9 +203,8 @@
                                         <span>
                                             <label for="filter-300-000d-500-000d">
                                                 <input type="checkbox" id="filter-300-000d-500-000d"
-                                                    data-group="Khoảng giá"
-                                                    data-field="price_min" data-text="300.000đ - 500.000đ"
-                                                    data-operator="OR">
+                                                    data-group="Khoảng giá" data-field="price_min"
+                                                    data-text="300.000đ - 500.000đ" data-operator="OR">
                                                 <i class="fa"></i>
                                                 300.000đ - 500.000đ
                                             </label>
@@ -303,9 +214,8 @@
                                         <span>
                                             <label for="filter-500-000d-1-000-000d">
                                                 <input type="checkbox" id="filter-500-000d-1-000-000d"
-                                                    data-group="Khoảng giá"
-                                                    data-field="price_min" data-text="500.000đ - 1.000.000đ"
-                                                    data-operator="OR">
+                                                    data-group="Khoảng giá" data-field="price_min"
+                                                    data-text="500.000đ - 1.000.000đ" data-operator="OR">
                                                 <i class="fa"></i>
                                                 500.000đ - 1.000.000đ
                                             </label>
@@ -315,9 +225,8 @@
                                         <span>
                                             <label for="filter-tren1-000-000d">
                                                 <input type="checkbox" id="filter-tren1-000-000d"
-                                                    data-group="Khoảng giá"
-                                                    data-field="price_min" data-text="Trên 1.000.000đ"
-                                                    data-operator="OR">
+                                                    data-group="Khoảng giá" data-field="price_min"
+                                                    data-text="Trên 1.000.000đ" data-operator="OR">
                                                 <i class="fa"></i>
                                                 Giá trên 1.000.000đ
                                             </label>
@@ -335,9 +244,8 @@
                                     <li class="filter-item filter-item--check-box filter-item--green">
                                         <span>
                                             <label for="filter-lon">
-                                                <input type="checkbox" id="filter-lon" 
-                                                    data-group="tag2" data-field="tags" data-text="Lớn" 
-                                                    data-operator="OR">
+                                                <input type="checkbox" id="filter-lon" data-group="tag2"
+                                                    data-field="tags" data-text="Lớn" data-operator="OR">
                                                 <i class="fa"></i>
                                                 Lớn
                                             </label>
@@ -346,9 +254,8 @@
                                     <li class="filter-item filter-item--check-box filter-item--green">
                                         <span>
                                             <label for="filter-nho">
-                                                <input type="checkbox" id="filter-nho" 
-                                                    data-group="tag2" data-field="tags" data-text="Nhỏ" 
-                                                    data-operator="OR">
+                                                <input type="checkbox" id="filter-nho" data-group="tag2"
+                                                    data-field="tags" data-text="Nhỏ" data-operator="OR">
                                                 <i class="fa"></i>
                                                 Nhỏ
                                             </label>
@@ -357,9 +264,8 @@
                                     <li class="filter-item filter-item--check-box filter-item--green">
                                         <span>
                                             <label for="filter-vua">
-                                                <input type="checkbox" id="filter-vua" 
-                                                    data-group="tag2" data-field="tags" data-text="Vừa" 
-                                                    data-operator="OR">
+                                                <input type="checkbox" id="filter-vua" data-group="tag2"
+                                                    data-field="tags" data-text="Vừa" data-operator="OR">
                                                 <i class="fa"></i>
                                                 Vừa
                                             </label>
@@ -391,4 +297,80 @@
         </div>
 
     </div>
+</div>
+<div id="popup-cart" class="modal fade in" role="dialog" style="display: none; padding-right: 17px;">
+    <div id="popup-cart-desktop" class="clearfix">
+        <div class="title-popup-cart">
+            <i class="ion ion-md-notifications-outline" aria-hidden="true"></i> Bạn đã thêm <span
+                class="cart-popup-name"><a href="/ao-coc-tay-nam-sieu-thoang-khi-chat-vai-sieu-nhe" style="color:red;"
+                    title="ÁO CỘC TAY NAM SIÊU THOÁNG KHÍ, CHẤT VẢI SIÊU NHẸ - Đen / S">ÁO CỘC TAY NAM SIÊU THOÁNG KHÍ,
+                    CHẤT VẢI SIÊU NHẸ - Đen / S</a> </span> vào giỏ hàng
+        </div>
+        <div class="title-quantity-popup">
+            <a href="/cart">Giỏ hàng của bạn có <span class="cart-popup-count">1</span> sản phẩm</a>
+        </div>
+        <div class="content-popup-cart clearfix">
+            <div class="thead-popup">
+                <div style="width: 55%;" class="text-left">Sản phẩm</div>
+                <div style="width: 15%;" class="text-center">Đơn giá</div>
+                <div style="width: 15%;" class="text-center">Số lượng</div>
+                <div style="width: 15%;" class="text-center">Thành tiền</div>
+            </div>
+            <div class="tbody-popup">
+                <div class="item-popup productid-38725988">
+                    <div style="width: 55%;" class="text-left">
+                        <div class="item-image"><a class="product-image"
+                                href="/ao-coc-tay-nam-sieu-thoang-khi-chat-vai-sieu-nhe"
+                                title="ÁO CỘC TAY NAM SIÊU THOÁNG KHÍ, CHẤT VẢI SIÊU NHẸ - Đen / S"><img
+                                    alt="ÁO CỘC TAY NAM SIÊU THOÁNG KHÍ, CHẤT VẢI SIÊU NHẸ - Đen / S"
+                                    src="//bizweb.dktcdn.net/thumb/small/100/376/467/products/16308900618-1113668521.jpg"
+                                    width="80"></a></div>
+                        <div class="item-info">
+                            <p class="item-name"><a href="/ao-coc-tay-nam-sieu-thoang-khi-chat-vai-sieu-nhe"
+                                    title="ÁO CỘC TAY NAM SIÊU THOÁNG KHÍ, CHẤT VẢI SIÊU NHẸ - Đen / S">ÁO CỘC TAY NAM
+                                    SIÊU THOÁNG KHÍ, CHẤT VẢI SIÊU NHẸ</a></p>
+                            <p class="variant-title-popup">Đen / S</p>
+                            <p class="item-remove"><a href="javascript:;" class="remove-item-cart" title="Xóa"
+                                    data-id="38725988"><i class="fa fa-close"></i> Bỏ sản phẩm</a></p>
+                            <p class="addpass" style="color:#fff;"><span class="add_sus" style="color:#898989;"><i
+                                        style="margin-right:5px; color:red; font-size:13px;" class="fa fa-check"
+                                        aria-hidden="true"></i>Sản phẩm vừa thêm!</span></p>
+                        </div>
+                    </div>
+                    <div style="width: 15%;" class="text-right">
+                        <div class="item-price"><span class="price">319.000₫</span></div>
+                    </div>
+                    <!-- <div style="width: 15%;" class="text-center"><input class="variantID" type="hidden" name="variantId"
+                            value="38725988"><button
+                            onclick="var result = document.getElementById('qtyItem38725988'); var qtyItem38725988 = result.value; if( !isNaN( qtyItem38725988 ) &amp;&amp; qtyItem38725988 > 1 ) result.value--;return false;"
+                            disabled="" class="reduced items-count btn-minus" type="button">–</button><input type="text"
+                            maxlength="12" min="0" class="input-text number-sidebar qtyItem38725988"
+                            id="qtyItem38725988" name="Lines" size="4" value="1"><button
+                            onclick="var result = document.getElementById('qtyItem38725988'); var qtyItem38725988 = result.value; if( !isNaN( qtyItem38725988 )) result.value++;return false;"
+                            class="increase items-count btn-plus" type="button">+</button></div> -->
+                    <div style="width: 15%;" class="text-right"><span class="cart-price"> <span
+                                class="price">319.000₫</span> </span></div>
+                </div>
+            </div>
+            <div class="tfoot-popup">
+                <div class="tfoot-popup-1 clearfix">
+                    <div class="pull-left popupcon">
+                        <a class="button btn-continue" title="Tiếp tục mua hàng"
+                            onclick="$('#popup-cart').modal('hide');"><span><span><i class="fa fa-caret-left"
+                                        aria-hidden="true"></i> Tiếp tục mua hàng</span></span></a>
+                    </div>
+                    <div class="pull-right popup-total">
+                        <p>Thành tiền: <span class="total-price">319.000₫</span></p>
+                    </div>
+                </div>
+                <div class="tfoot-popup-2 clearfix">
+                    <a class="button btn-proceed-checkout" title="Thanh toán đơn hàng" href="/checkout"><span>Thanh toán
+                            đơn hàng</span></a>
+                </div>
+            </div>
+        </div>
+        <a title="Close" class="quickview-close close-window" href="javascript:;"
+            onclick="$('#popup-cart').modal('hide');"><i class="ion ion-ios-close"></i></a>
+    </div>
+
 </div>

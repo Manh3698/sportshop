@@ -135,38 +135,11 @@
                             <li class="nav-item active"><a class="nav-link" routerLink="/">Trang chủ</a></li>
                             <li class="nav-item "><a class="nav-link" href="/gioi-thieu">Giới thiệu</a></li>
                             <li class="nav-item ">
-                                <a href="/do-the-thao-nu" class="nav-link">Đồ thể thao nữ <i class="fa fa-angle-right"
+                                <a href="/do-the-thao-nu" class="nav-link">Đồ thể thao <i class="fa fa-angle-right"
                                         data-toggle="dropdown"></i></a>
                                 <ul class="dropdown-menu">
-                                    <li class="nav-item-lv2">
-                                        <a class="nav-link" href="/ao-the-thao-nu">Áo thể thao nữ</a>
-                                    </li>
-                                    <li class="nav-item-lv2">
-                                        <a class="nav-link" href="/quan-the-thao-nu">Quần thể thao nữ</a>
-                                    </li>
-                                    <li class="nav-item-lv2">
-                                        <a class="nav-link" href="/bo-the-thao-nu">Bộ thể thao nữ</a>
-                                    </li>
-                                    <li class="nav-item-lv2">
-                                        <a class="nav-link" href="/phu-kien-the-thao-nu">Phụ kiện thể thao nữ</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="nav-item ">
-                                <a href="/do-the-thao-nam" class="nav-link">Đồ thể thao nam <i class="fa fa-angle-right"
-                                        data-toggle="dropdown"></i></a>
-                                <ul class="dropdown-menu">
-                                    <li class="nav-item-lv2">
-                                        <a class="nav-link" routerLink="/list-products">Áo thể thao nam</a>
-                                    </li>
-                                    <li class="nav-item-lv2">
-                                        <a class="nav-link" href="/quan-the-thao-nam">Quần thể thao nam</a>
-                                    </li>
-                                    <li class="nav-item-lv2">
-                                        <a class="nav-link" href="/bo-the-thao-nam">Bộ thể thao nam</a>
-                                    </li>
-                                    <li class="nav-item-lv2">
-                                        <a class="nav-link" href="/phu-kien-the-thao-nam">Phụ kiện thể thao nam</a>
+                                    <li class="nav-item-lv2" *ngFor = 'let clothes of listClothes'>
+                                        <a class="nav-link" [routerLink]="['/' + clothes.id + '/list-products']">{{clothes.name}}</a>
                                     </li>
                                 </ul>
                             </li>
@@ -174,17 +147,8 @@
                                 <a href="/phu-kien-the-thao" class="nav-link">Phụ kiện thể thao <i
                                         class="fa fa-angle-right" data-toggle="dropdown"></i></a>
                                 <ul class="dropdown-menu">
-                                    <li class="nav-item-lv2">
-                                        <a class="nav-link" href="/belt-dai-chay-bo">Belt, đai chạy bộ</a>
-                                    </li>
-                                    <li class="nav-item-lv2">
-                                        <a class="nav-link" href="/mu-the-thao">Mũ thể thao</a>
-                                    </li>
-                                    <li class="nav-item-lv2">
-                                        <a class="nav-link" href="/kinh-the-thao">Kính thể thao</a>
-                                    </li>
-                                    <li class="nav-item-lv2">
-                                        <a class="nav-link" href="/phu-kien-the-thao-khac">Phụ kiện thể thao khác</a>
+                                    <li class="nav-item-lv2" *ngFor = 'let item of listItem'>
+                                        <a class="nav-link" [routerLink]="['/' + item.id + '/list-products']">{{item.name}}</a>
                                     </li>
                                 </ul>
                             </li>

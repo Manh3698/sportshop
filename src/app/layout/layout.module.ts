@@ -16,6 +16,8 @@ import { CartComponent } from './cart/cart.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { DesignComponent } from './design/design.component';
 import { ResizableDraggableComponent } from './resizable-draggable/resizable-draggable.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 
 @NgModule({
@@ -24,7 +26,10 @@ import { ResizableDraggableComponent } from './resizable-draggable/resizable-dra
     CommonModule,
     LayoutRoutingModule,
     NgbCarouselModule,
-    NgbAlertModule
+    NgbAlertModule,
+    FormsModule,
+    ReactiveFormsModule,
+    CKEditorModule
   ]
 })
 export class LayoutModule { }

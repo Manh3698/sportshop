@@ -20,10 +20,11 @@ const routes: Routes = [
     { path: 'contact', component: ContactComponent},
     { path: 'cart', component: CartComponent},
     { path: 'profile', component: ProfileComponent},
-    { path: 'list-products', component: ProductsComponent},
+    { path: ':cateId/list-products', component: ProductsComponent},
     { path: 'detail', component: ProductDetailComponent},
     { path: '', component: HomepageComponent},
-    { path: 'design', component: DesignComponent}
+    { path: 'design', component: DesignComponent},
+    { path: ':productId/detail', component:ProductDetailComponent}
   ]
   },
 ];
