@@ -9,6 +9,7 @@ import { Label } from 'ng2-charts';
   styleUrls: ['./homepage.component.css']
 })
 export class HomepageComponent implements OnInit {
+  public sliders: Array<any> = [];
   barChartOptions: ChartOptions = {
     responsive: true,
   };
@@ -21,9 +22,30 @@ export class HomepageComponent implements OnInit {
   barChartData: ChartDataSets[] = [
     { data: [45, 37, 60, 70, 46, 33], label: 'Best Fruits' }
   ];
-  constructor() { }
+  constructor() { 
+    this.sliders.push(
+      {
+          imagePath: 'assets/images/banner/bannerkm2.webp',
+          label: 'First slide label',
+          text: 'Nulla vitae elit libero, a pharetra augue mollis interdum.'
+      },
+      {
+          imagePath: 'assets/images/banner/banner1.jpg',
+          label: 'Second slide label',
+          text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+      },
+      {
+          imagePath: 'assets/images/banner/banner_clb_2.jpg',
+          label: 'Third slide label',
+          text: 'Praesent commodo cursus magna, vel scelerisque nisl consectetur.'
+      }
+  );
+  }
   
   ngOnInit(): void {
+  }
+  addNew(){
+    
   }
 
 }

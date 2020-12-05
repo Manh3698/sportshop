@@ -5,8 +5,6 @@ import { LayoutRoutingModule } from './layout-routing.module';
 import { LayoutComponent } from './layout.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { SignInComponent } from './sign-in/sign-in.component';
-import { SignUpComponent } from './sign-up/sign-up.component';
 import { ContactComponent } from './contact/contact.component';
 import { ProductsComponent } from './products/products.component';
 import { ProductDetailComponent } from './products/product-detail/product-detail.component';
@@ -18,10 +16,11 @@ import { DesignComponent } from './design/design.component';
 import { ResizableDraggableComponent } from './resizable-draggable/resizable-draggable.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { PaymentComponent } from './payment/payment.component';
 
 
 @NgModule({
-  declarations: [LayoutComponent, HeaderComponent, FooterComponent, SignInComponent, SignUpComponent, ContactComponent, ProductsComponent, ProductDetailComponent, ProfileComponent, AboutUsComponent, CartComponent, HomepageComponent, DesignComponent, ResizableDraggableComponent],
+  declarations: [LayoutComponent, HeaderComponent, FooterComponent, ContactComponent, ProductsComponent, ProductDetailComponent, ProfileComponent, AboutUsComponent, CartComponent, HomepageComponent, DesignComponent, ResizableDraggableComponent, PaymentComponent],
   imports: [
     CommonModule,
     LayoutRoutingModule,

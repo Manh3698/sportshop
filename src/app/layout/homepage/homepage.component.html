@@ -1,5 +1,5 @@
 <div class="row row1">
-    <div class="col-md-12">
+    <div class="col-md-12" style="padding-top: 5px;">
         <ngb-carousel>
             <ng-template *ngFor="let slider of sliders" ngbSlide>
                 <img
@@ -8,10 +8,6 @@
                     class="img-fluid mx-auto d-block"
                     width="100%"
                 />
-                <div class="carousel-caption">
-                    <h3>{{ slider.label }}</h3>
-                    <p>{{ slider.text }}</p>
-                </div>
             </ng-template>
         </ngb-carousel>
     </div>
@@ -22,20 +18,125 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="section-head">
-                        <h2>Đồ thể thao nữ</h2>
+                        <h2>Đồ thể thao </h2>
                         <div class="menu-button-edit">
                             <i class="fa fa-navicon" aria-hidden="true"></i>
                         </div>
                         <ul>
+                            <li><a routerLink = '1/list-products'>Áo bóng đá clb</a></li>
 
-                            <li><a href="/ao-the-thao-nu">Áo thể thao nữ</a></li>
+                            <li><a routerLink = '2/list-products'>Áo bóng đa đội tuyển</a></li>
 
-                            <li><a href="/quan-the-thao-nu">Quần thể thao nữ</a></li>
+                            <li><a routerLink = '3/list-products'>Mẫu khác</a></li>
 
-                            <li><a href="/bo-the-thao-nu">Bộ thể thao nữ</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="content">
+                        <div class="section-tour-owl2 products products-view-grid owl-carousel not-dqowl owl-loaded owl-drag">
+                            <div class="owl-stage-outer">
+                                <div class="owl-stage"
+                                    style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 3480px;">
+                                    <div class="owl-item active" style="width: 222px; margin-right: 10px;">
+                                        <div class="item">
+                                            <div class="ant-item-product" id="home_two_cate_item_collection_8"
+                                                data-id="19420617">
+                                                <div class="product-item">
+                                                    <div class="product-wrapper">
+                                                        <div class="product-image product-image-block">
+                                                            <a href="/quan-bo-mau-khoi" title="QUẦN BÓ MÀU KHÓI">
+                                                                <img src="../../../assets/Real-madrid-xanh-Fifa-S02.jpg"
+                                                                    data-lazyload="//bizweb.dktcdn.net/thumb/large/100/376/467/products/17951367793-1113668521.jpg?v=1602755025000"
+                                                                    alt="QUẦN BÓ MÀU KHÓI"
+                                                                    class="image_main img-responsive center-block">
+                                                            </a>
+                                                        </div>
+                                                        <div class="product_desc">
+                                                            <div
+                                                                class="product_variant_box hidden-sm hidden-xs hidden-md">
 
-                            <li><a href="/phu-kien-the-thao-nu">Phụ kiện thể thao nữ</a></li>
+                                                                <p class="variant_text variant_text_size nomargin">+ 2
+                                                                    Màu sắc</p>
+                                                            </div>
+                                                            <h3 class="product_name">
+                                                                <a href="/quan-bo-mau-khoi"
+                                                                    title="QUẦN BÓ MÀU KHÓI">QUẦN BÓ MÀU KHÓI</a>
+                                                            </h3>
+                                                            <div class="product_prices">
 
+
+                                                                <span class="special-price">
+                                                                    <span class="price-container">
+                                                                        <span class="price-wrapper">
+                                                                            <span
+                                                                                class="price spe-price">479.000₫</span>
+                                                                        </span>
+                                                                    </span>
+                                                                </span>
+
+                                                                <span class="old-price">
+                                                                    <span class="price-container">
+                                                                        <span class="price-wrapper">
+                                                                            <span
+                                                                                class="price olds-price">550.000₫</span>
+                                                                        </span>
+                                                                    </span>
+                                                                </span>
+                                                            </div>
+                                                            <div
+                                                                class="product_action clearfix hidden-sm hidden-xs hidden-md">
+                                                                <form action="/cart/add" method="post"
+                                                                    class="variants form-nut-grid has-validation-callback"
+                                                                    data-id="product-actions-19420617"
+                                                                    enctype="multipart/form-data">
+                                                                    <input class="hidden variant-id" type="hidden"
+                                                                        name="variantId" value="37666937">
+                                                                    <button type="submit"
+                                                                        data-handle="/quan-bo-mau-khoi" data-title=""
+                                                                        data-product-id="19420617"
+                                                                        class="loading btn btn_addtocart add_to_cart">
+                                                                        ĐẶT MUA NGAY <i class="fa fa-shopping-cart"></i>
+                                                                    </button>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="owl-nav">
+                                <div class="owl-prev disabled"><i class="fa fa-angle-left" aria-hidden="true"></i></div>
+                                <div class="owl-next"><i class="fa fa-angle-right" aria-hidden="true"></i></div>
+                            </div>
+                            <div class="owl-dots disabled"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="amore text-center">
+                        <a href="/do-the-thao-nu" title="Xem thêm ">Xem thêm </a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-head">
+                        <h2>Phụ kiện thể thao </h2>
+                        <div class="menu-button-edit">
+                            <i class="fa fa-navicon" aria-hidden="true"></i>
+                        </div>
+                        <ul>
+                            <li><a routerLink = '4/list-products'>Cúp và huy chương</a></li>
+
+                            <li><a routerLink = '5/list-products'>Băng gối</a></li>
+
+                            <li><a routerLink = '6/list-products'>Giày đá bóng</a></li>
+
+                            <li><a routerLink = '8/list-products'>Bóng các loại</a></li>
                         </ul>
                     </div>
                 </div>

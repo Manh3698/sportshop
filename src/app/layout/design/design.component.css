@@ -619,8 +619,14 @@ svg:not(:root) {
     color: #0BB395;
   }
 }
-
-@import "add.css";
+#add{
+  min-height: 300px;
+  border: 1px solid #dddddd;
+}
+#add .col-md{
+  padding: 0;
+}
+/* @import "add.css"; */
 .ps-container .ps-scrollbar-x-rail {
   position: absolute;
   bottom: 3px;

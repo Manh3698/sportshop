@@ -6,51 +6,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./homepage.component.css']
 })
 export class HomepageComponent implements OnInit {
-  public alerts: Array<any> = [];
   public sliders: Array<any> = [];
   constructor() {
     this.sliders.push(
       {
-          imagePath: 'assets/slider1.jpg',
+          imagePath: 'assets/images/banner/bannerkm2.webp',
           label: 'First slide label',
           text: 'Nulla vitae elit libero, a pharetra augue mollis interdum.'
       },
       {
-          imagePath: 'assets/slider2.jpg',
+          imagePath: 'assets/images/banner/banner1.jpg',
           label: 'Second slide label',
           text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
       },
       {
-          imagePath: 'assets/slider3.jpg',
+          imagePath: 'assets/images/banner/banner_clb_2.jpg',
           label: 'Third slide label',
           text: 'Praesent commodo cursus magna, vel scelerisque nisl consectetur.'
       }
   );
-
-  this.alerts.push(
-      {
-          id: 1,
-          type: 'success',
-          message: `Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-          Voluptates est animi quibusdam praesentium quam, et perspiciatis,
-          consectetur velit culpa molestias dignissimos
-          voluptatum veritatis quod aliquam! Rerum placeat necessitatibus, vitae dolorum`
-      },
-      {
-          id: 2,
-          type: 'warning',
-          message: `Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-          Voluptates est animi quibusdam praesentium quam, et perspiciatis,
-          consectetur velit culpa molestias dignissimos
-          voluptatum veritatis quod aliquam! Rerum placeat necessitatibus, vitae dolorum`
-      }
-  );
-   }
+  }
 
   ngOnInit(): void {
-  }
-  public closeAlert(alert: any) {
-    const index: number = this.alerts.indexOf(alert);
-    this.alerts.splice(index, 1);
   }
 }

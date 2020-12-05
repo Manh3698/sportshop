@@ -12,6 +12,10 @@
             <i class="fa fa-fw fa-table"></i>&nbsp;
             <span>{{ 'Danh mục sản phẩm' }}</span>
         </a>
+        <a [routerLinkActive]="['router-link-active']" routerLink="images" class="list-group-item">
+            <i class="fa fa-fw fa-shopping-cart"></i>&nbsp;
+            <span>{{ 'Quản lý quảng cáo'  }}</span>
+        </a>
         <a [routerLinkActive]="['router-link-active']" routerLink="order" class="list-group-item">
             <i class="fa fa-fw fa-shopping-cart"></i>&nbsp;
             <span>{{ 'Quản lý đơn hàng'  }}</span>
@@ -20,13 +24,13 @@
             <i class="fa fa-fw fa-user"></i>&nbsp;
             <span>{{ 'Khách hàng'}}</span>
         </a>
-        <a [routerLinkActive]="['router-link-active']" [routerLink]="['/grid']" class="list-group-item">
+        <a [routerLinkActive]="['router-link-active']"  class="list-group-item">
             <i class="fa fa-fw fa-wrench"></i>&nbsp;
             <span>{{ 'Nhập kho' }}</span>
         </a>
-        <a [routerLinkActive]="['router-link-active']" routerLink="product" class="list-group-item">
+        <a  routerLink="//" class="list-group-item">
             <i class="fa fa-th-list"></i>&nbsp;
-            <span>{{ 'Component' }}</span>
+            <span>{{ 'Homepage' }}</span>
         </a>
     </div>
     <div (click)="toggleCollapsed()" [ngClass]="{ collapsed: collapsed }" class="toggle-button">

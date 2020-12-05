@@ -1,47 +1,50 @@
-<div class="caption">
-  <h2>Sản phẩm : Áo</h2>
-</div>
-<div class="div2">
-  <a href="" type="button" class="btn-add" data-toggle="modal" data-target="#modalEdit" (click)="addNew()">
-    <i class="fa fa-check"></i>
-    Thêm sản phẩm
-  </a>
-  <input type="search" class="search" placeholder="Tìm kiếm sản phẩm">
-</div>
-<div>
-  <table class="table">
-    <thead class="thead">
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Tên sản phẩm</th>
-        <th scope="col">Mã sản phẩm</th>
-        <th scope="col">Hình ảnh</th>
-        <th scope="col">Số lượng</th>
-        <th scope="col">Giá bán(mới)</th>
-        <th scope="col">Công cụ</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor='let product of listProduct; let i = index'>
-        <th scope="row">{{i+1}}</th>
-        <td>{{product.name}}</td>
-        <td>{{product.code}}</td>
-        <td><img src="../../../assets/logo.jpg" alt=""></td>
-        <td>{{product.quantity}}</td>
-        <td>{{product.newPrice}}</td>
-        <td>
-          <ul>
-            <li><a type="button" class="btn-infor" (click)="detailProduct(product.id)"><i
-                  class="fa fa-w fa-info"></i></a></li>
-            <li><a type="button" class="btn-edit" data-toggle="modal" data-target="#modalEdit"
-                (click)="detailProduct(product.id)"><i class="fa fa-w fa-edit"></i></a></li>
-            <li><a type="button" class="btn-delete" (click)="deleteProduct(product.id)"><i
-                  class="fa fa-trash-o"></i></a></li>
-          </ul>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+<div class="container">
+  <div class="caption">
+    <h2>Sản phẩm : {{cateName}}</h2>
+  </div>
+  <div class="div2">
+    <a href="" type="button" class="btn-add" data-toggle="modal" data-target="#modalEdit" (click)="addNew()">
+      <i class="fa fa-check"></i>
+      Thêm sản phẩm
+    </a>
+    <input type="search" class="search" placeholder="Tìm kiếm sản phẩm">
+  </div>
+  <div>
+    <table class="table">
+      <thead class="thead">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Tên sản phẩm</th>
+          <th scope="col">Mã sản phẩm</th>
+          <th scope="col">Hình ảnh</th>
+          <th scope="col">Số lượng</th>
+          <th scope="col">Giá bán(mới)</th>
+          <th scope="col">Công cụ</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor='let product of listProduct; let i = index'>
+          <th scope="row">{{i+1}}</th>
+          <td>{{product.name}}</td>
+          <td>{{product.code}}</td>
+          <td><img src="../../../assets/logo.jpg" alt=""></td>
+          <td>{{product.quantity}}</td>
+          <td>{{product.newPrice}}</td>
+          <td>
+            <ul>
+              <!-- <li><a type="button" class="btn-infor" (click)="detailProduct(product.id)"><i
+                    class="fa fa-w fa-info"></i></a></li> -->
+              <li><a type="button" class="btn-edit" data-toggle="modal" data-target="#modalEdit"
+                  (click)="detailProduct(product.id)"><i class="fa fa-w fa-edit"></i></a></li>
+              <li><a type="button" class="btn-delete" data-toggle="modal" data-target="#modalDelete"
+                  (click)="detailProduct(product.id)"><i
+                    class="fa fa-trash-o"></i></a></li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 <!-- Modal -->
 <div class="modal fade" id="modalEdit" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
@@ -70,6 +73,14 @@
           </div>
           <div class="form-group">
             <label>Hình ảnh</label>
+            <div class="images">
+              <!-- <span>{{dataProduct.images}}</span> -->
+              <span>
+                <img src="../../../assets/Real-madrid-xanh-Fifa-S02.jpg" alt="">
+                <img src="../../../assets/Real-madrid-xanh-Fifa-S02.jpg" alt="">
+                <img src="../../../assets/Real-madrid-xanh-Fifa-S02.jpg" alt="">
+              </span>
+            </div>
             <input type="file" class="form-control" #fileInput multiple (change)="onChangeFile()">
           </div>
           <div class="form-group">
@@ -120,7 +131,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
-        <button type="button" class="btn btn-primary">Xóa</button>
+        <button type="button" class="btn btn-primary" (click)="deleteProduct(dataProduct.id)">Xóa</button>
       </div>
     </div>
   </div>

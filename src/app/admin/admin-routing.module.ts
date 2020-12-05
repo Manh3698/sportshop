@@ -16,7 +16,7 @@ const routes: Routes = [{
     { path: 'cateProducts', component:CateProductsComponent},
     { path: 'home', component:HomepageComponent},
     { path: 'order', component:OrderManagementComponent},
-    { path: ':cateId/product', component:ProductComponent}
+    { path: ':cateName/:cateId/product', component:ProductComponent}
   ]
 }];
 

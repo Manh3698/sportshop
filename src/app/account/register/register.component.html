@@ -1,0 +1,302 @@
+<header class="header">
+    <div class="top-link header-link hidden-sm hidden-xs clearfix">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-xs-12">
+                    <div class="header-static">
+                        <ul>
+                            <li>
+                                Hotline: <a href="tel:0969959168">0969959168</a>
+                            </li>
+                            <li>
+                                <a href="/lien-he">Tìm cửa hàng</a>
+                            </li>
+                            <li>
+                                <a href="/lien-he">Liên hệ hợp tác</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xs-12 right">
+                    <div class="top-link-dropdown">
+                        <ul class="header links">
+                            <li>
+                                <a href="/apps/kiem-tra-don-hang"><i class="fa fa-check-square-o"
+                                        aria-hidden="true"></i> Kiểm tra đơn hàng</a>
+                            </li>
+                            <li><a routerLink="/login">Đăng nhập</a></li>
+                            <li><a routerLink="/register">Đăng ký</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header-main">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-100-h">
+                    <button type="button" class="navbar-toggle collapsed visible-sm visible-xs" id="trigger-mobile">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <div class="logo">
+                        <a href="/" class="logo-wrapper">
+                            <img src="assets/logo.jpg" alt="logo Sport Shop">
+                        </a>
+                    </div>
+                    <div class="mobile-cart visible-sm visible-xs">
+                        <a href="/cart" title="Giỏ hàng">
+                            <i class="ion ion-md-appstore"></i>
+                            <div class="cart-right">
+                                <span class="count_item_pr">2</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-5 col-md-4">
+                    <form class="input-group search-bar search_form has-validation-callback" action="/search"
+                        method="get" role="search" id="voice-search">
+                        <input type="search" name="query" value="" placeholder="Tìm kiếm sản phẩm... "
+                            class="input-group-field st-default-search-input search-text search-voice"
+                            autocomplete="off">
+                        <span class="input-group-btn">
+                            <button class="btn icon-fallback-text">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </span>
+                    </form>
+                </div>
+                <div class="col-lg-4 col-md-5 hidden-sm hidden-xs">
+                    <div class="product-recent-header">
+                        <div class="product-recent-title">
+                            Sản phẩm đã xem <i class="fa fa-angle-down" aria-hidden="true"></i>
+                        </div>
+                        <div class="product-recently-content">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="no-recently" style="display: none;">
+                                            <p>Bạn chưa xem sản phẩm nào.</p>
+                                            <p>Hãy tiếp tục khám phá Sport Shop, các sản phẩm bạn đã xem sẽ hiển thị ở
+                                                đây!</p>
+                                        </div>
+                                        <div class="recent_products-row ">
+                                            <div class="recent_products">
+                                                <div class="module-content">
+                                                    <div class="recent_items">
+                                                        <div id="recent-content"
+                                                            class="not-dqowl owl-theme owl-carousel owl-loaded owl-drag">
+                                                            <div class="owl-stage-outer">
+                                                                <div class="owl-stage">
+                                                                    <div class="owl-item active" style="width: 106px; margin-right: 10px;">
+                                                                        <div class="item">
+                                                                            <div class="box-image"><a
+                                                                                    class="image url-product"
+                                                                                    href="/ao-coc-tay-nam-sieu-thoang-khi-chat-vai-sieu-nhe"
+                                                                                    title="ÁO CỘC TAY NAM SIÊU THOÁNG KHÍ, CHẤT VẢI SIÊU NHẸ"><img
+                                                                                        class="image-review"
+                                                                                        src="https://bizweb.dktcdn.net/thumb/large/100/376/467/products/16308900618-1113668521.jpg"
+                                                                                        data-lazyload="https://bizweb.dktcdn.net/thumb/large/100/376/467/products/16308900618-1113668521.jpg"
+                                                                                        alt="ÁO CỘC TAY NAM SIÊU THOÁNG KHÍ, CHẤT VẢI SIÊU NHẸ"></a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="owl-nav disabled">
+                                                                <div class="owl-prev"><i class="fa fa-angle-left"
+                                                                        aria-hidden="true"></i></div>
+                                                                <div class="owl-next"><i class="fa fa-angle-right"
+                                                                        aria-hidden="true"></i></div>
+                                                            </div>
+                                                            <div class="owl-dots disabled"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="minicart-wrapper">
+                        <a class="showcart" routerLink='/cart'>
+                            <i class="ion ion-md-cart"></i>
+                            <span class="cart-value count_item_pr" id="count">{{count}}</span>
+                            <span class="content">
+                                <span class="content-inner">
+                                    <span class="text">Giỏ hàng</span>
+                                </span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header-bottom hidden-sm hidden-xs">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <nav class="hidden-sm hidden-xs">
+                        <ul id="nav" class="nav">
+                            <li class="nav-item active"><a class="nav-link" routerLink="/">Trang chủ</a></li>
+                            <li class="nav-item "><a class="nav-link" href="/gioi-thieu">Giới thiệu</a></li>
+                            <li class="nav-item ">
+                                <a  class="nav-link">Đồ thể thao <i class="fa fa-angle-right"
+                                        data-toggle="dropdown"></i></a>
+                                <ul class="dropdown-menu">
+                                    <li class="nav-item-lv2" *ngFor='let clothes of listClothes'>
+                                        <a class="nav-link"
+                                            [routerLink]="['/' + clothes.id + '/list-products']">{{clothes.name}}</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link">Phụ kiện thể thao <i
+                                        class="fa fa-angle-right" data-toggle="dropdown"></i></a>
+                                <ul class="dropdown-menu">
+                                    <li class="nav-item-lv2" *ngFor='let item of listItem'>
+                                        <a class="nav-link"
+                                            [routerLink]="['/' + item.id + '/list-products']">{{item.name}}</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item ">
+                                <a routerLink="/design" class="nav-link">Thiết Kế Online <i
+                                        class="fa fa-angle-right"></i></a>
+                            </li>
+                            <li class="nav-item "><a class="nav-link" routerLink="/contact">Liên hệ <i
+                                        class="fa fa-angle-right"></i></a></li>
+                            <li class="nav-item "><a class="nav-link" routerLink="/admin/home">Admin</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<footer class="footer-container">
+    <div class="footer-top">
+        <div class="container">
+            <div class="footer-static">
+                <div class="row">
+                    <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12 footer-click">
+                        <div class="footer-title">
+                            <h3>Về chúng tôi</h3>
+                        </div>
+                        <div class="footer-content">
+                            <ul class="menu">
+
+                                <li><a href="/">Trang chủ</a></li>
+
+                                <li><a href="/gioi-thieu">Giới thiệu</a></li>
+
+                                <li><a href="/collections/all">Sản phẩm</a></li>
+
+                                <li><a href="/lien-he">Liên hệ</a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 footer-click">
+                        <div class="footer-title">
+                            <h3>Chính sách</h3>
+                        </div>
+                        <div class="footer-content">
+                            <ul class="menu">
+
+                                <li><a href="/chinh-sach">Chính sách bảo mật</a></li>
+
+                                <li><a href="/chinh-sach">Chính sách vận chuyển</a></li>
+
+                                <li><a href="/chinh-sach">Chính sách đổi trả</a></li>
+
+                                <li><a href="/dieu-khoan">Quy định sử dụng</a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="clearfix visible-sm"></div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 footer-click">
+                        <div class="footer-title">
+                            <h3>Hướng dẫn</h3>
+                        </div>
+                        <div class="footer-content">
+                            <ul class="menu">
+
+                                <li><a href="/huong-dan">Hướng dẫn mua hàng</a></li>
+
+                                <li><a href="/huong-dan">Hướng dẫn thanh toán</a></li>
+
+                                <li><a href="/huong-dan">Hướng dẫn giao nhận</a></li>
+
+                                <li><a href="/dieu-khoan">Điều khoản dịch vụ</a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                        <div class="footer-title">
+                            <h3>Fanpage</h3>
+                        </div>
+                        <div class="footer-content">
+                            <ul class="menu">
+                                <li>
+                                    <div class="f-b-box">
+                                        <div class="fb-page fb_iframe_widget"
+                                            data-href="https://www.facebook.com/dungtransport123"
+                                            data-small-header="false" data-width="500" data-adapt-container-width="true"
+                                            data-hide-cover="false" data-show-facepile="true" fb-xfbml-state="rendered"
+                                            fb-iframe-plugin-query="adapt_container_width=true&amp;app_id=&amp;container_width=370&amp;hide_cover=false&amp;href=https%3A%2F%2Fwww.facebook.com%2FSportShopOfficialVN&amp;locale=vi_VN&amp;sdk=joey&amp;show_facepile=true&amp;small_header=false&amp;width=500">
+                                            <span style="vertical-align: bottom; width: 370px; height: 197px;"><iframe
+                                                    name="f384c59396d66c8" width="500px" height="1000px"
+                                                    data-testid="fb:page Facebook Social Plugin"
+                                                    title="fb:page Facebook Social Plugin" frameborder="0"
+                                                    allowtransparency="true" allowfullscreen="true" scrolling="no"
+                                                    allow="encrypted-media"
+                                                    src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fdungtransport123&tabs=timeline&width=370&height=197&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="370" height="197" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"
+                                                    style="border: none; visibility: visible; width: 370px; height: 197px;"
+                                                    class=""></iframe></span></div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-information">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <a href="/" class="logo-footer">
+                        <img src="../../../../assets/logo.jpg"
+                            data-lazyload="//bizweb.dktcdn.net/100/376/467/themes/790294/assets/footer-logo.png?1603029200770"
+                            alt="logo Sport Shop">
+                    </a>
+                </div>
+                <div class="col-md-5">
+                    <ul class="footer-info">
+
+                        <li><i class="fa fa-map-marker" aria-hidden="true"></i> 108 Nguyễn Lương Bằng, Phường Hòa Khánh Bắc, quận Liên Chiều,thành phố Đà Nẵng</li>
+                        <li><i class="fa fa-phone" aria-hidden="true"></i> <a href="tel:0969959168">0969959168</a></li>
+                        <li><i class="fa fa-envelope" aria-hidden="true"></i> <a
+                                href="mailto:sportshopofficialvn@gmail.com">sportshopofficialvn@gmail.com</a></li>
+                        <li><i class="fa fa-globe" aria-hidden="true"></i> <a
+                                href="https://sportshop.vn/">https://sportshop.vn/</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

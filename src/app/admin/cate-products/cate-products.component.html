@@ -18,6 +18,7 @@
           <tr>
             <th scope="col">#</th>
             <th scope="col">Tên danh mục</th>
+            <th>Loại</th>
             <th scope="col">Xem sản phẩm</th>
             <th scope="col">Công cụ</th>
           </tr>
@@ -26,7 +27,8 @@
           <tr *ngFor = 'let cate of listCate; let i = index'>
             <th scope="row">{{i+1}}</th>
             <td>{{cate.name}}</td>
-            <td><a [routerLinkActive]="['router-link-active']" [routerLink]="['/admin/' + cate.id + '/product']"  type="button" class="btn-list"><i class="fa fa-th-list"></i>Xem</a></td>
+            <td>{{cate.type}}</td>
+            <td><a [routerLinkActive]="['router-link-active']" [routerLink]="['/admin/' + cate.name + '/' + cate.id  + '/product']"  type="button" class="btn-list"><i class="fa fa-th-list"></i>Xem</a></td>
             <td>
                 <ul>
                     <li><a  type="button" class="btn-edit" data-toggle="modal" data-target="#modalEdit" (click)="detail(cate.id)"><i class="fa fa-w fa-edit"></i>Chỉnh sửa</a></li>
@@ -52,8 +54,16 @@
           <form novalidate>
               <div class="form-group">
                 <label>Tên danh mục</label>
-                <input type="text" class="form-control" name="name" [(ngModel)]="dataCate.name">
-              </div>         
+                <input type="text" class="form-control" name="name" [(ngModel)]="dataCateAdd.name">
+              </div>
+              <div class="form-group">
+                <label>Loại</label>
+                <!-- <input type="text" class="form-control" name="name" [(ngModel)]="dataCate.name"> -->
+                <select style="font-size: 14px; height: 35px;"  class="form-control" name="type" [(ngModel)]="dataCateAdd.type">
+                  <option style="font-size: 14px;"  value="{{types[0].name}}">{{types[0].name}}</option>
+                  <option style="font-size: 14px;" value="{{types[1].name}}">{{types[1].name}}</option>
+                </select>      
+              </div>            
             </form>
       </div>
       <div class="modal-footer">
@@ -77,6 +87,14 @@
               <div class="form-group">
                 <label>Tên danh mục</label>
                 <input type="text" class="form-control" name="name" [(ngModel)]="dataCate.name">
+              </div>   
+              <div class="form-group">
+                <label>Loại</label>
+                <!-- <input type="text" class="form-control" name="name" [(ngModel)]="dataCate.name"> -->
+                <select style="font-size: 14px; height: 35px;" id="idCate" class="form-control" name="type" [(ngModel)]="dataCate.type">
+                  <option style="font-size: 14px;"  value="{{types[0].name}}">{{types[0].name}}</option>
+                  <option style="font-size: 14px;" value="{{types[1].name}}">{{types[1].name}}</option>
+                </select>      
               </div>         
             </form>
       </div>

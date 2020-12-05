@@ -15,6 +15,7 @@ export class ProductComponent implements OnInit {
   // cateId: any;
   params:any;
   cateId = parseInt(this.activatedRoute.snapshot.paramMap.get('cateId'));
+  cateName = decodeURIComponent(String(this.activatedRoute.snapshot.paramMap.get('cateName')));
     // console.log(this.cateId);
   dataProduct = {
     categoryId: this.cateId,
@@ -55,18 +56,6 @@ export class ProductComponent implements OnInit {
       )
     // })
   }
-  getData() {
-    // this.params = this.activatedRoute.params.subscribe(params => {
-    //   this.cateId = params['cateId'];
-      this.productService.getAll().subscribe(
-        (res: any) => {
-          this.listProduct = res.data;
-        },
-        error => {
-        }
-      )
-    // })
-  }
   detailProduct(productId: any) {
     this.productService.getByProductId(productId).subscribe(
       (res: any) => {
@@ -82,7 +71,8 @@ export class ProductComponent implements OnInit {
     this.productService.deleteProduct(productId).subscribe(
       (res: any) => {
         alert("thành công");
-        return this.listProduct;      
+        this.getByCateId();  
+        $('modalDelete').modal('hide');    
       },
       error => {
         console.log(error)
@@ -93,15 +83,14 @@ export class ProductComponent implements OnInit {
     if(this.isEdit){
       this.productService.updateProduct(this.dataProduct, this.files).subscribe(res => {
         alert("done");
-        this.getData();
+        this.getByCateId();
         $('#modalEdit').modal('hide');
       }, err => {
 
       })
     } else {
-      console.log(this.dataProduct)
       this.productService.addProduct(this.dataProduct, this.files).subscribe(res => {
-        this.getData();
+        this.getByCateId();
         $('#modalEdit').modal('hide');
       }, err => {
 

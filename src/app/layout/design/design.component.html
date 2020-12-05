@@ -799,7 +799,7 @@ background: rgb(76, 151, 151);" data="right">Tùy chọn</span>
                 <div class="row toolbar-action-text">
                     <div class="col-xs-12">
                         <textarea class="form-control text-update" data-event="keyup" data-label="text"
-                            id="enter-text"></textarea>
+                            id="enter-text" [(ngModel)]="dataText" (keyup)="enterText($event)"></textarea>
                     </div>
                 </div>
                 <div class="row toolbar-action-fonts">
@@ -1132,6 +1132,3 @@ background: rgb(76, 151, 151);" data="right">Tùy chọn</span>
 <div id="save-confirm" title="Lưu thiết kế của bạn" style="display:none;">
     <p>Bạn vừa lưu 1 thiết kế. Bạn có muốn thay thế nó hay bắt đầu một thiết kế mới không?</p>
 </div>
-<script>
-    
-</script>

@@ -1,49 +1,62 @@
-<div class="div-caption">
+<div class="container">
+    <div class="div-caption">
     
-    <h2 class="caption"><i class="fa fa-list"></i>Hoạt động hôm nay</h2>
-</div>
-<div class="detail">
-    <div class="item item1">
-        <div>
-            <i class="fa fa-money"></i>
+        <h2 class="caption"><i class="fa fa-list"></i>Hoạt động hôm nay</h2>
+    </div>
+    <div class="detail">
+        <div class="item item1">
+            <div>
+                <i class="fa fa-money"></i>
+            </div>
+            <div>
+                <span>Tiền bán hàng</span><br>
+                <span>200.000.000 VND</span>
+            </div>
         </div>
-        <div>
-            <span>Tiền bán hàng</span><br>
-            <span>200.000.000 VND</span>
+        <div class="item item2">
+            <div>
+                <i class="fa fa-shopping-cart"></i>
+            </div>
+            <div>
+                <span>Số đơn hàng : 6</span><br>
+                <span>Số sản phẩm : 20</span>
+            </div>
+        </div>
+        <div class="item item3">
+            <div>
+                <i class="fa fa-money"></i>
+            </div>
+            <div>
+                <span>Hàng nhập vào</span><br>
+                <span>200.000.000 VND</span>
+            </div>
+        </div>
+        <div class="item item4">
+            <div>
+                <i class="fa fa-money"></i>
+            </div>
+            <div>
+                <span>Tiền bán hàng</span><br>
+                <span>200.000.000 VND</span>
+            </div>
         </div>
     </div>
-    <div class="item item2">
-        <div>
-            <i class="fa fa-shopping-cart"></i>
-        </div>
-        <div>
-            <span>Số đơn hàng : 6</span><br>
-            <span>Số sản phẩm : 20</span>
-        </div>
-    </div>
-    <div class="item item3">
-        <div>
-            <i class="fa fa-money"></i>
-        </div>
-        <div>
-            <span>Hàng nhập vào</span><br>
-            <span>200.000.000 VND</span>
-        </div>
-    </div>
-    <div class="item item4">
-        <div>
-            <i class="fa fa-money"></i>
-        </div>
-        <div>
-            <span>Tiền bán hàng</span><br>
-            <span>200.000.000 VND</span>
-        </div>
-    </div>
-</div>
-<div class="div-chart">
-    <h2><i class="fa fa-bar-chart-o"></i>Thống kê ngày hôm nay</h2>
-    <div class="row">
-        <div class="col-6">
+    <div class="div-chart">
+        <h2><i class="fa fa-bar-chart-o"></i>Thống kê ngày hôm nay</h2>
+        <div class="row">
+            <div class="col-6">
+                    <div class="chart-wrapper">
+                        <canvas baseChart 
+                        [datasets]="barChartData"
+                        [labels]="barChartLabels"
+                        [options]="barChartOptions"
+                        [plugins]="barChartPlugins"
+                        [legend]="barChartLegend"
+                        [chartType]="barChartType">
+                      </canvas>
+                    </div>
+            </div>
+            <div class="col-6">
                 <div class="chart-wrapper">
                     <canvas baseChart 
                     [datasets]="barChartData"
@@ -54,18 +67,58 @@
                     [chartType]="barChartType">
                   </canvas>
                 </div>
-        </div>
-        <div class="col-6">
-            <div class="chart-wrapper">
-                <canvas baseChart 
-                [datasets]="barChartData"
-                [labels]="barChartLabels"
-                [options]="barChartOptions"
-                [plugins]="barChartPlugins"
-                [legend]="barChartLegend"
-                [chartType]="barChartType">
-              </canvas>
             </div>
         </div>
     </div>
+    <div class="div-banner">
+        <h2><i class="fa fa-image"></i>Quản lý banner</h2>     
+        <div class="col-md-12" style="padding-bottom: 20px;">
+            <ngb-carousel>
+                <ng-template *ngFor="let slider of sliders" ngbSlide>
+                    <img
+                        [src]="slider.imagePath"
+                        alt="Random first slide"
+                        class="img-fluid mx-auto d-block"
+                        width="100%"
+                    />
+                </ng-template>
+            </ngb-carousel>
+        </div>
+        <a href="" type="button" class="btn-add" data-toggle="modal" data-target="#modalEdit" (click)="addNew()">
+            <i class="fa fa-check"></i>
+            Thay đổi
+          </a>
+    </div>
 </div>
+<div class="modal fade" id="modalEdit" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title" id="exampleModalLongTitle">Thay đổi banner quảng cáo</h3>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body popup">
+            <form novalidate>
+                <div class="form-group">
+                    <label>Hình ảnh</label>
+                    <div class="images">
+                      <!-- <span>{{dataProduct.images}}</span> -->
+                      <span>
+                        <img src="../../../assets/Real-madrid-xanh-Fifa-S02.jpg" alt="">
+                        <img src="../../../assets/Real-madrid-xanh-Fifa-S02.jpg" alt="">
+                        <img src="../../../assets/Real-madrid-xanh-Fifa-S02.jpg" alt="">
+                      </span>
+                    </div>
+                    <input type="file" class="form-control" #fileInput multiple>
+                  </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+          <button type="button" class="btn btn-primary">Thay đối</button>
+        </div>
+      </div>
+    </div>
+  </div>

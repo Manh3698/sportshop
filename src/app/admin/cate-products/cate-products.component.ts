@@ -15,11 +15,20 @@ export class CateProductsComponent implements OnInit {
   dataCate = {
     id: '',
     name: '',
+    type: '',
     updateBy: '',
     update_date: '',
     createBy: '',
     create_date: ''
   }
+  types = [
+    {
+      "name" : "item"
+    },
+    {
+      "name" : "clothes"
+    }
+  ]
   constructor(private cateService: CateProductService) { }
 
   ngOnInit(): void {
@@ -45,8 +54,18 @@ export class CateProductsComponent implements OnInit {
       }
     )
   }
+
+    dataCateAdd = {
+      id: '',
+      name: '',
+      type: '',
+      updateBy: '',
+      update_date: '',
+      createBy: '',
+      create_date: ''
+    }
   addCate(){
-    this.cateService.addCateProduct(this.dataCate).subscribe(
+    this.cateService.addCateProduct(this.dataCateAdd).subscribe(
       (res:any)=>{
         alert("add success");
         $('#modalAdd').modal('hide');

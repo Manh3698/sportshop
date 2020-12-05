@@ -4804,7 +4804,7 @@ header.header .header-bottom nav {
     .section_about .gr-banner-h3 {
         display:-webkit-box;
         display: -moz-box;
-        display: box;
+        display: flex;
         display: -webkit-flex;
         display: -moz-flex;
         display: -ms-flexbox;

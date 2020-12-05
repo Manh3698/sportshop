@@ -19,14 +19,24 @@
                     </div>
                 </div>
                 <div class="col-md-6 col-xs-12 right">
-                    <div class="top-link-dropdown">
+                    <div class="top-link-dropdown" *ngIf="!isLoggedIn">
                         <ul class="header links">
                             <li>
                                 <a href="/apps/kiem-tra-don-hang"><i class="fa fa-check-square-o"
                                         aria-hidden="true"></i> Kiểm tra đơn hàng</a>
                             </li>
-                            <li><a routerLink="/signin">Đăng nhập</a></li>
-                            <li><a routerLink="/signup">Đăng ký</a></li>
+                            <li><a routerLink="/login">Đăng nhập</a></li>
+                            <li><a routerLink="/register">Đăng ký</a></li>
+                        </ul>
+                    </div>
+                    <div class="top-link-dropdown"  *ngIf="isLoggedIn">
+                        <ul class="header links">
+                            <li>
+                                <a href="/apps/kiem-tra-don-hang"><i class="fa fa-check-square-o"
+                                        aria-hidden="true"></i> Kiểm tra đơn hàng</a>
+                            </li>
+                            <li><a routerLink="/signin">Hi, {{user}}</a></li>
+                            <li><a (click) = "logout()">Đăng xuất</a></li>
                         </ul>
                     </div>
                 </div>
@@ -79,20 +89,33 @@
                             <div class="container">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <div class="no-recently">
+                                        <div class="no-recently" style="display: none;">
                                             <p>Bạn chưa xem sản phẩm nào.</p>
                                             <p>Hãy tiếp tục khám phá Sport Shop, các sản phẩm bạn đã xem sẽ hiển thị ở
                                                 đây!</p>
                                         </div>
-                                        <div class="recent_products-row hidden">
+                                        <div class="recent_products-row ">
                                             <div class="recent_products">
                                                 <div class="module-content">
                                                     <div class="recent_items">
                                                         <div id="recent-content"
                                                             class="not-dqowl owl-theme owl-carousel owl-loaded owl-drag">
-
                                                             <div class="owl-stage-outer">
-                                                                <div class="owl-stage"></div>
+                                                                <div class="owl-stage">
+                                                                    <div class="owl-item active" style="width: 106px; margin-right: 10px;">
+                                                                        <div class="item">
+                                                                            <div class="box-image"><a
+                                                                                    class="image url-product"
+                                                                                    href="/ao-coc-tay-nam-sieu-thoang-khi-chat-vai-sieu-nhe"
+                                                                                    title="ÁO CỘC TAY NAM SIÊU THOÁNG KHÍ, CHẤT VẢI SIÊU NHẸ"><img
+                                                                                        class="image-review"
+                                                                                        src="https://bizweb.dktcdn.net/thumb/large/100/376/467/products/16308900618-1113668521.jpg"
+                                                                                        data-lazyload="https://bizweb.dktcdn.net/thumb/large/100/376/467/products/16308900618-1113668521.jpg"
+                                                                                        alt="ÁO CỘC TAY NAM SIÊU THOÁNG KHÍ, CHẤT VẢI SIÊU NHẸ"></a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                             <div class="owl-nav disabled">
                                                                 <div class="owl-prev"><i class="fa fa-angle-left"
@@ -114,7 +137,8 @@
                     <div class="minicart-wrapper">
                         <a class="showcart" routerLink='/cart'>
                             <i class="ion ion-md-cart"></i>
-                            <span class="cart-value count_item_pr">0</span>
+                            <span class="cart-value count_item_pr" id="count" *ngIf="isLoggedIn">{{count}}</span>
+                            <span class="cart-value count_item_pr" id="count" *ngIf="!isLoggedIn">0</span>
                             <span class="content">
                                 <span class="content-inner">
                                     <span class="text">Giỏ hàng</span>
@@ -135,28 +159,32 @@
                             <li class="nav-item active"><a class="nav-link" routerLink="/">Trang chủ</a></li>
                             <li class="nav-item "><a class="nav-link" href="/gioi-thieu">Giới thiệu</a></li>
                             <li class="nav-item ">
-                                <a href="/do-the-thao-nu" class="nav-link">Đồ thể thao <i class="fa fa-angle-right"
+                                <a  class="nav-link">Đồ thể thao <i class="fa fa-angle-right"
                                         data-toggle="dropdown"></i></a>
                                 <ul class="dropdown-menu">
-                                    <li class="nav-item-lv2" *ngFor = 'let clothes of listClothes'>
-                                        <a class="nav-link" [routerLink]="['/' + clothes.id + '/list-products']">{{clothes.name}}</a>
+                                    <li class="nav-item-lv2" *ngFor='let clothes of listClothes'>
+                                        <a class="nav-link"
+                                            [routerLink]="['/' + clothes.id + '/list-products']">{{clothes.name}}</a>
                                     </li>
                                 </ul>
                             </li>
                             <li class="nav-item ">
-                                <a href="/phu-kien-the-thao" class="nav-link">Phụ kiện thể thao <i
+                                <a class="nav-link">Phụ kiện thể thao <i
                                         class="fa fa-angle-right" data-toggle="dropdown"></i></a>
                                 <ul class="dropdown-menu">
-                                    <li class="nav-item-lv2" *ngFor = 'let item of listItem'>
-                                        <a class="nav-link" [routerLink]="['/' + item.id + '/list-products']">{{item.name}}</a>
+                                    <li class="nav-item-lv2" *ngFor='let item of listItem'>
+                                        <a class="nav-link"
+                                            [routerLink]="['/' + item.id + '/list-products']">{{item.name}}</a>
                                     </li>
                                 </ul>
                             </li>
                             <li class="nav-item ">
-                                <a routerLink="/design" class="nav-link">Thiết Kế Online <i class="fa fa-angle-right"></i></a>
+                                <a routerLink="/design" class="nav-link">Thiết Kế Online <i
+                                        class="fa fa-angle-right"></i></a>
                             </li>
-                            <li class="nav-item "><a class="nav-link" routerLink="/contact">Liên hệ <i class="fa fa-angle-right"></i></a></li>
-                            <li class="nav-item "><a class="nav-link" routerLink="/admin/home">Admin</a></li>
+                            <li class="nav-item "><a class="nav-link" routerLink="/contact">Liên hệ <i
+                                        class="fa fa-angle-right" *ngIf ="isAdmin"></i></a></li>
+                            <li class="nav-item "><a class="nav-link" routerLink="/admin/home" *ngIf = "isAdmin">Admin</a></li>
                         </ul>
                     </nav>
                 </div>

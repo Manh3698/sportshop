@@ -1,3 +1,11 @@
+.container{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background-color: white;
+    width: auto;
+    border-radius: 10px;
+    box-shadow: 4px 8px 16px 0 rgba(0, 0, 0, 0.1);
+}
 .div-caption{
     display: flex;
     background-color: rgb(211, 204, 204);
@@ -56,4 +64,72 @@
 }
 .chart{
     margin: 20px 20px;
+}
+.div-banner{
+    margin-top: 30px;
+    border: 1px solid rgb(211, 204, 204);
+}
+.div-banner h2{
+    background-color: rgb(211, 204, 204);
+    padding: 10px 5px;
+    border: 1px solid rgb(211, 204, 204);
+}
+.div-banner h2 i{
+    margin-right: 10px;
+}
+.carousel {
+    height: 315px !important;
+}
+.btn-add{
+    border: 1px solid rgb(2, 198, 2);
+    background-color: rgb(2, 198, 2);
+    color: white;
+    margin-left: 485px;
+    margin-bottom: 10px;
+    padding: 10px 10px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+.btn-add:hover{
+    border: 1px solid green;
+    background-color: green;
+}
+.modal-body{
+    margin-top: 0 !important;
+}
+.btn{
+    font-size: initial;
+}
+input{
+    height: initial;
+}
+.modal-header{
+    margin-top: 0!important;
+    background-color: rgb(6, 107, 230);
+    color: white;
+    font-size: large;
+    font-weight: bold;
+}
+.modal input{
+    height: 30px;
+}
+.question{
+    width: 100px;
+    height: 100px;
+}
+.popup{
+    text-align: center;
+}
+.modal-footer .btn+.btn {
+    margin-bottom: 3px;
+    margin-left: 5px;
+}
+.images{
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+.images span img{
+    width: 80px;
+    height: 80px;
+    margin-right: 10px;
 }

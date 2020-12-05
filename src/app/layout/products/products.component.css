@@ -258,11 +258,12 @@ ul, ol {
     margin: -3px 5px 0 0;
     position: relative;
 }
-.category-products .sort-cate .sort-cate-left ul li:hover i:before, .category-products .sort-cate .sort-cate-left ul li.active i:before {
+.category-products .sort-cate .sort-cate-left ul li:hover i:before, 
+.category-products .sort-cate .sort-cate-left ul li:active i:before {
     content: "";
     width: 8px;
     height: 8px;
-    background-color: #f72b3f;
+    background-color: #f72b3f !important;
     position: absolute;
     border-radius: 50%;
     margin: 2px;
