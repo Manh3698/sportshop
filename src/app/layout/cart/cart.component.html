@@ -18,10 +18,10 @@
                                         <div class="cart page_cart cart_des_page hidden-xs-down">
                                             <div class="col-xs-9 cart-col-1">
                                                 <div class="cart-tbody">
-                                                    <div class="row shopping-cart-item productid-37171323" *ngFor = 'let cartitem of listData'>
+                                                    <div class="row shopping-cart-item productid-37171323" *ngFor = 'let cartitem of listData; let i = index'>
                                                         <div class="col-xs-3 img-thumnail-custom">
                                                             <p class="image"><img class="img-responsive"
-                                                                    src="//bizweb.dktcdn.net/thumb/medium/100/376/467/products/9148626453-1044305350.jpg"
+                                                                    src="../../../assets/img/{{cartitem.images}}"
                                                                     alt="QUẦN NAM ASUSEO A021 - Đen / M"></p>
                                                         </div>
                                                         <div class="col-right col-xs-9">
@@ -35,22 +35,22 @@
                                                                         data-id="37171323">Xóa</a></p>
                                                             </div>
                                                             <div class="box-price">
-                                                                <p class="price">{{cartitem.newPrice*quantityInput | currency : 'VND'}}</p>
+                                                                <p class="price" >{{cartitem.newPrice*quantityInput | currency : 'VND'}}</p>
                                                             </div>
                                                             <div class="quantity-block">
                                                                 <div class="input-group bootstrap-touchspin">
                                                                     <div class="input-group-btn">
                                                                         <input  class="variantID" type="hidden" name="variantId" value="37170643">
                                                                             <button id="btn-adds" class="increase_pop items-count btn-plus btn btn-default bootstrap-touchspin-up"
-                                                                            type="button" (click)="add(cartitem.id)" [disabled] = "isDisable">+</button>
+                                                                            type="button"  [disabled] = "isDisable">+</button>
                                                                         <input type="text" onchange="if(this.value == 0)this.value=1;"
                                                                             maxlength="12" min="1"
                                                                             class="form-control quantity-r2 quantity js-quantity-product input-text number-sidebar input_pop input_pop qtyItem37170643"
-                                                                            id="qtyItem37170643" name="Lines" size="4"
-                                                                            [(ngModel)]="cartitem.quantity">
+                                                                            id="qtyItem{{i+1}}" name="Lines" size="4"
+                                                                            [(ngModel)]="quantityInput" >
                                                                             <button
                                                                             class="reduced_pop items-count btn-minus btn btn-default bootstrap-touchspin-down"
-                                                                            type="button" (click)="sub(cartitem.id)">–</button>
+                                                                            type="button" >–</button>
                                                                     </div>
                                                                 </div>
                                                             </div>

@@ -12,10 +12,13 @@ export class CartComponent implements OnInit {
   listId;
   total = 0;
   count;
-  quantityInput;
+  price_item;
+  quantityInput = 1;
   isDisable = false;
   
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService) { 
+    
+  }
 
   ngOnInit(): void {
     console.log(localStorage.getItem('cart'))
@@ -28,22 +31,24 @@ export class CartComponent implements OnInit {
       });
       this.count = Object.keys(this.listData).length;
       for (const item of this.listData) {
-        this.total = this.total+ (parseInt(item.newPrice));
+        this.total = this.total+ (parseInt(item.newPrice)*this.quantityInput);
       }
     })
   }
-  add(id){
-    this.listData.forEach(element => {
-      if(element.id == id){
-        
-      }
-      else{
-        this.isDisable = true;
-      }
-    });
     
-  }
-  sub(id){
-    this.quantityInput = this.quantityInput-1;
-  }
+  
+  // add(id){
+  //   this.listData.forEach(element => {
+  //     if(element.id == id){
+        
+  //     }
+  //     else{
+  //       this.isDisable = true;
+  //     }
+  //   });
+    
+  // }
+  // sub(id){
+  //   this.quantityInput = this.quantityInput-1;
+  // }
 }

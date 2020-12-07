@@ -15,7 +15,7 @@ export class ProductDetailComponent implements OnInit {
   productId = parseInt(this.activatedRoute.snapshot.paramMap.get('productId'));
   constructor(private activatedRoute: ActivatedRoute, private productService: ProductService, private headerService : HeaderService) { }
   detail = {
-    categoryId: this.productId,
+    categoryId: '',
     content: '',
     createBy: '',
     create_date: '',
@@ -34,15 +34,38 @@ export class ProductDetailComponent implements OnInit {
     update_date: ''
   };
   discount;
-  quantityInput
+  quantityInput;
+  listProductByCate;
+  listHot = [];
   ngOnInit(): void {
     this.productService.getByProductId(this.productId).subscribe(
       (res:any)=>{
         this.detail = res.data;
         this.discount = parseInt(this.detail.oldPrice) - parseInt(this.detail.newPrice);
+        this.productService.getByCateId(this.detail.categoryId).subscribe(
+          (res:any)=>{
+            this.listProductByCate = res.data
+          },
+          err=>{
+    
+          }
+        )
       },
       err=>{
         console.log(err)
+      }
+    )
+    
+    this.productService.getAll().subscribe(
+      (res:any)=>{
+        res.data.forEach(e => {
+          if (e.isNew == 1) {
+            this.listHot.push(e)
+          }
+        });
+      },
+      err=>{
+
       }
     )
   }
@@ -55,9 +78,6 @@ export class ProductDetailComponent implements OnInit {
       id : this.productId,
       quantity: parseInt(this.quantityInput)
     }
-    // if(!this.listCart.includes(this.listCart.find(res => res.id === this.productId))){
-    //   this.listCart.push(data);
-    // } 
     if(!this.listCart.includes(this.listCart.find(res => res.id === this.productId))){
       this.listCart.push(data);
       this.headerService.count = this.headerService.count + 1;

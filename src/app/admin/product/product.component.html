@@ -27,7 +27,7 @@
           <th scope="row">{{i+1}}</th>
           <td>{{product.name}}</td>
           <td>{{product.code}}</td>
-          <td><img src="../../../assets/logo.jpg" alt=""></td>
+          <td><img src="../../../assets/img/{{product.images}}" alt=""></td>
           <td>{{product.quantity}}</td>
           <td>{{product.newPrice}}</td>
           <td>
@@ -94,6 +94,20 @@
           <div class="form-group">
             <label>Màu</label>
             <input type="text" class="form-control" [(ngModel)]="dataProduct.color" name="color">
+          </div>
+          <div class="form-group">
+            <label>Sản phẩm hot</label>
+            <select style="font-size: 14px; height: 35px;" id="idCate" class="form-control" name="type" [(ngModel)]="dataProduct.isHot">
+              <option style="font-size: 14px;"  value="{{hot[0].isHot}}">Yes</option>
+              <option style="font-size: 14px;" value="{{hot[1].isHot}}">No</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Sản phẩm mới</label>
+            <select style="font-size: 14px; height: 35px;" id="idCate" class="form-control" name="type" [(ngModel)]="dataProduct.isNew">
+              <option style="font-size: 14px;"  value="{{new[0].isNew}}">Yes</option>
+              <option style="font-size: 14px;" value="{{new[1].isNew}}">No</option>
+            </select>
           </div>
           <div class="form-group">
             <label>Nội dung</label>

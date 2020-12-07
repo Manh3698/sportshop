@@ -1,1 +1,102 @@
-<p>account-management works!</p>
+<div class="container">
+    <div class="caption">
+      <h2>Danh sách tài khoản</h2>
+  </div>
+  <div class="div2" style="margin-bottom: 60px;">
+      <a href="" type="button" class="btn-add" data-toggle="modal" data-target="#modalEdit" (click)="addNew()">
+          <i class="fa fa-check"></i>
+          Thêm quản trị viên
+      </a>
+      <!-- <form class="search" action="" style="float: right;"> -->
+        <input type="search" class="search" placeholder="Tìm kiếm danh mục">
+        <!-- <i class="fa fa-search"></i> -->
+      <!-- </form> -->
+  </div>
+  <div>
+      <table class="table">
+          <thead class="thead">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Tên khách hàng</th>
+              <th scope="col">Số điện thoại</th>
+              <th scope="col">Địa chỉ</th>
+              <th scope="col">Xem đơn hàng</th>
+              <th scope="">đơn hàng đã mua</th>
+              <th scope="col">Chức năng</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor = 'let account of listAcc; let i =index'>
+              <th scope="row">{{i+1}}</th>
+              <td>{{account.fullname}}</td>
+              <td>{{account.phoneNumber}}</td>
+              <td>{{account.address}}</td>
+              <td><a [routerLinkActive]="['router-link-active']" [routerLink]="['/admin/orders/' + account.fullname + '/' + account.id]"  type="button" class="btn-list"><i class="fa fa-th-list"></i>Xem</a></td>
+              <td><a [routerLinkActive]="['router-link-active']" [routerLink]="['/admin/orders/' + account.fullname + '/' + account.id]"  type="button" class="btn-list"><i class="fa fa-th-list"></i>Xem</a></td>
+              <td>
+                  <ul>
+                      <li><a  type="button" class="btn-edit" data-toggle="modal" data-target="#modalEdit"><i class="fa fa-w fa-edit"></i>Sửa quyền</a></li>
+                      <li><a  type="button" class="btn-delete" data-toggle="modal" data-target="#modalDelete"><i class="fa fa-th-list"></i>Xóa tài khoản</a></li>
+                  </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+  </div>
+  </div>
+  <div class="modal fade" id="modalEdit" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="exampleModalLongTitle">Chỉnh sửa tên danh mục</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <form novalidate>
+              <div class="form-group">
+                <label>Tên quản trị viên</label>
+                <input type="text" class="form-control" name="name" [(ngModel)]="dataAcc.fullname">
+              </div>
+              <div class="form-group">
+                <label>Số điện thoại</label>
+                <input type="text" class="form-control" name="phone" [(ngModel)]="dataAcc.phoneNumber">
+              </div> 
+              <div class="form-group">
+                <label>Ngày sinh</label>
+                <input type="date" class="form-control" name="birthday" [(ngModel)]="dataAcc.birthday">
+              </div> 
+              <div class="form-group">
+                <label>Địa chỉ email</label>
+                <input type="text" class="form-control" name="birthday" [(ngModel)]="dataAcc.email">
+              </div> 
+              <div class="form-group">
+                <label>Đia chỉ</label>
+                <input type="text" class="form-control" name="address" [(ngModel)]="dataAcc.address">
+              </div>
+              <div class="form-group">
+                <label>username</label>
+                <input type="text" class="form-control" name="username" [(ngModel)]="dataAcc.username">
+              </div>     
+              <div class="form-group">
+                <label>password</label>
+                <input type="text" class="form-control" name="password" [(ngModel)]="dataAcc.password">
+              </div>          
+              <div class="form-group">
+                <label>Quyền</label>
+                <!-- <input type="text" class="form-control" name="name" [(ngModel)]="dataCate.name"> -->
+                <select style="font-size: 14px; height: 35px;" id="idCate" class="form-control" name="type" [(ngModel)]="dataAcc.roles[0].id">
+                  <option style="font-size: 14px;"  value="{{role[0].id}}">{{role[0].name}}</option>
+                  <option style="font-size: 14px;" value="{{role[1].id}}">{{role[1].name}}</option>
+                </select>      
+              </div>         
+            </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+        <button type="button" class="btn btn-primary" (click)="update()">Sửa</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -15,10 +15,12 @@ import { ProductComponent } from './product/product.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { AccountManagementComponent } from './account-management/account-management.component';
+import { OrderByUserComponent } from './order-by-user/order-by-user.component';
+import { ContactManagementComponent } from './contact-management/contact-management.component';
 
 
 @NgModule({
-  declarations: [AdminComponent,HeaderComponent, SidebarComponent, StatisticsComponent, CateProductsComponent, HomepageComponent, OrderManagementComponent, ProductComponent, AccountManagementComponent],
+  declarations: [AdminComponent,HeaderComponent, SidebarComponent, StatisticsComponent, CateProductsComponent, HomepageComponent, OrderManagementComponent, ProductComponent, AccountManagementComponent, OrderByUserComponent, ContactManagementComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,

@@ -16700,4 +16700,9 @@ b, strong {
 .mobile-main-menu .mobile-support li a {
     color: #f72b3f;
 }
-
+.container .row .col-md-12 .hidden-xs .nav .nav-item a{
+    cursor: pointer;
+}
+.top-link-dropdown .header li a{
+    cursor: pointer;
+}

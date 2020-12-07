@@ -6,5 +6,6 @@ export class Configure{
     urlFeedback = this.host + '/api/feedback';
     urlAccount = this.host + '/api/account';
     urlImageCate = this.host + '/api/imageCate';
-    urlImage = this.host +'/api/images'
+    urlImage = this.host +'/api/images';
+    urlContact = this.host + '/api/contact'
 }

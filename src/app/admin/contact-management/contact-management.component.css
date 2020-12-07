@@ -1,0 +1,97 @@
+.container{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background-color: white;
+    width: auto;
+    border-radius: 10px;
+    box-shadow: 4px 8px 16px 0 rgba(0, 0, 0, 0.1);
+}
+h2{
+    font-weight: bold;
+    color: grey;
+}
+.btn-add{
+    border: 1px solid rgb(6, 107, 230);
+    padding: 5px;
+    color: white;
+    background-color: rgb(6, 107, 230);
+    border-radius: 3px;
+    text-decoration: none;
+}
+.btn-add:hover{
+    background-color: rgb(6, 6, 189);
+}
+div{
+    margin-top: 20px;
+}
+thead{
+    background-color: rgb(6, 107, 230);
+    border: 1px solid rgb(6, 107, 230);
+    border-radius: 2px;
+}
+thead{
+    color: white;
+}
+tbody{
+    color: rgb(157, 155, 155);
+}
+.btn-list{
+    border: 1px solid rgb(6, 107, 230);
+    border-radius: 3px;
+    padding: 3px;
+    background-color: rgb(6, 107, 230);
+    color: white;
+}
+.btn-edit{
+    border: 1px solid rgb(93, 255, 90);
+    border-radius: 3px;
+    padding: 3px;
+    background-color: rgb(93, 255, 90);
+    color: white;
+}
+.btn-list:hover{
+    border: rgb(6, 6, 189);
+    background-color: rgb(6, 6, 189);
+}
+ul li .btn-delete:hover{
+    border: red;
+    background-color: red;
+}
+ul li .btn-edit:hover{
+    border: green;
+    background-color: green;
+}
+.btn-delete{
+    border: 1px solid rgb(255, 95, 50);
+    border-radius: 3px;
+    padding: 3px;
+    background-color: rgb(255, 95, 50);
+    color: white;
+}
+.fa{
+    margin-right: 6px;
+}
+td a{
+    text-decoration: none;
+    color: white !important;
+}
+td ul{
+    margin-bottom: 0px !important;
+    padding-left: initial;
+}
+td ul li{
+    display: inline-block;
+    padding-right: 5px;
+    list-style-type: none;
+}
+.search{
+    float: right;
+    border-radius: 50px;
+    width: 100%;
+    max-width: 300px;
+    background-color: darkgray;
+    border: 1px solid darkcyan;
+    outline: none;
+    padding-left: 10px;
+    color: rgb(108, 105, 105);
+}

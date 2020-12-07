@@ -29,6 +29,8 @@ export class ProductComponent implements OnInit {
     name: '',
     color: '',
     size:'',
+    isHot: '',
+    isNew: '',
     newPrice: '',
     oldPrice: '',
     quantity: '',
@@ -36,6 +38,22 @@ export class ProductComponent implements OnInit {
     updateBy: '',
     update_date: ''
   };
+  hot = [
+    {
+      isHot : "true"
+    },
+    {
+      isHot : "false"
+    }
+  ]
+  new = [
+    {
+      isNew : "true"
+    },
+    {
+      isNew : "false"
+    }
+  ]
   files = [];
   isEdit = false;
   productId:any;
@@ -59,8 +77,8 @@ export class ProductComponent implements OnInit {
   detailProduct(productId: any) {
     this.productService.getByProductId(productId).subscribe(
       (res: any) => {
+        this.files = []
         this.dataProduct = res.data;
-        console.log(this.dataProduct)
       },
       error => {
         console.log(error)
@@ -102,6 +120,7 @@ export class ProductComponent implements OnInit {
   addNew() {
     this.isEdit = false;
     this.resetData();
+    this.files = []
   }
 
   onChangeFile() {
@@ -123,6 +142,8 @@ export class ProductComponent implements OnInit {
       name: '',
       color: '',
       size:'',
+      isHot: '',
+      isNew: '',
       newPrice: '',
       oldPrice: '',
       quantity: '',

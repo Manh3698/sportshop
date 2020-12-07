@@ -19,7 +19,7 @@
                                     <a href="//bizweb.dktcdn.net/thumb/1024x1024/100/376/467/products/14006076639-1113668521.jpg?v=1602748500813"
                                         data-rel="prettyPhoto[product-gallery]" class="large_image_url">
                                         <div style="height:500px;width:468px;" class="zoomWrapper"><img id="zoom_01"
-                                                src="//bizweb.dktcdn.net/thumb/1024x1024/100/376/467/products/14006076639-1113668521.jpg?v=1602748500813"
+                                                src="../../../../assets/img/{{detail.images}}"
                                                 alt="ÁO BA LỖ NAM" class="img-responsive center-block"
                                                 style="position: absolute;"></div>
                                     </a>
@@ -52,7 +52,7 @@
                                                     <a class="thumb-link" href="javascript:void(0);"
                                                         data-image="https://bizweb.dktcdn.net/100/376/467/products/14006076639-1113668521.jpg?v=1602748500813"
                                                         data-zoom-image="//bizweb.dktcdn.net/thumb/1024x1024/100/376/467/products/14006076639-1113668521.jpg?v=1602748500813">
-                                                        <img src="//bizweb.dktcdn.net/thumb/medium/100/376/467/products/14006076639-1113668521.jpg?v=1602748500813"
+                                                        <img src="../../../../assets/img/{{detail.images}}"
                                                             alt="ÁO BA LỖ NAM"
                                                             data-image="https://bizweb.dktcdn.net/100/376/467/products/14006076639-1113668521.jpg?v=1602748500813">
                                                     </a>
@@ -63,7 +63,7 @@
                                                     <a class="thumb-link" href="javascript:void(0);"
                                                         data-image="https://bizweb.dktcdn.net/100/376/467/products/14043565963-1113668521.jpg?v=1602748501150"
                                                         data-zoom-image="//bizweb.dktcdn.net/thumb/1024x1024/100/376/467/products/14043565963-1113668521.jpg?v=1602748501150">
-                                                        <img src="//bizweb.dktcdn.net/thumb/medium/100/376/467/products/14043565963-1113668521.jpg?v=1602748501150"
+                                                        <img src="../../../../assets/img/{{detail.images}}"
                                                             alt="ÁO BA LỖ NAM"
                                                             data-image="https://bizweb.dktcdn.net/100/376/467/products/14043565963-1113668521.jpg?v=1602748501150">
                                                     </a>
@@ -74,7 +74,7 @@
                                                     <a class="thumb-link" href="javascript:void(0);"
                                                         data-image="https://bizweb.dktcdn.net/100/376/467/products/14043574896-1113668521.jpg?v=1602748501707"
                                                         data-zoom-image="//bizweb.dktcdn.net/thumb/1024x1024/100/376/467/products/14043574896-1113668521.jpg?v=1602748501707">
-                                                        <img src="//bizweb.dktcdn.net/thumb/medium/100/376/467/products/14043574896-1113668521.jpg?v=1602748501707"
+                                                        <img src="../../../../assets/img/{{detail.images}}"
                                                             alt="ÁO BA LỖ NAM"
                                                             data-image="https://bizweb.dktcdn.net/100/376/467/products/14043574896-1113668521.jpg?v=1602748501707">
                                                     </a>
@@ -85,7 +85,7 @@
                                                     <a class="thumb-link" href="javascript:void(0);"
                                                         data-image="https://bizweb.dktcdn.net/100/376/467/products/14043589529-1113668521.jpg?v=1602748502170"
                                                         data-zoom-image="//bizweb.dktcdn.net/thumb/1024x1024/100/376/467/products/14043589529-1113668521.jpg?v=1602748502170">
-                                                        <img src="//bizweb.dktcdn.net/thumb/medium/100/376/467/products/14043589529-1113668521.jpg?v=1602748502170"
+                                                        <img src="../../../../assets/img/{{detail.images}}"
                                                             alt="ÁO BA LỖ NAM"
                                                             data-image="https://bizweb.dktcdn.net/100/376/467/products/14043589529-1113668521.jpg?v=1602748502170">
                                                     </a>
@@ -96,7 +96,7 @@
                                                     <a class="thumb-link" href="javascript:void(0);"
                                                         data-image="https://bizweb.dktcdn.net/100/376/467/products/14043592532-1113668521.jpg?v=1602748502780"
                                                         data-zoom-image="//bizweb.dktcdn.net/thumb/1024x1024/100/376/467/products/14043592532-1113668521.jpg?v=1602748502780">
-                                                        <img src="//bizweb.dktcdn.net/thumb/medium/100/376/467/products/14043592532-1113668521.jpg?v=1602748502780"
+                                                        <img src="../../../../assets/img/{{detail.images}}"
                                                             alt="ÁO BA LỖ NAM"
                                                             data-image="https://bizweb.dktcdn.net/100/376/467/products/14043592532-1113668521.jpg?v=1602748502780">
                                                     </a>
@@ -300,23 +300,23 @@
                                 <div class="right-bestsell">
                                     <h2><a href="frontpage" title="Mới ra mắt">Mới ra mắt</a></h2>
                                     <div class="list-bestsell">
-                                        <div class="list-bestsell-item">
+                                        <div class="list-bestsell-item" *ngFor = 'let hot of listHot'>
                                             <div class="thumbnail-container clearfix">
                                                 <div class="product-image">
-                                                    <a href="/bo-coc-tay-set-3-cai">   
-                                                        <img class="img-responsive" src="//bizweb.dktcdn.net/thumb/small/100/376/467/products/o1cn01beukhi24uv7iuc4r8-4092877394.jpg?v=1602838454000" data-lazyload="//bizweb.dktcdn.net/thumb/small/100/376/467/products/o1cn01beukhi24uv7iuc4r8-4092877394.jpg?v=1602838454000" alt="SET BỘ BA QUẦN - ÁO - BRA CHẠY BỘ - TẬP GYM">                                                        
+                                                    <a [routerLink]="['/' + hot.id + '/detail']">   
+                                                        <img class="img-responsive" src="../../../../assets/img/{{hot.images}}"  alt="">                                                        
                                                     </a>
                                                 </div>
                                                 <div class="product-meta">
-                                                    <h3><a href="/bo-coc-tay-set-3-cai" title="SET BỘ BA QUẦN - ÁO - BRA CHẠY BỘ - TẬP GYM">SET BỘ BA QUẦN - ÁO - BRA CHẠY BỘ - TẬP GYM</a></h3>
+                                                    <h3><a [routerLink]="['/' + hot.id + '/detail']" title="{{hot.name}}">{{hot.name}}</a></h3>
                                                     <div class="product-price-and-shipping">
-                                                        <span class="price">499.000₫</span>
-                                                        <span class="regular-price">700.000₫</span>     
+                                                        <span class="price">{{hot.newPrice | currency : 'VND'}}</span>
+                                                        <span class="regular-price">{{hot.oldPrice | currency : 'VND'}}</span>     
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="list-bestsell-item">
+                                        <!-- <div class="list-bestsell-item">
                                             <div class="thumbnail-container clearfix">
                                                 <div class="product-image">
                                                     <a href="/bo-dai-tay-set-3-cai">
@@ -330,7 +330,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                             </div>
@@ -350,7 +350,90 @@
                         data-md-items="5" data-sm-items="4" data-xs-items="2" data-margin="10">
                         <div class="owl-stage-outer">
                             <div class="owl-stage">
-                                <div class="owl-item active">
+                                <div class="owl-item active" *ngFor= 'let product of listProductByCate'>
+                                    <div class="item">
+                                        <div class="ant-item-product" id="cate_item_collection_1" data-id="19462964">
+                                            <div class="product-item">
+                                                <div class="product-wrapper">
+                                                    <div class="product-image product-image-block">
+                                                        <a [routerLink]="['/' + product.id + '/detail']" title="ÁO CỘC TAY NAM">
+                                                            <img src="../../../../assets/img/{{product.images}}"
+                                                                
+                                                                alt="ÁO CỘC TAY NAM"
+                                                                class="image_main img-responsive center-block">
+                                                        </a>
+                                                    </div>
+                                                    <div class="product_desc Màu sắc">
+                                                        <div class="product_variant_box hidden-sm hidden-xs hidden-md">
+
+                                                            <p class="variant_text variant_text_size nomargin">{{product.color}}</p>
+                                                            <div class="size-box not-dqowl owl-theme owl-carousel owl-loaded owl-drag">
+                                                                <div class="owl-stage-outer">
+                                                                    <div class="owl-stage"
+                                                                        style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s;">
+                                                                        <div class="owl-item"><span class="size_item"
+                                                                                data-color="S" data-size="Đen"
+                                                                                title="Đen">Đen</span></div>
+                                                                        <div class="owl-item"><span class="size_item"
+                                                                                data-color="S" data-size="Xám"
+                                                                                title="Xám">Xám</span></div>
+                                                                        <div class="owl-item"><span class="size_item"
+                                                                                data-color="S" data-size="Xanh da trời"
+                                                                                title="Xanh da trời">Xanh da trời</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="owl-nav disabled">
+                                                                    <div class="owl-prev"></div>
+                                                                    <div class="owl-next"></div>
+                                                                </div>
+                                                                <div class="owl-dots disabled"></div>
+                                                            </div>
+
+                                                        </div>
+                                                        <h3 class="product_name">
+                                                            <a [routerLink]="['/' + product.id + '/detail']" title="ÁO CỘC TAY NAM">{{product.name}}</a>
+                                                        </h3>
+                                                        <div class="product_prices">
+                                                            <span class="special-price">
+                                                                <span class="price-container">
+                                                                    <span class="price-wrapper">
+                                                                        <span class="price spe-price">{{product.newPrice | currency : 'VND'}}</span>
+                                                                    </span>
+                                                                </span>
+                                                            </span>
+                                                            <span class="old-price">
+                                                                <span class="price-container">
+                                                                    <span class="price-wrapper">
+                                                                        <span class="price olds-price">{{product.oldPrice | currency : 'VND'}}</span>
+                                                                    </span>
+                                                                </span>
+                                                            </span>
+                                                        </div>
+                                                        <div
+                                                            class="product_action clearfix hidden-sm hidden-xs hidden-md">
+                                                            <form action="/cart/add" method="post"
+                                                                class="variants form-nut-grid has-validation-callback"
+                                                                data-id="product-actions-19462964"
+                                                                enctype="multipart/form-data">
+                                                                <input class="hidden variant-id" type="hidden"
+                                                                    name="variantId" value="37276937">
+
+                                                                <button type="submit" data-handle="/ao-coc-tay-nam"
+                                                                    data-title="" data-product-id="19462964"
+                                                                    class="loading btn btn_addtocart add_to_cart">
+                                                                    ĐẶT MUA NGAY <i class="fa fa-shopping-cart"></i>
+                                                                </button>
+
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- <div class="owl-item active">
                                     <div class="item">
                                         <div class="ant-item-product" id="cate_item_collection_1" data-id="19462964">
                                             <div class="product-item">
@@ -434,92 +517,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="owl-item active">
-                                    <div class="item">
-                                        <div class="ant-item-product" id="cate_item_collection_1" data-id="19462964">
-                                            <div class="product-item">
-                                                <div class="product-wrapper">
-                                                    <div class="product-image product-image-block">
-                                                        <a href="/ao-coc-tay-nam" title="ÁO CỘC TAY NAM">
-                                                            <img src="../../../../assets/Real-madrid-xanh-Fifa-S02.jpg"
-                                                                data-lazyload="//bizweb.dktcdn.net/thumb/large/100/376/467/products/16308900618-1113668521.jpg?v=1603092963000"
-                                                                alt="ÁO CỘC TAY NAM"
-                                                                class="image_main img-responsive center-block">
-                                                        </a>
-                                                    </div>
-                                                    <div class="product_desc Màu sắc">
-                                                        <div class="product_variant_box hidden-sm hidden-xs hidden-md">
-
-                                                            <p class="variant_text variant_text_size nomargin">+ 3 Màu
-                                                                sắc</p>
-                                                            <div class="size-box not-dqowl owl-theme owl-carousel owl-loaded owl-drag">
-                                                                <div class="owl-stage-outer">
-                                                                    <div class="owl-stage"
-                                                                        style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s;">
-                                                                        <div class="owl-item"><span class="size_item"
-                                                                                data-color="S" data-size="Đen"
-                                                                                title="Đen">Đen</span></div>
-                                                                        <div class="owl-item"><span class="size_item"
-                                                                                data-color="S" data-size="Xám"
-                                                                                title="Xám">Xám</span></div>
-                                                                        <div class="owl-item"><span class="size_item"
-                                                                                data-color="S" data-size="Xanh da trời"
-                                                                                title="Xanh da trời">Xanh da trời</span>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="owl-nav disabled">
-                                                                    <div class="owl-prev"></div>
-                                                                    <div class="owl-next"></div>
-                                                                </div>
-                                                                <div class="owl-dots disabled"></div>
-                                                            </div>
-
-                                                        </div>
-                                                        <h3 class="product_name">
-                                                            <a href="/ao-coc-tay-nam" title="ÁO CỘC TAY NAM">ÁO CỘC TAY
-                                                                NAM</a>
-                                                        </h3>
-                                                        <div class="product_prices">
-                                                            <span class="special-price">
-                                                                <span class="price-container">
-                                                                    <span class="price-wrapper">
-                                                                        <span class="price spe-price">299.000₫</span>
-                                                                    </span>
-                                                                </span>
-                                                            </span>
-                                                            <span class="old-price">
-                                                                <span class="price-container">
-                                                                    <span class="price-wrapper">
-                                                                        <span class="price olds-price">400.000₫</span>
-                                                                    </span>
-                                                                </span>
-                                                            </span>
-                                                        </div>
-                                                        <div
-                                                            class="product_action clearfix hidden-sm hidden-xs hidden-md">
-                                                            <form action="/cart/add" method="post"
-                                                                class="variants form-nut-grid has-validation-callback"
-                                                                data-id="product-actions-19462964"
-                                                                enctype="multipart/form-data">
-                                                                <input class="hidden variant-id" type="hidden"
-                                                                    name="variantId" value="37276937">
-
-                                                                <button type="submit" data-handle="/ao-coc-tay-nam"
-                                                                    data-title="" data-product-id="19462964"
-                                                                    class="loading btn btn_addtocart add_to_cart">
-                                                                    ĐẶT MUA NGAY <i class="fa fa-shopping-cart"></i>
-                                                                </button>
-
-                                                            </form>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                         <!-- <div class="owl-nav disabled">

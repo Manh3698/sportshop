@@ -8,7 +8,7 @@
 
                         <a href="/">
                             <img class="logo__image  logo__image--medium " alt="SPORT SHOP"
-                                src="//bizweb.dktcdn.net/100/376/467/themes/790294/assets/logo.png?1605870009799">
+                                src="../../../assets/logo.png">
                         </a>
 
                     </div>
@@ -27,7 +27,7 @@
                                         </h2>
 
 
-                                        <a href="/account/login?returnUrl=/checkout/279241a3e1bf4f4f8318dedeacc46375">
+                                        <a *ngIf = "!isLoggedIn" href="/account/login?returnUrl=/checkout/279241a3e1bf4f4f8318dedeacc46375">
                                             <i class="fa fa-user-circle-o fa-lg"></i>
                                             <span>Đăng nhập </span>
                                         </a>
@@ -44,7 +44,7 @@
                                         <div class="field ">
                                             <div class="field__input-wrapper">
                                                 <input placeholder="email(tùy chọn)" name="email" id="email"
-                                                    type="email" class="field__input" value="">
+                                                    type="email" class="field__input" value="" [(ngModel)]="dataOrder.userEmail">
                                             </div>
 
                                         </div>
@@ -55,7 +55,7 @@
                                             <div class="field__input-wrapper">
                                                 <!-- <label for="billingName" class="field__label">Họ và tên</label> -->
                                                 <input name="billingName" id="billingName" type="text"
-                                                    class="field__input" value="" placeholder="Họ và tên">
+                                                    class="field__input" value="" placeholder="Họ và tên" [(ngModel)]="dataOrder.userId">
                                             </div>
 
                                         </div>
@@ -505,7 +505,7 @@
                                                         (COD)</span>
                                                     <span class="radio__label__accessory">
                                                         <span class="radio__label__icon">
-                                                            <i class="payment-icon payment-icon--4"></i>
+                                                            <i class="fa fa-money"></i>
                                                         </span>
                                                     </span>
                                                 </label>
@@ -530,20 +530,20 @@
                                                         hàng</span>
                                                     <span class="radio__label__accessory">
                                                         <span class="radio__label__icon">
-                                                            <i class="payment-icon payment-icon--3"></i>
+                                                            <i class="fa fa-money"></i>
                                                         </span>
                                                     </span>
                                                 </label>
                                             </div>
 
                                             <div class="content-box__row__desc hide">
-                                                <p>Ngân hàng: Techcombank
+                                                <p>Ngân hàng: 
                                                 </p>
-                                                <p>Tên tài khoản: LÊ THỊ THANH QUỲNH
+                                                <p>Tên tài khoản: 
                                                 </p>
-                                                <p>Số tài khoản: 19036367662013
+                                                <p>Số tài khoản:
                                                 </p>
-                                                <p>Chi nhánh: Hà nội</p>
+                                                <p>Chi nhánh: </p>
 
                                             </div>
 

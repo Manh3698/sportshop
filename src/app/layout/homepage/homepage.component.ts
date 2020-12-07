@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'app-homepage',
@@ -7,26 +8,37 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomepageComponent implements OnInit {
   public sliders: Array<any> = [];
-  constructor() {
-    this.sliders.push(
-      {
-          imagePath: 'assets/images/banner/bannerkm2.webp',
-          label: 'First slide label',
-          text: 'Nulla vitae elit libero, a pharetra augue mollis interdum.'
-      },
-      {
-          imagePath: 'assets/images/banner/banner1.jpg',
-          label: 'Second slide label',
-          text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-      },
-      {
-          imagePath: 'assets/images/banner/banner_clb_2.jpg',
-          label: 'Third slide label',
-          text: 'Praesent commodo cursus magna, vel scelerisque nisl consectetur.'
-      }
-  );
+  constructor(private productService: ProductService) {
   }
-
+  listProduct;
+  ListClothes = [];
+  ListItem = [];
+  ListItemHot = [];
   ngOnInit(): void {
+    this.getAll();
+    
   }
+  getAll(){
+    this.productService.getAll().subscribe(
+      (res:any)=>{
+        this.listProduct=res.data;
+        this.listProduct.forEach(e => {
+          if(e.categoryId == 1 || e.categoryId == 2 || e.categoryId == 3){
+            this.ListClothes.push(e);
+          }
+          else if(e.isHot == 1){
+            this.ListItemHot.push(e);
+          }
+          else{
+            this.ListItem.push(e);
+          }
+
+        });
+      },
+      err=>{
+
+      }
+    )
+  }
+  
 }

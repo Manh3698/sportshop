@@ -54,7 +54,6 @@ export class CateProductsComponent implements OnInit {
       }
     )
   }
-
     dataCateAdd = {
       id: '',
       name: '',

@@ -17,6 +17,9 @@ export class AccountService {
   register(data): Observable<any> {
     return this.httpClient.post(this.config.urlAccount + 'register',data);
   }
+  getAll(){
+    return this.httpClient.get(this.config.urlAccount.concat('/getAll'))
+  }
   getDetail(userId:any){
     return this.httpClient.get(this.config.urlAccount.concat('/getUserById') +  userId)
   }

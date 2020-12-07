@@ -27,8 +27,9 @@ export class HeaderComponent implements OnInit {
     if (this.isLoggedIn) {
        this.user = this.tokenStorageService.getUser().username;
        this.count = this.headerService.count;
+       console.log(this.tokenStorageService.getUser().roles[0].authority)
+       this.isAdmin = (this.tokenStorageService.getUser().roles[0].authority == "admin");
     }
-    this.isAdmin = (this.tokenStorageService.getUser().roles[0].authority == "admin");
     this.getAll();
   }
   getAll(){

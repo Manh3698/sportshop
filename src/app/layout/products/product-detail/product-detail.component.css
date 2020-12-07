@@ -1,6 +1,9 @@
 *, input, :before, :after {
     box-sizing: border-box;
 }
+section{
+    margin-top : 10px !important;
+}
 input, textarea, select, fieldset {
     border-radius: 0;
     max-width: 100%;

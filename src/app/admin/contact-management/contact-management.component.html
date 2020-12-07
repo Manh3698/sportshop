@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="caption">
+      <h2>Danh sách đơn hàng đang giao</h2>
+  </div>
+  <div class="div2" style="margin-bottom: 60px;">
+      <!-- <a href="" type="button" class="btn-add" data-toggle="modal" data-target="#modalAdd">
+          <i class="fa fa-check"></i>
+          Thêm danh mục
+      </a> -->
+      <!-- <form class="search" action="" style="float: right;"> -->
+        <input type="search" class="search" placeholder="Tìm kiếm danh mục">
+        <!-- <i class="fa fa-search"></i> -->
+      <!-- </form> -->
+  </div>
+  <div>
+      <table class="table">
+          <thead class="thead">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Tên Khách hàng</th>
+              <th scope="col">Địa chỉ</th>
+              <th scope="col">Số điện thoại</th>
+              <th scope="">email</th>
+              <th>Nội dung</th>
+              <th scope="col">Chức năng</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor = 'let contact of listContact; let i=index '>
+              <th scope="row">{{i+1}}</th>
+              <td>{{contact.name}}</td>
+              <td>{{contact.address}}</td>
+              <td>{{contact.phone}}</td>
+              <td>{{contact.email}}</td>
+              <td>{{contact.content}}</td>
+              <td>
+                  <ul>
+                      <li><a  type="button" class="btn-edit" (click)="delete(contact.id)"><i class="fa fa-trash-o"></i>Xóa</a></li>
+                      <!-- <li><a  type="button" class="btn-delete" data-toggle="modal" data-target="#modalDelete"><i class="fa fa-th-list"></i>Hủy đơn</a></li> -->
+                  </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+  </div>
+  </div>
