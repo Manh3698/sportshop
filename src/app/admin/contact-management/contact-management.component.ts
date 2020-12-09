@@ -11,7 +11,7 @@ import Swal from 'sweetalert2'
 export class ContactManagementComponent implements OnInit {
   listContact;
   constructor(private contactservice: ContactService) { }
-
+  searchText
   ngOnInit(): void {
     this.getAll()
   }
@@ -48,7 +48,6 @@ export class ContactManagementComponent implements OnInit {
               console.log(err)
             }
           )
-        
       }
       else if (result.dismiss === Swal.DismissReason.cancel) {
         Swal.fire(

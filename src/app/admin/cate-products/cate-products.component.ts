@@ -12,6 +12,7 @@ export class CateProductsComponent implements OnInit {
   @ViewChild('fileInput', { static: false }) fileInput: ElementRef;
   listCate:any;
   cateId: any;
+  searchText;
   dataCate = {
     id: '',
     name: '',

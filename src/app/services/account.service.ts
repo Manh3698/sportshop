@@ -32,4 +32,7 @@ export class AccountService {
   getUserInfor(): Observable<any> {
     return this.httpClient.get(this.config.urlAccount + `{id}`, { responseType: 'text' });
   }
+  delete(id){
+    return this.httpClient.delete(this.config.urlAccount.concat('/delete/') + id)
+  }
 }

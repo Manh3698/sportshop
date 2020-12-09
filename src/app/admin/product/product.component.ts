@@ -2,6 +2,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';  
 import { ProductService } from 'src/app/services/product.service';
+import Swal from 'sweetalert2';
 declare var $: any;
 @Component({
   selector: 'app-product',
@@ -14,6 +15,7 @@ export class ProductComponent implements OnInit {
   listProduct;
   // cateId: any;
   params:any;
+  searchText
   cateId = parseInt(this.activatedRoute.snapshot.paramMap.get('cateId'));
   cateName = decodeURIComponent(String(this.activatedRoute.snapshot.paramMap.get('cateName')));
     // console.log(this.cateId);
@@ -21,11 +23,10 @@ export class ProductComponent implements OnInit {
     categoryId: this.cateId,
     content: '',
     createBy: '',
-    create_date: '',
+    createDate: '',
     description: '',
     id: '',
     code: '',
-    images: '',
     name: '',
     color: '',
     size:'',
@@ -36,7 +37,7 @@ export class ProductComponent implements OnInit {
     quantity: '',
     status: '',
     updateBy: '',
-    update_date: ''
+    updateDate: ''
   };
   hot = [
     {
@@ -55,7 +56,7 @@ export class ProductComponent implements OnInit {
     }
   ]
   files = [];
-  isEdit = false;
+  isEdit = true;
   productId:any;
   constructor(private activatedRoute: ActivatedRoute, private productService: ProductService) { }
 
@@ -63,11 +64,10 @@ export class ProductComponent implements OnInit {
     this.getByCateId();
   }
   getByCateId(){
-    // this.params = this.activatedRoute.params.subscribe(params => {
-    //   this.cateId = params['cateId'];
       this.productService.getByCateId(this.cateId).subscribe(
         (res: any) => {
           this.listProduct = res.data;
+          console.log(this.listProduct)
         },
         error => {
         }
@@ -85,17 +85,51 @@ export class ProductComponent implements OnInit {
       }
     )
   }
-  deleteProduct(productId: string) {
-    this.productService.deleteProduct(productId).subscribe(
-      (res: any) => {
-        alert("thành công");
-        this.getByCateId();  
-        $('modalDelete').modal('hide');    
-      },
-      error => {
-        console.log(error)
+  // deleteProduct(productId: string) {
+  //   this.productService.deleteProduct(productId).subscribe(
+  //     (res: any) => {
+  //       alert("thành công");
+  //       this.getByCateId();  
+  //       $('modalDelete').modal('hide');    
+  //     },
+  //     error => {
+  //       console.log(error)
+  //     }
+  //   )
+  // }
+  deleteProduct(id){
+    Swal.fire({
+      title: 'Bạn có chắc chắn muốn xóa không?',
+      text: "Bạn sẽ không thể hoàn tác!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Xóa!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+          this.productService.deleteProduct(id).subscribe(
+            (res:any)=>{
+              Swal.fire(
+                'Deleted!',
+                'Your file has been deleted.',
+                'success'
+              )
+              this.getByCateId()
+            },
+            err=>{
+              console.log(err)
+            }
+          )
       }
-    )
+      else if (result.dismiss === Swal.DismissReason.cancel) {
+        Swal.fire(
+          'Cancelled',
+          'Type product is safe',
+          'error'
+        )
+      }
+    })
   }
   save() {
     if(this.isEdit){
@@ -124,6 +158,7 @@ export class ProductComponent implements OnInit {
   }
 
   onChangeFile() {
+    this.files = [];
     for (const file of this.fileInput.nativeElement.files) {
       this.files.push(file);
     }
@@ -134,11 +169,10 @@ export class ProductComponent implements OnInit {
       categoryId: this.cateId,
       content: '',
       createBy: '',
-      create_date: '',
+      createDate: '',
       description: '',
       id: '',
       code:'',
-      images: '',
       name: '',
       color: '',
       size:'',
@@ -149,7 +183,7 @@ export class ProductComponent implements OnInit {
       quantity: '',
       status: '',
       updateBy: '',
-      update_date: ''
+      updateDate: ''
     };
   }
 

@@ -8,7 +8,7 @@
         Thêm danh mục
     </a> -->
     <!-- <form class="search" action="" style="float: right;"> -->
-      <input type="search" class="search" placeholder="Tìm kiếm danh mục">
+      <input type="search" class="search" placeholder="Tìm kiếm danh mục" [(ngModel)]="searchText">
       <!-- <i class="fa fa-search"></i> -->
     <!-- </form> -->
 </div>
@@ -17,73 +17,29 @@
         <thead class="thead">
           <tr>
             <th scope="col">#</th>
-            <th scope="col">Mã đơn hàng</th>
-            <th scope="col">Tên Khách hàng</th>
+            <th scope="col">Tên khách hàng</th>
+            <th scope="col">Số điện thoại</th>
             <th scope="col">Địa chỉ</th>
-            <th scope="col">Số lượng sản phẩm</th>
-            <th scope="">Tổng tiền</th>
-            <th>Ngày giao</th>
-            <th scope="col">Trạng thái</th>
+            <th scope="col">Tổng tiền</th>
+            <th scope="">Phương thức thanh toán</th>
+            <th>trang thái thanh toán</th>
+            <th>Tin nhắn</th>
+            <th scope="col">Chức năng</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>123456</td>
-            <td>Nguyễn Văn Mạnh</td>
-            <td>Hà Tĩnh</td>
-            <td>5</td>
-            <td>200.000 VND</td>
-            <td>25/11/2020</td>
+          <tr *ngFor = 'let order of listOrder | filter:searchText ; let i = index'>
+            <th scope="row">{{i+1}}</th>
+            <td>{{order.userId}}</td>
+            <td>{{order.userPhone}}</td>
+            <td>{{order.totalPrice}}</td>
+            <td>{{order.paymentMethod}}</td>
+            <td>{{order.paymentStatus}}</td>
+            <th>{{order.userMessage}}</th>
             <td>
                 <ul>
-                    <li><a  type="button" class="btn-edit" data-toggle="modal" data-target="#modalEdit"><i class="fa fa-w fa-edit"></i>Đã giao</a></li>
-                    <li><a  type="button" class="btn-delete" data-toggle="modal" data-target="#modalDelete"><i class="fa fa-th-list"></i>Hủy đơn</a></li>
-                </ul>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">1</th>
-            <td>123456</td>
-            <td>Nguyễn Văn Mạnh</td>
-            <td>Hà Tĩnh</td>
-            <td>5</td>
-            <td>200.000 VND</td>
-            <td>25/11/2020</td>
-            <td>
-                <ul>
-                    <li><a  type="button" class="btn-edit" data-toggle="modal" data-target="#modalEdit"><i class="fa fa-w fa-edit"></i>Đã giao</a></li>
-                    <li><a  type="button" class="btn-delete" data-toggle="modal" data-target="#modalDelete"><i class="fa fa-th-list"></i>Hủy đơn</a></li>
-                </ul>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">1</th>
-            <td>123456</td>
-            <td>Nguyễn Văn Mạnh</td>
-            <td>Hà Tĩnh</td>
-            <td>5</td>
-            <td>200.000 VND</td>
-            <td>25/11/2020</td>
-            <td>
-                <ul>
-                    <li><a  type="button" class="btn-edit" data-toggle="modal" data-target="#modalEdit"><i class="fa fa-w fa-edit"></i>Đã giao</a></li>
-                    <li><a  type="button" class="btn-delete" data-toggle="modal" data-target="#modalDelete"><i class="fa fa-th-list"></i>Hủy đơn</a></li>
-                </ul>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">1</th>
-            <td>123456</td>
-            <td>Nguyễn Văn Mạnh</td>
-            <td>Hà Tĩnh</td>
-            <td>5</td>
-            <td>200.000 VND</td>
-            <td>25/11/2020</td>
-            <td>
-                <ul>
-                    <li><a  type="button" class="btn-edit" data-toggle="modal" data-target="#modalEdit"><i class="fa fa-w fa-edit"></i>Đã giao</a></li>
-                    <li><a  type="button" class="btn-delete" data-toggle="modal" data-target="#modalDelete"><i class="fa fa-th-list"></i>Hủy đơn</a></li>
+                    <li><a  type="button" class="btn-edit" data-toggle="modal" data-target="#modalEdit"><i class="fa fa-w fa-check"></i></a></li>
+                    <li><a  type="button" class="btn-delete" data-toggle="modal" data-target="#modalDelete" (click)="delete(order.id)"><i class="fa fa-trash"></i></a></li>
                 </ul>
             </td>
           </tr>

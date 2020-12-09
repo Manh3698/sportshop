@@ -8,7 +8,7 @@
         Thêm danh mục
     </a>
     <!-- <form class="search" action="" style="float: right;"> -->
-      <input type="search" class="search" placeholder="Tìm kiếm danh mục">
+      <input type="search" class="search" placeholder="Tìm kiếm danh mục" [(ngModel)]="searchText">
       <!-- <i class="fa fa-search"></i> -->
     <!-- </form> -->
 </div>
@@ -24,16 +24,15 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor = 'let cate of listCate; let i = index'>
+          <tr *ngFor = 'let cate of listCate | filter:searchText ; let i = index'>
             <th scope="row">{{i+1}}</th>
             <td>{{cate.name}}</td>
             <td>{{cate.type}}</td>
             <td><a [routerLinkActive]="['router-link-active']" [routerLink]="['/admin/' + cate.name + '/' + cate.id  + '/product']"  type="button" class="btn-list"><i class="fa fa-th-list"></i>Xem</a></td>
             <td>
                 <ul>
-                    <li><a  type="button" class="btn-edit" data-toggle="modal" data-target="#modalEdit" (click)="detail(cate.id)"><i class="fa fa-w fa-edit"></i>Chỉnh sửa</a></li>
-                    <li><a  type="button" class="btn-delete" data-toggle="modal" data-target="#modalDelete"><i class="fa fa-th-list"></i>Xóa</a></li>
-                    <!-- <li><a href="" type="button" class="btn-list"><i class="fa fa-th-list"></i></a></li> -->
+                    <li><a  type="button" class="btn-edit" data-toggle="modal" data-target="#modalEdit" (click)="detail(cate.id)"><i class="fa fa-w fa-edit"></i></a></li>
+                    <li><a  type="button" class="btn-delete" data-toggle="modal" data-target="#modalDelete"><i class="fa fa-trash-o"></i></a></li>
                 </ul>
             </td>
           </tr>

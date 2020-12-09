@@ -10,7 +10,7 @@ import { authInterceptorProviders } from './helpers/auth.interceptor';
 import { LoginComponent } from './account/login/login.component';
 import { RegisterComponent } from './account/register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { ValidateEqualModule } from 'ng-validate-equal';
 
 @NgModule({
   declarations: [
@@ -25,7 +25,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NgbModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ValidateEqualModule
   ],
   providers: [HttpClientModule, authInterceptorProviders],
   bootstrap: [AppComponent]

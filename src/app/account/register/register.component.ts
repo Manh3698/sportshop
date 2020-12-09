@@ -25,6 +25,16 @@ export class RegisterComponent implements OnInit {
   isLoggedIn = false;
   user: any;
   username: any;
+  data = {
+    id : '',
+    fullname:'',
+    address:'',
+    username:'',
+    password:'',
+    birthday:'',
+    phoneNumber:'',
+    email:''
+  }
   constructor(private cateService: CateProductService, private headerService: HeaderService, private tokenStorageService: TokenStorageService, private accountService: AccountService, private router: Router) { }
   ngOnInit(): void {
     this.getAll();
@@ -38,6 +48,16 @@ export class RegisterComponent implements OnInit {
       },
       err=>{
         console.log(err)
+      }
+    )
+  }
+  register(){
+    this.accountService.create(this.data).subscribe(
+      (res:any)=>{
+        alert('đăng ký thành công')
+      },
+      error=>{
+        console.log(error)
       }
     )
   }

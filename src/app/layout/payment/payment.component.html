@@ -21,45 +21,29 @@
                                     <div class="layout-flex">
                                         <h2 class="section__title layout-flex__item layout-flex__item--stretch">
                                             <i class="fa fa-id-card-o fa-lg section__title--icon hide-on-desktop"></i>
-
                                             Thông tin mua hàng
-
                                         </h2>
-
-
                                         <a *ngIf = "!isLoggedIn" href="/account/login?returnUrl=/checkout/279241a3e1bf4f4f8318dedeacc46375">
                                             <i class="fa fa-user-circle-o fa-lg"></i>
                                             <span>Đăng nhập </span>
                                         </a>
-
-
                                     </div>
                                 </div>
                                 <div class="section__content">
                                     <div class="fieldset">
-
-
-
-
                                         <div class="field ">
                                             <div class="field__input-wrapper">
                                                 <input placeholder="email(tùy chọn)" name="email" id="email"
                                                     type="email" class="field__input" value="" [(ngModel)]="dataOrder.userEmail">
                                             </div>
-
                                         </div>
-
-
-
                                         <div class="field ">
                                             <div class="field__input-wrapper">
                                                 <!-- <label for="billingName" class="field__label">Họ và tên</label> -->
                                                 <input name="billingName" id="billingName" type="text"
                                                     class="field__input" value="" placeholder="Họ và tên" [(ngModel)]="dataOrder.userId">
                                             </div>
-
                                         </div>
-
                                         <div class="field ">
                                             <div class="field__input-wrapper">
                                                 <!-- <label for="billingPhone" class="field__label">
@@ -82,8 +66,6 @@
                                             </div>
 
                                         </div>
-
-
                                         <div class="field field--show-floating-label ">
                                             <div class="field__input-wrapper field__input-wrapper--select2">
                                                 <label for="billingProvince" class="field__label">Tỉnh thành</label>
@@ -170,9 +152,7 @@
                                                                     role="presentation"></b></span></span></span><span
                                                         class="dropdown-wrapper" aria-hidden="true"></span></span>
                                             </div>
-
                                         </div>
-
                                         <div class="field field--show-floating-label ">
                                             <div class="field__input-wrapper field__input-wrapper--select2">
                                                 <label for="billingDistrict" class="field__label">
@@ -198,7 +178,6 @@
                                             </div>
 
                                         </div>
-
                                         <div class="field field--show-floating-label ">
                                             <div class="field__input-wrapper field__input-wrapper--select2">
                                                 <label for="billingWard" class="field__label">
@@ -224,10 +203,6 @@
                                             </div>
 
                                         </div>
-
-
-
-
                                         <div class="field">
                                             <div class="checkbox-wrapper">
                                                 <div class="checkbox__input">
@@ -548,7 +523,22 @@
                                             </div>
 
                                         </div>
-
+                                        <div class="content-box__row">
+                                            <div class="radio-wrapper">
+                                                <div class="radio__input">
+                                                    <input name="paymentMethod" id="paymentMethod-482899" type="radio"
+                                                        class="input-radio" value="482899">
+                                                </div>
+                                                <label for="paymentMethod-482899" class="radio__label">
+                                                    <span class="radio__label__primary">Thanh toán bằng tài khoản Paypal</span>
+                                                    <span class="radio__label__accessory">
+                                                        <span class="radio__label__icon">
+                                                            <i class="fa fa-money"></i>
+                                                        </span>
+                                                    </span>
+                                                </label>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </section>

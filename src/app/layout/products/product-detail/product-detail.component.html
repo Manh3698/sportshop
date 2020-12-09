@@ -16,10 +16,10 @@
                         <div class="col-xs-12 col-sm-6 col-lg-5 col-md-6">
                             <div class="relative product-image-block ">
                                 <div class="large-image">
-                                    <a href="//bizweb.dktcdn.net/thumb/1024x1024/100/376/467/products/14006076639-1113668521.jpg?v=1602748500813"
+                                    <a 
                                         data-rel="prettyPhoto[product-gallery]" class="large_image_url">
-                                        <div style="height:500px;width:468px;" class="zoomWrapper"><img id="zoom_01"
-                                                src="../../../../assets/img/{{detail.images}}"
+                                        <div style="height:500px;width:468px;" class="zoomWrapper"><img  class="xzoom" id="xzoom-default"
+                                                src="../../../../assets/img/{{detail.images[0].fileName}}"
                                                 alt="ÁO BA LỖ NAM" class="img-responsive center-block"
                                                 style="position: absolute;"></div>
                                     </a>
@@ -41,64 +41,17 @@
                                     </div>
                                 </div>
                                 <div id="gallery_01"
-                                    class="owl-carousel owl-theme thumbnail-product margin-top-15 owl-loaded owl-drag"
+                                    class="owl-carousel  owl-theme thumbnail-product margin-top-15 owl-loaded owl-drag"
                                     data-md-items="4" data-sm-items="4" data-xs-items="4" data-xss-items="3"
                                     data-margin="10" data-nav="true">
                                     <div class="owl-stage-outer">
-                                        <div class="owl-stage"
+                                        <div class="owl-stage xzoom-thumbs"
                                             style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 1076px;">
-                                            <div class="owl-item active" style="width: 109.5px; margin-right: 10px;">
-                                                <div class="item">
-                                                    <a class="thumb-link" href="javascript:void(0);"
-                                                        data-image="https://bizweb.dktcdn.net/100/376/467/products/14006076639-1113668521.jpg?v=1602748500813"
-                                                        data-zoom-image="//bizweb.dktcdn.net/thumb/1024x1024/100/376/467/products/14006076639-1113668521.jpg?v=1602748500813">
-                                                        <img src="../../../../assets/img/{{detail.images}}"
-                                                            alt="ÁO BA LỖ NAM"
-                                                            data-image="https://bizweb.dktcdn.net/100/376/467/products/14006076639-1113668521.jpg?v=1602748500813">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="owl-item active" style="width: 109.5px; margin-right: 10px;">
-                                                <div class="item">
-                                                    <a class="thumb-link" href="javascript:void(0);"
-                                                        data-image="https://bizweb.dktcdn.net/100/376/467/products/14043565963-1113668521.jpg?v=1602748501150"
-                                                        data-zoom-image="//bizweb.dktcdn.net/thumb/1024x1024/100/376/467/products/14043565963-1113668521.jpg?v=1602748501150">
-                                                        <img src="../../../../assets/img/{{detail.images}}"
-                                                            alt="ÁO BA LỖ NAM"
-                                                            data-image="https://bizweb.dktcdn.net/100/376/467/products/14043565963-1113668521.jpg?v=1602748501150">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="owl-item active" style="width: 109.5px; margin-right: 10px;">
-                                                <div class="item">
-                                                    <a class="thumb-link" href="javascript:void(0);"
-                                                        data-image="https://bizweb.dktcdn.net/100/376/467/products/14043574896-1113668521.jpg?v=1602748501707"
-                                                        data-zoom-image="//bizweb.dktcdn.net/thumb/1024x1024/100/376/467/products/14043574896-1113668521.jpg?v=1602748501707">
-                                                        <img src="../../../../assets/img/{{detail.images}}"
-                                                            alt="ÁO BA LỖ NAM"
-                                                            data-image="https://bizweb.dktcdn.net/100/376/467/products/14043574896-1113668521.jpg?v=1602748501707">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="owl-item active" style="width: 109.5px; margin-right: 10px;">
-                                                <div class="item">
-                                                    <a class="thumb-link" href="javascript:void(0);"
-                                                        data-image="https://bizweb.dktcdn.net/100/376/467/products/14043589529-1113668521.jpg?v=1602748502170"
-                                                        data-zoom-image="//bizweb.dktcdn.net/thumb/1024x1024/100/376/467/products/14043589529-1113668521.jpg?v=1602748502170">
-                                                        <img src="../../../../assets/img/{{detail.images}}"
-                                                            alt="ÁO BA LỖ NAM"
-                                                            data-image="https://bizweb.dktcdn.net/100/376/467/products/14043589529-1113668521.jpg?v=1602748502170">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="owl-item" style="width: 109.5px; margin-right: 10px;">
-                                                <div class="item">
-                                                    <a class="thumb-link" href="javascript:void(0);"
-                                                        data-image="https://bizweb.dktcdn.net/100/376/467/products/14043592532-1113668521.jpg?v=1602748502780"
-                                                        data-zoom-image="//bizweb.dktcdn.net/thumb/1024x1024/100/376/467/products/14043592532-1113668521.jpg?v=1602748502780">
-                                                        <img src="../../../../assets/img/{{detail.images}}"
-                                                            alt="ÁO BA LỖ NAM"
-                                                            data-image="https://bizweb.dktcdn.net/100/376/467/products/14043592532-1113668521.jpg?v=1602748502780">
+                                            <div class="owl-item active" style="width: 109.5px; margin-right: 10px;" *ngFor = 'let image of listImage'>
+                                                <div class="item" >
+                                                    <a class="thumb-link" class="xzoom-gallery">
+                                                        <img src="../../../../assets/img/{{image.fileName}}"
+                                                            alt="ÁO BA LỖ NAM">
                                                     </a>
                                                 </div>
                                             </div>
@@ -304,7 +257,7 @@
                                             <div class="thumbnail-container clearfix">
                                                 <div class="product-image">
                                                     <a [routerLink]="['/' + hot.id + '/detail']">   
-                                                        <img class="img-responsive" src="../../../../assets/img/{{hot.images}}"  alt="">                                                        
+                                                        <img class="img-responsive" src="../../../../assets/img/{{hot.images[0].fileName}}"  alt="">                                                        
                                                     </a>
                                                 </div>
                                                 <div class="product-meta">
@@ -357,7 +310,7 @@
                                                 <div class="product-wrapper">
                                                     <div class="product-image product-image-block">
                                                         <a [routerLink]="['/' + product.id + '/detail']" title="ÁO CỘC TAY NAM">
-                                                            <img src="../../../../assets/img/{{product.images}}"
+                                                            <img src="../../../../assets/img/{{product.images[0].fileName}}"
                                                                 
                                                                 alt="ÁO CỘC TAY NAM"
                                                                 class="image_main img-responsive center-block">

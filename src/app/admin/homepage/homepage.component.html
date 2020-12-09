@@ -10,7 +10,7 @@
             </div>
             <div>
                 <span>Tiền bán hàng</span><br>
-                <span>200.000.000 VND</span>
+                <span>{{totalPriceToDay | currency : 'VND'}} VND</span>
             </div>
         </div>
         <div class="item item2">
@@ -18,8 +18,8 @@
                 <i class="fa fa-shopping-cart"></i>
             </div>
             <div>
-                <span>Số đơn hàng : 6</span><br>
-                <span>Số sản phẩm : 20</span>
+                <span>Số đơn hàng : {{quantityOrderToday}}</span><br>
+                <span>Số sản phẩm : {{quantityProductToDay}}</span>
             </div>
         </div>
         <div class="item item3">

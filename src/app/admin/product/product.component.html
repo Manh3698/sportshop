@@ -7,7 +7,7 @@
       <i class="fa fa-check"></i>
       Thêm sản phẩm
     </a>
-    <input type="search" class="search" placeholder="Tìm kiếm sản phẩm">
+    <input type="search" class="search" placeholder="Tìm kiếm sản phẩm" [(ngModel)]= "searchText">
   </div>
   <div>
     <table class="table">
@@ -23,11 +23,11 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor='let product of listProduct; let i = index'>
+        <tr *ngFor='let product of listProduct | filter:searchText ; let i = index'>
           <th scope="row">{{i+1}}</th>
           <td>{{product.name}}</td>
           <td>{{product.code}}</td>
-          <td><img src="../../../assets/img/{{product.images}}" alt=""></td>
+          <td><img src="../../../assets/img/{{product.images[0].fileName}}" alt=""></td>
           <td>{{product.quantity}}</td>
           <td>{{product.newPrice}}</td>
           <td>
@@ -36,8 +36,8 @@
                     class="fa fa-w fa-info"></i></a></li> -->
               <li><a type="button" class="btn-edit" data-toggle="modal" data-target="#modalEdit"
                   (click)="detailProduct(product.id)"><i class="fa fa-w fa-edit"></i></a></li>
-              <li><a type="button" class="btn-delete" data-toggle="modal" data-target="#modalDelete"
-                  (click)="detailProduct(product.id)"><i
+              <li><a type="button" class="btn-delete" 
+                  (click)="deleteProduct(product.id)"><i
                     class="fa fa-trash-o"></i></a></li>
             </ul>
           </td>

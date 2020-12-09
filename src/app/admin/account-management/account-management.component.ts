@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AccountService } from 'src/app/services/account.service';
+import Swal from 'sweetalert2';
 declare  var $ : any;
 @Component({
   selector: 'app-account-management',
@@ -13,7 +14,7 @@ export class AccountManagementComponent implements OnInit {
  
   
   constructor(private accountService: AccountService) { }
- 
+  searchText;
   
   dataAcc = {
     id: '',
@@ -37,11 +38,11 @@ export class AccountManagementComponent implements OnInit {
   }
   role = [
     {
-      id : 1,
+      id : 2,
       name : 'user'
     },
     {
-      id : 2,
+      id : 1,
       name : 'admin'
     }
   ]
@@ -61,7 +62,7 @@ export class AccountManagementComponent implements OnInit {
       create_date: '',
       roles : [
         {
-          id : '2',
+          id : '1',
           name : 'admin'
         }
       ]
@@ -113,5 +114,39 @@ export class AccountManagementComponent implements OnInit {
   addNew() {
     this.isEdit = false;
     this.resetData();
+  }
+  delete(id){
+    Swal.fire({
+      title: 'Bạn có chắc chắn muốn xóa không?',
+      text: "Bạn sẽ không thể hoàn tác!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Xóa!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+          this.accountService.delete(id).subscribe(
+            (res:any)=>{
+              Swal.fire(
+                'Deleted!',
+                'Your file has been deleted.',
+                'success'
+              )
+              this.getAll()
+            },
+            err=>{
+              console.log(err)
+            }
+          )
+      }
+      else if (result.dismiss === Swal.DismissReason.cancel) {
+        Swal.fire(
+          'Cancelled',
+          'Type product is safe',
+          'error'
+        )
+      }
+    })
   }
 }

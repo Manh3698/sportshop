@@ -44,8 +44,8 @@ export class HeaderComponent implements OnInit {
       }
     )
   }
-  logout(){
-    window.sessionStorage.clear();
-    location.reload();
-  }
+    logout(){
+      window.sessionStorage.clear();
+      location.reload();
+    }
 }

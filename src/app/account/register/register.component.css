@@ -33431,3 +33431,12 @@ img {
 .page-login #login .text-center {
     margin-bottom: 10px;
 }
+input{
+    margin-bottom: 0 !important;
+  }
+  .col-md-12{
+    margin-bottom: 20px;
+  }
+  .text-danger{
+    margin-top: 0.25rem;
+  }

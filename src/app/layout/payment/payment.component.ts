@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OrderService } from 'src/app/services/order.service';
+import { ProductService } from 'src/app/services/product.service';
 import { TokenStorageService } from 'src/app/services/token-storage.service';
 
 @Component({
@@ -26,7 +27,8 @@ export class PaymentComponent implements OnInit {
     updateBy: '',
     update_date: ''
   }
-  constructor(private orderService: OrderService, private tokenStorageService: TokenStorageService) { }
+  
+  constructor(private orderService: OrderService, private tokenStorageService: TokenStorageService, private productService: ProductService) { }
 
   ngOnInit(): void {
     this.isLoggedIn = !!this.tokenStorageService.getToken();

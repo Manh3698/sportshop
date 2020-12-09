@@ -92,7 +92,8 @@
                                                             class="not-dqowl owl-theme owl-carousel owl-loaded owl-drag">
                                                             <div class="owl-stage-outer">
                                                                 <div class="owl-stage">
-                                                                    <div class="owl-item active" style="width: 106px; margin-right: 10px;">
+                                                                    <div class="owl-item active"
+                                                                        style="width: 106px; margin-right: 10px;">
                                                                         <div class="item">
                                                                             <div class="box-image"><a
                                                                                     class="image url-product"
@@ -148,7 +149,7 @@
                             <li class="nav-item active"><a class="nav-link" routerLink="/">Trang chủ</a></li>
                             <li class="nav-item "><a class="nav-link" href="/gioi-thieu">Giới thiệu</a></li>
                             <li class="nav-item ">
-                                <a  class="nav-link">Đồ thể thao <i class="fa fa-angle-right"
+                                <a class="nav-link">Đồ thể thao <i class="fa fa-angle-right"
                                         data-toggle="dropdown"></i></a>
                                 <ul class="dropdown-menu">
                                     <li class="nav-item-lv2" *ngFor='let clothes of listClothes'>
@@ -158,8 +159,8 @@
                                 </ul>
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link">Phụ kiện thể thao <i
-                                        class="fa fa-angle-right" data-toggle="dropdown"></i></a>
+                                <a class="nav-link">Phụ kiện thể thao <i class="fa fa-angle-right"
+                                        data-toggle="dropdown"></i></a>
                                 <ul class="dropdown-menu">
                                     <li class="nav-item-lv2" *ngFor='let item of listItem'>
                                         <a class="nav-link"
@@ -181,7 +182,133 @@
         </div>
     </div>
 </header>
-
+<div class="container mr-bottom-20">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="page-login account-box-shadow">
+                <div id="login">
+                    <h1 class="title-head text-center">Đăng ký tài khoản</h1>
+                    <div class="text-center"><span>Nếu chưa có tài khoản vui lòng đăng ký tại đây</span></div>
+                    <div class="social-login text-center margin-bottom-10 margin-top-15">
+                        <a href="javascript:void(0)" class="social-login--facebook" ><img
+                                width="129px" height="37px" alt="facebook-login-button"
+                                src="//bizweb.dktcdn.net/assets/admin/images/login/fb-btn.svg"></a>
+                        <a href="javascript:void(0)" class="social-login--google"><img
+                                width="129px" height="37px" alt="google-login-button"
+                                src="//bizweb.dktcdn.net/assets/admin/images/login/gp-btn.svg"></a>
+                    </div>
+                    <form class="form-register" action="#">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group" [ngClass]="{
+                                    'has-danger': name.invalid && (name.dirty || name.touched),
+                                    'has-success': name.valid && (name.dirty || name.touched)
+                               }">
+                                    <label>Họ và tên<span class="required">*</span></label>
+                                    <input type="text" class="form-control form-control-lg" name="name" id="lastName" placeholder=""
+                                        [(ngModel)]="data.fullname" required #name="ngModel">
+                                    <div *ngIf="name.invalid && (name.dirty || name.touched)" class="text-danger">
+                                        <div *ngIf="name.errors.required">
+                                            Fullname is required.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group" [ngClass]="{
+                                    'has-danger': birthday.invalid && (birthday.dirty || birthday.touched),
+                                    'has-success': birthday.valid && (birthday.dirty || birthday.touched)
+                               }">
+                                    <label>Birthday<span class="required">*</span></label>
+                                    <input type="date" class="form-control form-control-lg"  name="birthday" 
+                                        placeholder="" [(ngModel)]="data.birthday" required #birthday="ngModel">
+                                    <div *ngIf="birthday.invalid && (birthday.dirty || birthday.touched)" class="text-danger">
+                                        <div *ngIf="birthday.errors.required">
+                                            Birthday is required.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group" [ngClass]="{
+                                    'has-danger': email.invalid && (email.dirty || email.touched),
+                                    'has-success': email.valid && (email.dirty || email.touched)
+                               }">
+                                    <label>Email<span class="required">*</span></label>
+                                    <input type="text" class="form-control form-control-lg" value="" name="email" id="firstName" placeholder=""
+                                        [(ngModel)]="data.email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$" #email='ngModel'>
+                                    <div *ngIf="email.invalid && (email.dirty || email.touched)" class="text-danger">
+                                        <div *ngIf="email.errors.required">
+                                            Email is required.
+                                        </div>
+                                        <div *ngIf="email.errors.pattern">
+                                            Email sai định dạng
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group" [ngClass]="{
+                                    'has-danger': phone.invalid && (phone.dirty || phone.touched),
+                                    'has-success': phone.valid && (phone.dirty || phone.touched)
+                               }">
+                                    <label>Số điện thoại<span class="required">*</span></label>
+                                    <input type="text" class="form-control form-control-lg" name="phone" [(ngModel)]="data.phoneNumber" required
+                                        minlength="10" #phone="ngModel">
+                                    <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="text-danger">
+                                        <div *ngIf="phone.errors.required">
+                                            Phone is required.
+                                        </div>
+                                        <div *ngIf="phone.errors.minlength">
+                                            Phone phải đủ 10 ký tự
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group" [ngClass]="{
+                                    'has-danger': user.invalid && (user.dirty || user.touched),
+                                    'has-success': user.valid && (user.dirty || user.touched)
+                               }">
+                                    <label>Username<span class="required">*</span></label>
+                                    <input type="text" class="form-control form-control-lg" value="" name="user" id="firstName" placeholder=""
+                                        [(ngModel)]="data.username" required #user="ngModel">
+                                    <div *ngIf="user.invalid && (user.dirty || user.touched)" class="text-danger">
+                                        <div *ngIf="user.errors.required">
+                                            Username is required.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group" [ngClass]="{
+                                    'has-danger': pass.invalid && (pass.dirty || pass.touched),
+                                    'has-success': pass.valid && (pass.dirty || pass.touched)
+                               }">
+                                    <label>Mật khẩu<span class="required">*</span></label>
+                                    <input type="password" class="form-control form-control-lg" value="" name="pass" id="password"
+                                        placeholder="" [(ngModel)]="data.password" required #pass="ngModel">
+                                    <div *ngIf="pass.invalid && (pass.dirty || pass.touched)" class="text-danger">
+                                        <div *ngIf="pass.errors.required">
+                                            Password is required.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 text-center" style="margin-top:15px; padding: 0">
+                                <button type="submit" value="Đăng ký" class="btn btn-style btn-blues">Đăng
+                                    ký</button>
+                                <a routerLink="login" class="btn-link-style btn-register"
+                                    style="margin-left: 20px;color:#f72b3f;text-decoration: underline; ">Đăng
+                                    nhập</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <footer class="footer-container">
     <div class="footer-top">
         <div class="container">
@@ -261,7 +388,10 @@
                                                     title="fb:page Facebook Social Plugin" frameborder="0"
                                                     allowtransparency="true" allowfullscreen="true" scrolling="no"
                                                     allow="encrypted-media"
-                                                    src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fdungtransport123&tabs=timeline&width=370&height=197&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="370" height="197" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"
+                                                    src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fdungtransport123&tabs=timeline&width=370&height=197&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
+                                                    width="370" height="197" style="border:none;overflow:hidden"
+                                                    scrolling="no" frameborder="0" allowTransparency="true"
+                                                    allow="encrypted-media"
                                                     style="border: none; visibility: visible; width: 370px; height: 197px;"
                                                     class=""></iframe></span></div>
                                     </div>
@@ -287,7 +417,8 @@
                 <div class="col-md-5">
                     <ul class="footer-info">
 
-                        <li><i class="fa fa-map-marker" aria-hidden="true"></i> 108 Nguyễn Lương Bằng, Phường Hòa Khánh Bắc, quận Liên Chiều,thành phố Đà Nẵng</li>
+                        <li><i class="fa fa-map-marker" aria-hidden="true"></i> 108 Nguyễn Lương Bằng, Phường Hòa Khánh
+                            Bắc, quận Liên Chiều,thành phố Đà Nẵng</li>
                         <li><i class="fa fa-phone" aria-hidden="true"></i> <a href="tel:0969959168">0969959168</a></li>
                         <li><i class="fa fa-envelope" aria-hidden="true"></i> <a
                                 href="mailto:sportshopofficialvn@gmail.com">sportshopofficialvn@gmail.com</a></li>

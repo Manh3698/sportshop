@@ -26,13 +26,16 @@ export class HomepageComponent implements OnInit {
           if(e.categoryId == 1 || e.categoryId == 2 || e.categoryId == 3){
             this.ListClothes.push(e);
           }
-          else if(e.isHot == 1){
+        });
+        this.listProduct.forEach(e => {
+          if(e.isHot == 1){
             this.ListItemHot.push(e);
           }
-          else{
+        });
+        this.listProduct.forEach(e => {
+          if(e.categoryId == 4 || e.categoryId == 5 || e.categoryId == 6 || e.categoryId == 7 || e.categoryId == 8){
             this.ListItem.push(e);
           }
-
         });
       },
       err=>{

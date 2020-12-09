@@ -8,7 +8,7 @@
           Thêm quản trị viên
       </a>
       <!-- <form class="search" action="" style="float: right;"> -->
-        <input type="search" class="search" placeholder="Tìm kiếm danh mục">
+        <input type="search" class="search" placeholder="Tìm kiếm danh mục" [(ngModel)]="searchText">
         <!-- <i class="fa fa-search"></i> -->
       <!-- </form> -->
   </div>
@@ -26,17 +26,17 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor = 'let account of listAcc; let i =index'>
+            <tr *ngFor = 'let account of listAcc | filter:searchText ; let i =index '>
               <th scope="row">{{i+1}}</th>
               <td>{{account.fullname}}</td>
               <td>{{account.phoneNumber}}</td>
               <td>{{account.address}}</td>
-              <td><a [routerLinkActive]="['router-link-active']" [routerLink]="['/admin/orders/' + account.fullname + '/' + account.id]"  type="button" class="btn-list"><i class="fa fa-th-list"></i>Xem</a></td>
-              <td><a [routerLinkActive]="['router-link-active']" [routerLink]="['/admin/orders/' + account.fullname + '/' + account.id]"  type="button" class="btn-list"><i class="fa fa-th-list"></i>Xem</a></td>
+              <td><a [routerLinkActive]="['router-link-active']" [routerLink]="['/admin/orders/' + account.fullname + '/' + account.id]"  type="button" class="btn-list"><i class="fa fa-th-list"></i></a></td>
+              <td><a [routerLinkActive]="['router-link-active']" [routerLink]="['/admin/orders/' + account.fullname + '/' + account.id]"  type="button" class="btn-list"><i class="fa fa-th-list"></i></a></td>
               <td>
                   <ul>
-                      <li><a  type="button" class="btn-edit" data-toggle="modal" data-target="#modalEdit"><i class="fa fa-w fa-edit"></i>Sửa quyền</a></li>
-                      <li><a  type="button" class="btn-delete" data-toggle="modal" data-target="#modalDelete"><i class="fa fa-th-list"></i>Xóa tài khoản</a></li>
+                      <li><a  type="button" class="btn-edit" data-toggle="modal" data-target="#modalEdit"><i class="fa fa-w fa-edit"></i></a></li>
+                      <li><a  type="button" class="btn-delete" (click) = 'delete(account.id)'><i class="fa fa-trash-o"></i></a></li>
                   </ul>
               </td>
             </tr>

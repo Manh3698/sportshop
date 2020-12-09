@@ -17,6 +17,7 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { AccountManagementComponent } from './account-management/account-management.component';
 import { OrderByUserComponent } from './order-by-user/order-by-user.component';
 import { ContactManagementComponent } from './contact-management/contact-management.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { ContactManagementComponent } from './contact-management/contact-managem
     ChartsModule,
     FormsModule,
     ReactiveFormsModule,
-    CKEditorModule
+    CKEditorModule,
+    Ng2SearchPipeModule
   ]
 })
 export class AdminModule { }
