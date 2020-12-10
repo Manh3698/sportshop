@@ -8,11 +8,11 @@ import Swal from 'sweetalert2';
   styleUrls: ['./order-management.component.css']
 })
 export class OrderManagementComponent implements OnInit {
- listOrder;
+  listOrder;
   constructor(private orderService: OrderService) { }
   searchText;
   ngOnInit(): void {
-    
+    this.getAll()
   }
   getAll(){
     this.orderService.getAll().subscribe(
@@ -23,6 +23,9 @@ export class OrderManagementComponent implements OnInit {
         console.log(error)
       }
     )
+  }
+  update(id){
+    
   }
   delete(id){
     Swal.fire({

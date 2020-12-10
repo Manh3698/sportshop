@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ContactService } from 'src/app/services/contact.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-contact',
@@ -10,28 +11,30 @@ export class ContactComponent implements OnInit {
   listContact;
   constructor(private contactService: ContactService) { }
   dataContact = {
-      id: '',
-      name: '',
-      address: '',
-      email : '',
-      phone : '',
-      content: '',
-      updateBy: '',
-      update_date: '',
-      createBy: '',
-      create_date: ''
+    id: '',
+    name: '',
+    address: '',
+    email: '',
+    phone: '',
+    content: ''
   }
   ngOnInit(): void {
   }
-  Create(){
+  Create() {
     this.contactService.create(this.dataContact).subscribe(
-      (res:any)=>{
-        alert('đã gửi thành công')
+      (res: any) => {
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Đã gửi thành công tin nhắn',
+          showConfirmButton: false,
+          timer: 1500
+        })
       },
-      err=>{
+      err => {
         console.log(err)
       }
     )
   }
-  
+
 }

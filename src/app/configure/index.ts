@@ -8,5 +8,5 @@ export class Configure{
     urlImageCate = this.host + '/api/imageCate';
     urlImage = this.host +'/api/images';
     urlContact = this.host + '/api/contact';
-    urlOrderDetail = this.host + '/api/oderDetail'
+    urlOrderDetail = this.host + '/api/oderdetail'
 }

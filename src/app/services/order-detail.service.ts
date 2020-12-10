@@ -16,4 +16,7 @@ export class OrderDetailService {
   getByOrderId(orderId){
     return this.httpClient.get(this.config.urlOrderDetail.concat('/getByOrderId/') + orderId)
   }
+  addOrder(data){
+    return this.httpClient.post(this.config.urlOrderDetail.concat('/add'), data)
+  }
 }

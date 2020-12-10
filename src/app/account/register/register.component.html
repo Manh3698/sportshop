@@ -231,6 +231,21 @@
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group" [ngClass]="{
+                                    'has-danger': address.invalid && (address.dirty || address.touched),
+                                    'has-success': address.valid && (address.dirty || address.touched)
+                                }">
+                                    <label>Address<span class="required">*</span></label>
+                                    <input type="text" class="form-control form-control-lg"  name="address" 
+                                        placeholder="" [(ngModel)]="data.address" required #address="ngModel">
+                                    <div *ngIf="address.invalid && (address.dirty || address.touched)" class="text-danger">
+                                        <div *ngIf="address.errors.required">
+                                            Address is required
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group" [ngClass]="{
                                     'has-danger': email.invalid && (email.dirty || email.touched),
                                     'has-success': email.valid && (email.dirty || email.touched)
                                }">

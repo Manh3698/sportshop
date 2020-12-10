@@ -8,7 +8,7 @@
 
                         <a href="/">
                             <img class="logo__image  logo__image--medium " alt="SPORT SHOP"
-                                src="../../../assets/logo.png">
+                                src="../../../assets/logo.jpg">
                         </a>
 
                     </div>
@@ -41,7 +41,7 @@
                                             <div class="field__input-wrapper">
                                                 <!-- <label for="billingName" class="field__label">Họ và tên</label> -->
                                                 <input name="billingName" id="billingName" type="text"
-                                                    class="field__input" value="" placeholder="Họ và tên" [(ngModel)]="dataOrder.userId">
+                                                    class="field__input" value="" placeholder="Họ và tên" [(ngModel)]="dataOrder.userName">
                                             </div>
                                         </div>
                                         <div class="field ">
@@ -50,7 +50,7 @@
                                                     Số điện thoại
                                                 </label> -->
                                                 <input name="billingPhone" id="billingPhone" type="tel"
-                                                    class="field__input" value="" placeholder="Số điện thoại">
+                                                    class="field__input" value="" placeholder="Số điện thoại" [(ngModel)]="dataOrder.userPhone">
                                             </div>
 
                                         </div>
@@ -62,11 +62,11 @@
                                                     Địa chỉ
                                                 </label> -->
                                                 <input name="billingAddress" id="billingAddress" type="text"
-                                                    class="field__input" value="" placeholder="Địa chỉ">
+                                                    class="field__input" value="" placeholder="Địa chỉ" [(ngModel)]="dataOrder.userAddress">
                                             </div>
 
                                         </div>
-                                        <div class="field field--show-floating-label ">
+                                        <!-- <div class="field field--show-floating-label ">
                                             <div class="field__input-wrapper field__input-wrapper--select2">
                                                 <label for="billingProvince" class="field__label">Tỉnh thành</label>
                                                 <select name="billingProvince" id="billingProvince" size="1" type="text"
@@ -202,8 +202,8 @@
                                                         class="dropdown-wrapper" aria-hidden="true"></span></span>
                                             </div>
 
-                                        </div>
-                                        <div class="field">
+                                        </div> -->
+                                        <!-- <div class="field">
                                             <div class="checkbox-wrapper">
                                                 <div class="checkbox__input">
                                                     <input type="checkbox" name="differenceAddress"
@@ -215,7 +215,7 @@
                                                     Giao hàng đến địa chỉ khác
                                                 </label>
                                             </div>
-                                        </div>
+                                        </div> -->
 
                                     </div>
                                 </div>
@@ -419,7 +419,7 @@
                                         <label for="note" class="field__label">
                                             Ghi chú (tùy chọn)
                                         </label>
-                                        <textarea name="note" id="note" type="text" class="field__input"></textarea>
+                                        <textarea name="note" id="note" type="text" class="field__input" [(ngModel)]="dataOrder.userMessage"></textarea>
                                     </div>
 
                                 </div>
@@ -473,7 +473,7 @@
                                             <div class="radio-wrapper">
                                                 <div class="radio__input">
                                                     <input name="paymentMethod" id="paymentMethod-482900" type="radio"
-                                                        class="input-radio" value="482900" checked="">
+                                                        class="input-radio" value="482900" checked="" (click)="pay1()">
                                                 </div>
                                                 <label for="paymentMethod-482900" class="radio__label">
                                                     <span class="radio__label__primary">Thanh toán khi giao hàng
@@ -486,7 +486,7 @@
                                                 </label>
                                             </div>
 
-                                            <div class="content-box__row__desc">
+                                            <div class="content-box__row__desc hide">
                                                 <p>Khách hàng được kiểm tra hàng trước khi thanh toán tiền cho
                                                     bưu tá.</p>
 
@@ -498,7 +498,7 @@
                                             <div class="radio-wrapper">
                                                 <div class="radio__input">
                                                     <input name="paymentMethod" id="paymentMethod-482899" type="radio"
-                                                        class="input-radio" value="482899">
+                                                        class="input-radio" value="482899" (click)="pay2()">
                                                 </div>
                                                 <label for="paymentMethod-482899" class="radio__label">
                                                     <span class="radio__label__primary">Chuyển khoản qua ngân
@@ -511,7 +511,7 @@
                                                 </label>
                                             </div>
 
-                                            <div class="content-box__row__desc hide">
+                                            <div class="content-box__row__desc h2 hide">
                                                 <p>Ngân hàng: 
                                                 </p>
                                                 <p>Tên tài khoản: 
@@ -527,7 +527,7 @@
                                             <div class="radio-wrapper">
                                                 <div class="radio__input">
                                                     <input name="paymentMethod" id="paymentMethod-482899" type="radio"
-                                                        class="input-radio" value="482899">
+                                                        class="input-radio" value="482899" (click)="pay3()">
                                                 </div>
                                                 <label for="paymentMethod-482899" class="radio__label">
                                                     <span class="radio__label__primary">Thanh toán bằng tài khoản Paypal</span>
@@ -687,7 +687,7 @@ Trân trọng cảm ơn.</pre>
             <aside class="sidebar">
                 <div class="sidebar__header">
                     <h2 class="sidebar__title">
-                        Đơn hàng (1 sản phẩm)
+                        Đơn hàng ({{count}} sản phẩm)
                     </h2>
                 </div>
                 <div class="sidebar__content">
@@ -715,40 +715,39 @@ Trân trọng cảm ơn.</pre>
                                     </thead>
                                     <tbody>
 
-                                        <tr class="product">
+                                        <tr class="product" *ngFor = "let item of listData; let i = index">
                                             <td class="product__image">
                                                 <div class="product-thumbnail">
                                                     <div class="product-thumbnail__wrapper" data-tg-static="">
 
-                                                        <img src="//bizweb.dktcdn.net/thumb/thumb/100/376/467/products/16308900618-1113668521.jpg?v=1603092963773"
+                                                        <img src="../../../assets/img/{{item.images[i].fileName}}"
                                                             alt="" class="product-thumbnail__image">
 
                                                     </div>
-                                                    <span class="product-thumbnail__quantity">1</span>
+                                                <span class="product-thumbnail__quantity">{{listDataLocalStorage[i].quantity}}</span>
                                                 </div>
                                             </td>
                                             <th class="product__description">
                                                 <span class="product__description__name">
-
-                                                    ÁO CỘC TAY NAM SIÊU THOÁNG KHÍ, CHẤT VẢI SIÊU NHẸ
+                                                    {{item.name}}
                                                 </span>
 
                                                 <span class="product__description__property">
-                                                    Đen / M
+                                                    {{item.size}} / {{item.color}}
                                                 </span>
 
 
                                             </th>
-                                            <td class="product__quantity visually-hidden"><em>Số lượng:</em> 1</td>
+                                            <td class="product__quantity visually-hidden"><em>Số lượng:</em>{{listDataLocalStorage[i].quantity}}</td>
                                             <td class="product__price">
-                                                319.000₫
+                                                {{item.newPrice*listDataLocalStorage[i].quantity | currency : 'VND'}} VND
                                             </td>
                                         </tr>
 
                                     </tbody>
                                 </table>
                             </div>
-                            <div class="order-summary__section order-summary__section--discount-code"
+                            <!-- <div class="order-summary__section order-summary__section--discount-code"
                                 data-tg-refresh="refreshDiscount" id="discountCode">
                                 <h3 class="visually-hidden">Mã khuyến mại</h3>
                                 <div class="edit_checkout animate-floating-labels">
@@ -777,7 +776,7 @@ Trân trọng cảm ơn.</pre>
 
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="order-summary__section order-summary__section--total-lines order-summary--collapse-element"
                                 data-tg-refresh="refreshOrderTotalPrice" id="orderSummary">
                                 <table class="total-line-table">
@@ -793,15 +792,15 @@ Trân trọng cảm ơn.</pre>
                                             <th class="total-line__name">
                                                 Tạm tính
                                             </th>
-                                            <td class="total-line__price">319.000₫</td>
+                                            <td class="total-line__price">{{total | currency : 'VND'}} VND</td>
                                         </tr>
 
-                                        <tr class="total-line total-line--shipping-fee">
+                                        <!-- <tr class="total-line total-line--shipping-fee">
                                             <th class="total-line__name">
                                                 Phí vận chuyển
                                             </th>
                                             <td class="total-line__price">-</td>
-                                        </tr>
+                                        </tr> -->
 
                                     </tbody>
                                     <tfoot class="total-line-table__footer">
@@ -812,7 +811,7 @@ Trân trọng cảm ơn.</pre>
                                                 </span>
                                             </th>
                                             <td class="total-line__price">
-                                                <span class="payment-due__price">319.000₫</span>
+                                                <span class="payment-due__price">{{total | currency : 'VND'}} VND</span>
                                             </td>
                                         </tr>
                                     </tfoot>
@@ -820,7 +819,7 @@ Trân trọng cảm ơn.</pre>
                             </div>
                             <div
                                 class="order-summary__nav field__input-btn-wrapper hide-on-mobile layout-flex--row-reverse">
-                                <button type="submit" class="btn btn-checkout spinner">
+                                <button type="submit" class="btn btn-checkout spinner" (click)="order()">
                                     <span class="spinner-label">ĐẶT HÀNG</span>
                                     <svg xmlns="http://www.w3.org/2000/svg" class="spinner-loader">
                                         <use href="#spinner"></use>

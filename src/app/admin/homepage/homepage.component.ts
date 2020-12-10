@@ -45,6 +45,7 @@ export class HomepageComponent implements OnInit {
   }
   
   ngOnInit(): void {
+    this.getAllOrder()
   }
   orderToday = [];
   totalPriceToDay=0;
@@ -59,6 +60,9 @@ export class HomepageComponent implements OnInit {
           if (e.createDate = nowDay) {
             this.totalPriceToDay = this.totalPriceToDay + e.totalPrice;
             this.orderToday.push(e);
+            for (let i = 0; i < e.orderDetails.length; i++) {
+              this.quantityProductToDay = this.quantityProductToDay + e.orderDetails[i].quantity
+            }
           }
         });
         this.quantityOrderToday = this.orderToday.length;

@@ -18,7 +18,7 @@
                                         <div class="cart page_cart cart_des_page hidden-xs-down">
                                             <div class="col-xs-9 cart-col-1">
                                                 <div class="cart-tbody">
-                                                    <div class="row shopping-cart-item productid-37171323" *ngFor = 'let cartitem of listData; let i = index'>
+                                                    <div class="row shopping-cart-item productid-37171323" *ngFor = 'let cartitem of cart.cartDetails; let i = index'>
                                                         <div class="col-xs-3 img-thumnail-custom">
                                                             <p class="image"><img class="img-responsive"
                                                                     src="../../../assets/img/{{cartitem.images[0].fileName}}"
@@ -32,25 +32,24 @@
                                                                         {{cartitem.size}}</a></p>
                                                                 <p class="action"><a href="javascript:;"
                                                                         class="btn btn-link btn-item-delete remove-item-cart"
-                                                                        data-id="37171323">Xóa</a></p>
+                                                                       (click)="delete(cartitem.id)">Xóa</a></p>
                                                             </div>
                                                             <div class="box-price">
-                                                                <p class="price" >{{cartitem.newPrice*quantityInput | currency : 'VND'}}</p>
+                                                                <p class="price" >{{cartitem.totalPrice | currency : 'VND'}}</p>
                                                             </div>
                                                             <div class="quantity-block">
                                                                 <div class="input-group bootstrap-touchspin">
                                                                     <div class="input-group-btn">
-                                                                        <input  class="variantID" type="hidden" name="variantId" value="37170643">
-                                                                            <button id="btn-adds" class="increase_pop items-count btn-plus btn btn-default bootstrap-touchspin-up"
-                                                                            type="button"  [disabled] = "isDisable">+</button>
-                                                                        <input type="text" onchange="if(this.value == 0)this.value=1;"
-                                                                            maxlength="12" min="1"
-                                                                            class="form-control quantity-r2 quantity js-quantity-product input-text number-sidebar input_pop input_pop qtyItem37170643"
-                                                                            id="qtyItem{{i+1}}" name="Lines" size="4"
-                                                                            [(ngModel)]="quantityInput" >
-                                                                            <button
+                                                                        <!-- <input  class="variantID" type="hidden" name="variantId" value="37170643"> -->
+                                                                            <!-- <button id="btn-adds" class="increase_pop items-count btn-plus btn btn-default bootstrap-touchspin-up"
+                                                                            type="button"  [disabled] = "isDisable">+</button> -->
+                                                                        <input type="number" class="form-control quantity-r2 quantity js-quantity-product input-text number-sidebar input_pop input_pop"
+                                                                            name="Lines"  min="1" max ="{{cartitem.quantity}}"
+                                                                            [(ngModel)]="cartitem.quantityInput" (change)="onchangeQuantity(cartitem.id)">
+                                                                            <!-- <input [(ngModel)]="quantityInput1" type="text" style="display: none;" [ngModelOptions]="{standalone: true}"> -->
+                                                                            <!-- <button
                                                                             class="reduced_pop items-count btn-minus btn btn-default bootstrap-touchspin-down"
-                                                                            type="button" >–</button>
+                                                                            type="button" >–</button> -->
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -63,14 +62,14 @@
                                                     <div class="each-row">
                                                         <div class="box-style fee">
                                                             <p class="list-info-price"><span>Tạm tính: </span><strong
-                                                                    class="totals_price price _text-right text_color_right1">{{total | currency : 'VND'}}</strong>
+                                                                    class="totals_price price _text-right text_color_right1">{{cart.cartTotal | currency : 'VND'}}</strong>
                                                             </p>
                                                         </div>
                                                         <div class="box-style fee">
                                                             <div class="total2 clearfix"><span class="text-label">Thành
                                                                     tiền: </span>
                                                                 <div class="amount">
-                                                                    <p><strong class="totals_price">{{total | currency : 'VND'}} VND</strong>
+                                                                    <p><strong class="totals_price">{{cart.cartTotal | currency : 'VND'}} VND</strong>
                                                                     </p>
                                                                 </div>
                                                             </div>

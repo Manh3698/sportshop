@@ -661,7 +661,7 @@ label, legend {
     margin-bottom: 2px;
 }
 .filter-item--check-box input {
-    display: none;
+    /* display: none;    */
 }
 .filter-item--check-box .fa {
     margin-right: 5px;
@@ -700,11 +700,44 @@ label, legend {
     margin-bottom: 0;
     padding-bottom: 0;
 }
-
+li a{
+    cursor: pointer;
+}
+li a:hover{
+    color: #f72b3f !important;
+}
+li a input:active{
+    color: #f72b3f !important;
+}
 /* end aside */
 /* open-filer */
 
 /* end */
 .product_name a{
     text-transform: uppercase;
+}
+.btn-quick-sort a input{
+    height: 16px;
+    width: 16px;
+    border: 2px solid #ddd;
+    border-radius: 50%;
+    display: inline-block;
+    vertical-align: middle;
+    margin: -3px 5px 0 0;
+    position: relative;
+}
+input[type='radio']:after {
+    background-color: #d1d3d1;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;
+}
+
+input[type='radio']:checked:after {
+    background-color: #f72b3f;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;
 }

@@ -1,1 +1,80 @@
-<p>profile works!</p>
+<section class="bread-crumb margin-bottom-30">
+	<div class="container">
+		<div class="row">
+			
+			<div class="col-xs-12">
+				<ul class="breadcrumb" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">					
+					<li class="home">
+						<a itemprop="url" href="/" title="Trang chủ"><span itemprop="title">Trang chủ</span></a>						
+						<span><i class="fa fa-angle-right"></i></span>
+					</li>					
+					<li><strong itemprop="title">Trang khách hàng</strong></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</section>
+<div class="container">
+    <div class="col-xs-12 col-sm-12 col-lg-12">						
+        <div class="page-title">
+            <h5 class="title-head widget-title">Thông tin tài khoản</h5>
+        </div>
+        <div class="form-signup"> 
+            <p><i>Xin chào, {{user}}</i></p>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-3 col-md-push-9 col-lg-3 col-lg-push-9">
+        <div class="block block-account margin-bottom-20">
+            <div class="block-title"><h4 class="widget-title">Thông tin khách hàng</h4></div>
+            <div class="divider-full-1"></div>
+            <div class="block-content form-signup block-edit-padding">
+                <p><i class="fa fa-user"></i> {{user}}</p>
+                <p><i class="fa fa-map-marker"></i> 
+                    
+                </p>
+                
+                <div class="margin-top-20"><a class="btn btn-blues btn-full"><i class="fa fa-book"></i> Sổ địa chỉ (0)</a></div>
+            </div>
+    
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-9 col-md-pull-3 col-lg-9 col-lg-pull-3">
+        <div class="form-signup"><h2 class="widget-title">Đơn hàng gần nhất</h2></div>
+        <div class="my-account">
+            <div class="dashboard">
+                <div class="recent-orders collections-container">
+                    <div class="table-order table-responsive">
+                        <table class="table table-cart" id="my-orders-table">
+                            <thead class="thead-default">
+                                <tr>
+                                    <th>#</th>
+                                    <th>Ngày</th>
+                                    <th>Chuyển đến</th>
+                                    <th>Nội dung</th>
+                                    <th>Giá trị</th>
+                                    <th>Tình trạng thanh toán</th>
+                                    <!-- <th>&nbsp;</th> -->
+                                </tr>
+                            </thead>
+                            <tbody>                
+                                <!-- <tr *ngIf = 'isNull'>
+                                    <td colspan="7"><p>Không có đơn hàng nào.</p></td>
+                                </tr> -->
+                                <tr  *ngFor = 'let order of listOrder; let i = index'>
+                                    <td>{{i+1}}</td>
+                                    <td>{{order.createDate}}</td>
+                                    <td>{{order.userAddress}}</td>
+                                    <td>{{order.userMessage}}</td>
+                                    <td>{{order.totalPrice}}</td>
+                                    <td>{{order.status}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>

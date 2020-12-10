@@ -13,42 +13,59 @@ export class CartComponent implements OnInit {
   total = 0;
   count;
   price_item;
-  quantityInput = 1;
+  quantitylocal
+  quantityInput;
+  quantityInput1;
   isDisable = false;
-  
-  constructor(private productService: ProductService) { 
-    
+  listQuantity = []
+  cart = {
+    cartDetails: [],
+    cartTotal: 0
   }
+  oldLocal = []
+  constructor(private productService: ProductService) {}
 
   ngOnInit(): void {
     console.log(localStorage.getItem('cart'))
     this.listDataLocalStorage = this.listId = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : [];
     this.productService.getAll().subscribe((res: any) => {
+      let index = 0;
       res.data.forEach(element => {
         if (this.listDataLocalStorage.find(rs => rs.id == element.id)) {
-          this.listData.push(element);      
+          this.listData.push(element);
+          this.cart.cartDetails.push({ ...element });
+          this.cart.cartDetails[index][`totalPrice`] = element.newPrice * parseInt(this.listDataLocalStorage.find(rs => rs.id == element.id).quantity);
+          this.cart.cartDetails[index][`quantityInput`] = parseInt(this.listDataLocalStorage.find(rs => rs.id == element.id).quantity);
+          this.cart.cartTotal += element.newPrice * parseInt(this.listDataLocalStorage.find(rs => rs.id == element.id).quantity)
+          index++;
         }
       });
-      this.count = Object.keys(this.listData).length;
-      for (const item of this.listData) {
-        this.total = this.total+ (parseInt(item.newPrice)*this.quantityInput);
-      }
+
+
     })
   }
-    
-  
-  // add(id){
-  //   this.listData.forEach(element => {
-  //     if(element.id == id){
-        
-  //     }
-  //     else{
-  //       this.isDisable = true;
-  //     }
-  //   });
-    
-  // }
-  // sub(id){
-  //   this.quantityInput = this.quantityInput-1;
-  // }
+  delete(id) {
+    this.cart.cartDetails.forEach(res => {
+      if (res.id === id) {
+        this.cart.cartTotal -= res.totalPrice;
+      }
+    })
+    let index = this.cart.cartDetails.findIndex(res => res.id === id);
+    this.cart.cartDetails.splice(index, 1);
+    const indexLocal = this.listDataLocalStorage.findIndex(rs => rs.id === id);
+    this.listDataLocalStorage.splice(indexLocal, 1);
+    localStorage.setItem('cart', JSON.stringify(this.listDataLocalStorage))
+  }
+  QuantityChange
+  onchangeQuantity(id) {
+    this.cart.cartTotal = 0;
+    this.cart.cartDetails.forEach(res => {
+      if (res.id === id) {
+        res.totalPrice = res.newPrice * res.quantityInput;
+      }
+      this.cart.cartTotal += res.totalPrice;
+    })
+    console.log(this.listQuantity)
+  }
+
 }

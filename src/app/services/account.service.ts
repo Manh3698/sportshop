@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Configure } from 'src/app/configure';
 import { Observable } from 'rxjs';
@@ -34,5 +34,10 @@ export class AccountService {
   }
   delete(id){
     return this.httpClient.delete(this.config.urlAccount.concat('/delete/') + id)
+  }
+  getUserByUsername(data){
+    const param = new HttpParams()
+    .set('username', data)
+    return this.httpClient.get(this.config.urlAccount.concat('/getUserByUsername?') + param)
   }
 }

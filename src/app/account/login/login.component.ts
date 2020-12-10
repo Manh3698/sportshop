@@ -28,6 +28,14 @@ export class LoginComponent implements OnInit {
   username: any;
   constructor(private cateService: CateProductService, private headerService: HeaderService, private tokenStorageService: TokenStorageService, private accountService: AccountService, private router: Router) { }
   ngOnInit(): void {
+    this.isLoggedIn = !!this.tokenStorageService.getToken();
+
+    if (this.isLoggedIn) {
+       this.user = this.tokenStorageService.getUser().username;
+       this.count = this.headerService.count;
+       console.log(this.tokenStorageService.getUser().roles[0].authority)
+       this.isAdmin = (this.tokenStorageService.getUser().roles[0].authority == "admin");
+    }
     this.getAll();
   }
   getAll(){

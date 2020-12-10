@@ -30,8 +30,9 @@
         <tbody>
           <tr *ngFor = 'let order of listOrder | filter:searchText ; let i = index'>
             <th scope="row">{{i+1}}</th>
-            <td>{{order.userId}}</td>
+            <td>{{order.userName}}</td>
             <td>{{order.userPhone}}</td>
+            <td>{{order.userAddress}}</td>
             <td>{{order.totalPrice}}</td>
             <td>{{order.paymentMethod}}</td>
             <td>{{order.paymentStatus}}</td>
@@ -39,7 +40,7 @@
             <td>
                 <ul>
                     <li><a  type="button" class="btn-edit" data-toggle="modal" data-target="#modalEdit"><i class="fa fa-w fa-check"></i></a></li>
-                    <li><a  type="button" class="btn-delete" data-toggle="modal" data-target="#modalDelete" (click)="delete(order.id)"><i class="fa fa-trash"></i></a></li>
+                    <li><a  type="button" class="btn-delete" data-toggle="modal" data-target="#modalDelete" (click)="delete(order.id)"><i class="fa fa-trash-o"></i></a></li>
                 </ul>
             </td>
           </tr>

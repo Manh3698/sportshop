@@ -35,7 +35,7 @@
                                 <a href="/apps/kiem-tra-don-hang"><i class="fa fa-check-square-o"
                                         aria-hidden="true"></i> Kiểm tra đơn hàng</a>
                             </li>
-                            <li><a routerLink="/signin">Hi, {{user}}</a></li>
+                            <li><a routerLink="/profile">Hi, {{user}}</a></li>
                             <li><a (click) = "logout()">Đăng xuất</a></li>
                         </ul>
                     </div>
@@ -103,7 +103,7 @@
                                                             <div class="owl-stage-outer">
                                                                 <div class="owl-stage">
                                                                     <div class="owl-item active" style="width: 106px; margin-right: 10px;">
-                                                                        <div class="item">
+                                                                        <!-- <div class="item">
                                                                             <div class="box-image"><a
                                                                                     class="image url-product"
                                                                                     href="/ao-coc-tay-nam-sieu-thoang-khi-chat-vai-sieu-nhe"
@@ -113,7 +113,7 @@
                                                                                         data-lazyload="https://bizweb.dktcdn.net/thumb/large/100/376/467/products/16308900618-1113668521.jpg"
                                                                                         alt="ÁO CỘC TAY NAM SIÊU THOÁNG KHÍ, CHẤT VẢI SIÊU NHẸ"></a>
                                                                             </div>
-                                                                        </div>
+                                                                        </div> -->
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -224,7 +224,7 @@
                     <a href="/">Trang chủ</a>
                 </li>
                 <li class="ng-scope">
-                    <a href="/gioi-thieu">Giới thiệu</a>
+                    <a routerLink="aboutus">Giới thiệu</a>
                 </li>
                 <li class="ng-scope ng-has-child1">
                     <a href="/do-the-thao-nu">Đồ thể thao nữ <i class="fa fa-plus fa1" aria-hidden="true"></i></a>

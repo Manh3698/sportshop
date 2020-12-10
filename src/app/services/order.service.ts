@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Configure } from '../configure';
 
@@ -27,5 +27,10 @@ export class OrderService {
   }
   updateOrder(data){
     return this.httpClient.put(this.config.urlOrder.concat('/update'), data)
+  }
+  payment(data){
+    const param = new HttpParams()
+    .set('price', data)
+    return this.httpClient.post(this.config.urlOrder.concat('/payment'), param)
   }
 }
