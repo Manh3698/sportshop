@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'; 
 import { authInterceptorProviders } from './helpers/auth.interceptor';
 import { LoginComponent } from './account/login/login.component';
@@ -28,7 +28,7 @@ import { ValidateEqualModule } from 'ng-validate-equal';
     ReactiveFormsModule,
     ValidateEqualModule
   ],
-  providers: [HttpClientModule, authInterceptorProviders],
+  providers: [HttpClientModule, authInterceptorProviders, DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

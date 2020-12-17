@@ -77,7 +77,7 @@ export class PaymentComponent implements OnInit {
   }
   pay1(){
     this.dataOrder.paymentMethod = "Thanh toán nhận hàng",
-    this.dataOrder.paymentStatus = "chưa"
+    this.dataOrder.paymentStatus = "chưa thanh toán"
   }
   pay2(){
     this.dataOrder.paymentMethod = "Thanh toán qua ngân hàng"
@@ -109,6 +109,7 @@ export class PaymentComponent implements OnInit {
           }
         )
       }
+      console.log(this.dataOrder)
       this.orderService.addOrder(this.dataOrder).subscribe(
         (res:any)=>{    
           alert("Đã đặt hàng thành công") 

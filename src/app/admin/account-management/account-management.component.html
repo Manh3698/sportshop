@@ -20,9 +20,10 @@
               <th scope="col">Tên khách hàng</th>
               <th scope="col">Số điện thoại</th>
               <th scope="col">Địa chỉ</th>
-              <th scope="col">Xem đơn hàng</th>
-              <th scope="">đơn hàng đã mua</th>
-              <th scope="col">Chức năng</th>
+              <th scope="col">Quyền</th>
+              <th scope="col" style="text-align:center">Xem đơn hàng</th>
+              <!-- <th scope="col"  style="text-align:center">đơn hàng đã mua</th> -->
+              <th scope="col" style="text-align:center">Chức năng</th>
             </tr>
           </thead>
           <tbody>
@@ -31,11 +32,12 @@
               <td>{{account.fullname}}</td>
               <td>{{account.phoneNumber}}</td>
               <td>{{account.address}}</td>
-              <td><a [routerLinkActive]="['router-link-active']" [routerLink]="['/admin/orders/' + account.fullname + '/' + account.id]"  type="button" class="btn-list"><i class="fa fa-th-list"></i></a></td>
-              <td><a [routerLinkActive]="['router-link-active']" [routerLink]="['/admin/orders/' + account.fullname + '/' + account.id]"  type="button" class="btn-list"><i class="fa fa-th-list"></i></a></td>
-              <td>
+              <td>{{account.roles[0]?.name}}</td>
+              <td style="text-align:center"><a [routerLinkActive]="['router-link-active']" [routerLink]="['/admin/orders/' + account.fullname + '/' + account.id]"  type="button" class="btn-list"><i class="fa fa-th-list"></i></a></td>
+              <!-- <td style="text-align:center"><a [routerLinkActive]="['router-link-active']" [routerLink]="['/admin/orders/' + account.fullname + '/' + account.id]"  type="button" class="btn-list"><i class="fa fa-th-list"></i></a></td> -->
+              <td style="text-align:center">
                   <ul>
-                      <li><a  type="button" class="btn-edit" data-toggle="modal" data-target="#modalEdit"><i class="fa fa-w fa-edit"></i></a></li>
+                      <li><a  type="button" class="btn-edit" data-toggle="modal" data-target="#modalEdit" (click)="getUserById(account.id)"><i class="fa fa-w fa-edit"></i></a></li>
                       <li><a  type="button" class="btn-delete" (click) = 'delete(account.id)'><i class="fa fa-trash-o"></i></a></li>
                   </ul>
               </td>

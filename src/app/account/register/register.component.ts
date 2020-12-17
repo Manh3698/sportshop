@@ -33,7 +33,13 @@ export class RegisterComponent implements OnInit {
     password:'',
     birthday:'',
     phoneNumber:'',
-    email:''
+    email:'',
+    roles : [
+      {
+        id : 1,
+        name : 'user'
+      }
+    ]
   }
   constructor(private cateService: CateProductService, private headerService: HeaderService, private tokenStorageService: TokenStorageService, private accountService: AccountService, private router: Router) { }
   ngOnInit(): void {

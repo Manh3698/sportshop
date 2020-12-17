@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { $ } from 'protractor';
 import { CateProductService } from 'src/app/services/cate-product.service';
 import { HeaderService } from 'src/app/services/header.service';
 import { TokenStorageService } from 'src/app/services/token-storage.service';

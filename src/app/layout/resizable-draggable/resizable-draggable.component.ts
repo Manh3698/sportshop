@@ -1,4 +1,8 @@
 import { AfterViewInit, Component, OnInit, Input, ViewChild, ElementRef, HostListener } from '@angular/core';
+import {
+  NgxMoveableModule,
+  NgxMoveableComponent,
+} from "ngx-moveable";
 
 const enum Status {
   OFF = 0,
@@ -10,7 +14,7 @@ const enum Status {
   templateUrl: './resizable-draggable.component.html',
   styleUrls: ['./resizable-draggable.component.css']
 })
-export class ResizableDraggableComponent implements OnInit, AfterViewInit {
+export class ResizableDraggableComponent implements OnInit {
   @Input('width') public width: number;
   @Input('height') public height: number;
   @Input('left') public left: number;
@@ -22,70 +26,27 @@ export class ResizableDraggableComponent implements OnInit, AfterViewInit {
   public status: Status = Status.OFF;
   private mouseClick: {x: number, y: number, left: number, top: number}
   constructor() { }
-  ngAfterViewInit(): void {
-    this.loadBox();
-    this.loadContainer();
-  }
+  ngOnInit(){}
+//   frame = {
+//     translate: [0, 0],
+//     scale: [1, 1],
+// };
+// onScaleStart({ set, dragStart }) {
+//     set(this.frame.scale);
 
-  ngOnInit(): void {
-  }
-  private loadBox(){
-    const {left, top} = this.box.nativeElement.getBoundingClientRect();
-    this.boxPosition = {left, top};
-  }
-
-  private loadContainer(){
-    const left = this.boxPosition.left - this.left;
-    const top = this.boxPosition.top - this.top;
-    const right = left + 200;
-    const bottom = top + 296;
-    this.containerPos = { left, top, right, bottom };
-  }
-
-  setStatus(event: MouseEvent, status: number){
-    if(status === 1) event.stopPropagation();
-    else if(status === 2) this.mouseClick = { x: event.clientX, y: event.clientY, left: this.left, top: this.top };
-    else this.loadBox();
-    this.status = status;
-  }
-
-  @HostListener('window:mousemove', ['$event'])
-  onMouseMove(event: MouseEvent){
-    this.mouse = { x: event.clientX, y: event.clientY };
-
-    if(this.status === Status.RESIZE) this.resize();
-    else if(this.status === Status.MOVE) this.move();
-  }
-
-  private resize(){
-    if(this.resizeCondMeet()){
-      this.width = Number(this.mouse.x > this.boxPosition.left) ? this.mouse.x - this.boxPosition.left : 0;
-      this.height = Number(this.mouse.y > this.boxPosition.top) ? this.mouse.y - this.boxPosition.top : 0;
-    }
-  }
-
-  private resizeCondMeet(){
-    return (this.mouse.x < this.containerPos.right && this.mouse.y < this.containerPos.bottom);
-  }
-
-  private move(){
-    if(this.moveCondMeet()){
-      this.left = this.mouseClick.left + (this.mouse.x - this.mouseClick.x);
-      this.top = this.mouseClick.top + (this.mouse.y - this.mouseClick.y);
-    }
-  }
-
-  private moveCondMeet(){
-    const offsetLeft = this.mouseClick.x - this.boxPosition.left; 
-    const offsetRight = this.width - offsetLeft; 
-    const offsetTop = this.mouseClick.y - this.boxPosition.top;
-    const offsetBottom = this.height - offsetTop;
-    return (
-      this.mouse.x > this.containerPos.left + offsetLeft && 
-      this.mouse.x < this.containerPos.right - offsetRight &&
-      this.mouse.y > this.containerPos.top + offsetTop &&
-      this.mouse.y < this.containerPos.bottom - offsetBottom
-      );
-  }
+//     // If a drag event has already occurred, there is no dragStart.
+//     dragStart && dragStart.set(this.frame.translate);
+// }
+// onScale({ target, scale, drag }) {
+//     this.frame.scale = scale;
+//     // get drag event
+//     this.frame.translate = drag.beforeTranslate;
+//     target.style.transform
+//         = `translate(${drag.beforeTranslate[0]}px, ${drag.beforeTranslate[1]}px)`
+//         + `scale(${scale[0]}, ${scale[1]})`;
+// }
+// onScaleEnd({ target, isDrag, clientX, clientY }) {
+//     console.log("onScaleEnd", target, isDrag);
+// }
 
 }

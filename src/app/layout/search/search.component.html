@@ -13,7 +13,7 @@
                         </span>
                     </li>
                     <li>
-                        <strong itemprop="title">{{cateName}}</strong>
+                        <strong itemprop="title">Kết quả tìm kiếm</strong>
                     </li>
                 </ul>
             </div>
@@ -40,37 +40,9 @@
                 </div>
             </div>
             <div class="category-products products category-products-grids">
-
-                <div class="sort-cate clearfix margin-top-10 margin-bottom-10">
-                    <div class="sort-cate-left hidden-xs">
-                        <h3>Ưu tiên theo:</h3>
-                        <ul>
-                            <li class="btn-quick-sort alpha-asc" *ngFor='let radio of radio'>
-                                <a><input type="radio" name="radio" (click)="sort(radio.id)">{{radio.name}}</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="sort-cate-right-mobile hidden-lg hidden-md hidden-sm">
-                        <div id="sort-by">
-                            <label class="left">Ưu tiên theo: </label>
-                            <ul>
-                                <li><span>Thứ tự</span>
-                                    <ul>
-                                        <li><a type="radio" onclick="sortby('alpha-asc')"><i></i>Tên A-Z</a></li>
-                                        <li><a onclick="sortby('alpha-desc')"><i></i>Tên Z-A</a>
-                                        </li>
-                                        <li><a onclick="sortby('price-asc')">Giá tăng dần</a></li>
-                                        <li><a onclick="sortby('price-desc')">Giá giảm dần</a></li>
-                                        <li><a onclick="sortby('created-desc')">Hàng mới</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
                 <section class="products-view products-view-grid">
                     <div class="row">
-                        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3" *ngFor='let item of listProduct'>
+                        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3" *ngFor='let item of listSearch'>
                             <div class="ant-item-product" id="cate_item_collection_1" data-id="19462964">
                                 <div class="product-item">
                                     <div class="product-wrapper">
@@ -84,19 +56,6 @@
                                         <div class="product_desc Màu sắc">
                                             <div class="product_variant_box hidden-sm hidden-xs hidden-md">
                                                 <p class="variant_text variant_text_size nomargin">{{item.color}}</p>
-                                                <!-- <div class="size-box not-dqowl owl-theme owl-carousel owl-loaded owl-drag">
-                                                    <div class="owl-stage-outer">
-                                                        <div class="owl-stage">
-                                                            <div class="owl-item"><span class="size_item" data-color="S"
-                                                                    data-size="Đen" title="Đen">Đen</span></div>
-                                                            <div class="owl-item"><span class="size_item" data-color="S"
-                                                                    data-size="Xám" title="Xám">Xám</span></div>
-                                                            <div class="owl-item"><span class="size_item" data-color="S"
-                                                                    data-size="Xanh Da Trời" title="Xanh Da Trời">Xanh
-                                                                    Da Trời</span></div>
-                                                        </div>
-                                                    </div>
-                                                </div> -->
                                             </div>
                                             <h3 class="product_name">
                                                 <a [routerLink]="['/' + item.id + '/detail']"
@@ -122,9 +81,6 @@
                                                 <form action="/cart/add" method="post"
                                                     class="variants form-nut-grid has-validation-callback"
                                                     data-id="product-actions-19462964" enctype="multipart/form-data">
-                                                    <!-- <input class="hidden variant-id" type="hidden" name="variantId"
-                                                        value="37701486"> -->
-
                                                     <button type="submit" data-handle="/ao-coc-tay-nam" data-title=""
                                                         data-product-id="19462964"
                                                         class="loading btn btn_addtocart add_to_cart">
@@ -144,7 +100,24 @@
                 </section>
             </div>
         </section>
-
+        <div class="col-md-9 col-xs-12" *ngIf = 'isNull'>
+            <div class="row">          
+                <div class="col-md-12">
+                    <h1 class="title-head text-center margin-bottom-10 margin-top-0">Không tìm thấy bất kỳ kết quả nào với từ khóa trên.</h1>				
+                </div>
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="text-center margin-bottom-10">Vui lòng nhập từ khóa tìm kiếm khác</div>
+                    <form action="/search" method="get" class="has-validation-callback">
+                        <div class="input-group">
+                            <input type="text" name="query" class="form-control" placeholder="Bạn cần tìm gì hôm nay?">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+                            </span>
+                        </div>
+                    </form>
+                </div>            
+            </div>
+        </div>
         <aside class="ant-sidebar sidebar  left-content col-md-3">
             <script src="//bizweb.dktcdn.net/100/376/467/themes/790294/assets/search_filter.js?1604138874682"
                 type="text/javascript"></script>
@@ -158,8 +131,7 @@
                             <div class="filter-container__selected-filter" style="display: none;">
                                 <div class="filter-container__selected-filter-header clearfix">
                                     <span class="filter-container__selected-filter-header-title">Bạn chọn</span>
-                                    <a href="javascript:void(0)" onclick="clearAllFiltered()"
-                                        class="filter-container__clear-all">Bỏ hết <i class="fa fa-angle-right"></i></a>
+                                    <a class="filter-container__clear-all">Bỏ hết <i class="fa fa-angle-right"></i></a>
                                 </div>
                                 <div class="filter-container__selected-filter-list">
                                     <ul></ul>
@@ -191,61 +163,9 @@
                                 <ul>
                                     <li class="filter-item filter-item--check-box filter-item--green"
                                         *ngFor='let checkbox of checkbox'>
-                                        <!-- <span *ngFor = 'let checkbox of checkbox'>
-                                            <label>
-                                               <a><input type="radio" id=""></a> 
-                                                <i class="fa"></i>
-                                                {{checkbox.name}}
-                                            </label>
-                                            <input type="radio" name="" id="">
-                                        </span> -->
                                         <a><input type="radio" name="radio" (click)="filter(checkbox.id)">
                                             {{checkbox.name}}</a>
                                     </li>
-                                    <!-- <li class="filter-item filter-item--check-box filter-item--green">
-                                        <span>
-                                            <label for="filter-100-000d-300-000d">
-                                                <input type="checkbox" id="filter-100-000d-300-000d"
-                                                    data-group="Khoảng giá" data-field="price_min"
-                                                    data-text="100.000đ - 300.000đ" data-operator="OR">
-                                                <i class="fa"></i>
-                                                100.000đ - 300.000đ
-                                            </label>
-                                        </span>
-                                    </li>
-                                    <li class="filter-item filter-item--check-box filter-item--green">
-                                        <span>
-                                            <label for="filter-300-000d-500-000d">
-                                                <input type="checkbox" id="filter-300-000d-500-000d"
-                                                    data-group="Khoảng giá" data-field="price_min"
-                                                    data-text="300.000đ - 500.000đ" data-operator="OR">
-                                                <i class="fa"></i>
-                                                300.000đ - 500.000đ
-                                            </label>
-                                        </span>
-                                    </li>
-                                    <li class="filter-item filter-item--check-box filter-item--green">
-                                        <span>
-                                            <label for="filter-500-000d-1-000-000d">
-                                                <input type="checkbox" id="filter-500-000d-1-000-000d"
-                                                    data-group="Khoảng giá" data-field="price_min"
-                                                    data-text="500.000đ - 1.000.000đ" data-operator="OR">
-                                                <i class="fa"></i>
-                                                500.000đ - 1.000.000đ
-                                            </label>
-                                        </span>
-                                    </li>
-                                    <li class="filter-item filter-item--check-box filter-item--green">
-                                        <span>
-                                            <label for="filter-tren1-000-000d">
-                                                <input type="checkbox" id="filter-tren1-000-000d"
-                                                    data-group="Khoảng giá" data-field="price_min"
-                                                    data-text="Trên 1.000.000đ" data-operator="OR">
-                                                <i class="fa"></i>
-                                                Giá trên 1.000.000đ
-                                            </label>
-                                        </span>
-                                    </li> -->
                                 </ul>
                             </div>
                         </aside>
@@ -258,14 +178,6 @@
                                     <li class="filter-item filter-item--check-box filter-item--green"
                                         *ngFor="let size of size">
                                         <a><input type="radio" name="radio" (click)="filter(size.id)"> {{size.name}}</a>
-                                        <!-- <span>
-                                            <label for="filter-lon">
-                                                <input type="checkbox" id="filter-lon" data-group="tag2"
-                                                    data-field="tags" data-text="Lớn" data-operator="OR">
-                                                <i class="fa"></i>
-                                                Lớn
-                                            </label>
-                                        </span> -->
                                     </li>
                                 </ul>
                             </div>
@@ -335,14 +247,6 @@
                     <div style="width: 15%;" class="text-right">
                         <div class="item-price"><span class="price">319.000₫</span></div>
                     </div>
-                    <!-- <div style="width: 15%;" class="text-center"><input class="variantID" type="hidden" name="variantId"
-                            value="38725988"><button
-                            onclick="var result = document.getElementById('qtyItem38725988'); var qtyItem38725988 = result.value; if( !isNaN( qtyItem38725988 ) &amp;&amp; qtyItem38725988 > 1 ) result.value--;return false;"
-                            disabled="" class="reduced items-count btn-minus" type="button">–</button><input type="text"
-                            maxlength="12" min="0" class="input-text number-sidebar qtyItem38725988"
-                            id="qtyItem38725988" name="Lines" size="4" value="1"><button
-                            onclick="var result = document.getElementById('qtyItem38725988'); var qtyItem38725988 = result.value; if( !isNaN( qtyItem38725988 )) result.value++;return false;"
-                            class="increase items-count btn-plus" type="button">+</button></div> -->
                     <div style="width: 15%;" class="text-right"><span class="cart-price"> <span
                                 class="price">319.000₫</span> </span></div>
                 </div>

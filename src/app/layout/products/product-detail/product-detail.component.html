@@ -10,7 +10,7 @@
                                     <a 
                                         data-rel="prettyPhoto[product-gallery]" class="large_image_url">
                                         <div style="height:500px;width:468px;" class="zoomWrapper"><img  class="xzoom" id="xzoom-default"
-                                                src="../../../../assets/img/{{detail.images[0].fileName}}"
+                                                src="../../../../assets/img/{{detail.images[0]?.fileName}}"
                                                 alt="" class="img-responsive center-block"
                                                 style="position: absolute;"></div>
                                     </a>
@@ -262,7 +262,8 @@
                                             <div class="product-item">
                                                 <div class="product-wrapper">
                                                     <div class="product-image product-image-block">
-                                                        <a [routerLink]="['/' + product.id + '/detail']" title="ÁO CỘC TAY NAM">
+                                                        <a [routerLink]="['/' + product.id + '/detail']" >
+                                                            <!-- <a (click)="load(product.id)" > -->
                                                             <img src="../../../../assets/img/{{product.images[0].fileName}}"
                                                                 
                                                                 alt="ÁO CỘC TAY NAM"
@@ -275,7 +276,7 @@
                                                             <p class="variant_text variant_text_size nomargin">{{product.color}}</p>
                                                         </div>
                                                         <h3 class="product_name">
-                                                            <a [routerLink]="['/' + product.id + '/detail']" title="ÁO CỘC TAY NAM">{{product.name}}</a>
+                                                            <a [routerLink]="['/' + product.id + '/detail']" >{{product.name}}</a>
                                                         </h3>
                                                         <div class="product_prices">
                                                             <span class="special-price">

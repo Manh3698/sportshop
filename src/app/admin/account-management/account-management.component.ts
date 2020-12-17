@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AccountService } from 'src/app/services/account.service';
 import Swal from 'sweetalert2';
-declare  var $ : any;
+declare var $: any;
 @Component({
   selector: 'app-account-management',
   templateUrl: './account-management.component.html',
@@ -10,60 +10,52 @@ declare  var $ : any;
 export class AccountManagementComponent implements OnInit {
   [x: string]: any;
   listAcc;
-  isEdit =false;
- 
-  
+  isEdit = true;
+
+
   constructor(private accountService: AccountService) { }
   searchText;
-  
+
   dataAcc = {
     id: '',
     fullname: '',
     birthday: '',
-    email:'',
+    email: '',
     address: '',
     password: '',
     username: '',
     phoneNumber: '',
-    updateBy: '',
-    update_date: '',
-    createBy: '',
-    create_date: '',
-    roles : [
+    roles: [
       {
-        id : '',
-        name : this.Rolesname
+        id: '',
+        name: ''
       }
     ]
   }
   role = [
     {
-      id : 2,
-      name : 'user'
+      id: 2,
+      name: 'user'
     },
     {
-      id : 1,
-      name : 'admin'
+      id: 1,
+      name: 'admin'
     }
   ]
-  resetData(){
+  resetData() {
     this.dataAcc = {
       id: '',
       fullname: '',
       birthday: '',
-      email:'',
+      email: '',
       address: '',
       password: '',
       username: '',
       phoneNumber: '',
-      updateBy: '',
-      update_date: '',
-      createBy: '',
-      create_date: '',
-      roles : [
+      roles: [
         {
-          id : '1',
-          name : 'admin'
+          id: '1',
+          name: 'admin'
         }
       ]
     }
@@ -71,28 +63,31 @@ export class AccountManagementComponent implements OnInit {
   ngOnInit(): void {
     this.getAll()
   }
-  getAll(){
+  getAll() {
     this.accountService.getAll().subscribe(
-      (res:any)=>{
+      (res: any) => {
         this.listAcc = res.data;
         console.log(this.listAcc)
       },
-      err=>{
+      err => {
 
       }
     )
   }
-  getUserById(){
-    this.accountService.getDetail(1).subscribe(
-      res=>{
+  getUserById(userId) {
+    this.accountService.getDetail(userId).subscribe(
+      res => {
         console.log(res)
+      },
+      error => {
+
       }
     )
   }
 
   update() {
-    this.dataAcc.roles[0].name = this.dataAcc.roles[0].id=='1' ? 'user' : 'admin' 
-    if(this.isEdit){
+    this.dataAcc.roles[0].name = this.dataAcc.roles[0].id == '1' ? 'user' : 'admin'
+    if (this.isEdit) {
       this.accountService.update(this.dataAcc).subscribe(res => {
         alert("done");
         this.getAll();
@@ -115,7 +110,7 @@ export class AccountManagementComponent implements OnInit {
     this.isEdit = false;
     this.resetData();
   }
-  delete(id){
+  delete(id) {
     Swal.fire({
       title: 'Bạn có chắc chắn muốn xóa không?',
       text: "Bạn sẽ không thể hoàn tác!",
@@ -126,19 +121,19 @@ export class AccountManagementComponent implements OnInit {
       confirmButtonText: 'Xóa!'
     }).then((result) => {
       if (result.isConfirmed) {
-          this.accountService.delete(id).subscribe(
-            (res:any)=>{
-              Swal.fire(
-                'Deleted!',
-                'Your file has been deleted.',
-                'success'
-              )
-              this.getAll()
-            },
-            err=>{
-              console.log(err)
-            }
-          )
+        this.accountService.delete(id).subscribe(
+          (res: any) => {
+            Swal.fire(
+              'Deleted!',
+              'Your file has been deleted.',
+              'success'
+            )
+            this.getAll()
+          },
+          err => {
+            console.log(err)
+          }
+        )
       }
       else if (result.dismiss === Swal.DismissReason.cancel) {
         Swal.fire(

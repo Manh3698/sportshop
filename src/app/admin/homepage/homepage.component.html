@@ -1,7 +1,7 @@
 <div class="container">
     <div class="div-caption">
     
-        <h2 class="caption"><i class="fa fa-list"></i>Hoạt động hôm nay</h2>
+        <h2 class="caption"><i class="fa fa-list"></i>Thống kê doanh thu</h2>
     </div>
     <div class="detail">
         <div class="item item1">
@@ -9,7 +9,7 @@
                 <i class="fa fa-money"></i>
             </div>
             <div>
-                <span>Tiền bán hàng</span><br>
+                <span>Doanh thu hôm nay</span><br>
                 <span>{{totalPriceToDay | currency : 'VND'}} VND</span>
             </div>
         </div>
@@ -18,8 +18,8 @@
                 <i class="fa fa-shopping-cart"></i>
             </div>
             <div>
-                <span>Số đơn hàng : {{quantityOrderToday}}</span><br>
-                <span>Số sản phẩm : {{quantityProductToDay}}</span>
+                <span>Đơn hàng hôm nay : {{quantityOrderToday}}</span><br>
+                <span>Sản phẩm đã bán : {{quantityProductToDay}}</span>
             </div>
         </div>
         <div class="item item3">
@@ -27,8 +27,8 @@
                 <i class="fa fa-money"></i>
             </div>
             <div>
-                <span>Hàng nhập vào</span><br>
-                <span>200.000.000 VND</span>
+                <span>Tổng đơn hàng đã bán : {{totalOrder}} </span><br>
+                <span>Tổng sản phẩm đã bán : {{totalProduct}}</span>
             </div>
         </div>
         <div class="item item4">
@@ -36,8 +36,8 @@
                 <i class="fa fa-money"></i>
             </div>
             <div>
-                <span>Tiền bán hàng</span><br>
-                <span>200.000.000 VND</span>
+                <span>Tổng doanh thu</span><br>
+                <span>{{totalPrice | currency : 'VND'}} VND</span>
             </div>
         </div>
     </div>

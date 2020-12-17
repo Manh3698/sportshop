@@ -12,6 +12,8 @@ import { PaymentComponent } from './payment/payment.component';
 import { ProductDetailComponent } from './products/product-detail/product-detail.component';
 import { ProductsComponent } from './products/products.component';
 import { ProfileComponent } from './profile/profile.component';
+import { ResizableDraggableComponent } from './resizable-draggable/resizable-draggable.component';
+import { SearchComponent } from './search/search.component';
 
 const routes: Routes = [
   { path: '', component: LayoutComponent, 
@@ -19,13 +21,15 @@ const routes: Routes = [
     { path: 'contact', component: ContactComponent},
     { path: 'cart', component: CartComponent, canActivate : [AuthGuard]},
     { path: 'profile', component: ProfileComponent, canActivate : [AuthGuard] },
-    { path: ':cateId/list-products', component: ProductsComponent},
+    { path: 'list-products/:cateName/:cateId', component: ProductsComponent},
     { path: 'detail', component: ProductDetailComponent},
     { path: '', component: HomepageComponent},
-    { path: 'design', component: DesignComponent, canActivate : [AuthGuard]},
+    { path: 'design', component: DesignComponent},
     { path: ':productId/detail', component:ProductDetailComponent},
     { path: 'payment', component: PaymentComponent, canActivate : [AuthGuard]},
-    { path: 'aboutus', component:AboutUsComponent}
+    { path: 'aboutus', component:AboutUsComponent},
+    { path: 'alo', component: ResizableDraggableComponent},
+    { path: 'search', component: SearchComponent}
   ]
   },
 ];

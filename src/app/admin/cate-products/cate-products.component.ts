@@ -90,15 +90,6 @@ export class CateProductsComponent implements OnInit {
     )
   }
   delete(cateId:string){
-    // this.cateService.delete(cateId).subscribe(
-    //   res=>{
-    //     alert("delete successfully...");
-    //     this.getAll();
-    //   },
-    //   err=>{
-    //     console.log(err)
-    //   }
-    // )
     Swal.fire({
       title: 'Bạn có chắc chắn muốn xóa không?',
       text: "Bạn sẽ không thể hoàn tác!",

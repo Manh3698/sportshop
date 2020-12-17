@@ -27,6 +27,7 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(localStorage.getItem('cart'))
+    this.count = JSON.parse(localStorage.getItem('cart')).length;
     this.listDataLocalStorage = this.listId = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : [];
     this.productService.getAll().subscribe((res: any) => {
       let index = 0;
@@ -55,6 +56,7 @@ export class CartComponent implements OnInit {
     const indexLocal = this.listDataLocalStorage.findIndex(rs => rs.id === id);
     this.listDataLocalStorage.splice(indexLocal, 1);
     localStorage.setItem('cart', JSON.stringify(this.listDataLocalStorage))
+    alert('bạn đã xóa 1 sản phẩm khỏi giỏ hàng')
   }
   QuantityChange
   onchangeQuantity(id) {

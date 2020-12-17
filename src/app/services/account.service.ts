@@ -21,7 +21,7 @@ export class AccountService {
     return this.httpClient.get(this.config.urlAccount.concat('/getAll'))
   }
   getDetail(userId:any){
-    return this.httpClient.get(this.config.urlAccount.concat('/getUserById') +  userId)
+    return this.httpClient.get(this.config.urlAccount.concat('/getUserById/') +  userId)
   }
   create(data:any){
     return this.httpClient.post(this.config.urlAccount.concat('/register'), data)

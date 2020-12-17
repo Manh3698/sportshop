@@ -19,8 +19,8 @@
             <th scope="col">#</th>
             <th scope="col">Tên danh mục</th>
             <th>Loại</th>
-            <th scope="col">Xem sản phẩm</th>
-            <th scope="col">Công cụ</th>
+            <th scope="col" style="text-align:center">Xem sản phẩm</th>
+            <th scope="col" style="text-align:center">Công cụ</th>
           </tr>
         </thead>
         <tbody>
@@ -28,11 +28,11 @@
             <th scope="row">{{i+1}}</th>
             <td>{{cate.name}}</td>
             <td>{{cate.type}}</td>
-            <td><a [routerLinkActive]="['router-link-active']" [routerLink]="['/admin/' + cate.name + '/' + cate.id  + '/product']"  type="button" class="btn-list"><i class="fa fa-th-list"></i>Xem</a></td>
-            <td>
+            <td style="text-align:center"><a [routerLinkActive]="['router-link-active']" [routerLink]="['/admin/' + cate.name + '/' + cate.id  + '/product']"  type="button" class="btn-list"><i class="fa fa-th-list"></i>Xem</a></td>
+            <td style="text-align:center">
                 <ul>
                     <li><a  type="button" class="btn-edit" data-toggle="modal" data-target="#modalEdit" (click)="detail(cate.id)"><i class="fa fa-w fa-edit"></i></a></li>
-                    <li><a  type="button" class="btn-delete" data-toggle="modal" data-target="#modalDelete"><i class="fa fa-trash-o"></i></a></li>
+                    <li><a  type="button" class="btn-delete" (click)="delete(cate.id)"><i class="fa fa-trash-o"></i></a></li>
                 </ul>
             </td>
           </tr>
@@ -100,25 +100,6 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
         <button type="button" class="btn btn-primary" (click)="update()">Sửa</button>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3 class="modal-title" id="exampleModalLongTitle">Bạn có muốn xóa danh mục này không</h3>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body popup">
-          <img class="question" src="../../../assets/chamhoi.jpg" alt="">
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
-        <button type="button" class="btn btn-primary">Xóa</button>
       </div>
     </div>
   </div>

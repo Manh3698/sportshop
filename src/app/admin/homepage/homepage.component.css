@@ -24,33 +24,38 @@
     justify-content: center;
 }
 .detail .item{
-    /* padding: 10px 20px; */border-radius: 3px;
     border: 1px solid rgb(211, 204, 204);
     height: 80px;
     margin: 20px 10px;
-    padding: 10px 20px;
+    padding: 10px 10px;
     color: white;
     display: flex;
     justify-content: center;
+    border-radius: 3px;
 }
 .item i{
-    padding-right: 20px;
+    padding-right: 10px;
     font-size: xxx-large;
 }
 .item span{
     font-weight: bold;
+    font-size: 13px;
 }
 .detail .item1{
     background-color: tomato;
+    box-shadow: 4px 8px 16px 0 tomato;
 }
 .detail .item2{
     background-color: violet;
+    box-shadow: 4px 8px 16px 0 violet;
 }
 .detail .item3{
     background-color: turquoise;
+    box-shadow: 4px 8px 16px 0 turquoise;
 }
 .detail .item4{
     background-color: tomato;
+    box-shadow: 4px 8px 16px 0 tomato;
 }
 .div-chart{
     margin-top: 30px;

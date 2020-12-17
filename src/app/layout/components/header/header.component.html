@@ -103,17 +103,18 @@
                                                             <div class="owl-stage-outer">
                                                                 <div class="owl-stage">
                                                                     <div class="owl-item active" style="width: 106px; margin-right: 10px;">
-                                                                        <!-- <div class="item">
-                                                                            <div class="box-image"><a
+                                                                        <div class="item">
+                                                                            <div class="box-image">
+                                                                                <!-- <a
                                                                                     class="image url-product"
                                                                                     href="/ao-coc-tay-nam-sieu-thoang-khi-chat-vai-sieu-nhe"
                                                                                     title="ÁO CỘC TAY NAM SIÊU THOÁNG KHÍ, CHẤT VẢI SIÊU NHẸ"><img
                                                                                         class="image-review"
                                                                                         src="https://bizweb.dktcdn.net/thumb/large/100/376/467/products/16308900618-1113668521.jpg"
                                                                                         data-lazyload="https://bizweb.dktcdn.net/thumb/large/100/376/467/products/16308900618-1113668521.jpg"
-                                                                                        alt="ÁO CỘC TAY NAM SIÊU THOÁNG KHÍ, CHẤT VẢI SIÊU NHẸ"></a>
+                                                                                        alt="ÁO CỘC TAY NAM SIÊU THOÁNG KHÍ, CHẤT VẢI SIÊU NHẸ"></a> -->
                                                                             </div>
-                                                                        </div> -->
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -164,7 +165,7 @@
                                 <ul class="dropdown-menu">
                                     <li class="nav-item-lv2" *ngFor='let clothes of listClothes'>
                                         <a class="nav-link"
-                                            [routerLink]="['/' + clothes.id + '/list-products']">{{clothes.name}}</a>
+                                            [routerLink]="['/list-products' + '/' + clothes.name +'/' + clothes.id]">{{clothes.name}}</a>
                                     </li>
                                 </ul>
                             </li>
@@ -174,7 +175,7 @@
                                 <ul class="dropdown-menu">
                                     <li class="nav-item-lv2" *ngFor='let item of listItem'>
                                         <a class="nav-link"
-                                            [routerLink]="['/' + item.id + '/list-products']">{{item.name}}</a>
+                                            [routerLink]="[ '/list-products' + '/' + item.name + '/' + item.id]">{{item.name}}</a>
                                     </li>
                                 </ul>
                             </li>

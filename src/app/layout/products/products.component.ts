@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from 'src/app/services/product.service';
 declare var jQuery: any;
 declare var $: any;
@@ -11,14 +11,20 @@ declare var $: any;
 })
 export class ProductsComponent implements OnInit {
   @ViewChild('fileInput', { static: false }) fileInput: ElementRef;
- 
-  constructor(private activatedRoute: ActivatedRoute, private productService: ProductService) { }
+  
+  constructor(private activatedRoute: ActivatedRoute, private productService: ProductService, private router: Router) { 
+    this.router.routeReuseStrategy.shouldReuseRoute = function() {
+      return false;
+  };
+  }
   listProduct = [];
   cateId;
   params;
+  cateName;
   dataProduct : [
   ]
   ngOnInit(): void {
+    this.cateName = decodeURIComponent(String(this.activatedRoute.snapshot.paramMap.get('cateName')));
     this.getAll();
     $('#filter1').on('click', function(){
       this.listProduct = this.listProduct.data.filter(element => {
@@ -27,7 +33,21 @@ export class ProductsComponent implements OnInit {
            console.log(this.listProduct)
     })
   }
-  
+  getAll(){
+    this.params = this.activatedRoute.params.subscribe(params => {
+    this.cateId = params['cateId'];
+    this.productService.getByCateId(this.cateId).subscribe(
+      (res:any)=>{ 
+        this.listProduct = res.data;
+        
+      },
+      err=>{
+        console.log(err);
+      }
+    )
+    }
+    )
+  }
   checkbox = [
     { name: 'Giá dưới 100.000đ', id: 1},
     { name: '100.000d - 300.000đ', id:2},
@@ -65,6 +85,7 @@ export class ProductsComponent implements OnInit {
   }
   filter(id){
     if(id==1){
+      
     }
     if(id==2){
 
@@ -97,21 +118,7 @@ export class ProductsComponent implements OnInit {
 
     }
   }
-  getAll(){
-    this.params = this.activatedRoute.params.subscribe(params => {
-    this.cateId = params['cateId'];
-    this.productService.getByCateId(this.cateId).subscribe(
-      (res:any)=>{ 
-        this.listProduct = res.data;
-        
-      },
-      err=>{
-        console.log(err);
-      }
-    )
-    }
-  )
-}
+  
 
 // if ( $('#filter1').on('click', function(){})) {
 //   res.data.filter(element => {
