@@ -22,4 +22,7 @@ export class ContactService {
   delete(id){
     return this.httpClient.delete(this.config.urlContact.concat('/delete/') + id)
   }
+  SendMail(data){
+    return this.httpClient.post(this.config.urlContact.concat('/sendHtmlEmail'), data)
+  }
 }

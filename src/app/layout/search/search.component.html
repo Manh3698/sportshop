@@ -48,31 +48,31 @@
                                     <div class="product-wrapper">
                                         <div class="product-image product-image-block">
                                             <a [routerLink]="['/' + item.id + '/detail']" title="ÁO CỘC TAY NAM">
-                                                <img src="../../../assets/img/{{item.images[0].fileName}}"
+                                                <img src="../../../assets/img/{{item.images[0]?.fileName}}"
                                                     data-lazyload="//bizweb.dktcdn.net/thumb/large/100/376/467/products/16308900618-1113668521.jpg?v=1603092963000"
                                                     alt="ÁO CỘC TAY NAM" class="image_main img-responsive center-block">
                                             </a>
                                         </div>
                                         <div class="product_desc Màu sắc">
                                             <div class="product_variant_box hidden-sm hidden-xs hidden-md">
-                                                <p class="variant_text variant_text_size nomargin">{{item.color}}</p>
+                                                <p class="variant_text variant_text_size nomargin">{{item?.color}}</p>
                                             </div>
                                             <h3 class="product_name">
                                                 <a [routerLink]="['/' + item.id + '/detail']"
-                                                    title="ÁO CỘC TAY NAM">{{item.name}}</a>
+                                                    title="ÁO CỘC TAY NAM">{{item?.name}}</a>
                                             </h3>
                                             <div class="product_prices">
                                                 <span class="special-price">
                                                     <span class="price-container">
                                                         <span class="price-wrapper">
-                                                            <span class="price spe-price">{{item.newPrice}}</span>
+                                                            <span class="price spe-price">{{item?.newPrice}}</span>
                                                         </span>
                                                     </span>
                                                 </span>
                                                 <span class="old-price">
                                                     <span class="price-container">
                                                         <span class="price-wrapper">
-                                                            <span class="price olds-price">{{item.oldPrice}}</span>
+                                                            <span class="price olds-price">{{item?.oldPrice}}</span>
                                                         </span>
                                                     </span>
                                                 </span>
@@ -109,9 +109,9 @@
                     <div class="text-center margin-bottom-10">Vui lòng nhập từ khóa tìm kiếm khác</div>
                     <form action="/search" method="get" class="has-validation-callback">
                         <div class="input-group">
-                            <input type="text" name="query" class="form-control" placeholder="Bạn cần tìm gì hôm nay?">
+                            <input type="search" name="query" class="form-control" placeholder="Bạn cần tìm gì hôm nay?" [(ngModel)]="searchTextComponent">
                             <span class="input-group-btn">
-                                <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+                                <button class="btn btn-default" (click)="search()"><i class="fa fa-search" ></i></button>
                             </span>
                         </div>
                     </form>

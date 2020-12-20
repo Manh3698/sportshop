@@ -8,24 +8,76 @@ import Swal from 'sweetalert2';
   styleUrls: ['./order-management.component.css']
 })
 export class OrderManagementComponent implements OnInit {
-  listOrder;
+  listOrder = [];
+  listSuccess = [];
   constructor(private orderService: OrderService) { }
   searchText;
+  searchText2;
+  detail;
   ngOnInit(): void {
     this.getAll()
   }
   getAll(){
     this.orderService.getAll().subscribe(
       (res:any)=>{
-        this.listOrder = res.data;
+        res.data.forEach(e => {
+          if (e.status == "Giao hàng thành công") {
+            this.listSuccess.push(e)
+          }
+          else{
+            this.listOrder.push(e)
+          }
+        });
       },
       error=>{
         console.log(error)
       }
     )
   }
-  update(id){
-    
+  updateStatus(id){
+    this.orderService.getOrderById(id).subscribe(
+      (res:any)=>{
+        this.detail = res.data;
+      },
+      error=>{
+
+      }
+    )
+    Swal.fire({
+      title: 'Đơn hàng sẽ được đánh dấu là đã giao?',
+      text: "Bạn sẽ không thể hoàn tác!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Cập nhật!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.detail.paymentStatus = "Thanh toán thành công";
+          this.orderService.updateOrder(this.detail).subscribe(
+            (res:any)=>{
+              Swal.fire(
+                'Hoàn thành!',
+                'Cập nhật đơn hàng thành công.',
+                'success'
+              )
+              this.listOrder = [];
+              this.listSuccess = [];
+              this.getAll()
+            },
+            err=>{
+              console.log(err)
+            }
+          )
+      }
+      else if (result.dismiss === Swal.DismissReason.cancel) {
+        Swal.fire(
+          'Cancelled',
+          'Đơn hàng chưa giao',
+          'error'
+        )
+      }
+    })
   }
   delete(id){
     Swal.fire({
@@ -42,7 +94,7 @@ export class OrderManagementComponent implements OnInit {
             (res:any)=>{
               Swal.fire(
                 'Deleted!',
-                'Your file has been deleted.',
+                'Order has been deleted.',
                 'success'
               )
               this.getAll()
@@ -55,7 +107,7 @@ export class OrderManagementComponent implements OnInit {
       else if (result.dismiss === Swal.DismissReason.cancel) {
         Swal.fire(
           'Cancelled',
-          'Type product is safe',
+          'Order is safe',
           'error'
         )
       }

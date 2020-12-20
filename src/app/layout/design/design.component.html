@@ -22,7 +22,7 @@
                                     <i class="glyphicons t-shirt"></i> Chọn sản phẩm </a>
                             </li>
                             <li>
-                                <a (click)="onClick()" href="javascript:void(0)" class="add_item_text" title=""
+                                <a href="javascript:void(0)" class="add_item_text" title=""
                                     id="btClickMe">
                                     <i class="glyphicons text_bigger"></i> Thêm Text </a>
                             </li>
@@ -415,14 +415,6 @@ background: rgb(76, 151, 151);" data="right">Tùy chọn</span>
                             <div class="col-xs-4 col-md-3"><select data-level="1" id="parent-categories-1"
                                     class="form-control input-sm" onchange="design.products.changeCategory(this)">
                                     <option value="0"> - Select a category - </option>
-                                    <option value="1">Ly Sứ</option>
-                                    <option value="2">Ốp Lưng</option>
-                                    <option value="3">Tranh</option>
-                                    <option value="4">Đồng Hồ</option>
-                                    <option value="5">Áo</option>
-                                    <option value="6">Tự thiết kế</option>
-                                    <option value="7">Đồng Hồ Bàn</option>
-                                    <option value="8">Tranh Bàn</option>
                                 </select></div>
                         </div>
                     </div>
@@ -799,7 +791,7 @@ background: rgb(76, 151, 151);" data="right">Tùy chọn</span>
                 <div class="row toolbar-action-text">
                     <div class="col-xs-12">
                         <textarea class="form-control text-update" data-event="keyup" data-label="text"
-                            id="enter-text" [(ngModel)]="dataText" (keyup)="enterText($event)"></textarea>
+                            id="enter-text"></textarea>
                     </div>
                 </div>
                 <div class="row toolbar-action-fonts">

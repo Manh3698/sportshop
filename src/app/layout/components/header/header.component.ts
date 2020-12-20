@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CateProductService } from 'src/app/services/cate-product.service';
+import { DataTransferService } from 'src/app/services/data-transfer.service';
 import { HeaderService } from 'src/app/services/header.service';
 import { TokenStorageService } from 'src/app/services/token-storage.service';
 
@@ -18,7 +20,12 @@ export class HeaderComponent implements OnInit {
   isAdmin =false;
   user: any;
   username: any;
-  constructor(private cateService: CateProductService, private headerService: HeaderService, private tokenStorageService: TokenStorageService) { }
+  searchText;
+  constructor(private cateService: CateProductService, private headerService: HeaderService, private tokenStorageService: TokenStorageService, private router: Router, private transferService: DataTransferService) { 
+    this.router.routeReuseStrategy.shouldReuseRoute = function() {
+      return false;
+    }
+  }
 // @Input() userLogin = null
   ngOnInit(): void {
     this.isLoggedIn = !!this.tokenStorageService.getToken();
@@ -30,6 +37,14 @@ export class HeaderComponent implements OnInit {
        this.isAdmin = (this.tokenStorageService.getUser().roles[0].authority == "admin");
     }
     this.getAll();
+    
+  }
+  search(){
+    if(this.searchText !== ''){
+      this.transferService.clearMessages();
+      this.transferService.sendMessage(this.searchText)
+      this.router.navigateByUrl('/search')
+    }
   }
   getAll(){
     this.cateService.getAll().subscribe(

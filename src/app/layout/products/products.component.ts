@@ -118,34 +118,5 @@ export class ProductsComponent implements OnInit {
 
     }
   }
-  
 
-// if ( $('#filter1').on('click', function(){})) {
-//   res.data.filter(element => {
-//      if(element.newPrice < 100000){
-//        this.listProduct.push(element)
-//      }
-//    })      
-//  }
-//  else if ( $('#filter2').on('click', function(){})) {
-//    this.listProduct = res.data.filter(element => {
-//      return (element.newPrice < 300000 && element.newPrice > 100000);
-//    })
-//    console.log(this.listProduct)
-//  }
-//  else if ( $('#filter3').on('click', function(){})) {
-//    this.listProduct = res.data.filter(element => {
-//      return (element.newPrice < 500000 && element.newPrice > 300000);
-//    })
-//    console.log(this.listProduct)
-//  }
-//  else if ( $('#filter4').on('click', function(){})) {
-//    this.listProduct = res.data.filter(element => {
-//      return (element.newPrice < 1000000 && element.newPrice > 500000);
-//    })
-//    console.log(this.listProduct)
-//  }
-//  else {
-//    return this.listProduct = res.data;
-//  }
 }

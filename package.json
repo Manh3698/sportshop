@@ -11,7 +11,7 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "~9.1.11",
+    "@angular/animations": "^9.1.13",
     "@angular/cdk": "^11.0.1",
     "@angular/common": "~9.1.11",
     "@angular/compiler": "~9.1.11",
@@ -36,6 +36,7 @@
     "ng2-search-filter": "^0.5.1",
     "ngx-moveable": "^0.17.1",
     "ngx-paypal": "^6.2.0",
+    "ngx-toastr": "^13.2.0",
     "rxjs": "~6.5.4",
     "sweetalert2": "^10.12.0",
     "tslib": "^1.10.0",

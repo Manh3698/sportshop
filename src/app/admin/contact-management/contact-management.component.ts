@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ContactService } from 'src/app/services/contact.service';
 import {MatDialog} from '@angular/material/dialog';
+import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';  
 import Swal from 'sweetalert2'
 
 @Component({
@@ -9,7 +10,14 @@ import Swal from 'sweetalert2'
   styleUrls: ['./contact-management.component.css']
 })
 export class ContactManagementComponent implements OnInit {
+  public Editor = ClassicEditor;
   listContact;
+  replymodel = {
+    username : "",
+    email : "",
+    message : "",
+    subject : ""
+  }
   constructor(private contactservice: ContactService) { }
   searchText
   ngOnInit(): void {
@@ -55,6 +63,41 @@ export class ContactManagementComponent implements OnInit {
           'Type product is safe',
           'error'
         )
+      }
+    })   
+  }
+  reply(email){
+    this.replymodel.email = email;
+  }
+  Send(){
+    Swal.fire({
+      title: 'Bạn có chắc chắn muốn gửi email này không?',
+      text: "Bạn sẽ không thể hoàn tác!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Gửi'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.contactservice.SendMail(this.replymodel).subscribe(
+          (res:any)=>{
+            Swal.fire(
+              'Đã gửi',
+              'Email của bạn đã được gửi',
+              'success'
+            )
+            this.replymodel = {
+              username : this.replymodel.username,
+              email : "",
+              message : "",
+              subject : ""
+            }
+          },
+          err=>{
+            console.log(err)
+          }
+        )       
       }
     })
     

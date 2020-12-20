@@ -8,7 +8,7 @@
         Thêm danh mục
     </a> -->
     <!-- <form class="search" action="" style="float: right;"> -->
-      <input type="search" class="search" placeholder="Tìm kiếm danh mục" [(ngModel)]="searchText">
+      <input type="search" class="search" placeholder="Tìm kiếm đơn hàng" [(ngModel)]="searchText">
       <!-- <i class="fa fa-search"></i> -->
     <!-- </form> -->
 </div>
@@ -23,7 +23,7 @@
             <th scope="col">Tổng tiền</th>
             <th scope="">Phương thức thanh toán</th>
             <th>trang thái thanh toán</th>
-            <th>Tin nhắn</th>
+            <th>Trạng thái giao hàng</th>
             <th scope="col">Chức năng</th>
           </tr>
         </thead>
@@ -36,15 +36,66 @@
             <td>{{order.totalPrice}}</td>
             <td>{{order.paymentMethod}}</td>
             <td>{{order.paymentStatus}}</td>
-            <th>{{order.userMessage}}</th>
+            <th>{{order.status}}</th>
             <td>
                 <ul>
-                    <li><a  type="button" class="btn-edit" data-toggle="modal" data-target="#modalEdit"><i class="fa fa-w fa-check"></i></a></li>
+                    <li><a  type="button" class="btn-edit" data-toggle="modal" data-target="#modalEdit" (click)="updateStatus(order.id)"><i class="fa fa-w fa-check"></i></a></li>
                     <li><a  type="button" class="btn-delete" data-toggle="modal" data-target="#modalDelete" (click)="delete(order.id)"><i class="fa fa-trash-o"></i></a></li>
                 </ul>
             </td>
           </tr>
         </tbody>
       </table>
+</div>
+<!-- <hr> -->
+<div class="container2" style="border-top: 1px solid rgb(157, 155, 155); margin-top: 40px;">
+  <div class="caption">
+    <h2>Danh sách đơn hàng đã giao</h2>
+</div>
+<div class="div2" style="margin-bottom: 60px;">
+    <!-- <a href="" type="button" class="btn-add" data-toggle="modal" data-target="#modalAdd">
+        <i class="fa fa-check"></i>
+        Thêm danh mục
+    </a> -->
+    <!-- <form class="search" action="" style="float: right;"> -->
+      <input type="search" class="search" placeholder="Tìm kiếm đơn hàng" [(ngModel)]="searchText2">
+      <!-- <i class="fa fa-search"></i> -->
+    <!-- </form> -->
+</div>
+<div>
+    <table class="table">
+        <thead class="thead">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Tên khách hàng</th>
+            <th scope="col">Số điện thoại</th>
+            <th scope="col">Địa chỉ</th>
+            <th scope="col">Tổng tiền</th>
+            <th scope="">Phương thức thanh toán</th>
+            <th>trang thái thanh toán</th>
+            <th>Trạng thái giao hàng</th>
+            <th scope="col">Chức năng</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor = 'let order of listSuccess | filter:searchText2 ; let i = index'>
+            <th scope="row">{{i+1}}</th>
+            <td>{{order.userName}}</td>
+            <td>{{order.userPhone}}</td>
+            <td>{{order.userAddress}}</td>
+            <td>{{order.totalPrice}}</td>
+            <td>{{order.paymentMethod}}</td>
+            <td>{{order.paymentStatus}}</td>
+            <th>{{order.status}}</th>
+            <td style="text-align: center;">
+                <ul>
+                    <!-- <li><a  type="button" class="btn-edit" data-toggle="modal" data-target="#modalEdit" ><i class="fa fa-w fa-check"></i></a></li> -->
+                    <li><a  type="button" class="btn-delete" data-toggle="modal" data-target="#modalDelete" (click)="delete(order.id)" ><i class="fa fa-trash-o"></i></a></li>
+                </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+</div>
 </div>
 </div>

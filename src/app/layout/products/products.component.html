@@ -84,19 +84,6 @@
                                         <div class="product_desc Màu sắc">
                                             <div class="product_variant_box hidden-sm hidden-xs hidden-md">
                                                 <p class="variant_text variant_text_size nomargin">{{item.color}}</p>
-                                                <!-- <div class="size-box not-dqowl owl-theme owl-carousel owl-loaded owl-drag">
-                                                    <div class="owl-stage-outer">
-                                                        <div class="owl-stage">
-                                                            <div class="owl-item"><span class="size_item" data-color="S"
-                                                                    data-size="Đen" title="Đen">Đen</span></div>
-                                                            <div class="owl-item"><span class="size_item" data-color="S"
-                                                                    data-size="Xám" title="Xám">Xám</span></div>
-                                                            <div class="owl-item"><span class="size_item" data-color="S"
-                                                                    data-size="Xanh Da Trời" title="Xanh Da Trời">Xanh
-                                                                    Da Trời</span></div>
-                                                        </div>
-                                                    </div>
-                                                </div> -->
                                             </div>
                                             <h3 class="product_name">
                                                 <a [routerLink]="['/' + item.id + '/detail']"
@@ -106,14 +93,14 @@
                                                 <span class="special-price">
                                                     <span class="price-container">
                                                         <span class="price-wrapper">
-                                                            <span class="price spe-price">{{item.newPrice}}</span>
+                                                            <span class="price spe-price">{{item.newPrice | currency : 'VND'}}</span>
                                                         </span>
                                                     </span>
                                                 </span>
                                                 <span class="old-price">
                                                     <span class="price-container">
                                                         <span class="price-wrapper">
-                                                            <span class="price olds-price">{{item.oldPrice}}</span>
+                                                            <span class="price olds-price">{{item.oldPrice | currency : 'VND'}}</span>
                                                         </span>
                                                     </span>
                                                 </span>

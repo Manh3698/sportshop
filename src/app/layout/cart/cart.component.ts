@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/services/product.service';
+import Swal from 'sweetalert2';
+
 declare var $: any;
 @Component({
   selector: 'app-cart',
@@ -26,7 +28,6 @@ export class CartComponent implements OnInit {
   constructor(private productService: ProductService) {}
 
   ngOnInit(): void {
-    console.log(localStorage.getItem('cart'))
     this.count = JSON.parse(localStorage.getItem('cart')).length;
     this.listDataLocalStorage = this.listId = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : [];
     this.productService.getAll().subscribe((res: any) => {
@@ -46,17 +47,40 @@ export class CartComponent implements OnInit {
     })
   }
   delete(id) {
-    this.cart.cartDetails.forEach(res => {
-      if (res.id === id) {
-        this.cart.cartTotal -= res.totalPrice;
+    Swal.fire({
+      title: 'Bạn có chắc chắn muốn xóa không?',
+      text: "Bạn sẽ không thể hoàn tác!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Xóa!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.cart.cartDetails.forEach(res => {
+          if (res.id === id) {
+            this.cart.cartTotal -= res.totalPrice;
+          }
+        })
+        let index = this.cart.cartDetails.findIndex(res => res.id === id);
+        this.cart.cartDetails.splice(index, 1);
+        const indexLocal = this.listDataLocalStorage.findIndex(rs => rs.id === id);
+        this.listDataLocalStorage.splice(indexLocal, 1);
+        localStorage.setItem('cart', JSON.stringify(this.listDataLocalStorage))
+              Swal.fire(
+                'Deleted!',
+                'Đã xóa 1 sản phẩm khỏi giỏ hàng.',
+                'success'
+              )
+      }
+      else if (result.dismiss === Swal.DismissReason.cancel) {
+        Swal.fire(
+          'Cancelled',
+          'Giỏ hàng giữ nguyên',
+          'error'
+        )
       }
     })
-    let index = this.cart.cartDetails.findIndex(res => res.id === id);
-    this.cart.cartDetails.splice(index, 1);
-    const indexLocal = this.listDataLocalStorage.findIndex(rs => rs.id === id);
-    this.listDataLocalStorage.splice(indexLocal, 1);
-    localStorage.setItem('cart', JSON.stringify(this.listDataLocalStorage))
-    alert('bạn đã xóa 1 sản phẩm khỏi giỏ hàng')
   }
   QuantityChange
   onchangeQuantity(id) {

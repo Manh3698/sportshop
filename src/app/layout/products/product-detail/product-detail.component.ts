@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from 'src/app/services/product.service';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { HeaderService } from 'src/app/services/header.service';
+import { ToastrService } from 'ngx-toastr';
 declare var $: any;
 declare var jquery: any;
 
@@ -14,14 +15,14 @@ declare var jquery: any;
 export class ProductDetailComponent implements OnInit {
   @ViewChild('fileInput', { static: false }) fileInput: ElementRef;
   public Editor = ClassicEditor;
-  constructor(private activatedRoute: ActivatedRoute, private productService: ProductService, private headerService: HeaderService, private router: Router) {
+  constructor(private activatedRoute: ActivatedRoute, private productService: ProductService, private headerService: HeaderService, private router: Router, private toastr : ToastrService) {
     this.router.routeReuseStrategy.shouldReuseRoute = function() {
       return false;
   };
   }
   listImage = []
   discount;
-  quantityInput;
+  quantityInput=1;
   listProductByCate;
   listHot = [];
   productId;
@@ -85,20 +86,14 @@ export class ProductDetailComponent implements OnInit {
     }
     const data = {
       id: this.productId,
-      quantity: parseInt(this.quantityInput)
+      quantity: this.quantityInput
     }
     if (!this.listCart.includes(this.listCart.find(res => res.id === this.productId))) {
       this.listCart.push(data);
       this.headerService.count = this.headerService.count + 1;
       document.getElementById('count').innerText = (this.headerService.count).toString();
+      this.toastr.success("Thêm thành công.")
     }
     localStorage.setItem('cart', JSON.stringify(this.listCart));
   }
-  // load(id){
-  //   this.productId = id;
-  //   this.listHot = []
-  //   this.router.navigate(['/' + id + '/detail']);
-  //   this.ngOnInit()
-
-  // }
 }

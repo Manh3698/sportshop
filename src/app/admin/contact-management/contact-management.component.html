@@ -8,7 +8,7 @@
           Thêm danh mục
       </a> -->
       <!-- <form class="search" action="" style="float: right;"> -->
-        <input type="search" class="search" placeholder="Tìm kiếm danh mục" [(ngModel)]="searchText">
+        <input type="search" class="search" placeholder="Tìm kiếm liên hệ" [(ngModel)]="searchText">
         <!-- <i class="fa fa-search"></i> -->
       <!-- </form> -->
   </div>
@@ -35,7 +35,7 @@
               <td>{{contact.content}}</td>
               <td>
                   <ul>
-                    <li><a  type="button" class="btn-edit" ><i class="fa fa-reply"></i></a></li>
+                    <li><a  type="button" class="btn-edit" (click)="reply(contact.email)" data-toggle="modal" data-target="#modalReply"><i class="fa fa-reply"></i></a></li>
                       <li><a  type="button" class="btn-delete" (click)="delete(contact.id)"><i class="fa fa-trash-o"></i></a></li>
                       <!-- <li><a  type="button" class="btn-delete" data-toggle="modal" data-target="#modalDelete"><i class="fa fa-th-list"></i>Hủy đơn</a></li> -->
                   </ul>
@@ -45,3 +45,40 @@
         </table>
   </div>
   </div>
+  <div class="modal fade" id="modalReply" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="exampleModalLongTitle">Thêm sản phẩm</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form novalidate>
+          <div class="form-group">
+            <label>Tên</label>
+            <input type="text" class="form-control" name="username" [(ngModel)]="replymodel.username">
+          </div>
+          <div class="form-group">
+            <label>Gửi tới</label>
+            <input type="text" class="form-control" [(ngModel)]="replymodel.email" name="email">
+          </div>
+          <div class="form-group">
+            <label>Tiêu đề</label>
+            <input type="text" class="form-control" [(ngModel)]="replymodel.subject" name="subject">
+          </div>
+          <div class="form-group">
+            <label>Tin nhắn</label>
+            <ckeditor [editor]="Editor" [(ngModel)]="replymodel.message" name="message"></ckeditor>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+        <button type="button" class="btn btn-primary" (click)="Send()">Thêm</button>
+      </div>
+    </div>
+  </div>
+</div>

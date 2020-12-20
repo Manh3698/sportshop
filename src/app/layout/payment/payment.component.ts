@@ -5,6 +5,7 @@ import { OrderDetailService } from 'src/app/services/order-detail.service';
 import { OrderService } from 'src/app/services/order.service';
 import { ProductService } from 'src/app/services/product.service';
 import { TokenStorageService } from 'src/app/services/token-storage.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-payment',
@@ -39,7 +40,8 @@ export class PaymentComponent implements OnInit {
               private tokenStorageService: TokenStorageService, 
               private productService: ProductService, 
               private accService: AccountService,
-              private orderDetailService: OrderDetailService) { }
+              private orderDetailService: OrderDetailService,
+              private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.user = this.tokenStorageService.getUser().username;
@@ -102,7 +104,7 @@ export class PaymentComponent implements OnInit {
               totalPrice: this.listDataLocalStorage[i].quantity*res.data.newPrice,
             }
             this.dataOrder.orderDetails.push(dataOrderDetail);
-              
+            
           },
           err=>{
             console.log(err)
@@ -112,7 +114,7 @@ export class PaymentComponent implements OnInit {
       console.log(this.dataOrder)
       this.orderService.addOrder(this.dataOrder).subscribe(
         (res:any)=>{    
-          alert("Đã đặt hàng thành công") 
+          this.toastr.success('Đặt hàng thành công')
         },
         err=>{
           console.log(err)
@@ -141,14 +143,14 @@ export class PaymentComponent implements OnInit {
       this.orderService.payment(this.dataOrder.totalPrice).subscribe(
         (res:any)=>{
           window.open(res.meta.code)
-
         },
         error=>{
 
         }
       )
       this.orderService.addOrder(this.dataOrder).subscribe(
-        (res:any)=>{     
+        (res:any)=>{ 
+          this.toastr.success('Đặt hàng thành công')    
         },
         err=>{
           console.log(err)

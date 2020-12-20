@@ -68,19 +68,19 @@
                             <div itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
                                 <div class="price-box clearfix">
                                     <span class="special-price">
-                                        <span class="price product-price">{{detail.newPrice}}</span>
+                                        <span class="price product-price">{{detail.newPrice | currency : 'VND'}} VND</span>
                                         <meta itemprop="price" content="279000">
                                         <meta itemprop="priceCurrency" content="VND">
                                     </span> <!-- Giá Khuyến mại -->
                                     <span class="old-price" itemprop="priceSpecification" itemscope=""
                                         itemtype="http://schema.org/priceSpecification">
                                         Giá thị trường:
-                                        <del class="price product-price-old">{{detail.oldPrice}}</del>
+                                        <del class="price product-price-old">{{detail.oldPrice | currency : 'VND'}} VND</del>
                                         <meta itemprop="price" content="389000">
                                         <meta itemprop="priceCurrency" content="VND">
                                     </span> <!-- Giá gốca -->
                                     <span class="save-price">Tiết kiệm:
-                                        <span class="price product-price-save">{{discount}}</span>
+                                        <span class="price product-price-save">{{discount | currency : 'VND'}} VND</span>
                                     </span> <!-- Tiết kiệm -->
                                 </div>
                                 <div class="inventory_quantity  deny 0">

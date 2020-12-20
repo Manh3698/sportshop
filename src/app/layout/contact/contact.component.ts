@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { ContactService } from 'src/app/services/contact.service';
 import Swal from 'sweetalert2';
 
@@ -9,7 +10,7 @@ import Swal from 'sweetalert2';
 })
 export class ContactComponent implements OnInit {
   listContact;
-  constructor(private contactService: ContactService) { }
+  constructor(private contactService: ContactService, private toastr: ToastrService) { }
   dataContact = {
     id: '',
     name: '',
@@ -23,13 +24,7 @@ export class ContactComponent implements OnInit {
   Create() {
     this.contactService.create(this.dataContact).subscribe(
       (res: any) => {
-        Swal.fire({
-          position: 'top-end',
-          icon: 'success',
-          title: 'Đã gửi thành công tin nhắn',
-          showConfirmButton: false,
-          timer: 1500
-        })
+        this.toastr.success('Đã gửi tin nhắn thành công')
       },
       err => {
         console.log(err)

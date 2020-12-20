@@ -21,7 +21,7 @@
               <th scope="col">Số điện thoại</th>
               <th scope="col">Địa chỉ</th>
               <th scope="col">Quyền</th>
-              <th scope="col" style="text-align:center">Xem đơn hàng</th>
+              <!-- <th scope="col" style="text-align:center">Xem đơn hàng</th> -->
               <!-- <th scope="col"  style="text-align:center">đơn hàng đã mua</th> -->
               <th scope="col" style="text-align:center">Chức năng</th>
             </tr>
@@ -33,7 +33,7 @@
               <td>{{account.phoneNumber}}</td>
               <td>{{account.address}}</td>
               <td>{{account.roles[0]?.name}}</td>
-              <td style="text-align:center"><a [routerLinkActive]="['router-link-active']" [routerLink]="['/admin/orders/' + account.fullname + '/' + account.id]"  type="button" class="btn-list"><i class="fa fa-th-list"></i></a></td>
+              <!-- <td style="text-align:center"><a [routerLinkActive]="['router-link-active']" [routerLink]="['/admin/orders/' + account.fullname + '/' + account.id]"  type="button" class="btn-list"><i class="fa fa-th-list"></i></a></td> -->
               <!-- <td style="text-align:center"><a [routerLinkActive]="['router-link-active']" [routerLink]="['/admin/orders/' + account.fullname + '/' + account.id]"  type="button" class="btn-list"><i class="fa fa-th-list"></i></a></td> -->
               <td style="text-align:center">
                   <ul>

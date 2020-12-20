@@ -8,17 +8,17 @@ import { BehaviorSubject, Observable, Subject } from 'rxjs';
 export class DataTransferService {
 
   constructor(private router : Router) { }
-  private subject = new Subject<any>();
+  private searchText = new BehaviorSubject<any>('');
 
     sendMessage(message: string) {
-        this.subject.next({ text: message });
+        this.searchText.next(message);
     }
 
     clearMessages() {
-        this.subject.next();
+        this.searchText.next('');
     }
 
     getMessage(): Observable<any> {
-        return this.subject.asObservable();
+        return this.searchText.asObservable();
     }
 }

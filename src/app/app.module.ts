@@ -11,7 +11,8 @@ import { LoginComponent } from './account/login/login.component';
 import { RegisterComponent } from './account/register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ValidateEqualModule } from 'ng-validate-equal';
-
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +27,9 @@ import { ValidateEqualModule } from 'ng-validate-equal';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    ValidateEqualModule
+    ValidateEqualModule, 
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [HttpClientModule, authInterceptorProviders, DatePipe],
   bootstrap: [AppComponent]

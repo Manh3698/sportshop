@@ -1069,7 +1069,7 @@ form button {
     letter-spacing: 0;
     transition: background-color 0.1s ease-in;
 }
-input[type="text"], input[type="email"], input[type="password"], input[type="tel"] {
+input[type="search"], input[type="email"], input[type="password"], input[type="tel"] {
     color: #1c1c1c;
     margin: 0 0 19px;
     min-height: 40px;

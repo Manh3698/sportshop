@@ -95,3 +95,33 @@ td ul li{
     padding-left: 10px;
     color: rgb(108, 105, 105);
 }
+.modal-body{
+    margin-top: 0 !important;
+}
+.btn{
+    font-size: initial;
+}
+input{
+    height: initial;
+}
+.modal-header{
+    margin-top: 0!important;
+    background-color: rgb(6, 107, 230);
+    color: white;
+    font-size: large;
+    font-weight: bold;
+}
+.modal input{
+    height: 30px;
+}
+.question{
+    width: 100px;
+    height: 100px;
+}
+.popup{
+    text-align: center;
+}
+.modal-footer .btn+.btn {
+    margin-bottom: 3px;
+    margin-left: 5px;
+}

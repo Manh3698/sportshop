@@ -28,6 +28,9 @@ export class OrderService {
   updateOrder(data){
     return this.httpClient.put(this.config.urlOrder.concat('/update'), data)
   }
+  getOrderById(id){
+    return this.httpClient.get(this.config.urlOrder.concat('/getOrderById/') + id)
+  }
   payment(data){
     const param = new HttpParams()
     .set('price', data)
