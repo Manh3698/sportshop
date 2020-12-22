@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { AccountService } from 'src/app/services/account.service';
 import Swal from 'sweetalert2';
 declare var $: any;
@@ -13,7 +14,7 @@ export class AccountManagementComponent implements OnInit {
   isEdit = true;
 
 
-  constructor(private accountService: AccountService) { }
+  constructor(private accountService: AccountService, private toastr: ToastrService) { }
   searchText;
 
   dataAcc = {
@@ -89,7 +90,7 @@ export class AccountManagementComponent implements OnInit {
     this.dataAcc.roles[0].name = this.dataAcc.roles[0].id == '1' ? 'user' : 'admin'
     if (this.isEdit) {
       this.accountService.update(this.dataAcc).subscribe(res => {
-        alert("done");
+        this.toastr.success("Cập nhật thành công")
         this.getAll();
         $('#modalEdit').modal('hide');
       }, err => {
@@ -97,6 +98,7 @@ export class AccountManagementComponent implements OnInit {
       })
     } else {
       this.accountService.create(this.dataAcc).subscribe(res => {
+        this.toastr.success("Tạo tài khoản thành công")
         this.getAll();
         $('#modalEdit').modal('hide');
       }, err => {

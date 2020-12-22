@@ -29,11 +29,9 @@
             <div class="divider-full-1"></div>
             <div class="block-content form-signup block-edit-padding">
                 <p><i class="fa fa-user"></i> {{user}}</p>
-                <p><i class="fa fa-map-marker"></i> 
-                    
-                </p>
+                <p><i class="fa fa-map-marker"></i>{{detail?.address}}</p>
                 
-                <div class="margin-top-20"><a class="btn btn-blues btn-full"><i class="fa fa-book"></i> Sổ địa chỉ (0)</a></div>
+                <div class="margin-top-20"><a class="btn btn-blues btn-full"><i class="fa fa-book"></i> Chi tiết</a></div>
             </div>
     
         </div>
@@ -49,24 +47,26 @@
                                 <tr>
                                     <th>#</th>
                                     <th>Ngày</th>
-                                    <th>Chuyển đến</th>
+                                    <!-- <th>Chuyển đến</th> -->
                                     <th>Nội dung</th>
                                     <th>Giá trị</th>
-                                    <th>Tình trạng thanh toán</th>
+                                    <th>Tình trạng</th>
+                                    <th>Hủy đơn</th>
                                     <!-- <th>&nbsp;</th> -->
                                 </tr>
                             </thead>
                             <tbody>                
-                                <!-- <tr *ngIf = 'isNull'>
-                                    <td colspan="7"><p>Không có đơn hàng nào.</p></td>
-                                </tr> -->
+                                <tr *ngIf = "isNull">
+                                    <td colspan="7"><p>Bạn chưa có đơn hàng nào.</p></td>
+                                </tr>
                                 <tr  *ngFor = 'let order of listOrder; let i = index'>
                                     <td>{{i+1}}</td>
                                     <td>{{order.createDate}}</td>
-                                    <td>{{order.userAddress}}</td>
+                                    <!-- <td>{{order.userAddress}}</td> -->
                                     <td>{{order.userMessage}}</td>
-                                    <td>{{order.totalPrice}}</td>
+                                    <td>{{order.totalPrice | currency : 'VND'}} VND</td>
                                     <td>{{order.status}}</td>
+                                    <td><button class="btn-delete" (click)="delete(order.id)"><i class="fa fa-trash-o" ></i></button></td>
                                 </tr>
                             </tbody>
                         </table>

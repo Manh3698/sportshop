@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { CateProductService } from 'src/app/services/cate-product.service';
 import Swal from 'sweetalert2';
 declare var jQuery: any;
@@ -31,7 +32,7 @@ export class CateProductsComponent implements OnInit {
       "name" : "clothes"
     }
   ]
-  constructor(private cateService: CateProductService) { }
+  constructor(private cateService: CateProductService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.getAll();
@@ -68,24 +69,24 @@ export class CateProductsComponent implements OnInit {
   addCate(){
     this.cateService.addCateProduct(this.dataCateAdd).subscribe(
       (res:any)=>{
-        alert("add success");
+        this.toastr.success("Thêm thành công")
         $('#modalAdd').modal('hide');
         this.getAll();
       },
       err=>{
-
+        this.toastr.error("Thêm thất bại")
       }
     )
   }
   update(){
     this.cateService.update(this.dataCate).subscribe(
       (res:any)=>{
-        alert("update success");
+        this.toastr.success("Cập nhật thành công")
         $('#modalEdit').modal('hide');
         this.getAll();
       },
       err=>{
-
+        this.toastr.error("Cập nhật thất bại")
       }
     )
   }

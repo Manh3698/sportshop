@@ -13,7 +13,6 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { CartComponent } from './cart/cart.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { DesignComponent } from './design/design.component';
-import { ResizableDraggableComponent } from './resizable-draggable/resizable-draggable.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { PaymentComponent } from './payment/payment.component';
@@ -21,7 +20,7 @@ import { SearchComponent } from './search/search.component';
 
 
 @NgModule({
-  declarations: [LayoutComponent, HeaderComponent, FooterComponent, ContactComponent, ProductsComponent, ProductDetailComponent, ProfileComponent, AboutUsComponent, CartComponent, HomepageComponent, DesignComponent, ResizableDraggableComponent, PaymentComponent, SearchComponent],
+  declarations: [LayoutComponent, HeaderComponent, FooterComponent, ContactComponent, ProductsComponent, ProductDetailComponent, ProfileComponent, AboutUsComponent, CartComponent, HomepageComponent, DesignComponent, PaymentComponent, SearchComponent],
   imports: [
     CommonModule,
     LayoutRoutingModule,

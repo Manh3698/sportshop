@@ -36,6 +36,7 @@ export class PaymentComponent implements OnInit {
   listData = [];
   quantityInput
   total = 0;
+  isShow = false;
   constructor(private orderService: OrderService, 
               private tokenStorageService: TokenStorageService, 
               private productService: ProductService, 
@@ -80,20 +81,21 @@ export class PaymentComponent implements OnInit {
   pay1(){
     this.dataOrder.paymentMethod = "Thanh toán nhận hàng",
     this.dataOrder.paymentStatus = "chưa thanh toán"
+    this.isShow = false
   }
   pay2(){
     this.dataOrder.paymentMethod = "Thanh toán qua ngân hàng"
     this.dataOrder.paymentStatus = "đang xử lý"
-    
+    this.isShow = true 
   }
   pay3(){
     this.dataOrder.paymentMethod = "thanh toán paypal"
     this.dataOrder.paymentStatus = "đang xử lý"
+    this.isShow = false
   }
   order(){
-    console.log(this.dataOrder)
     if(this.dataOrder.paymentMethod == "Thanh toán nhận hàng" || this.dataOrder.paymentMethod == "Thanh toán qua ngân hàng"){
-      this.dataOrder.status="đang xử lý"
+      this.dataOrder.status="Đang chờ xử lý"
       for (let i = 0; i < this.listDataLocalStorage.length; i++) {       
         this.productService.getByProductId(this.listDataLocalStorage[i].id).subscribe(
           (res:any)=>{
@@ -111,10 +113,10 @@ export class PaymentComponent implements OnInit {
           }
         )
       }
-      console.log(this.dataOrder)
       this.orderService.addOrder(this.dataOrder).subscribe(
         (res:any)=>{    
           this.toastr.success('Đặt hàng thành công')
+          localStorage.removeItem('cart')
         },
         err=>{
           console.log(err)

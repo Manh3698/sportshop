@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { OrderService } from 'src/app/services/order.service';
 import Swal from 'sweetalert2';
 
@@ -10,7 +11,7 @@ import Swal from 'sweetalert2';
 export class OrderManagementComponent implements OnInit {
   listOrder = [];
   listSuccess = [];
-  constructor(private orderService: OrderService) { }
+  constructor(private orderService: OrderService, private toastr: ToastrService) { }
   searchText;
   searchText2;
   detail;
@@ -34,10 +35,11 @@ export class OrderManagementComponent implements OnInit {
       }
     )
   }
-  updateStatus(id){
+  updateStatusCheck(id){
     this.orderService.getOrderById(id).subscribe(
       (res:any)=>{
         this.detail = res.data;
+        this.detail.status = "Giao hàng thành công"
       },
       error=>{
 
@@ -54,6 +56,52 @@ export class OrderManagementComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
         this.detail.paymentStatus = "Thanh toán thành công";
+          this.orderService.updateOrder(this.detail).subscribe(
+            (res:any)=>{
+              Swal.fire(
+                'Hoàn thành!',
+                'Cập nhật đơn hàng thành công.',
+                'success'
+              )
+              this.listOrder = [];
+              this.listSuccess = [];
+              this.getAll()
+            },
+            err=>{
+              console.log(err)
+            }
+          )
+      }
+      else if (result.dismiss === Swal.DismissReason.cancel) {
+        Swal.fire(
+          'Cancelled',
+          'Đơn hàng chưa giao',
+          'error'
+        )
+      }
+    })
+  }
+  updateStatusPending(id){
+    this.orderService.getOrderById(id).subscribe(
+      (res:any)=>{
+        this.detail = res.data;
+        this.detail.status = "Đang giao hàng"
+      },
+      error=>{
+
+      }
+    )
+    Swal.fire({
+      title: 'Đơn hàng sẽ được đánh dấu là đang giao?',
+      text: "Bạn sẽ không thể hoàn tác!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Cập nhật!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // this.detail.paymentStatus = "Thanh toán thành công";
           this.orderService.updateOrder(this.detail).subscribe(
             (res:any)=>{
               Swal.fire(
@@ -112,5 +160,8 @@ export class OrderManagementComponent implements OnInit {
         )
       }
     })
+  }
+  ViewOrderDetail(oderId){
+
   }
 }

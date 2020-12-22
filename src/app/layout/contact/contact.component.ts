@@ -27,6 +27,7 @@ export class ContactComponent implements OnInit {
         this.toastr.success('Đã gửi tin nhắn thành công')
       },
       err => {
+        this.toastr.error("Tin nhắn chưa được gửi!")
         console.log(err)
       }
     )

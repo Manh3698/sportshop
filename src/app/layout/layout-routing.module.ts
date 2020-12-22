@@ -12,7 +12,6 @@ import { PaymentComponent } from './payment/payment.component';
 import { ProductDetailComponent } from './products/product-detail/product-detail.component';
 import { ProductsComponent } from './products/products.component';
 import { ProfileComponent } from './profile/profile.component';
-import { ResizableDraggableComponent } from './resizable-draggable/resizable-draggable.component';
 import { SearchComponent } from './search/search.component';
 
 const routes: Routes = [
@@ -28,7 +27,6 @@ const routes: Routes = [
     { path: ':productId/detail', component:ProductDetailComponent},
     { path: 'payment', component: PaymentComponent, canActivate : [AuthGuard]},
     { path: 'aboutus', component:AboutUsComponent},
-    { path: 'alo', component: ResizableDraggableComponent},
     { path: 'search', component: SearchComponent}
   ]
   },

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { AccountService } from 'src/app/services/account.service';
 import { CateProductService } from 'src/app/services/cate-product.service';
 import { HeaderService } from 'src/app/services/header.service';
@@ -41,7 +42,7 @@ export class RegisterComponent implements OnInit {
       }
     ]
   }
-  constructor(private cateService: CateProductService, private headerService: HeaderService, private tokenStorageService: TokenStorageService, private accountService: AccountService, private router: Router) { }
+  constructor(private cateService: CateProductService, private headerService: HeaderService, private tokenStorageService: TokenStorageService, private accountService: AccountService, private router: Router, private toastr: ToastrService) { }
   ngOnInit(): void {
     this.getAll();
   }
@@ -60,9 +61,10 @@ export class RegisterComponent implements OnInit {
   register(){
     this.accountService.create(this.data).subscribe(
       (res:any)=>{
-        alert('đăng ký thành công')
+        this.toastr.success("Đăng ký tài khoản thành công")
       },
       error=>{
+        this.toastr.error("Đăng ký tài khoản thất bại")
         console.log(error)
       }
     )

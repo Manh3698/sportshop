@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';  
+import { ToastrService } from 'ngx-toastr';
 import { ProductService } from 'src/app/services/product.service';
 import Swal from 'sweetalert2';
 declare var $: any;
@@ -58,7 +59,7 @@ export class ProductComponent implements OnInit {
   files = [];
   isEdit = true;
   productId:any;
-  constructor(private activatedRoute: ActivatedRoute, private productService: ProductService) { }
+  constructor(private activatedRoute: ActivatedRoute, private productService: ProductService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.getByCateId();
@@ -134,7 +135,7 @@ export class ProductComponent implements OnInit {
   save() {
     if(this.isEdit){
       this.productService.updateProduct(this.dataProduct, this.files).subscribe(res => {
-        alert("done");
+        this.toastr.success('cập nhật thành công')
         this.getByCateId();
         $('#modalEdit').modal('hide');
       }, err => {
@@ -142,6 +143,7 @@ export class ProductComponent implements OnInit {
       })
     } else {
       this.productService.addProduct(this.dataProduct, this.files).subscribe(res => {
+        this.toastr.success('thêm thành công')
         this.getByCateId();
         $('#modalEdit').modal('hide');
       }, err => {

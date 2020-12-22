@@ -16706,3 +16706,14 @@ b, strong {
 .top-link-dropdown .header li a{
     cursor: pointer;
 }
+td .btn-delete:hover{
+    border: red;
+    background-color: red;
+}
+td .btn-delete{
+    border: 1px solid rgb(255, 95, 50);
+    border-radius: 3px;
+    padding: 3px;
+    background-color: rgb(255, 95, 50);
+    color: white;
+}

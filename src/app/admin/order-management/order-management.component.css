@@ -68,7 +68,7 @@ ul li .btn-edit:hover{
     background-color: rgb(255, 95, 50);
     color: white;
 }
-.fa{
+.fa .fas{
     margin-right: 6px;
 }
 td a{
