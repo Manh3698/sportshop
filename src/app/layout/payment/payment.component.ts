@@ -96,7 +96,8 @@ export class PaymentComponent implements OnInit {
   order(){
     if(this.dataOrder.paymentMethod == "Thanh toán nhận hàng" || this.dataOrder.paymentMethod == "Thanh toán qua ngân hàng"){
       this.dataOrder.status="Đang chờ xử lý"
-      for (let i = 0; i < this.listDataLocalStorage.length; i++) {       
+      
+      for (let i = 0; i < this.listDataLocalStorage.length; i++) {  
         this.productService.getByProductId(this.listDataLocalStorage[i].id).subscribe(
           (res:any)=>{
             const dataOrderDetail = {
@@ -105,23 +106,24 @@ export class PaymentComponent implements OnInit {
               priceItem: res.data.newPrice,
               totalPrice: this.listDataLocalStorage[i].quantity*res.data.newPrice,
             }
-            this.dataOrder.orderDetails.push(dataOrderDetail);
-            
+            this.dataOrder.orderDetails.push(dataOrderDetail);          
           },
           err=>{
             console.log(err)
           }
         )
       }
-      this.orderService.addOrder(this.dataOrder).subscribe(
-        (res:any)=>{    
-          this.toastr.success('Đặt hàng thành công')
-          localStorage.removeItem('cart')
-        },
-        err=>{
-          console.log(err)
-        }
-      )  
+      setTimeout(()=> {
+        this.orderService.addOrder(this.dataOrder).subscribe(
+          (res:any)=>{    
+            this.toastr.success('Đặt hàng thành công')
+            localStorage.removeItem('cart')
+          },
+          err=>{
+            console.log(err)
+          }
+        )
+      },4000)
     };
     if(this.dataOrder.paymentMethod == "thanh toán paypal"){
       this.dataOrder.status="Đang chờ xử lý"

@@ -40,4 +40,7 @@ export class ProductService {
     }
     return this.httpClient.put(this.config.urlProduct.concat('/update'), formData)
   }
+  getHot(){
+    return this.httpClient.get(this.config.urlProduct.concat('/getHot'))
+  }
 }

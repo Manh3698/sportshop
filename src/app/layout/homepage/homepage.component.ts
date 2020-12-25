@@ -34,7 +34,17 @@ export class HomepageComponent implements OnInit {
   ListItemHot = [];
   ngOnInit(): void {
     this.getAll();
-    
+    this.getHot()
+  }
+  getHot(){
+    this.productService.getHot().subscribe(
+      (res:any)=>{
+        this.ListItemHot = res.data;
+      },
+      error=>{
+        console.log(error)
+      }
+    )
   }
   getAll(){
     this.productService.getAll().subscribe(
@@ -45,11 +55,11 @@ export class HomepageComponent implements OnInit {
             this.ListClothes.push(e);
           }
         });
-        this.listProduct.forEach(e => {
-          if(e.isHot == 1){
-            this.ListItemHot.push(e);
-          }
-        });
+        // this.listProduct.forEach(e => {
+        //   if(e.isHot == 1){
+        //     this.ListItemHot.push(e);
+        //   }
+        // });
         this.listProduct.forEach(e => {
           if(e.categoryId == 4 || e.categoryId == 5 || e.categoryId == 6 || e.categoryId == 7 || e.categoryId == 8){
             this.ListItem.push(e);

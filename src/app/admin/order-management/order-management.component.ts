@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { OrderService } from 'src/app/services/order.service';
+import { ProductService } from 'src/app/services/product.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -11,7 +12,7 @@ import Swal from 'sweetalert2';
 export class OrderManagementComponent implements OnInit {
   listOrder = [];
   listSuccess = [];
-  constructor(private orderService: OrderService, private toastr: ToastrService) { }
+  constructor(private orderService: OrderService, private toastr: ToastrService, private productService : ProductService) { }
   searchText;
   searchText2;
   detail;
@@ -42,7 +43,6 @@ export class OrderManagementComponent implements OnInit {
         this.detail.status = "Giao hàng thành công"
       },
       error=>{
-
       }
     )
     Swal.fire({
@@ -145,6 +145,8 @@ export class OrderManagementComponent implements OnInit {
                 'Order has been deleted.',
                 'success'
               )
+              this.listOrder = [];
+              this.listSuccess = [];
               this.getAll()
             },
             err=>{
@@ -161,7 +163,28 @@ export class OrderManagementComponent implements OnInit {
       }
     })
   }
+  listDetail;
+  productname = [];
   ViewOrderDetail(oderId){
+    this.productname = [];
+    this.orderService.getOrderDetailById(oderId).subscribe(
+      (res:any)=>{
+        this.listDetail = res.data;
+        this.listDetail.forEach(e => {
+          this.productService.getByProductId(e.productId).subscribe(
+            (res:any)=>{
+              this.productname.push(res.data.name)
+            },
+            error=>{
 
+            }
+          )
+          console.log(this.productname)
+        });
+      },
+      error=>{
+
+      }
+    )
   }
 }

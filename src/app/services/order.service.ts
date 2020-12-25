@@ -36,4 +36,5 @@ export class OrderService {
     .set('price', data)
     return this.httpClient.post(this.config.urlOrder.concat('/payment'), param)
   }
+  
 }
